@@ -8,7 +8,7 @@
     <string name="interstitial_full_screen">ca-app-pub-5130888087776673/2947644743</string>
 
 
-    <string name="app_name">বিডিজবসdddd</string>
+    <string name="app_name">বিডিজবসdd</string>
     <string name="hint_keyword">জব টাইটেল,কি-ওয়ার্ড</string>
     <string name="hint.industries">ইন্ডাস্ট্রিজ</string>
     <string name="hint.Category">ক্যাটাগরি </string>
@@ -903,23 +903,23 @@
 
     <!--followed employers start-->
     <string name="followed_employers">অনুসরণকৃত নিয়োগকর্তা</string>
-    <string name="followed_employers_steps_of_following_your_employer">Steps of Following your Employer:</string>
-    <string name="followed_employers_go_to_employer_list_from_more_menu">আরও মেন্যু থেকে অনুসরণকৃত নিয়োগকর্তা লিস্টে যান</string>
-    <string name="followed_emp_step_3">- Tap <font color="#B32D7D"><b>+ Follow Employer</b></font> button.</string>
-    <string name="followed_emp_instruction">You can also follow employers from Company Information in job details page by tapping\n<font color="#B32D7D"><b>+ Follow Employer</b></font> button.</string>
-    <string name="followed_employers_would_you_like_to_follow_your_favourite_employer_now">Would you like to follow your Favourite Employer now?</string>
+    <string name="followed_employers_steps_of_following_your_employer">আপনার নিয়োগকর্তাকে অনুসরণ করার ধাপ:</string>
+    <string name="followed_employers_go_to_employer_list_from_more_menu">মোর মেনু থেকে নিয়োগকর্তার তালিকায় যান</string>
+    <string name="followed_emp_step_3">- Tap <font color="#B32D7D"><b>+ নিয়োগকর্তাকে ফলো করুন</b></font> বাটন.</string>
+    <string name="followed_emp_instruction">চাকরির বিস্তারিত পেইজে কোম্পানি তথ্য থেকে\n <font color="#B32D7D"><b>‘নিয়োগকারীকে ফলো করুন’</b></font> বাটনে ট্যাপ করে ফলো করতে পারবেন</string>
+    <string name="followed_employers_would_you_like_to_follow_your_favourite_employer_now">আপনি কি এখনই আপনার প্রিয় নিয়োগকর্তাকে অনুসরণ করতে চান?</string>
     <string name="followed_emBTN_follow_employer">অনুসরণকৃত নিয়োগকর্তা</string>
     <string name="label_sms_alert">এসএসএস অ্যালার্ট</string>
     <string name="sms_settings">এসএসএস  সেটিংস</string>
-    <string name="followed_employers_search_for_your_desired_company">আপনার পছন্দের কোম্পনি খুঁজুন</string>
+    <string name="followed_employers_search_for_your_desired_company">আপনার পছন্দের কোম্পানির খুঁজুন</string>
     <!--followed employers end-->
 
     <!--My Test / InterView dialog start-->
     <string name="My_Test_InterView_dialog_interview_test_invitations">ইন্টারভিউ/ টেস্ট ইনভাইটেশন</string>
-    <string name="My_Test_InterView_dialog_live_ninterview">লাইভ\n সাক্ষাৎকার</string>
-    <string name="My_Test_InterView_dialog_video_ninterview">ভিডিও\n সাক্ষাৎকার</string>
-    <string name="My_Test_InterView_dialog_general_ninterview">সাধারণ\n সাক্ষাৎকার</string>
-    <string name="My_Test_InterView_dialog_online_ntest">অনলাইন\n পরীক্ষা</string>
+    <string name="My_Test_InterView_dialog_live_ninterview">লাইভ\n ইন্টারভিউ</string>
+    <string name="My_Test_InterView_dialog_video_ninterview">ভিডিও\n ইন্টারভিউ</string>
+    <string name="My_Test_InterView_dialog_general_ninterview">সাধারণ\n ইন্টারভিউ</string>
+    <string name="My_Test_InterView_dialog_online_ntest">অনলাইন\n টেস্ট</string>
     <string name="no_interview_invitation_found">কোন ইন্টারভিউ ইনভাইটেশন নাই।</string>
     <!--My Test / InterView dialog end-->
 
@@ -927,15 +927,15 @@
     <string name="more">আরও</string>
     <string name="profile_activities">প্রোফাইল কার্যক্রম</string>
     <string name="more_bdjobs_profile">বিডিজবস প্রোফাইল</string>
-    <string name="more_video_resume">ভিডিও সিভি/ রিজিউমি</string>
-    <string name="more_personalized_resume">পার্সোনালাইজড রিজিউমি</string>
-    <string name="emailed_resume">ই মেইল রিজিউমি</string>
-    <string name="profile_view_more">নিয়োগকর্তা প্রোফাইল দেখেছেন</string>
-    <string name="profile_preference">পছন্দের প্রোফাইল</string>
+    <string name="more_video_resume">ভিডিও সিভি</string>
+    <string name="more_personalized_resume">পার্সোনালাইজড সিভি</string>
+    <string name="emailed_resume">ইমেইল করা জীবনবৃত্তান্ত</string>
+    <string name="profile_view_more">নিয়োগকর্তা দেখা প্রোফাইল</string>
+    <string name="profile_preference">প্রোফাইল প্রেফারেন্স</string>
     <string name="jobs">জবস</string>
     <string name="job">জব</string>
     <string name="general_search">জেনারেল সার্চ</string>
-    <string name="more_new_jobs">নতুন চাকরই</string>
+    <string name="more_new_jobs">নতুন চাকরি</string>
     <string name="deadline_tomorrow">ডেডলাইন আগামিকাল</string>
     <string name="part_time_jobs">পার্টটাইম চাকরি</string>
     <string name="contractual_jobs">চুক্তিভিত্তিক চাকরি</string>
@@ -945,8 +945,8 @@
     <string name="more_new">নতুন</string>
     <string name="live_n_interview">লাইভ\nইন্টারভিউ</string>
     <string name="online_n_test">অনলাইন\nটেস্ট</string>
-    <string name="video_n_interview">ভিডও\nইন্টারভিউ</string>
-    <string name="general_n_interview">জেনারেল\nইন্টারভিউ</string>
+    <string name="video_n_interview"> ভিডিও\n ইন্টারভিউ</string>
+    <string name="general_n_interview">সাধারণ\n ইন্টারভিউ</string>
     <string name="ai_assessment">কৃত্রিম\n বুদ্ধিমত্তা</string>
     <string name="others_features">অন্যান্য ফিচার</string>
     <string name="employability_certification">এমপ্লয়বিলিটি সার্টিফিকেশন</string>
@@ -956,7 +956,7 @@
     <string name="support">সাপোর্ট</string>
     <string name="settings">সেটিংস</string>
     <string name="human_expert">মানব বিশেষজ্ঞ</string>
-    <string name="transaction_over_view">লেনদেন ওভারভিউ</string>
+    <string name="transaction_over_view">লেনদেনের ওভারভিউ</string>
     <string name="app_guides">অ্যাপ গাইড</string>
     <string name="job_application_guidelines">জব অ্যাপ্লিকেশন গাইডলাইন</string>
     <string name="about_us">আমাদের সম্পর্কে</string>
@@ -964,10 +964,10 @@
     <string name="feedback_and_support">ফিডব্যাক</string>
     <string name="privacy_policy">প্রাইভেসি পলিসি</string>
     <string name="terms_and_policies">শর্তাবলী এবং নীতিমালা</string>
-    <string name="switch_to_nolder_version">Switch to \nOlder Version</string>
+    <string name="switch_to_nolder_version">পুরানো ভার্সনে ফিরে যান</string>
     <string name="point_system">পয়েন্ট সিস্টেম</string>
     <string name="no_items_left_here">এখানে আর কোনো আইটেম নেই!</string>
-    <string name="this_job_s_deadline_has_been_expired_you_can_not_shortlist_this_job">এই চাকরির সময়সীমা শেষ হয়ে গেছে। আপনি এই কাজটি বাছাই করতে পারবেন না</string>
+    <string name="this_job_s_deadline_has_been_expired_you_can_not_shortlist_this_job">এই চাকরির সময়সীমা শেষ হয়েছে। আপনি এটি শর্টলিস্ট করতে পারবেন না।</string>
     <string name="confirmation">নিশ্চিতকরণ</string>
     <string name="are_you_sure_you_want_to_remove_this_job_from_shortlisted_jobs">আপনি কি শর্টলিস্ট করা চাকরি থেকে এই চাকরিটি সরানোর বিষয়ে নিশ্চিত?</string>
 
@@ -975,8 +975,8 @@
 
     <!--Turn off SMS Alert Dialog start-->
     <string name="turn_off_sms_alert">এসএমএস অ্যালার্ট বন্ধ করুন</string>
-    <string name="turnOfSms_dialog_following_nemployer">Following\nEmployer</string>
-    <string name="turnOfSms_dialog_favourite_nsearch">Favourite\nSearch</string>
+    <string name="turnOfSms_dialog_following_nemployer">ফলো করা\n নিয়োগকারী</string>
+    <string name="turnOfSms_dialog_favourite_nsearch">পছন্দের\n অনুসন্ধান</string>
     <!--Turn off SMS Alert Dialog end-->
 
     <!--layout SMS JOB Alert Home start-->
@@ -985,15 +985,15 @@
     <string name="Sms_Job_Alert_Home_off">অফ</string>
     <string name="Sms_Job_Alert_Home_buy_sms">এসএমএস কিনুন</string>
     <string name="Sms_Job_Alert_Home_sms_limit">এসএমএস লিমিট</string>
-    <string name="Sms_Job_Alert_Home_remaining_sms">এসএমএস বাকি আছে</string>
-    <string name="Sms_Job_Alert_Home_buy_sms_package_to_get_instant_offline_job_alerts">অফলাইন চাকরির এলার্ট পাওয়ার জন্য SMS প্যাকেজ কিনুন</string>
-    <string name="Sms_Job_Alert_Home_turn_on_sms_alert">SMS এলার্ট চালু করুন</string>
+    <string name="Sms_Job_Alert_Home_remaining_sms">অবশিষ্ট এসএমএস</string>
+    <string name="Sms_Job_Alert_Home_buy_sms_package_to_get_instant_offline_job_alerts">অফলাইন চাকরির তাৎক্ষনিক এলার্ট পাওয়ার জন্য এসএমএস প্যাকেজ কিনুন</string>
+    <string name="Sms_Job_Alert_Home_turn_on_sms_alert">এসএমএস এলার্ট চালু করুন</string>
     <string name="Sms_Job_Alert_Home_sms_settings">এসএমএস সেটিংস</string>
     <!--layout SMS JOB Alert Home end-->
 
     <string name="Sign_out_dialog_title">আপনি কি সাইন আউট করতে চান?</string>
     <string name="logging_out_progress_title">লগ আউট</string>
-    <string name="save_search_snackBar">Please apply at least one filter to save the search</string>
+    <string name="save_search_snackBar">সার্চ সেভ করতে অন্তত একটি ফিল্টার প্রয়োগ করুন</string>
     <string name="video_cv_resume_hide_dialog_message_hide_from_emp">This action will hide your Video CV/Resume from Employers. Do you want to continue?</string>
     <string name="video_cv_resume_hide_dialog_message_visible_to_emp">This action will make your Video CV/Resume visible to Employers. Do you want to continue??</string>
     <string name="video_cv_resume_hide_dialog_title">কনফার্ম করুন</string>
