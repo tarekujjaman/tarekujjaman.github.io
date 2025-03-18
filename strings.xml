@@ -312,7 +312,7 @@
     <string name="hint.prefAreasOrgType">পছন্দসই চাকরির সংস্থা</string>
     <string name="hint.maxSkill">সর্বোচ্চ ১০টি দক্ষতা </string>
     <string name="career_objective_heading">ক্যারিয়ার সংক্ষিপ্ত বিবরণী</string>
-    <string name="career_objective_text">A resume objective is a short summary of your career growth. Objective should be carefully written to fit the job you are applying for.</string>
+    <string name="career_objective_text">রিজিউম অবজেকটিভ হলো আপনার ক্যারিয়ার উন্নতির সংক্ষিপ্ত সারসংক্ষেপ। এটি এমনভাবে লেখা উচিত, যাতে আবেদনকৃত পদের সঙ্গে সম্পূর্ণ মানানসই হয়।</string>
     <string name="keyword_heading">কি- ওয়ার্ড</string>
     <string name="objective_heading">অবজেকটিভ</string>
     <string name="objective_good_example">[নির্দিষ্ট শিল্প] এ দীর্ঘমেয়াদী ক্যারিয়ার তৈরি করতে যা ক্যারিয়ার বৃদ্ধির সুযোগ দেয়। একটি স্থিতিশীল এবং গতিশীল কর্মক্ষেত্রে আমার শিক্ষাগত এবং পেশাদার দক্ষতা উন্নত করতে। একটি চ্যালেঞ্জিং অবস্থানে সৃজনশীল এবং কার্যকর পদ্ধতিতে সমস্যার সমাধান করতে।</string>
@@ -340,22 +340,22 @@
     <string name="bc_experience_year_text_hint">অভিজ্ঞতা (বছর)</string>
 
     <string name="add_skill_heading_text"> দক্ষতা</string>
-    <string name="add_skill_instruction_text">Click \'Add Skill\' button to enter your required skill.</string>
+    <string name="add_skill_instruction_text">"দক্ষতা যোগ করুন" বোতামে ক্লিক করে আপনার প্রয়োজনীয় দক্ষতা যোগ করুন।</string>
     <string name="update_text">আপডেড</string>
     <string name="skill_add_ins_text">আপনি চাইলে এক বা একাধিক স্কিল যোগ করতে পারবেন</string>
     <string name="warning_title">সতর্কবার্তা</string>
     <string name="warning_title_bangla">সতর্কবার্তা</string>
-    <string name="warning_message">Bdjobs.com only works as a mean of communication between employers and job-seekers. Bdjob.com Limited will not be responsible for any financial transaction or irregularity/ fraud by the company after applying through the bdjobs.com website.</string>
-    <string name="warning_message_bangla">বিডিজবস শুধুমাত্রই নিয়োগকর্তা এবং চাকরিপ্রার্থীদের মাঝে যোগাযোগ মাধ্যম হিসেবে কাজ করে। বিডিজবস ওয়েবসাইটের মাধ্যমে চাকরিতে আবেদন করার পর কোম্পানি যদি আপনার সাথে কোনো আর্থিক লেনদেন অথবা অনিয়ম/প্রতারণা করে তার জন্য Bdjobs.com Limited দায়ী থাকবে না।</string>
-    <string name="warning_message_agreement">I have read the above warning message</string>
+    <string name="warning_message">বিডিজবস.কম লিমিটেড কেবলমাত্র নিয়োগকর্তা ও চাকরিপ্রার্থীদের মধ্যে যোগাযোগের মাধ্যম হিসেবে কাজ করে। বিডিজবস.কম লিমিটেড এর মাধ্যমে আবেদন করার পর কোনো প্রতিষ্ঠান কর্তৃক আর্থিক লেনদেন, অনিয়ম বা প্রতারণার দায় বিডিজবস.কম লিমিটেড বহন করবে না।</string>
+    <string name="warning_message_bangla">বিডিজবস শুধুমাত্রই নিয়োগকর্তা এবং চাকরিপ্রার্থীদের মাঝে যোগাযোগ মাধ্যম হিসেবে কাজ করে। বিডিজবস ওয়েবসাইটের মাধ্যমে চাকরিতে আবেদন করার পর কোম্পানি যদি আপনার সাথে কোনো আর্থিক লেনদেন অথবা অনিয়ম/প্রতারণা করে তার জন্য বিডিজবস.কম লিমিটেড দায়ী থাকবে না।</string>
+    <string name="warning_message_agreement">উপরোক্ত সতর্ক বার্তাটি আমি পড়েছি</string>
     <string name="warning_message_agreement_bangla">উপরোক্ত সতর্ক বার্তাটি আমি পড়েছি</string>
     <string name="warning_cancel_button_bangla">বাতিল</string>
     <string name="warning_agree_button">সহমত</string>
     <string name="warning_agree_button_bangla">আবেদন</string>
-    <string name="accept_kor">Manage</string>
+    <string name="accept_kor">ম্যানেজ</string>
     <string name="title_activity_login2_base">Login2BaseActivity</string>
     <string name="pass">bXliZGpvYnM=</string>
-    <string name="job_application_guideline_message">Here you can get a guideline of job\n application. How to apply effectively to\n increase your chance to get noticed by your\n desired Employer.</string>
+    <string name="job_application_guideline_message">এখানে আপনি চাকরির আবেদনের জন্য একটি\n নির্দেশিকা পাবেন। কীভাবে দক্ষতার সঙ্গে আবেদন করে\n পছন্দের নিয়োগকর্তার নজরে আসার\n সম্ভাবনা বাড়ানো যায়, তা জানতে পারবেন।</string>
     <string name="notification_channel_general">সাধারণ</string>
     <string name="notification_channel_interview_invitation">ইন্টারভিউ ইনভাইটেশন</string>
     <string name="notification_channel_video_interview">ভিডিও ইন্টারভিউ</string>
