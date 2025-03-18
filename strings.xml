@@ -1799,17 +1799,17 @@
     <string name="sign_in_with">সাইন ইন করুন</string>
     <string name="don_t_have_an_account">অ্যাকাউন্ট নেই?</string>
     <string name="create_account_BTN">অ্যাকাউন্ট তৈরি করুন</string>
-    <string name="hint_username_email_or_mobile_no">ইউজার নেম, Email or Mobile No</string>
+    <string name="hint_username_email_or_mobile_no">ইউজারের নাম, ইমেইল অথবা মোবাইল নাম্বার</string>
     <!--fragment login username end-->
 
     <!--fragment login password start-->
     <string name="welcome_txt">স্বাগতম!</string>
-    <string name="forgot_password">পাসয়ার্ড ভুলে গিয়েছেন?</string>
+    <string name="forgot_password">পাসওয়ার্ড ভুলে গেছেন?</string>
     <!--fragment login password end-->
 
     <!--fragment login otp start-->
     <string name="type_code">কোড লিখুন</string>
-    <string name="sign_in_with_social">সোশ্যাল সাইটের সাহায্যে লগ ইন করুন</string>
+    <string name="sign_in_with_social">সোশ্যাল সাইটের সাহায্যে সাইন ইন করুন</string>
     <string name="type_pass">পাসওয়ার্ড লিখুন</string>
     <!--fragment login otp end-->
 
@@ -1821,46 +1821,46 @@
     <!--fragment interview invitation details end-->
 
     <!--fragment instruction viewpage start-->
-    <string name="the_company_s_recruiting_process_was_quite_legnthy_to_me">The company\'s recruiting process was quite legnthy to me.</string>
+    <string name="the_company_s_recruiting_process_was_quite_legnthy_to_me">কোম্পানির নিয়োগ প্রক্রিয়া আমার কাছে বেশ সময়সাপেক্ষ মনে হয়েছে।</string>
     <string name="go_back_to_live_interview">লাইভ ইন্টারভিউয়ে ফেরত যান।</string>
     <!--fragment instruction viewpage end-->
 
     <!--fragment home layout start-->
-    <string name="first_time_job_search">It seems that you are first time here. Let\'s start with your job search by tapping \'Search Job\' Button</string>
+    <string name="first_time_job_search">আপনি প্রথমবার এখানে এসেছেন। 'চাকরি খুঁজুন' বোতামটি চাপুন এবং আপনার চাকরি খোঁজা শুরু করুন।</string>
     <string name="search_job">চাকরি খুঁজুন</string>
-    <string name="congratulations_for_the_video_interview_please_record_videos">অভিনন্দন! আপনাকে একটি ইন্টারভিউ এর জন্য কোম্পানি সিলেক্ট করেছেন।</string>
-    <string name="jobs_of_followed_employers">অনুসরণ করা নিয়োগকর্তার চাকরি</string>
+    <string name="congratulations_for_the_video_interview_please_record_videos">অভিনন্দন! আপনাকে একটি কোম্পানি ইন্টারভিউয়ের জন্য নির্বাচিত করেছে।</string>
+    <string name="jobs_of_followed_employers">ফলো করা নিয়োগকারীদের চাকরি</string>
     <!--fragment home layout end-->
 
     <string name="steps_of_saving_your_search_as_favourite_">আপনার সার্চকে ফেভারিট সার্চ হিসেবে সেভ করার ধাপসমূহ</string>
 
     <!--fragment favourite search filter start-->
     <string name="edit_favourite_search">ফেভারিট সার্চ এডিট করুন</string>
-    <string name="hint_filter_name">ফিল্টার নাম</string>
-    <string name="hint_keyword_">কি ওয়ার্ড</string>
+    <string name="hint_filter_name">ফিল্টারের নাম</string>
+    <string name="hint_keyword_">কিওয়ার্ড</string>
     <string name="update">আপডেট</string>
     <!--fragment favourite search filter end-->
 
     <!--fragment_employer_viewed_my_resume start-->
     <string name="ratings">রেটিংস</string>
-    <string name="employer_viewed_profile">নিয়োগকর্তা দ্বারা দেখা</string>
+    <string name="employer_viewed_profile">নিয়োগকর্তা সিভি দেখেছেন</string>
     <string name="employer_viewed_profile2">নিয়োগকর্তা প্রোফাইল দেখেছেন</string>
     <!--fragment_employer_viewed_my_resume end-->
 
     <!--fragment_employer_interaction start-->
-    <string name="employer_s_interaction">Employer\'s interaction</string>
-    <string name="employer_interaction_with_this_job_application">এই চাকরির আবেদন নিয়ে নিয়োগকর্তার যোগাযোগ</string>
+    <string name="employer_s_interaction">নিয়োগকারীর ইন্টারঅ্যাকশন</string>
+    <string name="employer_interaction_with_this_job_application">এই চাকরি আবেদনের সাথে নিয়োগকারীর ইন্টারঅ্যাকশন</string>
     <string name="not_contacted">কল/ই-মেইল পাইনি</string>
     <string name="contacted">কল/ই-মেইল পেয়েছি</string>
     <string name="hired">নিয়োগ পেয়েছি</string>
     <string name="e_learning">ই-লার্নিং</string>
-    <string name="featured">ফিচার</string>
+    <string name="featured">ফিচার্ড</string>
     <!--fragment_employer_interaction end-->
 
     <!--facebook warning dialog start-->
     <string name="oops">দুঃখিত!</string>
-    <string name="facebook_email_id">Sorry, you are unable to sign in to your account due to Facebook technical issues. An email will be sent soon with new sign in credentials in your Facebook Email Id.</string>
-    <string name="online_test_warning">এই অনলাইন টেস্ট এ আপনি আপনার সুবিধাজনক যেকোন স্থান থেকেই অংশগ্রহণ করতে পারবেন।</string>
+    <string name="facebook_email_id">দুঃখিত, ফেসবুকের টেকনিকাল সমস্যার কারণে আপনি আপনার অ্যাকাউন্টে সাইন ইন করতে পারছেন না। শীঘ্রই আপনার ফেসবুক ইমেইল আইডিতে নতুন সাইন ইন ্ ডিটেইলস সহ একটি ইমেইল পাঠানো হবে।</string>
+    <string name="online_test_warning">এই অনলাইন টেস্টে আপনি বাড়ি অথবা যেকোনো সুবিধাজনক স্থান থেকেই অংশগ্রহণ করতে পারবেন।</string>
     <!--facebook warning dialog end-->
 
     <!--expected salary popup start-->
@@ -1872,13 +1872,13 @@
     <string name="position_applied">অ্যাপ্লাইড পজিশন</string>
     <string name="employer">নিয়োগকর্তা</string>
     <string name="your_expected_salary_">প্রত্যাশিত বেতন</string>
-    <string name="expected_salary_is_higher">আপনার প্রত্যাশিত বেতন এই পদের জন্য বেশি। এটি এই চাকরির জন্য সাক্ষাৎকারের কলের সম্ভাবনা কমাতে পারে। আপনার বেতন পর্যালোচনা করা সুপারিশ করা হচ্ছে।</string>
+    <string name="expected_salary_is_higher">এই পদের জন্য আপনার প্রত্যাশিত বেতন বেশি, যা এই পদে ইন্টারভিউতে ডাকার সম্ভাবনা কমিয়ে দিতে পারে।</string>
     <string name="monthly">মাসিক</string>
     <!--expected salary popup end-->
 
     <string name="follow">ফলো</string>
 
-    <string name="last_viewed_on">সর্বশেষ দেখা</string>
+    <string name="last_viewed_on">শেষ দেখা</string>
 
     <string name="invited_on">ইনভাইটেশন তারিখ:</string>
 
@@ -1897,7 +1897,7 @@
     <string name="expected_salary">প্রত্যাশিত বেতন</string>
     <string name="employer_interaction">ইমপ্লোয়ার ইন্টারেকশন</string>
     <string name="interview_invitation">ইন্টারভিউ ইনভাইটেশন</string>
-    <string name="cancel_application">আবেদন বাতিল করুন</string>
+    <string name="cancel_application">অ্যাপ্লিকেশন বাতিল</string>
     <string name="priority_level_">প্রায়োরিটি লেভেল</string>
     <!--applied jobs ad end-->
 
@@ -1908,7 +1908,7 @@
     <string name="manage_resume_">ম্যানেজ প্রোফাইল</string>
     <string name="edit_bdjobs_profile">বিডিজবস প্রোফাইল এডিট</string>
     <string name="view_bdjobs_profile">বিডিজবস প্রোফাইল দেখা</string>
-    <string name="manage_video_cv_resume">ভিডিও সিভি ম্যানেজ </string>
+    <string name="manage_video_cv_resume">ম্যানেজ ভিডিও সিভি </string>
     <!--activity resume manager end-->
 
     <!--activity manage resume dashboard start-->
@@ -1918,7 +1918,7 @@
 
     <!--point system start-->
     <string name="available_points">এভেইলএবেল পয়েন্ট</string>
-    <string name="available_point">এভেইলএবেল পয়েন্ট</string>
+    <string name="available_point">এভেইলেবেল পয়েন্ট</string>
     <string name="redeem_points">পয়েন্ট রিডিম করুন</string>
     <string name="pts_">pts</string>
     <string name="bronze">ব্রোঞ্জ</string>
@@ -1933,10 +1933,10 @@
     <string name="_200_299_points">২০০-২৯৯ পয়েন্ট</string>
     <string name="diamond">ডায়মন্ড</string>
     <string name="_300_399_points">৩০০-৩৯৯ পয়েন্ট</string>
-    <string name="platinum">প্ল্যাটিনাম</string>
+    <string name="platinum">প্লাটিনাম</string>
     <string name="_400_points">৪০০+ পয়েন্ট</string>
     <string name="how_do_i_earn_points">কিভাবে পয়েন্টস পাব?</string>
-    <string name="card_one_description">বিডিজবস প্রোফাইল ডিলিট করলে ২৫ পয়েন্ট হারাবেন।</string>
+    <string name="card_one_description">বিডিজবস প্রোফাইল ডিলিট করলে ২৫ পয়েন্ট ডিডাক্ট হবে।</string>
     <!--point details end-->
 
     <!--point manage resume start-->
@@ -1947,41 +1947,41 @@
     <string name="one_time_">ওয়ান টাইম</string>
     <string name="_20_points">২০ পয়েন্ট</string>
     <string name="complete">কমপ্লিট</string>
-    <string name="points_deduction_criteria">পয়েন্ট কমে যাওয়ার শর্ত</string>
+    <string name="points_deduction_criteria">পয়েন্ট ডিডাকশন ক্রাইটেরিয়া</string>
     <string name="_10_points">১০ পয়েন্ট</string>
     <string name="open">ওপেন</string>
     <!--point manage resume end-->
 
     <!--point system activities start-->
-    <string name="common_activities">কার্যক্রম</string>
+    <string name="common_activities">কার্যক্রমসমুহ</string>
     <string name="_1_points">১ পয়েন্ট</string>
-    <string name="relevant_jobs_napply">Relevant Jobs \nApply</string>
+    <string name="relevant_jobs_napply">প্রাসঙ্গিক চাকরিতে আবেদন</string>
     <string name="recurring">পুনরাবৃত্তি</string>
     <string name="_2_points">২ পয়েন্ট</string>
     <string name="invitations_response">ইনভাইটেশন রেসপন্স</string>
-    <string name="interview_attendance">ইন্টারভিউয়ে উপস্থিতি</string>
-    <string name="update_recruitment_nstatus">Update Recruitment \nStatus</string>
+    <string name="interview_attendance">ইন্টারভিউ অ্যাটেনডেন্স</string>
+    <string name="update_recruitment_nstatus">আপডেট নিয়োগ স্ট্যাটাস</string>
     <!--point system activities end-->
 
     <!--fragment_point_system_employer_activities start-->
-    <string name="employers_activities">নিয়োগকর্তা কার্যক্রম</string>
+    <string name="employers_activities">নিয়োগকর্তার কার্যক্রম</string>
     <string name="_3_points">৩ পয়েন্ট</string>
-    <string name="random_ncv_view">Random \nCV View</string>
+    <string name="random_ncv_view">র‍্যান্ডম সিভি ভিউড</string>
     <!--fragment_point_system_employer_activities end-->
 
     <!--fragment_point_system_career_development start-->
-    <string name="career_development">ক্যারিয়ার ডেভেলপমেন্টt</string>
-    <string name="employability_ncertification">Employability \nCertification</string>
+    <string name="career_development">ক্যারিয়ার ডেভেলপমেন্ট</string>
+    <string name="employability_ncertification">এমপ্লয়াবিলিটি সার্টিফিকেশন</string>
     <string name="register_amp_nparticipate_in_trainings"><![CDATA[Register & \nparticipate in trainings]]></string>
     <string name="mark_applicant_nas_hired">Mark Applicant \nas \'Hired\'</string>
     <!--fragment_point_system_career_development end-->
 
     <!--fragment_point_system_personalization start-->
-    <string name="personalization">পার্সোনালাইজেশন</string>
-    <string name="save_nfavorite_search">Save \nFavorite Search</string>
-    <string name="follow_nemployers">Follow \nEmployers</string>
-    <string name="shortlist_njobs">Shortlist \nJobs</string>
-    <string name="sms_njob_alert">SMS \nJob Alert</string>
+    <string name="personalization">নিজস্বকরণ</string>
+    <string name="save_nfavorite_search">সেভ ফেভারিট সার্চ</string>
+    <string name="follow_nemployers">ফলো নিয়োগকর্তা</string>
+    <string name="shortlist_njobs">শর্টলিস্টেড জব</string>
+    <string name="sms_njob_alert">এসএমএস অ্যালার্ট</string>
     <!--fragment_point_system_personalization end-->
 
     <!--FavouriteSearch list kt start-->
@@ -1990,8 +1990,8 @@
 
     <!--feedback Support Fragment Kt start-->
     <string name="bdjobs_home_array">বিডিজবস হোম</string>
-    <string name="career_counsel_array">ক্যারিয়ার কাউন্সিল</string>
-    <string name="employability_certification_array">এমপ্লয়বিলিটি সার্টিফিকেট</string>
+    <string name="career_counsel_array">ক্যারিয়ার পরামর্শ</string>
+    <string name="employability_certification_array">এমপ্লয়াবিলিটি সার্টিফিকেট</string>
     <string name="favorite_search_array">ফেভারিট সার্চ</string>
     <string name="hot_jobs_array">হট জবস</string>
     <string name="job_fair_array">জব ফেয়ার</string>
@@ -2001,36 +2001,36 @@
     <string name="video_interview_array">ভিডিও ইন্টারভিউ</string>
     <string name="live_interview_array">লাইভ ইন্টারভিউ</string>
     <string name="sms_job_alert_array">এসএমএস জব অ্যালার্ট</string>
-    <string name="online_exam_system_array">অনলিনে এক্সাম সিস্টেম</string>
+    <string name="online_exam_system_array">অনলাইনে এক্সাম সিস্টেম</string>
     <string name="online_test_array">অনলাইন টেস্ট</string>
-    <string name="mobile_apps_array">মোবাইল অ্যাপ</string>
+    <string name="mobile_apps_array">মোবাইল অ্যাপস</string>
     <string name="my_bdjobs_array">মাই বিডিজবস</string>
     <string name="excellent_array">অসাধারণ</string>
     <string name="very_good_array">খুবই ভালো</string>
     <string name="good_array">ভালো</string>
     <string name="satisfactory_array">সন্তোষজনক</string>
     <string name="not_satisfactory_array">সন্তোষজনক নয়</string>
-    <string name="feedback_submitted_msg">আপনার ফিডব্যাক সফলভাবে নেওয়া হয়েছে।</string>
+    <string name="feedback_submitted_msg">আপনার ফিডব্যাক সফলভাবে রেকর্ড করা হয়েছে।</string>
     <string name="check_audio_video_title">অডিও/ ভিডিও চেক করুন।</string>
     <!--feedback Support Fragment Kt end-->
 
     <!--MainLanding Activity Kt start-->
     <string name="alert_msg_complete_profile">>এই ফিচারটি পেতে আপনার বিডিজবস প্রোফাইল কমপ্লিট করুন।</string>
-    <string name="common_profile_is_not_complete">আপনার বিডিজবস প্রোফাইল কমপ্লিট </string>
+    <string name="common_profile_is_not_complete">আপনার বিডিজবস প্রোফাইল কমপ্লিট আছে। </string>
     <string name="complete_your_profile">বিডিজবস প্রোফাইল কমপ্লিট করুন!</string>
     <!--MainLanding Activity Kt end-->
 
     <!--Elearning fragment Kt start-->
-    <string name="more_than_99">99+</string>
+    <string name="more_than_99">৯৯+</string>
     <!--Elearning fragment Kt end-->
 
     <!--Home fragment Kt start-->
-    <string name="manage_video_resume_text">ম্যানেজ ভিডিও রিজিউমি</string>
-    <string name="create_video_resume_text">ভিডিও রিজিউমি তৈরি করুন</string>
+    <string name="manage_video_resume_text">ম্যানেজ ভিডিও সিভি</string>
+    <string name="create_video_resume_text">ভিডিও সিভি তৈরি করুন</string>
     <!--<string name="common_alert_msg_post_profile">এই ফিচারটি পেতে বিডিজবস প্রোফাইল পোস্ট করুন </string>
     <string name="common_profile_is_not_posted">আপনার বিডিজবস প্রোফাইল এখনও পোস্ট হয়নি!</string>-->
     <string name="common_post_your_profile">বিডিজবস প্রোফাইল পোস্ট করুন</string>
-    <string name="my_favourite_search_filters_">আপনার পছন্দের সার্চ ফিল্টার</string>
+    <string name="my_favourite_search_filters_">আমার ফেভারিট সার্চ ফিল্টার</string>
     <!--Home fragment Kt end-->
 
     <!--Home fragment new design Kt start-->
@@ -2039,9 +2039,9 @@
     <string name="HomeFragmentNewDesign_You_have_an_Online_Test_on">আপনার একটি অনলাইন টেস্ট  আছে।</string>
     <string name="HomeFragmentNewDesign_You_have_an_Live_interview_on">আপনার একটি লাইভ ইন্টারভিউ আছে।</string>
     <string name="HomeFragmentNewDesign_You_have_an_General_interview_on">আপনার একটি সাধারণ ইন্টারভিউ আছে।</string>
-    <string name="HomeFragmentNewDesign_You_have_a_Video_Interview_submission_deadline_on">আপনার ভিডিও ইন্টারভিউ সাবমিশ্নের ডেডলাইন</string>
+    <string name="HomeFragmentNewDesign_You_have_a_Video_Interview_submission_deadline_on">ভিডিও ইন্টারভিউ জমা দেওয়ার শেষ সময়</string>
     <string name="at">প্রতি</string>
-    <string name="from">হইতে</string>
+    <string name="from">হতে</string>
     <!--Home fragment new design Kt end-->
 
     <!--hot jobs fragment new Kt start-->
