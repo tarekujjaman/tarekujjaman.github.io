@@ -229,7 +229,7 @@
     <string name="bangladesh_technical_education_board">বাংলাদেশ কারিগরি শিক্ষা বোর্ড</string>
     <string name="currently_offering_jobs">বর্তমানে চাকরি দিচ্ছে</string>
     <string name="_150">150</string>
-    <string name="unfollow">আনফলো</string>
+    <string name="unfollow">আনঅনুসরণ</string>
     <string name="employers_message">নিয়োগকর্তার বার্তা</string>
     <string name="employers_message_detail">বার্তার বিবরণ</string>
     <string name="error_msg_unknown">কোন সমস্যা হয়েছে!</string>
@@ -389,7 +389,7 @@
     <string name="live_interview_date_time">আপনি কি %1$s তারিখে, %2$s সময়ে লাইভ ইন্টারভিউতে উপস্থিত থাকতে চান?</string>
     <string name="label_resume_invisible_text">আপনার ভিডিও সিভি/রিজিউমে নিয়োগকর্তার জন্য দৃশ্যমান নয়। ইন্টারভিউ ডাকের সুযোগ বাড়াতে এটি দৃশ্যমান করুন।</string>
     <string name="label_buy_sms">এসএমএস কিনুন</string>
-    <string name="label_follow_emp">ফলো এমপ্লয়ার/ ফেভারিট সার্চ</string>
+    <string name="label_follow_emp">অনুসরণ এমপ্লয়ার/ ফেভারিট সার্চ</string>
     <string name="label_get_matched_job_alert">ম্যচড জবের অ্যালার্ট পান</string>
     <string name="label_subscribe_employer_favorite_search_for_sms_alert">এসএমএস আলার্ট পেতে নিয়োগকর্তা বা ফেভারিট সার্চ সাবস্ক্রাইব করুন।</string>
     <string name="label_get_instant_sms_job_alert">এসএমএসের মাধ্যমে তাৎক্ষনিক জব অ্যালার্ট পান </string>
@@ -405,7 +405,7 @@
     <string name="label_join_general_instruction">নির্ধারিত দিনে, আপনি অনলাইন টেস্ট পেজ থেকে ইন্টারভিউতে যোগ দিতে পারবেন।</string>
     <string name="label_join_common_instruction">অভিনন্দন! আপনি ইন্টারভিউর জন্য নির্বাচিত হয়েছেন। নির্ধারিত দিনে ও নির্দিষ্ট সময়ে আপনি ইন্টারভিউতে অংশ নিতে পারবেন।</string>
     <string name="ShortListedJobFragment_Shortlisted_Jobs">শর্টলিস্টেড জবস</string>
-    <string name="tab_label_followed_employers">ফলোড এমপ্লয়ার</string>
+    <string name="tab_label_followed_employers">অনুসরণড এমপ্লয়ার</string>
     <string name="tab_label_favourite_search">ফেভারিট সার্চ</string>
 
     <string name="jobdetail_item_list_label_video_resume_encouragement">এই নিয়োগকর্তা আপনাকে ভিডিও সিভি/রিজিউমে জমা দেওয়ার জন্য উৎসাহিত করেছেন। <b>সাবমিট করুন </b></string>
@@ -863,10 +863,10 @@
 
     <!--fragment guideline sms start-->
     <string name="guideline_sms_steps_to_get_follow_employer_job_alert">নিয়োগ কর্তার চাকরির বার্তা পাওয়ার ধাপসমূহ</string>
-    <string name="sms_guideline_emp1"><b>ধাপ ১:</b> আপনি নিয়োগকর্তার তালিকা বা চাকরির বিশদ পৃষ্ঠায় ফলো ক্লিক করে আপনার উল্লেখিত নিয়োগকর্তাদের অনুসরণ করতে পারেন।</string>
+    <string name="sms_guideline_emp1"><b>ধাপ ১:</b> আপনি নিয়োগকর্তার তালিকা বা চাকরির বিশদ পৃষ্ঠায় অনুসরণ ক্লিক করে আপনার উল্লেখিত নিয়োগকর্তাদের অনুসরণ করতে পারেন।</string>
     <string name="sms_guideline_emp2"><b>ধাপ ২:</b> আপনার পছন্দের নিয়োগকর্তার চাকরি সতর্কতায় সাবস্ক্রাইব করার জন্য এসএমএস এ ক্লিক করুন।</string>
     <string name="sms_guideline_emp3"><b>ধাপ ৩:</b> আপনার পছন্দের নিয়োগকর্তার চাকরি সতর্কতায় সাবস্ক্রাইব করার জন্য এসএমএস এ ক্লিক করুন।</string>
-    <string name="sms_guideline_fav1"><b>ধাপ ১:</b> আপনি নিয়োগকর্তার তালিকা বা চাকরির বিশদ পৃষ্ঠায় ফলো ক্লিক করে আপনার উল্লেখিত নিয়োগকর্তাদের অনুসরণ করতে পারেন।</string>
+    <string name="sms_guideline_fav1"><b>ধাপ ১:</b> আপনি নিয়োগকর্তার তালিকা বা চাকরির বিশদ পৃষ্ঠায় অনুসরণ ক্লিক করে আপনার উল্লেখিত নিয়োগকর্তাদের অনুসরণ করতে পারেন।</string>
     <string name="sms_guideline_fav2"><b>ধাপ ২:</b> আপনার পছন্দের নিয়োগকর্তার চাকরি সতর্কতায় সাবস্ক্রাইব করার জন্য এসএমএস এ ক্লিক করুন।</string>
     <string name="sms_guideline_fav3"><b>ধাপ ৩:</b> আপনি যে কোনো সময় যেকোনো নিয়োগদাতার জন্য এসএমএস অ্যালার্ট বাতিল করতে পারেন।</string>
     <string name="guideline_sms_steps_to_get_favorite_search_job_alert">আপানার ফেভরিট সার্চ থেকে জবের তথ্য পাওইয়ার ধাপ</string>
@@ -905,8 +905,8 @@
     <string name="followed_employers">অনুসরণকৃত নিয়োগকর্তা</string>
     <string name="followed_employers_steps_of_following_your_employer">আপনার নিয়োগকর্তাকে অনুসরণ করার ধাপ:</string>
     <string name="followed_employers_go_to_employer_list_from_more_menu">মোর মেনু থেকে নিয়োগকর্তার তালিকায় যান</string>
-    <string name="followed_emp_step_3">- Tap <font color="#B32D7D"><b>+ নিয়োগকর্তাকে ফলো করুন</b></font> বাটন.</string>
-    <string name="followed_emp_instruction">চাকরির বিস্তারিত পেইজে কোম্পানি তথ্য থেকে\n <font color="#B32D7D"><b>‘নিয়োগকারীকে ফলো করুন’</b></font> বাটনে ট্যাপ করে ফলো করতে পারবেন</string>
+    <string name="followed_emp_step_3">- Tap <font color="#B32D7D"><b>+ নিয়োগকর্তাকে অনুসরণ করুন</b></font> বাটন.</string>
+    <string name="followed_emp_instruction">চাকরির বিস্তারিত পেইজে কোম্পানি তথ্য থেকে\n <font color="#B32D7D"><b>‘নিয়োগকারীকে অনুসরণ করুন’</b></font> বাটনে ট্যাপ করে অনুসরণ করতে পারবেন</string>
     <string name="followed_employers_would_you_like_to_follow_your_favourite_employer_now">আপনি কি এখনই আপনার প্রিয় নিয়োগকর্তাকে অনুসরণ করতে চান?</string>
     <string name="followed_emBTN_follow_employer">অনুসরণকৃত নিয়োগকর্তা</string>
     <string name="label_sms_alert">এসএসএস অ্যালার্ট</string>
@@ -975,7 +975,7 @@
 
     <!--Turn off SMS Alert Dialog start-->
     <string name="turn_off_sms_alert">এসএমএস অ্যালার্ট বন্ধ করুন</string>
-    <string name="turnOfSms_dialog_following_nemployer">ফলো করা\n নিয়োগকারী</string>
+    <string name="turnOfSms_dialog_following_nemployer">অনুসরণ করা\n নিয়োগকারী</string>
     <string name="turnOfSms_dialog_favourite_nsearch">পছন্দের\n অনুসন্ধান</string>
     <!--Turn off SMS Alert Dialog end-->
 
@@ -1123,34 +1123,34 @@
 
     <!--fragment Details confirm layout start-->
     <string name="apply_online">অ্যাপ্লাই অনলাইন</string>
-    <string name="your_expected_salary">প্রত্যাশিত স্যালারি <font color="#AC0000">*</font></string>
+    <string name="your_expected_salary">প্রত্যাশিত বেতন<font color="#AC0000">*</font></string>
     <string name="bdt_month">টাকা/মাস</string>
-    <string name="please_enter_your_expected_salary">আপনার প্রত্যাশিত স্যালারি লিখুন</string>
-    <string name="details_confirm_your_expected_salary_is_higher">আপনার প্রত্যাশিত স্যালারি প্রদত্ত স্যালারির থেকে বেশি।</string>
+    <string name="please_enter_your_expected_salary">আপনার প্রত্যাশিত বেতন লিখুন</string>
+    <string name="details_confirm_your_expected_salary_is_higher">আপনার প্রত্যাশিত বেতন প্রদত্ত বেতন থেকে বেশি।</string>
     <string name="priority_level">প্রায়োরিটি লেভেল<font color="#AC0000">*</font></string>
-    <string name="high_available">হাঁই <font color="#13A10D">(Available)</font></string>
-    <string name="details_confirm_only_one_job_available_per_week">(প্রতি সপ্তাহে একটি চাকরি উপলব্ধ)</string>
-    <string name="please_enter_your_priority_level">দয়া করে আপনার অগ্রাধিকার স্তর নির্বাচন করুন।</string>
-    <string name="priority_level_indicates_your_interest_to_employer_s_only_one_job_per_week_can_be_selected_as">অগ্রাধিকার স্তর নিয়োগকর্তাদের প্রতি আপনার আগ্রহ নির্দেশ করে। শুধুমাত্র <b>একটি</b> চাকরি প্রতি সপ্তাহে "হাই প্রায়োরিটি" হিসাবে নির্বাচন করা যেতে পারে।</string>
+    <string name="high_available">হাঁই<font color="#13A10D">(এভেইলেবেল)</font></string>
+    <string name="details_confirm_only_one_job_available_per_week">(প্রতি সপ্তাহে একটি চাকরি এভেইলেবেল)</string>
+    <string name="please_enter_your_priority_level">দয়া করে আপনার অগ্রাধিকার লেভেল নির্বাচন করুন।</string>
+    <string name="priority_level_indicates_your_interest_to_employer_s_only_one_job_per_week_can_be_selected_as">অগ্রাধিকার লেভেল নিয়োগকর্তাদের প্রতি আপনার আগ্রহ নির্দেশ করে। শুধুমাত্র <b>একটি</b> চাকরি প্রতি সপ্তাহে "হাই প্রায়োরিটি" হিসাবে নির্বাচন করা যেতে পারে।</string>
     <string name="regular">রেগুলার</string>
-    <string name="details_confirm_important_note_for_priority_level">গুরুত্বপূর্ণ নোট অগ্রাধিকার স্তরের জন্য</string>
-    <string name="priority_level_more_details">"* অগ্রাধিকার স্তর প্রতি সপ্তাহে একটি চাকরির জন্য (শনিবার থেকে শুক্রবার) উচ্চে সেট করা যেতে পারে।\n* একবার অগ্রাধিকার স্তর উচ্চ সেট করা হলে, এটি বাতিল করা যাবে না।\n* উচ্চ অগ্রাধিকার এখনও নির্বাচিত না হলে আবেদনকৃত চাকরি তালিকা থেকে এখন বা পরে সেট করা যেতে পারে।"</string>
-    <string name="learn_more_about_priority_level"><u>অগ্রাধিকার স্তর সম্পর্কে আরও জানুন</u></string>
+    <string name="details_confirm_important_note_for_priority_level">গুরুত্বপূর্ণ নোট অগ্রাধিকার লেভেলের জন্য</string>
+    <string name="priority_level_more_details"> অগ্রাধিকার লেভেল প্রতি সপ্তাহে একটি চাকরির জন্য (শনিবার থেকে শুক্রবার) হাঁই সেট করা যেতে পারে।\n* একবার অগ্রাধিকার লেভেল হাঁই সেট করা হলে, এটি বাতিল করা যাবে না।\n হাঁই অগ্রাধিকার এখনও নির্বাচিত না হলে আবেদনকৃত চাকরি তালিকা থেকে এখন বা পরে সেট করা যেতে পারে।"</string>
+    <string name="learn_more_about_priority_level"><u>অগ্রাধিকার লেভেল সম্পর্কে আরও জানুন</u></string>
     <string name="tr_EN">Translate into English</string>
-    <string name="details_confirm_checkBox_msg">আপনি আবেদন করার আগে নীচের বাক্সটি চেক করুন।</string>
+    <string name="details_confirm_checkBox_msg">আপনি আবেদন করার আগে নীচের বক্সটি চেক করুন।</string>
     <string name="apply">আবেদন করুন</string>
     <!--fragment Details confirm layout end-->
 
 
     <!--fragment guideline viewpager start-->
-    <string name="by_clicking_lets_start_now">Instruction: By clicking <b>\"Let\'s Start Now\"</b> you can view the question(s) and record answer(s). You will get 1 hour to submit all the answer(s) after starting recording.</string>
+    <string name="by_clicking_lets_start_now"><b>"চালু করতে এখানে ক্লিক করুন"</b> ক্লিক করে আপনি প্রশ্ন(গুলি) দেখতে এবং উত্তর(গুলি) রেকর্ড করতে পারবেন। রেকর্ডিং শুরু করার পর আপনাকে সব উত্তর জমা দেওয়ার জন্য ১ ঘণ্টা সময় দেওয়া হবে।</string>
     <string name="let_s_start_now">চলুন এখন শুরু করি</string>
     <!--fragment guideline viewpager end-->
 
     <!--fragment question details start-->
     <string name="question_details_video_interview">ভিডিও ইন্টারভিউ</string>
     <string name="question_details_user_guide">ইউজার গাইড</string>
-    <string name="question_details_time_counter_msg">আপনি যখন সাক্ষাত্কারের প্রশ্ন(গুলি) রেকর্ড করা শুরু করবেন তখন সময় কাউন্টার শুরু হবে। আপনার সব উত্তর জমা দিতে ১ ঘণ্টা সময় পাবেন।</string>
+    <string name="question_details_time_counter_msg">আপনি যখন সাক্ষাত্কারের প্রশ্ন(গুলি) রেকর্ড করা শুরু করবেন তখন সময় কাউন্টার শুরু হবে। রেকর্ডিং শুরু হওয়ার পর থেকে সব উত্তর জমা দিতে আপনি ১ ঘণ্টা সময় পাবেন।</string>
     <string name="question_details_total_time">সর্বমোট সময়ঃ</string>
     <string name="question_details_not_interested_to_submit">সাবমিট করতে ইচ্ছুক নই।</string>
     <string name="video_not_interested_generic_text">If you submit <b>\"Not interested\"</b>, you will no longer be able to participate in this video interview.</string>
@@ -1829,7 +1829,7 @@
     <string name="first_time_job_search">আপনি প্রথমবার এখানে এসেছেন। 'চাকরি খুঁজুন' বোতামটি চাপুন এবং আপনার চাকরি খোঁজা শুরু করুন।</string>
     <string name="search_job">চাকরি খুঁজুন</string>
     <string name="congratulations_for_the_video_interview_please_record_videos">অভিনন্দন! আপনাকে একটি কোম্পানি ইন্টারভিউয়ের জন্য নির্বাচিত করেছে।</string>
-    <string name="jobs_of_followed_employers">ফলো করা নিয়োগকারীদের চাকরি</string>
+    <string name="jobs_of_followed_employers">অনুসরণ করা নিয়োগকারীদের চাকরি</string>
     <!--fragment home layout end-->
 
     <string name="steps_of_saving_your_search_as_favourite_">আপনার সার্চকে ফেভারিট সার্চ হিসেবে সেভ করার ধাপসমূহ</string>
@@ -1876,7 +1876,7 @@
     <string name="monthly">মাসিক</string>
     <!--expected salary popup end-->
 
-    <string name="follow">ফলো</string>
+    <string name="follow">অনুসরণ</string>
 
     <string name="last_viewed_on">শেষ দেখা</string>
 
@@ -1979,7 +1979,7 @@
     <!--fragment_point_system_personalization start-->
     <string name="personalization">নিজস্বকরণ</string>
     <string name="save_nfavorite_search">সেভ ফেভারিট সার্চ</string>
-    <string name="follow_nemployers">ফলো নিয়োগকর্তা</string>
+    <string name="follow_nemployers">অনুসরণ নিয়োগকর্তা</string>
     <string name="shortlist_njobs">শর্টলিস্টেড জব</string>
     <string name="sms_njob_alert">এসএমএস অ্যালার্ট</string>
     <!--fragment_point_system_personalization end-->
@@ -2957,11 +2957,11 @@ You have completed the process. To publish this job,
     <string name="sorry_personalized_resume_stat_fetching_failed">দুঃখিত, ব্যক্তিগতকৃত রিজিউমে পরিসংখ্যান আনতে ব্যর্থ হয়েছে: %1$s</string>
     <string name="your_customized_cv_is_not_uploaded_yet">আপনার কাস্টমাইজড সিভি এখনও আপলোড করা হয়নি।</string>
     <string name="please_upload_your_resume_now_pdf_n_doc_docx">দয়া করে এখনই আপনার রিজিউমে আপলোড করুন .pdf, .doc ফরম্যাটে।</string>
-    <string name="steps_of_following_your_employer">নিয়োগকর্তাকে ফলো করার পদক্ষেপ:</string>
+    <string name="steps_of_following_your_employer">নিয়োগকর্তাকে অনুসরণ করার পদক্ষেপ:</string>
     <string name="go_to_employer_list_from_more_menu">- More মেনু থেকে নিয়োগকর্তা তালিকা তে যান।</string>
     <string name="search_for_your_desired_company">- আপনার পছন্দসই কোম্পানি অনুসন্ধান করুন।</string>
-    <string name="would_you_like_to_follow_your_favourite_employer_now">আপনি কি এখন আপনার পছন্দের নিয়োগকর্তাকে ফলো করতে চান?</string>
-    <string name="follow_employer">নিয়োগকর্তাকে ফলো করুন</string>
+    <string name="would_you_like_to_follow_your_favourite_employer_now">আপনি কি এখন আপনার পছন্দের নিয়োগকর্তাকে অনুসরণ করতে চান?</string>
+    <string name="follow_employer">নিয়োগকর্তাকে অনুসরণ করুন</string>
     <string name="search_is_already_saved">অনুসন্ধান ইতিমধ্যে সংরক্ষিত হয়েছে।</string>
     <string name="no_jobs_found">কোনো চাকরি পাওয়া যায়নি।</string>
     <string name="find_out_who_viewed_your_profile">আপনার প্রোফাইল কে দেখেছে তা খুঁজে বের করুন</string>
