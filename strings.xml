@@ -9,7 +9,7 @@
 
 
     <string name="app_name">বিডিজবসdd</string>
-    <string name="hint_keyword">জব টাইটেল,কি-ওয়ার্ড</string>
+    <string name="hint_keyword">জব টাইটেল,কীওয়ার্ড</string>
     <string name="hint.industries">ইন্ডাস্ট্রিজ</string>
     <string name="hint.Category">ক্যাটাগরি </string>
     <string name="field_empty_error_message_common">এই ফিল্ডটি খালি রাখা যাবে না!</string>
@@ -229,7 +229,7 @@
     <string name="bangladesh_technical_education_board">বাংলাদেশ কারিগরি শিক্ষা বোর্ড</string>
     <string name="currently_offering_jobs">বর্তমানে চাকরি দিচ্ছে</string>
     <string name="_150">150</string>
-    <string name="unfollow">আনঅনুসরণ</string>
+    <string name="unfollow">আনফলো</string>
     <string name="employers_message">নিয়োগকর্তার বার্তা</string>
     <string name="employers_message_detail">বার্তার বিবরণ</string>
     <string name="error_msg_unknown">কোন সমস্যা হয়েছে!</string>
@@ -366,61 +366,61 @@
     <string name="notification_channel_sms">এসএমএস</string>
     <string name="notification_channel_alert">অ্যালার্ট</string>
     <string name="notification_online_test">অনলাইন টেস্ট</string>
-    <string name="notification_video_resume_viewed">ভিডিও রিজিউমি দেখা হয়েছে</string>
+    <string name="notification_video_resume_viewed">ভিডিও সিভি দেখা হয়েছে</string>
     <string name="notification_reminder">রিমাইন্ডার</string>
     <string name="notification">নোটিফিকেশন</string>
     <!-- Assessment Strings -->
     <string name="title_activity_assesment_base">এমপ্লয়বিলিটি সার্টিফিকেশন</string>
-    <string name="test_payment_amount"><strike>৫৫০ টাকা</strike> প্রথমবারের জন্য বিনামূল্যে</string>
+    <string name="test_payment_amount"><strike>BDT 550/-</strike> Free for first time</string>
     <string name="tv_test_date_txt">টেস্টের তারিখ</string>
     <string name="tv_test_time_txt">টেস্টের সময়</string>
-    <string name="dialog_body_when_answered">যদি আপনি <b>ভিডিও ইন্টারভিউ সাবমিট করতে না চান</b>, তাহলে নিয়োগকর্তাকে জানানো হবে যে আপনি এটি জমা দিতে আগ্রহী নন এবং তারা আপনার রেকর্ড করা ভিডিও(গুলো) দেখতে পারবেন না। এছাড়া, আপনি আর এই চাকরির জন্য ভিডিও ইন্টারভিউ দিতে পারবেন না। আপনি কি নিশ্চিতভাবে চালিয়ে যেতে চান?</string>
-    <string name="dialog_body_when_not_answered">যদি আপনি <b>ভিডিও ইন্টারভিউ জমা দিতে আগ্রহী না হন</b>, তাহলে নিয়োগকর্তাকে জানানো হবে যে আপনি এটি জমা দিতে চান না। এছাড়া, আপনি আর এই চাকরির জন্য ভিডিও ইন্টারভিউ দিতে পারবেন না। আপনি কি নিশ্চিতভাবে চালিয়ে যেতে চান?</string>
+    <string name="dialog_body_when_answered">If you are <b>সাবমিট করতে চাই না</b> Video Interview, then the employer will be informed that you are not interested to submit it and they will not see your recorded video(s). Also you will not be able to attend Video Interview for this job anymore. Do you still want to continue?</string>
+    <string name="dialog_body_when_not_answered">If you are <b>Not interested to submit</b> Video Interview, then the employer will be informed that you are not interested to submit it. Also you will not be able to attend Video Interview for this job anymore. Do you still want to continue?</string>
     <string name="submission_info">Submitted on &lt;b>%1$s&lt;/b></string>
     <!-- Video Interview -->
-    <string name="homepage.slider_text">আপনি %1$s ভিডিও ইন্টারভিউর জন্য নির্বাচিত হয়েছেন। নিয়োগকর্তার কিছু প্রশ্ন রয়েছে, যার উত্তর দেওয়ার সময় আপনাকে নিজেকে ভিডিওতে রেকর্ড করার অনুরোধ করা হচ্ছে।</string>
+    <string name="homepage.slider_text">You have been selected for %1$s Video Interview. The employer has some question(s). You are requested to record yourself while you give the answer(s).</string>
     <string name="submit_all_videos">Submit&lt;small>(All videos)&lt;/small></string>
-    <string name="video_not_interested_none_answered">যদি আপনি <b>"সাবমিট করতে চাই না"</b> ভিডিও ইন্টারভিউ নির্বাচন করেন, তাহলে আপনি আর এই আমন্ত্রণের জন্য উত্তর রেকর্ড করতে পারবেন না।</string>
-    <string name="video_not_interested_some_answered">যদি আপনি <b>"সাবমিট করতে চাই না"</b> ভিডিও ইন্টারভিউ নির্বাচন করেন, তাহলে আপনি আর এই চাকরির জন্য ভিডিও ইন্টারভিউ দিতে পারবেন না।</string>
+    <string name="video_not_interested_none_answered">If you checked <b>\"Not interested to submit\"</b> Video Interview, then you will not able to record answer(s) for this invitation anymore.</string>
+    <string name="video_not_interested_some_answered">If you checked <b>\"Not interested to submit\"</b> Video Interview, then you will not able to attend Video Interview for this job anymore.</string>
 
     // Transaction
 
     <!-- Live Interview -->
-    <string name="live_interview_date_time">আপনি কি %1$s তারিখে, %2$s সময়ে লাইভ ইন্টারভিউতে উপস্থিত থাকতে চান?</string>
-    <string name="label_resume_invisible_text">আপনার ভিডিও সিভি/রিজিউমে নিয়োগকর্তার জন্য দৃশ্যমান নয়। ইন্টারভিউ ডাকের সুযোগ বাড়াতে এটি দৃশ্যমান করুন।</string>
+    <string name="live_interview_date_time">Do you want to present in the live interview on %1$s, at %2$s?</string>
+    <string name="label_resume_invisible_text">Your Video CV/Resume is not visible to employer(s). Make it visible to employer(s) to increase interview call.</string>
     <string name="label_buy_sms">এসএমএস কিনুন</string>
-    <string name="label_follow_emp">অনুসরণ এমপ্লয়ার/ ফেভারিট সার্চ</string>
+    <string name="label_follow_emp">ফলো এমপ্লয়ার/ ফেভারিট সার্চ</string>
     <string name="label_get_matched_job_alert">ম্যচড জবের অ্যালার্ট পান</string>
-    <string name="label_subscribe_employer_favorite_search_for_sms_alert">এসএমএস আলার্ট পেতে নিয়োগকর্তা বা ফেভারিট সার্চ সাবস্ক্রাইব করুন।</string>
+    <string name="label_subscribe_employer_favorite_search_for_sms_alert">Subscribe Employer/Favorite Search for SMS Alert</string>
     <string name="label_get_instant_sms_job_alert">এসএমএসের মাধ্যমে তাৎক্ষনিক জব অ্যালার্ট পান </string>
-    <string name="label_steps_of_receiving_sms_job_alert_of_your_choice">আপনার পছন্দের এসএমএস জব আলার্ট পাওয়ার ধাপসমূহ</string>
-    <string name="label_confirmation_review">নিয়োগকর্তা আপনার আবেদন পর্যালোচনা করতে পারবেন এবং প্রয়োজন হলে আপনার সঙ্গে যোগাযোগ করতে পারেন</string>
+    <string name="label_steps_of_receiving_sms_job_alert_of_your_choice">Steps of receiving SMS Job Alert of your choice</string>
+    <string name="label_confirmation_review">The employer will be able to review your application and, if needed, can contact with you.</string>
     <string name="label_personalized">পার্সোনালাইজড</string>
-    <string name="label_video_resume_visibility_to_employer_s">নিয়োগকর্তার কাছে ভিডিও সিভি/রিজিউমে প্রদর্শনের স্ট্যাটাস </string>
-    <string name="label_join_interview_30_mins">ইন্টারভিউ শুরুর <b>৬০ মিনিট</b> আগে আপনি ইন্টারভিউ তে জয়েন করার বাটনটি  পাবেন।</string>
-    <string name="label_join_test_instruction">পরীক্ষার দিনে, সর্বশেষ ক্রোম বা ফায়ারফক্স ব্রাউজার ব্যবহার করে আপনার মাই বিডিজবস  অ্যাকাউন্টে সাইন ইন করুন এবং টেস্ট রুমে প্রবেশ করুন।</string>
-    <string name="label_join_test_instruction_new">আপনি এখান থেকে পরীক্ষায় অংশ নিতে পারবেন। অংশগ্রহণের জন্য বোতামটি পরীক্ষা শুরুর ১ ঘণ্টা আগে সক্রিয় হবে।</string>
-    <string name="label_join_live_instruction">নির্ধারিত দিনে, আপনি লাইভ ইন্টারভিউ পেজ থেকে ইন্টারভিউতে যোগ দিতে পারবেন।</string>
+    <string name="label_video_resume_visibility_to_employer_s">Status of showing Video CV/Resume to Employer(s)</string>
+    <string name="label_join_interview_30_mins">You will get Join Interview button before<b> 60 minutes </b>of interview.</string>
+    <string name="label_join_test_instruction">On test day, sign in to your My Bdjobs account from the latest Chrome or Firefox browser to enter the test room.</string>
+    <string name="label_join_test_instruction_new">You can participate in the test from here. To participate, button will be available 1 hour before the test.</string>
+    <string name="label_join_live_instruction">On the scheduled day, you can join the Interview from Live Interview Page.</string>
     <string name="label_join_test_from_live_instruction">On the scheduled day, you can join the Interview from Online Test Page.</string>
-    <string name="label_join_general_instruction">নির্ধারিত দিনে, আপনি অনলাইন টেস্ট পেজ থেকে ইন্টারভিউতে যোগ দিতে পারবেন।</string>
-    <string name="label_join_common_instruction">অভিনন্দন! আপনি ইন্টারভিউর জন্য নির্বাচিত হয়েছেন। নির্ধারিত দিনে ও নির্দিষ্ট সময়ে আপনি ইন্টারভিউতে অংশ নিতে পারবেন।</string>
+    <string name="label_join_general_instruction">On the scheduled day you can attend the interview at the venue mentioned in the invitation details.</string>
+    <string name="label_join_common_instruction">Congratulations, you have been selected for an Interview. 0n the scheduled day you can attend the interview at given time.</string>
     <string name="ShortListedJobFragment_Shortlisted_Jobs">শর্টলিস্টেড জবস</string>
-    <string name="tab_label_followed_employers">অনুসরণড এমপ্লয়ার</string>
+    <string name="tab_label_followed_employers">ফলোড এমপ্লয়ার</string>
     <string name="tab_label_favourite_search">ফেভারিট সার্চ</string>
 
-    <string name="jobdetail_item_list_label_video_resume_encouragement">এই নিয়োগকর্তা আপনাকে ভিডিও সিভি/রিজিউমে জমা দেওয়ার জন্য উৎসাহিত করেছেন। <b>সাবমিট করুন </b></string>
+    <string name="jobdetail_item_list_label_video_resume_encouragement">This Employer has encouraged you to submit your Video CV/Resume. <b>Submit Now</b></string>
 
     <string-array name="spinnerFilterItemEmailResume">
-        <item>সব</item>
-        <item>বিডিজবস প্রোফাইল</item>
-        <item>কাস্টমাইজড  সিভি</item>
+        <item>All</item>
+        <item>Bdjobs Profile</item>
+        <item>Personalized Resume</item>
     </string-array>
 
     <!--    Ajker Deal Strings-->
-    <string name="app_name_folder">আজকের ডিল</string>
+    <string name="app_name_folder">Ajkerdeal</string>
 
-    <string name="content_description">ছবি</string>
-    <string name="cd">ছবি</string>
+    <string name="content_description">image</string>
+    <string name="cd">image</string>
 
     <string name="menu_home">হোম</string>
     <string name="buyNow">এখনই কিনুন</string>
@@ -444,19 +444,19 @@
     <string name="loading_checkorder_process">অপেক্ষা করুন...</string>
     <string name="notification_channel_id_reminder">রিমাইন্ডার</string>
     <string name="notification_channel_name_reminder">রিমাইন্ডার</string>
-    <string name="notification_channel_description_reminder">রিমাইন্ডার নোটিফিকেশন চ্যানেল</string>
+    <string name="notification_channel_description_reminder">Reminder notification channel</string>
     <string name="title_sms_settings">এসএমএস সেটিংশ</string>
     <string name="video_resume_encouragement">আবেদনকারীদের ভিডিও সিভি/রিজুমে জমা দিতে উৎসাহিত করা হয়। <u>ভিডিও সিভি/রিজুমে সম্পর্কে আরও জানুন</u></string>
-    <string name="live_interview_msg">এটি একটি লাইভ ইন্টারভিউ, তাই কোম্পানির অফিসে উপস্থিত থাকার প্রয়োজন নেই। আপনি এটি বাসা বা সুবিধাজনক যেকোনো স্থান থেকে অংশ নিতে পারবেন।</string>
+    <string name="live_interview_msg">This is a live interview so no need to be present at company office. You can attend this interview from home or any convenient place.</string>
     <string name="online_application">অনলাইন অ্যাপ্লিকেশান</string>
     <string name="high_not_available">হাই (এভেইলেবল নেই)</string>
     <string name="note_txt">আবেদন করার আগে অনুগ্রহ করে পড়ুন<font color="#AC0000">*</font></string>
-    <string name="note_txt_EN">আবেদন করার আগে অনুগ্রহ করে পড়ুন<font color="#AC0000">*</font></string>
+    <string name="note_txt_EN">Please read before applying<font color="#AC0000">*</font></string>
     <string name="bdjobs_com">বিডিজবস শুধুমাত্রই নিয়োগকর্তা এবং চাকরিপ্রার্থীদের মাঝে যোগাযোগ মাধ্যম হিসেবে কাজ করে। বিডিজবস ওয়েবসাইটের মাধ্যমে চাকরিতে আবেদন করার পর কোম্পানি যদি আপনার সাথে কোনো আর্থিক লেনদেন অথবা অনিয়ম/প্রতারণা করে তার জন্য Bdjobs.com লিমিটেড দায়ী থাকবেনা।</string>
     <string name="tr_BD">বাংলায় দেখুন</string>
-    <string name="submit_now"><font color='#707070'>নিয়োগকর্তা আপনাকে ভিডিও সিভি/রিজিউমে জমা দিতে উৎসাহিত করেছেন।</font> <font color='black'>সাবমিট করুন</font>.</string>
+    <string name="submit_now"><font color='#707070'>The employer has encouraged you to submit your Video CV/Resume.</font> <font color='black'>Submit Now</font>.</string>
     <string name="input_country_without_special_character">"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZঁঁঃঅংআইঈউঊঋঌএঐওঔকখগঘঙচছজঝঞটঠডঢণতথদধনপফবভমযরলশষসহ়ঽািীৎ ু ৃ ৄ ূ ে ৈ ো ৌ ্ ৗ ড়ঢ়য়ৠৡৢৣ-\u0020"</string>
-    <string name="contact_16479">যদি আপনি ইমেল না পান, চিন্তার কিছু নেই! সাহায্যের জন্য ০৯৬৩৮৬৬৬৪৪৪ নম্বরে যোগাযোগ করুন।</string>
+    <string name="contact_16479">If you do not get the email, we are here to help! Please contact 16479</string>
     <string name="add_to_calender">ক্যালেন্ডারে যোগ করুন</string>
     <!--    Online Test System Strings -->
     <string name="bdjobs_online_test">বিডিজবস অনলাইন টেস্ট</string>
@@ -466,9 +466,9 @@
     <string name="ot_enter_test_msg">আপনি টেস্ট শুরু করুন</string>
     <string name="ot_next_btn">পরবর্তি</string>
     <string name="ot_waiting_room_validation">তথ্যটি দিন</string>
-    <string name="ot_user_instruction">পরীক্ষা শুরু করার আগে নিম্নলিখিত তথ্য প্রদান করুন।</string>
-    <string name="ot_user_location_question">১. আপনি এখন কোন জেলা/দেশ থেকে এই পরীক্ষায় অংশগ্রহণ করছেন?<b><font color='#FF0000'>*</font></b></string>
-    <string name="ot_user_precise_location_question">২. আপনি কোথা থেকে এই পরীক্ষায় অংশ নিচ্ছেন?<b><font color='#FF0000'>*</font></b></string>
+    <string name="ot_user_instruction">Provide the following information before starting the test.</string>
+    <string name="ot_user_location_question">1. From which district/country you are participating this test now? <b><font color='#FF0000'>*</font></b></string>
+    <string name="ot_user_precise_location_question">2. From where are you participating in this test? <b><font color='#FF0000'>*</font></b></string>
     <string name="ot_user_precise_location_home">হোম</string>
     <string name="ot_user_precise_location_office">অফিস</string>
     <string name="ot_user_precise_location_academic">শিক্ষা প্রতিষ্ঠান (কলেজ/ইউনিভার্সিটি/ট্রেইনিং সেন্টার)</string>
@@ -486,13 +486,13 @@
     <string name="clock_colon">:</string>
     <string name="enter_test_btn_text">টেস্ট শুরু</string>
     <string name="ot_waiting_room_note_title">নোট</string>
-    <string name="ot_static_msg_for_instruction">পরীক্ষার কক্ষে প্রবেশের আগে নির্দেশনাগুলো মনোযোগ দিয়ে পড়ুন।</string>
+    <string name="ot_static_msg_for_instruction">Read the instructions carefully before entering the test room</string>
     <string name="ot_static_msg_for_mobile_user">মোবাইল ইউজারদের জন্য নির্দেশনাবলী</string>
-    <string name="ot_static_msg_for_do_and_do_not">অনলাইন পরীক্ষার সময় করণীয় ও বর্জনীয়"</string>
-    <string name="mobile_user_instruction">১. অনলাইন পরীক্ষায় অংশ নিতে আপনার Bdjobs মোবাইল অ্যাপ ব্যবহার করুন।\nআপনার মোবাইল অ্যাপে সমস্যা হলে, Google Chrome বা Firefox ব্রাউজার ব্যবহার করে চেষ্টা করুন।\n\n2. পরীক্ষার আগে আপনার মোবাইলের ব্যাকগ্রাউন্ডে চালু থাকা সব অ্যাপ বন্ধ করুন।\n\n3. পরীক্ষার সময় অন্য কোনো মোবাইল অ্যাপ ব্যবহার করবেন না।\n\n4. ভালো ইন্টারনেট সংযোগ নিশ্চিত করুন।\n\n5. পরীক্ষার সময় স্ক্রিন থেকে বের হওয়া, অ্যাপ পরিবর্তন করা, পরীক্ষা মিনিমাইজ করা, ব্যাকগ্রাউন্ডে অ্যাপ চালু থাকা, নোটিফিকেশন, কল গ্রহণ করা বা মোবাইল স্ক্রিন লক হওয়া অননুমোদিত কার্যক্রম হিসেবে গণ্য হবে।</string>
-    <string name="do_and_do_not_instruction"><b>করণীয়:</b>\n\n1. পরীক্ষার জন্য যে ডিভাইস ব্যবহার করছেন, তাতে ওয়েবক্যাম থাকতে হবে।\n\n2. পরীক্ষার আগে যথাযথ প্রস্তুতি নিন।\n\n3. নিরিবিলি, সাদামাটা পরিবেশে এবং যথাযথ আলোতে বসুন।\n\n4. ইন্টারনেট ও বিদ্যুৎ ব্যাকআপ নিশ্চিত করুন, যেমন: মোবাইল ডাটা, ইউপিএস।\n\nবর্জনীয়:</b>\n\n1. পরীক্ষার সময় কোনো সন্দেহজনক কার্যক্রম লক্ষ্য করা গেলে, পরীক্ষা বাতিল করা হতে পারে।\n\n2. একাধিক ডিভাইস ব্যবহার করলে এবং সিস্টেম এটি শনাক্ত করলে, আপনার পরীক্ষা বাতিল করা হতে পারে।\n\n3. পরীক্ষার সময় অন্য কারও সঙ্গে কথা বলবেন না।\n\n4. পরীক্ষার স্ক্রিনের বাইরে কোনো কাজ করবেন না।</string>
-    <string name="do_and_do_not_instruction_without_webcam"><b>করণীয়:</b>\n\n1. পরীক্ষার আগে যথাযথ প্রস্তুতি নিন।\n\n2. নিরিবিলি, সাদামাটা পরিবেশে যথাযথ আলোতে বসুন।\n\n3. ইন্টারনেট ও বিদ্যুৎ ব্যাকআপ নিশ্চিত করুন, যেমন: মোবাইল ডাটা, ইউপিএস।\n\n**<b>বর্জনীয়:</b>**\n\n1. পরীক্ষার সময় কোনো সন্দেহজনক কার্যক্রম লক্ষ্য করা গেলে, পরীক্ষা বাতিল করা হতে পারে।\n\n2. একাধিক ডিভাইস ব্যবহার করলে এবং সিস্টেম এটি শনাক্ত করলে, আপনার পরীক্ষা বাতিল করা হতে পারে।\n\n3. পরীক্ষার সময় অন্য কারও সঙ্গে কথা বলবেন না।\n\n4. পরীক্ষার স্ক্রিনের বাইরে কোনো কার্যক্রম করবেন না।</string>
-    <string name="online_test_instruction">১. আপনাকে ৫টি প্রশ্নের উত্তর দিতে হবে।\n\n2. পরীক্ষার সময় অন্য কারও সঙ্গে কথা বলবেন না।\n\n3. ৬০ সেকেন্ডের মধ্যে আপনার নমুনা পরীক্ষা সম্পন্ন করতে হবে।\n\n4. নমুনা পরীক্ষা আপনাকে বিডিজবস অনলাইন টেস্ট সিস্টেমের সাথে পরিচিত হতে সহায়তা করবে।\n\n5. আপনি বিডিজবস মোবাইল অ্যাপ থেকে নমুনা পরীক্ষায় অংশ নিতে পারেন।</string>
+    <string name="ot_static_msg_for_do_and_do_not">Do &amp; Don’ts During Online Test</string>
+    <string name="mobile_user_instruction">1. Use your Bdjobs mobile app to attend the online test. Try mobile browser (Google Chrome, Firefox) if you have trouble attending from mobile app.\n\n2. Close all your background mobile applications before starting the test.\n\n3. Do not use other mobile applications during the test.\n\n4. Make sure that you have a good internet connection.\n\n5. Leaving, swapping, minimizing the test screen, background running apps, notifications, calls, and mobile screen lock will be considered as unauthorized attempts.</string>
+    <string name="do_and_do_not_instruction"><b>Do\'s:</b>\n\n1. You need a webcam on your device on which you are taking the test.\n\n2. Take preparation before the test.\n\n3. Be seated in a plain quiet background with proper amount of light.\n\n4. Ensure that you have internet and power backups। e.g: Mobile data, UPS.\n\n<b>Don\'ts:</b>\n\n1. If any suspicious activity is observed during the test, in that case the test will stand canceled.\n\n2. If you use multiple devices at the same time and the system detects this the test can be terminated for you.\n\n3. Don\'t speak to anyone.\n\n4. Don\’t perform any activities outside the test screen.</string>
+    <string name="do_and_do_not_instruction_without_webcam"><b>Do\'s:</b>\n\n1. Take preparation before the test.\n\n2. Be seated in a plain quiet background with proper amount of light.\n\n3. Ensure that you have internet and power backups। e.g: Mobile data, UPS.\n\n<b>Don\'ts:</b>\n\n1. If any suspicious activity is observed during the test, in that case the test will stand canceled.\n\n2. If you use multiple devices at the same time and the system detects this the test can be terminated for you.\n\n3. Don\'t speak to anyone.\n\n4. Don\’t perform any activities outside the test screen.</string>
+    <string name="online_test_instruction">1.You will have 5 questions to answer\n\n2. Don\'t speak to anyone.\n\n2. You need to complete your sample test with in 60 seconds.\n\n3. Sample test will help you to be familiar with Bdjobs Online Test system.\n\n4. You can join sample test from Bdjobs Mobile app.</string>
     <string name="btn_remove_text">বাদ দিন</string>
     <string name="btn_undo_text">বাতিল করুন</string>
     <string name="continue_btn">চালিয়া যান</string>
@@ -501,40 +501,40 @@
     <string name="ot_submit_and_finish"><![CDATA[Submit & Finish]]></string>
     <string name="ot_submit_and_next"><![CDATA[Submit & Next]]></string>
     <string name="ot_static_msg_read_questions_carefully">ভাল্ভাবে প্রশ্ন পড়ুন</string>
-    <string name="feedback_test_completed_icon">ফিডব্যাক টেস্ট সম্পন্ন আইকন</string>
+    <string name="feedback_test_completed_icon">Feedback Test Completed Icon</string>
     <string name="senior_executive_product">সিনিয়র এক্সিকিউটিভ, প্রোডাক্ট</string>
     <string name="xyz_company_ltd">XYZ Company Ltd</string>
     <string name="test_completed">টেস্ট শেষ</string>
     <string name="congratulations_md_naimur_rahman_you_have_completed_your_mcq_exam_for_probition_officer_thank_you_for_participating">Congratulations! MD Naimur Rahman, You have completed your MCQ Exam for Probition Officer. Thank you for participating.</string>
     <string name="back_to_test_details">টেস্ট ডিটেইলসে ফেরত যান</string>
-    <string name="congratulations_you_have_completed_your_sample_test_thank_you_for_participating_the_test">অভিনন্দন! আপনি আপনার নমুনা পরীক্ষা সম্পন্ন করেছেন। পরীক্ষায় অংশগ্রহণের জন্য আপনাকে ধন্যবাদ।</string>
-    <string name="timeout">সময় শেষ!</string>
-    <string name="dear_md_naimur_rahman_your_exam_time_has_been_finished_thank_you_for_participating">প্রিয় মোঃ নাইমুর রহমান, আপনার পরীক্ষার সময় শেষ হয়েছে। পরীক্ষায় অংশগ্রহণের জন্য আপনাকে ধন্যবাদ।</string>
+    <string name="congratulations_you_have_completed_your_sample_test_thank_you_for_participating_the_test">Congratulations! You have completed your sample test. Thank you for participating the test.</string>
+    <string name="timeout">Timeout !</string>
+    <string name="dear_md_naimur_rahman_your_exam_time_has_been_finished_thank_you_for_participating">Dear MD Naimur Rahman, Your exam time has been finished. Thank you for participating.</string>
     <string name="send_us_your_feedback">আপনার ফিডব্যাক দিন।</string>
     <string name="how_was_your_experience">আপনার অভিজ্ঞতা কেমন ছিল?</string>
     <string name="write_your_comment">কমেন্ট  লিখুন</string>
-    <string name="message_cannot_be_more_the_160_character_and_left_single_quote_written_as_are_not_allowed_etc">ম্যাসেজটি  ১০০০ অক্ষরের বেশি হতে পারবে না।</string>
+    <string name="message_cannot_be_more_the_160_character_and_left_single_quote_written_as_are_not_allowed_etc">Message can not be more than 1000 characters.</string>
     <string name="message">মেসেজ</string>
     <string name="rate_this_online_exam_system">অনলাইন টেস্টটি রেট করুন</string>
     <string name="submit">সাবমিট</string>
     <string name="unauthorized_attempt">অননুমোদিত প্রচেষ্টা</string>
-    <string name="you_have_unauthorized_attempt_for_this_test_following_reasons_will_be_considered_as_unauthorized_attempt">আপনার এই পরীক্ষার জন্য অননুমোদিত অবৈধ শনাক্ত করা হয়েছে। নিম্নলিখিত কারণগুলো অবৈধ প্রচেষ্টা হিসেবে গণ্য হবে:</string>
-    <string name="unauthorized_msg_1">• পরীক্ষার স্ক্রিন থেকে বের হওয়া\n\n• নতুন ট্যাব/অ্যাপ খুলা, অদলবদল বা অন্য অ্যাপে স্যুইচ করা\n\n• পরীক্ষার স্ক্রিন মিনিমাইজ করা\n\n• ব্যাকগ্রাউন্ডে চলমান অ্যাপস\n\n• পপ-আপ নোটিফিকেশন\n\n• মোবাইল কল\n\n• ডেস্কটপ/মোবাইল স্ক্রিন লক</string>
+    <string name="you_have_unauthorized_attempt_for_this_test_following_reasons_will_be_considered_as_unauthorized_attempt">You have unauthorized attempt for this test. Following reasons will be considered as unauthorized attempt:</string>
+    <string name="unauthorized_msg_1">• Leaving test screen\n\n• Opening, swapping or switching to another tab/app\n\n• Minimizing the test screen\n\n• Background running apps\n\n• Pop up Notifications\n\n• Mobile calls\n\n• Desktop/Mobile screen lock</string>
     <string name="try_again">আবার চেস্টা করুন</string>
     <string name="enter_test_room">টেস্ট রুমে প্রবেশ করুন</string>
     <string name="view_job_details">জব ডিটেইলস দেখুন</string>
     <string name="nice_amp_smooth"><![CDATA[Nice & Smooth]]></string>
     <string name="question_loading_time_was_slow">প্রশ্ন লোডিং হতে সময় বেশী লেগেছে </string>
-    <string name="had_an_issue_in_answering_questions">প্রশ্নের উত্তর দেওয়ার সময় সমস্যার সম্মুখীন হয়েছেন।</string>
-    <string name="showing_time_out_before_the_test_time_ends">পরীক্ষার সময় শেষ হওয়ার আগেই 'সময় শেষ' দেখাচ্ছে।</string>
-    <string name="site_stuck_for_a_while">যান্ত্রিক গোলযোগের জন্য সাইটটি কিছু সময়ের জন্য বন্ধ ছিল</string>
+    <string name="had_an_issue_in_answering_questions">Had an issue in answering questions</string>
+    <string name="showing_time_out_before_the_test_time_ends">Showing \'Time Out\' before the test time ends</string>
+    <string name="site_stuck_for_a_while">Site stuck for a while</string>
     <string name="other">অন্যান্য</string>
 
     <!--    Online Test System Strings -->
     <string name="skip">স্কিপ</string>
     <string name="questionImage">প্রশ্নের ছবি</string>
     <string name="please_wait">অপেক্ষা করুন</string>
-    <string name="sample_test_completed">"অভিনন্দন! আপনি আপনার নমুনা পরীক্ষা সম্পন্ন করেছেন। পরীক্ষায় অংশগ্রহণের জন্য ধন্যবাদ।"</string>
+    <string name="sample_test_completed">"Congratulations! You have completed your sample test. Thank you for participating the test."</string>
     <string name="primary_mobile">প্রাইমারী মোবাইল</string>
     <string name="favorite_search">আমার ফেভারিট সার্চ</string>
     <string name="my_calender">My\nCalender</string>
@@ -543,7 +543,7 @@
     <string name="profileImage">প্রোফাইল ছবি</string>
     <string name="employer_viewed">এমপ্লয়ার দেখেছেন</string>
     <string name="all_jobs">সকল জব</string>
-    <string name="guest_user_bottom_sheet_title">বাংলাদেশ কান্ট্রি কোঅর্ডিনেটিং মেকানিজম (BCCM)</string>
+    <string name="guest_user_bottom_sheet_title">Bangladesh Country Coordinating Mechanism (BCCM)</string>
     <string name="bdjobs_limited">বিডিজবস লিমিটেড</string>
     <string name="profile_picture">প্রফিলে_পিকচার</string>
     <string name="_0">0</string>
@@ -556,7 +556,7 @@
 
     <string name="saved">সেভড</string>
     <string name="ui_ux_designer">UI UX ডিজাইনার</string>
-    <string name="design_creative_dhaka_less_than_1_year">ডিজাইন/ক্রিয়েটিভ, ঢাকা, ১ বছরের কম অভিজ্ঞতা</string>
+    <string name="design_creative_dhaka_less_than_1_year">Design/Creative, Dhaka, Less than 1 year</string>
     <string name="contractual_jobs_home">চুক্তিভিত্তিক চাকরি</string>
     <string name="my_bdjobs">মাই বিডিজবস</string>
     <string name="there_is_no_event_on_this_day">এদিন কোনো ইভেন্ট নেই।</string>
@@ -615,7 +615,7 @@
     <string name="hint.newspaper_job">সংবাদপত্রের চাকরি</string>
     <string name="advanceSearch.tv.headline">অ্যাডভান্স সার্চ</string>
     <string name="advanceSearch.tv.search">সার্চ</string>
-    <string name="advanceSearch.hint.keyword">কীওয়ার্ড</string>
+    <string name="advanceSearch.hint.keyword">কী ওয়ার্ড</string>
     <string name="hint_general_category">সাধারণ ক্যাটাগরি</string>
     <string name="hint.special_skilled_category">স্পেশাল স্কিল্‌ড বিভাগ</string>
     <string name="hint.industry">শিল্প বিভাগ</string>
@@ -642,7 +642,7 @@
     <string name="tv_job_type">চাকরির ধরণ</string>
     <string name="advanced_search_tv_all_jobs">সকল চাকরি</string>
     <string name="tv_special_skilled_jobs">স্পেশাল স্কিল্‌ড জবস</string>
-    <string name="tv_all_except_special_skilled_jobs">বিশেষ দক্ষতা প্রয়োজন এমন চাকরি ব্যতীত সকল চাকরি</string>
+    <string name="tv_all_except_special_skilled_jobs">All except special skilled jobs</string>
     <string name="tv_job_level">চাকরির লেভেল</string>
     <string name="tv_entry_level">এন্ট্রি লেভেল</string>
     <string name="tv_mid_level">মিড লেভেল</string>
@@ -704,7 +704,7 @@
     <string name="video_resume_overall_ratings">সর্বমোট রেটিং</string>
     <string name="video_resume_yes">হ্যাঁ</string>
     <string name="video_resume_no">না</string>
-    <string name="label_resume_invisible_text_new">আপনার ভিডিও সিভি এবং বিডিজবস প্রোফাইল নিয়োগকর্তাদের জন্য দৃশ্যমান নয়। দৃশ্যমানতার বিকল্প পেতে প্রথম প্রশ্নের উত্তর দিন বা যেকোনো তিনটি প্রশ্নের উত্তর দিন।</string>
+    <string name="label_resume_invisible_text_new">Your Video CV/Resume is not visible to employers. Answer the first question or any three questions to get visibility options.</string>
     <string name="video_resume_make_visible">নিয়োগকর্তাকে দেখান</string>
     <string name="video_resume_hide">গোপন রাখুন</string>
     <string name="video_resume_create_video_cv_resume">ভিডিও সিভি তৈরি করুন</string>
@@ -718,7 +718,7 @@
 
     <!--Visible to Employer start-->
     <string name="visible_to_employer_visible_to_employer_s">নিয়োগকর্তাকে দেখান</string>
-    <string name="visible_to_employer_visible_to_employers_desc">"নিয়োগকর্তাদের জন্য দৃশ্যমান  " অর্থ হলো নিয়োগকর্তারা আপনার ভিডিও সিভি এবং বিডিজবস প্রোফাইল দেখতে পারবেন কি না।</string>
+    <string name="visible_to_employer_visible_to_employers_desc">Visible to Employers means whether the employer(s) can see your Video CV/Resume or not.</string>
     <string name="common_okay">ঠিক আছে</string>
     <!--Visible to Employer end-->
 
@@ -728,13 +728,13 @@
     <string name="companies">কোম্পানি</string>
     <string name="new_jobs">নতুন জব</string>
     <string name="benefits">সুবিধাসমূহ</string>
-    <string name="home_new_design_1_one_click_job_applications_tv">১) মাই বিডিজবস প্রোফাইল  ব্যবহার করে এক ক্লিকে চাকরির আবেদন করুন। || ২) আপনার মাই বিডিজবস প্রোফাইল  সম্ভাব্য নিয়োগদাতাদের নজরে আসতে সহায়তা করবে। || ৩) সাক্ষাৎকারের ডাক পাওয়ার সম্ভাবনা বাড়াতে মাই বিডিজবস প্রোফাইল  তৈরি করুন।</string>
+    <string name="home_new_design_1_one_click_job_applications_tv">1) One-click job applications with My Bdjobs Profile. || 2) Your My BDJobs Profile can help you get noticed by potential employers. || 3) Create My Bdjobs Profile to increase your chances of getting an interview call.</string>
     <string name="complete_bdjobs_profile">বিডিজবস প্রোফাইল সম্পূর্ণ করুন</string>
     <string name="invitations">ইনভাইটেশন</string>
     <string name="profile_complete">প্রোফাইল</string>
     <string name="video_resume_home">ভিডিও সিভি</string>
     <string name="manage">ম্যানেজ</string>
-    <string name="company_interested_in_you_last_month">গত মাসে যে কোম্পানিগুলি আপনার প্রতি আগ্রহ দেখিয়েছে</string>
+    <string name="company_interested_in_you_last_month">Company interested in you (last month)</string>
     <string name="_00">00</string>
     <string name="applied_jobs">এপ্লাইড জবস</string>
     <string name="shortlisted_jobs">শর্টলিস্টেট চাকরিসমূহ</string>
@@ -752,7 +752,7 @@
     <string name="view_all">সব দেখুন</string>
     <string name="interview_invitations">আসন্ন ইন্টারভিউ  এবং টেস্ট ইনভাইটেশন</string>
     <string name="bdjobs_learning_top_courses">আপনার স্কিল বাড়ান</string>
-    <string name="trending_in_bdjobs">বিডিজবস এ ট্রেন্ডিং</string>
+    <string name="trending_in_bdjobs">Trending in Bdjobs</string>
     <string name="hot_jobs">হট জবস</string>
     <string name="my_ncalendar">আমার ক্যালেন্ডার</string>
     <!--Home New Design page end-->
@@ -863,12 +863,12 @@
 
     <!--fragment guideline sms start-->
     <string name="guideline_sms_steps_to_get_follow_employer_job_alert">নিয়োগ কর্তার চাকরির বার্তা পাওয়ার ধাপসমূহ</string>
-    <string name="sms_guideline_emp1"><b>ধাপ ১:</b> আপনি নিয়োগকর্তার তালিকা বা চাকরির বিশদ পৃষ্ঠায় অনুসরণ ক্লিক করে আপনার উল্লেখিত নিয়োগকর্তাদের অনুসরণ করতে পারেন।</string>
+    <string name="sms_guideline_emp1"><b>ধাপ ১:</b> আপনি নিয়োগকর্তার তালিকা বা চাকরির বিশদ পৃষ্ঠায় ফলো ক্লিক করে আপনার উল্লেখিত নিয়োগকর্তাদের অনুসরণ করতে পারেন।</string>
     <string name="sms_guideline_emp2"><b>ধাপ ২:</b> আপনার পছন্দের নিয়োগকর্তার চাকরি সতর্কতায় সাবস্ক্রাইব করার জন্য এসএমএস এ ক্লিক করুন।</string>
     <string name="sms_guideline_emp3"><b>ধাপ ৩:</b> আপনার পছন্দের নিয়োগকর্তার চাকরি সতর্কতায় সাবস্ক্রাইব করার জন্য এসএমএস এ ক্লিক করুন।</string>
-    <string name="sms_guideline_fav1"><b>ধাপ ১:</b> আপনি নিয়োগকর্তার তালিকা বা চাকরির বিশদ পৃষ্ঠায় অনুসরণ ক্লিক করে আপনার উল্লেখিত নিয়োগকর্তাদের অনুসরণ করতে পারেন।</string>
+    <string name="sms_guideline_fav1"><b>ধাপ ১:</b> আপনি নিয়োগকর্তার তালিকা বা চাকরির বিশদ পৃষ্ঠায় ফলো ক্লিক করে আপনার উল্লেখিত নিয়োগকর্তাদের অনুসরণ করতে পারেন।</string>
     <string name="sms_guideline_fav2"><b>ধাপ ২:</b> আপনার পছন্দের নিয়োগকর্তার চাকরি সতর্কতায় সাবস্ক্রাইব করার জন্য এসএমএস এ ক্লিক করুন।</string>
-    <string name="sms_guideline_fav3"><b>ধাপ ৩:</b> আপনি যে কোনো সময় যেকোনো নিয়োগদাতার জন্য এসএমএস অ্যালার্ট বাতিল করতে পারেন।</string>
+    <string name="sms_guideline_fav3"><b>ধাপ ৩:</b> You can cancel SMS alert for any employer anytime.</string>
     <string name="guideline_sms_steps_to_get_favorite_search_job_alert">আপানার ফেভরিট সার্চ থেকে জবের তথ্য পাওইয়ার ধাপ</string>
     <!--fragment guideline sms end-->
 
@@ -905,8 +905,8 @@
     <string name="followed_employers">অনুসরণকৃত নিয়োগকর্তা</string>
     <string name="followed_employers_steps_of_following_your_employer">আপনার নিয়োগকর্তাকে অনুসরণ করার ধাপ:</string>
     <string name="followed_employers_go_to_employer_list_from_more_menu">মোর মেনু থেকে নিয়োগকর্তার তালিকায় যান</string>
-    <string name="followed_emp_step_3">- Tap <font color="#B32D7D"><b>+ নিয়োগকর্তাকে অনুসরণ করুন</b></font> বাটন.</string>
-    <string name="followed_emp_instruction">চাকরির বিস্তারিত পেইজে কোম্পানি তথ্য থেকে\n <font color="#B32D7D"><b>‘নিয়োগকারীকে অনুসরণ করুন’</b></font> বাটনে ট্যাপ করে অনুসরণ করতে পারবেন</string>
+    <string name="followed_emp_step_3">- Tap <font color="#B32D7D"><b>+ নিয়োগকর্তাকে ফলো করুন</b></font> বাটন.</string>
+    <string name="followed_emp_instruction">চাকরির বিস্তারিত পেইজে কোম্পানি তথ্য থেকে\n <font color="#B32D7D"><b>‘নিয়োগকারীকে ফলো করুন’</b></font> বাটনে ট্যাপ করে ফলো করতে পারবেন</string>
     <string name="followed_employers_would_you_like_to_follow_your_favourite_employer_now">আপনি কি এখনই আপনার প্রিয় নিয়োগকর্তাকে অনুসরণ করতে চান?</string>
     <string name="followed_emBTN_follow_employer">অনুসরণকৃত নিয়োগকর্তা</string>
     <string name="label_sms_alert">এসএসএস অ্যালার্ট</string>
@@ -975,7 +975,7 @@
 
     <!--Turn off SMS Alert Dialog start-->
     <string name="turn_off_sms_alert">এসএমএস অ্যালার্ট বন্ধ করুন</string>
-    <string name="turnOfSms_dialog_following_nemployer">অনুসরণ করা\n নিয়োগকারী</string>
+    <string name="turnOfSms_dialog_following_nemployer">ফলো করা\n নিয়োগকারী</string>
     <string name="turnOfSms_dialog_favourite_nsearch">পছন্দের\n অনুসন্ধান</string>
     <!--Turn off SMS Alert Dialog end-->
 
@@ -994,23 +994,18 @@
     <string name="Sign_out_dialog_title">আপনি কি সাইন আউট করতে চান?</string>
     <string name="logging_out_progress_title">লগ আউট</string>
     <string name="save_search_snackBar">সার্চ সেভ করতে অন্তত একটি ফিল্টার প্রয়োগ করুন</string>
-    <string name="video_cv_resume_hide_dialog_message_hide_from_emp">আপনি যদি ভিডিও রিজিউমি না দেখাতে চান তাহলে নিয়োগকর্তা তা দেখতে পারবেন না। আপনি কি চাচ্ছেন নিয়োগকর্তা দেখতে পাবেন না?</string>
-    <string name="video_cv_resume_hide_dialog_message_visible_to_emp">ভিডিও রিজিউমি করার ফলে নিয়োগকর্তা তা দেখতে পাবেন। আপনি কি কন্টিনিউ করতে চান?</string>
+    <string name="video_cv_resume_hide_dialog_message_hide_from_emp">This action will hide your Video CV/Resume from Employers. Do you want to continue?</string>
+    <string name="video_cv_resume_hide_dialog_message_visible_to_emp">This action will make your Video CV/Resume visible to Employers. Do you want to continue??</string>
     <string name="video_cv_resume_hide_dialog_title">কনফার্ম করুন</string>
-    <string name="video_cv_resume_hide_dialog_positive">হ্যাঁ, দেখাবো না</string>
-    <string name="video_cv_resume_hide_dialog_negative">বাতিল করুন</string>
+    <string name="video_cv_resume_hide_dialog_positive">হ্যাঁ, চালিয়ে যান</string>
+    <string name="video_cv_resume_hide_dialog_negative">ক্যান্সেল</string>
 
     <string name="select_a_site">একটি সাইট নির্বাচন করুন</string>
     <string name="select_ratting">রেটিং নির্বাচন করুন</string>
-<<<<<<< HEAD
     <string name="FeedbackSupportFragment_err_msg_phone_number">দয়া করে বৈধ ফোন নাম্বার প্রদান করুন।</string>
     <string name="FeedbackSupportFragment_err_msg_email_address">দয়া করে বৈধ ইমেল ঠিকানা প্রদান করুন।</string>
-=======
-    <string name="FeedbackSupportFragment_err_msg_phone_number">দয়া করে সঠিক ফোন নম্বর প্রদান করুন।</string>
-    <string name="FeedbackSupportFragment_err_msg_email_address">দয়া করে সঠিক ইমেল প্রদান করুন।</string>
->>>>>>> bb016d9256cf32fbe0a6d242624afd491cfbb658
 
-    <string name="no_transaction_history">আপনি এখনো কোনো লেনদেন সম্পন্ন করেননি</string>
+    <string name="no_transaction_history">আপনি এখনও কোন ট্রান্সজেকশন করেননি।</string>
 
     <string name="TAB_home">হোম</string>
     <string name="TAB_certificate_list">সার্টিফিকেট লিস্ট</string>
@@ -1023,8 +1018,8 @@
     <!--Language Change dialog end-->
 
     <!--activity suggestive search start-->
-    <string name="suggestive_search_start_typing_for_suggestions">সাজেশন পেতে টাইপ করুন</string>
-    <string name="recent_searched_location_s">সাম্প্রতিক অনুসন্ধান</string>
+    <string name="suggestive_search_start_typing_for_suggestions">সাজেশনের জন্য টাইপ করুন</string>
+    <string name="recent_searched_location_s">সাম্প্রতিক সার্চ</string>
     <string name="locations">আমার লোকেশন</string>
     <string name="district_s">জেলাসমুহ</string>
     <string name="suggestive_search_clear_all">ক্লিয়ার করুন</string>
@@ -1035,22 +1030,22 @@
 
     <!--save search dialog start-->
     <string name="title_save_search">সার্চ সেভ করুন</string>
-    <string name="save_search_update">আপডেট করুন</string>
+    <string name="save_search_update">আপডেট</string>
     <string name="save_search_save_as_new">নতুন হিসেবে সেভ করুন</string>
-    <string name="save_search_hint_name_of_your_favorite_search_filter">ফেভারিট সার্চের নামটি লিখুন</string>
+    <string name="save_search_hint_name_of_your_favorite_search_filter">আপনার পছন্দের সার্চ ফিল্টারের নাম দিন</string>
     <string name="save_search_save">সেভ</string>
     <string name="save_search_cancel">বাতিল করুন</string>
     <!--save search dialog end-->
 
     <!--fragment download/upload resume (personalize resume) start-->
-    <string name="personalized_resume">কাস্টমাইজড সিভি</string>
-    <string name="personalize_resume_statistics">পূর্ববর্তী কাস্টমাইজড সিভি স্ট্যাটাস</string>
-    <string name="personalize_resume_upload_viewed"> নিয়োগকর্তা দেখেছেন </string>
+    <string name="personalized_resume">পার্সোনালাইজড রিজিউমি</string>
+    <string name="personalize_resume_statistics">পূর্ববর্তী পার্সোনালাইজড রিজিউমি স্ট্যাটাস</string>
+    <string name="personalize_resume_upload_viewed">নিয়োগকর্তা দেখেছেন</string>
     <string name="personalize_resume_upload_downloaded">ডাউনলোড</string>
     <string name="personalize_resume_upload_emailed">ইমেইল</string>
-    <string name="label_upload_resume">এখানে কাস্টমাইজড সিভি দেখতে পারবেন। কাঙ্ক্ষিত চাকরি খুঁজে পেতে কাস্টমাইজড সিভি আপডেটেড রাখুন।</string>
-    <string name="personalized_resume_not_uploaded">আপনার কাস্টমাইজড সিভি এখনও আপলোড করা হয়নি।</string>
-    <string name="personalized_resume_upload_format">দয়া করে এখন আপনার সিভি আপলোড করুন .pdf,\n.doc, .docx</string>
+    <string name="label_upload_resume">এখানে, আপনি ব্যক্তিগত রেজুমে আপলোড করতে পারেন। একটি সঠিক কাজ পাওয়ার সম্ভাবনা বাড়ানোর জন্য, আপনার আপলোড করা রেজুমেটি আপডেট করা নিশ্চিত করুন।</string>
+    <string name="personalized_resume_not_uploaded">আপনার ব্যক্তিগত রেজ্যুমে এখনও আপলোড করা হয়নি।</string>
+    <string name="personalized_resume_upload_format">দয়া করে এখন আপনার রেজ্যুমে আপলোড করুন .pdf,\n.doc, .docx</string>
     <string name="personalize_resume_download_views">নিয়োগকর্তা দেখেছেন</string>
     <string name="personalize_resume_download_downloads">ডাউনলোড</string>
     <string name="personalize_resume_download_emailed">ইমেইল</string>
@@ -1075,12 +1070,12 @@
     <string name="interview_session_not_now">এখন না</string>
     <string name="interview_session_mute">মিউট</string>
     <string name="interview_session_camera_on">ক্যামেরা অন করুন</string>
-    <string name="interview_session_attended_successfully_msg">আপনার ইন্টারভিউ সফলভাবে সম্পন্ন হয়েছে।</string>
-    <string name="interview_session_duration">ডেডলাইন</string>
-    <string name="interview_session_rate_this_interview">ইন্টারভিউটি রেট করুণ</string>
+    <string name="interview_session_attended_successfully_msg">আপনার ইন্টারভিউ সফলভাবে শেষ হয়েছে।</string>
+    <string name="interview_session_duration">সময়কাল</string>
+    <string name="interview_session_rate_this_interview">ইন্টারভিউটি রেট করুন</string>
     <string name="interview_session_submit">সাবমিট করুন</string>
-    <string name="interview_session_message_employer">নিয়োগকর্তাকে মেসেজ করুন</string>
-    <string name="interview_session_go_back_to_live_interview">লাইভ ইন্টারভিউয়ে ফেরত যান।</string>
+    <string name="interview_session_message_employer">এমপ্লয়ারকে মেসেজ করুন</string>
+    <string name="interview_session_go_back_to_live_interview">লাইভ ইন্টারভিউয়ে ফেরৎ যান।</string>
     <string name="interview_session_give_your_feedback">আপনার ফিডব্যাক দিন।</string>
     <string name="interview_session_write_messages">মেসেজ লিখুন</string>
     <string name="label_starting_interview">ইন্টারভিউ শুরু হচ্ছে...</string>
@@ -1104,7 +1099,7 @@
     <!--fragment video resume record Start-->
     <string name="label_change">চেঞ্জ করুন</string>
     <string name="video_resume_rec">REC</string>
-    <string name="optional">অপশনাল</string>
+    <string name="optional">( অপশনাল)</string>
     <string name="record_vr_1">১</string>
     <string name="record_vr_2">২</string>
     <string name="record_vr_3">৩</string>
@@ -1115,94 +1110,87 @@
 
     <!--fragment Video Interview Invitation Details start-->
     <string name="video_interview_invitation">ভিডিও ইন্টারভিউ ইনভাইটেশন</string>
-    <string name="video_interview_invitation_congratulation_msg">অভিনন্দন! আপনাকে একটি ভিডিও ইন্টারভিউইয়ের জন্য নির্বাচিত করা হয়েছে। নিয়োগকর্তার কিছু প্রশ্ন রয়েছে, যা আপনি উত্তর রেকর্ডের আগে দেখতে পারবেন।</string>
-    <string name="video_interview_invitation_deadline">ডেডলাইন</string>
+    <string name="video_interview_invitation_congratulation_msg">অভিনন্দন! আপনাকে একটি ভিডিও সাক্ষাত্কারের জন্য নির্বাচিত করা হয়েছে। নিয়োগকর্তার কিছু প্রশ্ন রয়েছে যা আপনি উত্তরগুলি রেকর্ড করার আগে দেখতে পারেন।</string>
+    <string name="video_interview_invitation_deadline">সময়সীমা</string>
     <string name="video_interview_invitation_total_time">সর্বমোট সময়</string>
     <string name="video_interview_invitation_questions">প্রশ্নাবলী</string>
-    <string name="video_interview_invitation_extra_attempt_s">পুনরায় চেষ্টা</string>
+    <string name="video_interview_invitation_extra_attempt_s">অতিরিক্ত প্রচেষ্টা</string>
     <string name="video_interview_invitation_view_job_details">জব ডিটেইলস দেখুন</string>
     <string name="video_interview_invitation_BTN_submit">ভিডিও ইন্টারভিউ সাবমিট করুন</string>
-    <string name="viewed_by_employer_by_date">নিয়োগকর্তা দেখেছেন,<b><big>%1$s</big></b></string>
+    <string name="viewed_by_employer_by_date">Viewed by Employer, <b><big>%1$s</big></b></string>
     <string name="view_video">ভিডিও দেখুন</string>
     <!--fragment Video Interview Invitation Details end-->
 
     <!--fragment Details confirm layout start-->
     <string name="apply_online">অ্যাপ্লাই অনলাইন</string>
-<<<<<<< HEAD
     <string name="your_expected_salary">প্রত্যাশিত স্যালারি <font color="#AC0000">*</font></string>
-    <string name="bdt_month">টাকা/মাস</string>
+    <string name="bdt_month">BDT/মাস</string>
     <string name="please_enter_your_expected_salary">আপনার প্রত্যাশিত স্যালারি লিখুন</string>
     <string name="details_confirm_your_expected_salary_is_higher">আপনার প্রত্যাশিত স্যালারি প্রদত্ত স্যালারির থেকে বেশি।</string>
-=======
-    <string name="your_expected_salary">প্রত্যাশিত বেতন<font color="#AC0000">*</font></string>
-    <string name="bdt_month">টাকা/মাস</string>
-    <string name="please_enter_your_expected_salary">আপনার প্রত্যাশিত বেতন লিখুন</string>
-    <string name="details_confirm_your_expected_salary_is_higher">আপনার প্রত্যাশিত বেতন প্রদত্ত বেতন থেকে বেশি।</string>
->>>>>>> bb016d9256cf32fbe0a6d242624afd491cfbb658
     <string name="priority_level">প্রায়োরিটি লেভেল<font color="#AC0000">*</font></string>
-    <string name="high_available">হাঁই<font color="#13A10D">(এভেইলেবেল)</font></string>
+    <string name="high_available">হাঁই <font color="#13A10D">(Available)</font></string>
     <string name="details_confirm_only_one_job_available_per_week">(প্রতি সপ্তাহে একটি চাকরি এভেইলেবেল)</string>
-    <string name="please_enter_your_priority_level">দয়া করে আপনার অগ্রাধিকার লেভেল নির্বাচন করুন।</string>
-    <string name="priority_level_indicates_your_interest_to_employer_s_only_one_job_per_week_can_be_selected_as">অগ্রাধিকার লেভেল নিয়োগকর্তাদের প্রতি আপনার আগ্রহ নির্দেশ করে। শুধুমাত্র <b>একটি</b> চাকরি প্রতি সপ্তাহে "হাই প্রায়োরিটি" হিসাবে নির্বাচন করা যেতে পারে।</string>
+    <string name="please_enter_your_priority_level">দয়া করে আপনার অগ্রাধিকার স্তর নির্বাচন করুন।</string>
+    <string name="priority_level_indicates_your_interest_to_employer_s_only_one_job_per_week_can_be_selected_as">অগ্রাধিকার স্তর নিয়োগকর্তাদের প্রতি আপনার আগ্রহ নির্দেশ করে। শুধুমাত্র <b>একটি</b> চাকরি প্রতি সপ্তাহে "হাই প্রায়োরিটি" হিসাবে নির্বাচন করা যেতে পারে।</string>
     <string name="regular">রেগুলার</string>
-    <string name="details_confirm_important_note_for_priority_level">গুরুত্বপূর্ণ নোট অগ্রাধিকার লেভেলের জন্য</string>
-    <string name="priority_level_more_details"> অগ্রাধিকার লেভেল প্রতি সপ্তাহে একটি চাকরির জন্য (শনিবার থেকে শুক্রবার) হাঁই সেট করা যেতে পারে।\n* একবার অগ্রাধিকার লেভেল হাঁই সেট করা হলে, এটি বাতিল করা যাবে না।\n হাঁই অগ্রাধিকার এখনও নির্বাচিত না হলে আবেদনকৃত চাকরি তালিকা থেকে এখন বা পরে সেট করা যেতে পারে।"</string>
-    <string name="learn_more_about_priority_level"><u>অগ্রাধিকার লেভেল সম্পর্কে আরও জানুন</u></string>
+    <string name="details_confirm_important_note_for_priority_level">গুরুত্বপূর্ণ নোট অগ্রাধিকার স্তরের জন্য</string>
+    <string name="priority_level_more_details">"* অগ্রাধিকার স্তর প্রতি সপ্তাহে একটি চাকরির জন্য (শনিবার থেকে শুক্রবার) উচ্চে সেট করা যেতে পারে।\n* একবার অগ্রাধিকার স্তর উচ্চ সেট করা হলে, এটি বাতিল করা যাবে না।\n* উচ্চ অগ্রাধিকার এখনও নির্বাচিত না হলে আবেদনকৃত চাকরি তালিকা থেকে এখন বা পরে সেট করা যেতে পারে।"</string>
+    <string name="learn_more_about_priority_level"><u>অগ্রাধিকার স্তর সম্পর্কে আরও জানুন</u></string>
     <string name="tr_EN">Translate into English</string>
-    <string name="details_confirm_checkBox_msg">আপনি আবেদন করার আগে নীচের বক্সটি চেক করুন।</string>
+    <string name="details_confirm_checkBox_msg">আপনি আবেদন করার আগে নীচের বাক্সটি চেক করুন।</string>
     <string name="apply">আবেদন করুন</string>
     <!--fragment Details confirm layout end-->
 
 
     <!--fragment guideline viewpager start-->
-    <string name="by_clicking_lets_start_now"><b>"চালু করতে এখানে ক্লিক করুন"</b> ক্লিক করে আপনি প্রশ্ন(গুলি) দেখতে এবং উত্তর(গুলি) রেকর্ড করতে পারবেন। রেকর্ডিং শুরু করার পর আপনাকে সব উত্তর জমা দেওয়ার জন্য ১ ঘণ্টা সময় দেওয়া হবে।</string>
+    <string name="by_clicking_lets_start_now">Instruction: By clicking <b>\"Let\'s Start Now\"</b> you can view the question(s) and record answer(s). You will get 1 hour to submit all the answer(s) after starting recording.</string>
     <string name="let_s_start_now">চলুন এখন শুরু করি</string>
     <!--fragment guideline viewpager end-->
 
     <!--fragment question details start-->
     <string name="question_details_video_interview">ভিডিও ইন্টারভিউ</string>
     <string name="question_details_user_guide">ইউজার গাইড</string>
-    <string name="question_details_time_counter_msg">আপনি যখন ইন্টারভিউইয়ের প্রশ্ন(গুলি) রেকর্ড করা শুরু করবেন তখন সময় গণনা শুরু হবে। রেকর্ডিং শুরু হওয়ার পর থেকে সব উত্তর জমা দিতে আপনি ১ ঘণ্টা সময় পাবেন।</string>
+    <string name="question_details_time_counter_msg">আপনি যখন সাক্ষাত্কারের প্রশ্ন(গুলি) রেকর্ড করা শুরু করবেন তখন সময় কাউন্টার শুরু হবে। আপনার সব উত্তর জমা দিতে ১ ঘণ্টা সময় পাবেন।</string>
     <string name="question_details_total_time">সর্বমোট সময়ঃ</string>
     <string name="question_details_not_interested_to_submit">সাবমিট করতে ইচ্ছুক নই।</string>
-    <string name="video_not_interested_generic_text"> আপনি যদি <b>"আগ্রহী নয়"</b> সাবমিট করেন, তবে আপনি আর এই ভিডিও ইন্টারভিউতে অংশগ্রহণ করতে পারবেন না।</string>
+    <string name="video_not_interested_generic_text">If you submit <b>\"Not interested\"</b>, you will no longer be able to participate in this video interview.</string>
     <string name="question_details_submit_later">পরে সাবমিট করব</string>
     <string name="question_details_record_video">ভিডিও রেকর্ড</string>
     <string name="question_details_view_video">ভিডিও দেখুন</string>
     <string name="question_details_not_answered">উত্তর দেওয়া হয় নাই</string>
-    <string name="q1">প্রশ্ন ১</string>
-    <string name="q2">প্রশ্ন ২</string>
-    <string name="q3">প্রশ্ন ৩</string>
-    <string name="q4">প্রশ্ন ৪</string>
-    <string name="q5">প্রশ্ন ৫</string>
-    <string name="_1_hr">১ ঘন্টা</string>
+    <string name="q1">Q1</string>
+    <string name="q2">Q2</string>
+    <string name="q3">Q3</string>
+    <string name="q4">Q4</string>
+    <string name="q5">Q5</string>
+    <string name="_1_hr">1 hr</string>
     <!--fragment question details end-->
 
     <!--fragment record video start-->
-    <string name="record_video_msg"> আপনি কেন মনে করেন এই চাকরিটি আপনার জন্য উপযুক্ত?</string>
+    <string name="record_video_msg">কেন আপনি মনে করেন এই চাকরিটি আপনার জন্য উপযুক্ত?</string>
     <string name="record_video_time">সময়</string>
-    <string name="record_video_start_recording">রেকর্ড শুরু করুণ</string>
+    <string name="record_video_start_recording">রেকর্ড শুরু করুন</string>
     <string name="record_video_rec">REC</string>
     <string name="record_video_time_remaining">অবশিষ্ট সময়</string>
     <string name="record_video_done">সম্পন্ন</string>
     <!--fragment record video end-->
 
     <!--fragment view video start-->
-    <string name="view_video_extra_attempts">পুনরায় চেষ্টা</string>
+    <string name="view_video_extra_attempts">অতিরিক্ত প্রচেষ্টাঃ</string>
     <string name="view_video_record_again">পুনরায় রেকর্ড করুন</string>
     <!--fragment view video end-->
 
     <!--fragment ratting start-->
-    <string name="ratting_successfully_attended">সফলভাবে অংশগ্রহণ করেছেন।</string>
-    <string name="ratting_rate_this_interview">ইন্টারভিউটি রেটিং করুন</string>
+    <string name="ratting_successfully_attended">আপনি সফলভাবে ভিডিও ইন্টারভিউয়ে অংশগ্রহণ করেছেন।</string>
+    <string name="ratting_rate_this_interview">রেটিং দিন</string>
     <string name="ratting_submit">সাবমিট</string>
     <string name="ratting_hint_write_feedback">ফিডব্যাক লিখুন</string>
     <!--fragment ratting end-->
 
     <!--fragment after submit feedback start-->
     <string name="after_submit_feedback_thank_you_for_your_feedback">আপনার ফিডব্যাকের জন্য ধন্যবাদ।</string>
-    <string name="video_resume_bottom_guide_create_video_cv_resume">ভিডিও সিভি/রিজিউমি তৈরি করুন।</string>
-    <string name="video_resume_bottom_guide_you_can_build_a_video_cv_resume">আপনি বিডিজবস প্ল্যাটফর্ম থেকে একটি ভিডিও সিভি/রিজিউমি তৈরি করতে পারেন যাতে সকল নিয়োগকর্তার কাছে নিজেকে সুন্দর ভাবে উপস্থাপন করতে পারেন।</string>
+    <string name="video_resume_bottom_guide_create_video_cv_resume">ভিডিও সিভি/ রিজিউমি তৈরি করুন।</string>
+    <string name="video_resume_bottom_guide_you_can_build_a_video_cv_resume">আপনি Bdjobs প্ল্যাটফর্ম থেকে একটি ভিডিও CV/রেজ্যুমে তৈরি করতে পারেন যাতে সমস্ত নিয়োগকর্তার কাছে নিজেকে দৃশ্যমানভাবে উপস্থাপন করতে পারেন।</string>
     <string name="learn_more"><u>আরও জানুন</u></string>
     <!--fragment after submit feedback end-->
 
@@ -1232,7 +1220,7 @@
     <!--fragment general interview details end-->
 
     <!--fragment guest user job search start-->
-    <string name="hint.search_with_your_keyword">কীওয়ার্ড দিয়ে সার্চ করুন</string>
+    <string name="hint.search_with_your_keyword">কি-ওয়ার্ড দিয়ে সার্চ করুন</string>
     <string name="hint.search_category">ক্যাটাগরি সার্চ করুন</string>
     <string name="hint.search_location">লোকেশন সার্চ করুন</string>
     <string name="sign_in">সাইন ইন</string>
@@ -1253,15 +1241,15 @@
     <string name="warning_cancel_button">বাদ দিন</string>
     <string name="bdjobs_profile_">বিডিজবস প্রোফাইল</string>
     <string name="summary_view">প্রোফাইলের সারাংশ</string>
-    <string name="personalized_resume_">কাস্টোমাইজড সিভি</string>
+    <string name="personalized_resume_">কাস্টোমাইজড রিজিউমি</string>
     <string name="video_cv_resume_">ভিডিও সিভি/রিজিউমি</string>
     <!--Filter employer view Dialog end-->
 
     <!--Preparation Dialog start-->
-    <string name="msg_preparation">এখান থেকে আপনি নিয়োগকর্তার সঙ্গে ইন্টারভিউয়ের আগে অনুশীলনের জন্য রেকর্ড করতে এবং আপনার ক্যামেরা/মাইক্রোফোন পরীক্ষা করতে পারেন।</string>
+    <string name="msg_preparation">এখান থেকে আপনি নিয়োগকর্তার সাথে সাক্ষাত্কারের আগে অনুশীলনের জন্য রেকর্ড করতে পারেন এবং আপনার ক্যামেরা/মাইক্রোফোন পরীক্ষা করতে পারেন।</string>
     <string name="record_video_button">ভিডিও রেকর্ড করুন</string>
     <string name="check_audio_video_button">অডিও/ ভিডিও চেক করুন</string>
-    <string name="msg_buy_sms"> ফলো করা কোম্পানিগুলো থেকে তাৎক্ষণিক জব অ্যালার্ট পেতে এসএমএস কিনুন।</string>
+    <string name="msg_buy_sms"> ফলো করা কোম্পানি থেকে তাৎক্ষনিক জব অ্যালার্ট পেতে তাদের এসএমএস কিনুন।</string>
     <string name="jobs_alert">জব আলার্ট</string>
     <!--Preparation Dialog end-->
 
@@ -1285,7 +1273,7 @@
 
     <!--general search start-->
     <string name="general_search_job_search">চাকরি খুঁজুন</string>
-    <string name="general_search_hint_keyword">কি ওয়ার্ড</string>
+    <string name="general_search_hint_keyword">কীওয়ার্ড</string>
     <string name="general_search_search_button">সার্চ</string>
     <string name="label_general_search_recent_search">সাম্প্রতিক সার্চ</string>
     <string name="label_general_search_clear">সব মুছে ফেলুন</string>
@@ -1496,7 +1484,7 @@
     <!--fragment choose schedule end-->
 
     <!--fragment result start-->
-    <string name="result_details">রেজাল্ট বিবরণী</string>
+    <string name="result_details">রেজাল্ট ডিটেইলস</string>
     <string name="test_name">টেস্টের নামঃ</string>
     <string name="test_date_">টেস্টের তারিখঃ</string>
     <string name="show_on_resume">প্রোফাইলে দেখান</string>
@@ -1838,10 +1826,10 @@
     <!--fragment instruction viewpage end-->
 
     <!--fragment home layout start-->
-    <string name="first_time_job_search">আপনি প্রথমবার এখানে এসেছেন। 'চাকরি খুঁজুন' বোতামটি চাপুন এবং আপনার চাকরি খোঁজা শুরু করুন।</string>
+    <string name="first_time_job_search">আপনি প্রথমবার এখানে এসেছেন। 'চাকরি খুঁজুন' বাটন ক্লিক করুন এবং আপনার চাকরি খোঁজা শুরু করুন।</string>
     <string name="search_job">চাকরি খুঁজুন</string>
     <string name="congratulations_for_the_video_interview_please_record_videos">অভিনন্দন! আপনাকে একটি কোম্পানি ইন্টারভিউয়ের জন্য নির্বাচিত করেছে।</string>
-    <string name="jobs_of_followed_employers">অনুসরণ করা নিয়োগকারীদের চাকরি</string>
+    <string name="jobs_of_followed_employers">ফলো করা নিয়োগকর্তাদের চাকরি</string>
     <!--fragment home layout end-->
 
     <string name="steps_of_saving_your_search_as_favourite_">আপনার সার্চকে ফেভারিট সার্চ হিসেবে সেভ করার ধাপসমূহ</string>
@@ -1860,8 +1848,8 @@
     <!--fragment_employer_viewed_my_resume end-->
 
     <!--fragment_employer_interaction start-->
-    <string name="employer_s_interaction">নিয়োগকারীর ইন্টারঅ্যাকশন</string>
-    <string name="employer_interaction_with_this_job_application">এই চাকরি আবেদনের সাথে নিয়োগকারীর ইন্টারঅ্যাকশন</string>
+    <string name="employer_s_interaction">নিয়োগকর্তার ইন্টারঅ্যাকশন</string>
+    <string name="employer_interaction_with_this_job_application">এই চাকরি আবেদনের সাথে নিয়োগকর্তার ইন্টারঅ্যাকশন</string>
     <string name="not_contacted">কল/ই-মেইল পাইনি</string>
     <string name="contacted">কল/ই-মেইল পেয়েছি</string>
     <string name="hired">নিয়োগ পেয়েছি</string>
@@ -1888,7 +1876,7 @@
     <string name="monthly">মাসিক</string>
     <!--expected salary popup end-->
 
-    <string name="follow">অনুসরণ</string>
+    <string name="follow">ফলো</string>
 
     <string name="last_viewed_on">শেষ দেখা</string>
 
@@ -1929,15 +1917,15 @@
     <!--activity manage resume dashboard end-->
 
     <!--point system start-->
-    <string name="available_points">এভেইলএবেল পয়েন্ট</string>
-    <string name="available_point">এভেইলেবেল পয়েন্ট</string>
+    <string name="available_points">টোটাল পয়েন্টস</string>
+    <string name="available_point">টোটাল পয়েন্ট</string>
     <string name="redeem_points">পয়েন্ট রিডিম করুন</string>
     <string name="pts_">pts</string>
     <string name="bronze">ব্রোঞ্জ</string>
     <!--point system end-->
 
     <!--point details start-->
-    <string name="level_details">লেভেল বিবরণী</string>
+    <string name="level_details">লেভেল ডিটেইলস</string>
     <string name="_1_99_points">১-৯৯ পয়েন্ট</string>
     <string name="silver">সিলভার</string>
     <string name="_100_199_points">১০০-১৯৯ পয়েন্ট</string>
@@ -1953,7 +1941,7 @@
 
     <!--point manage resume start-->
     <string name="bdjobs_resume">বিডিজবস প্রোফাইল</string>
-    <string name="video_resume">ভিডিও রিজিউমি</string>
+    <string name="video_resume">ভিডিও সিভি</string>
     <string name="_5_points">৫ পয়েন্ট</string>
     <string name="create">তৈরি</string>
     <string name="one_time_">ওয়ান টাইম</string>
@@ -1991,7 +1979,7 @@
     <!--fragment_point_system_personalization start-->
     <string name="personalization">নিজস্বকরণ</string>
     <string name="save_nfavorite_search">সেভ ফেভারিট সার্চ</string>
-    <string name="follow_nemployers">অনুসরণ নিয়োগকর্তা</string>
+    <string name="follow_nemployers">ফলো করা নিয়োগকর্তা</string>
     <string name="shortlist_njobs">শর্টলিস্টেড জব</string>
     <string name="sms_njob_alert">এসএমএস অ্যালার্ট</string>
     <!--fragment_point_system_personalization end-->
@@ -2002,14 +1990,14 @@
 
     <!--feedback Support Fragment Kt start-->
     <string name="bdjobs_home_array">বিডিজবস হোম</string>
-    <string name="career_counsel_array">ক্যারিয়ার পরামর্শ</string>
+    <string name="career_counsel_array">ক্যারিয়ার কাউন্সেলিং</string>
     <string name="employability_certification_array">এমপ্লয়াবিলিটি সার্টিফিকেট</string>
     <string name="favorite_search_array">ফেভারিট সার্চ</string>
     <string name="hot_jobs_array">হট জবস</string>
     <string name="job_fair_array">জব ফেয়ার</string>
     <string name="others_array">অন্যান্য</string>
     <string name="jobs_array">জবস</string>
-    <string name="video_resume_array">ভিডিও রিজিউমি</string>
+    <string name="video_resume_array">ভিডিও সিভি</string>
     <string name="video_interview_array">ভিডিও ইন্টারভিউ</string>
     <string name="live_interview_array">লাইভ ইন্টারভিউ</string>
     <string name="sms_job_alert_array">এসএমএস জব অ্যালার্ট</string>
@@ -2022,7 +2010,7 @@
     <string name="good_array">ভালো</string>
     <string name="satisfactory_array">সন্তোষজনক</string>
     <string name="not_satisfactory_array">সন্তোষজনক নয়</string>
-    <string name="feedback_submitted_msg">আপনার ফিডব্যাক সফলভাবে রেকর্ড করা হয়েছে।</string>
+    <string name="feedback_submitted_msg">আপনার ফিডব্যাক সফলভাবে সাবমিট করা হয়েছে।</string>
     <string name="check_audio_video_title">অডিও/ ভিডিও চেক করুন।</string>
     <!--feedback Support Fragment Kt end-->
 
@@ -2065,15 +2053,15 @@
     <string name="common_Loading">লোড হচ্ছে...</string>
 
     <!--TrainingListFragment Kt end-->
-    <string name="Fields_are_mandatory">ফিল্ডগুলি বাধ্যতামূলক</string>
+    <string name="Fields_are_mandatory">ফিল্ডগুলো বাধ্যতামূলক</string>
     <string name="Something_went_wrong">কিছু সমস্যা হয়েছে!</string>
     <string name="Please_fill_at_least_a_Primary_Mobile_No_or_Email_Address">অন্তত একটি প্রাইমারী মোবাইল নাম্বার বা ইমেইল অ্যাড্রেস পূরণ করুন৷</string>
-    <string name="Invalid_Image_has_been_selected">ভুল ছবি নির্বাচন করা হয়েছে! আবার ছবি নির্বাচন করুন।</string>
-    <string name="Image_can_not_be_larger_than_3MB">ছবি 3MB-এর বেশী বড় হওয়া যাবে না। </string>
-    <string name="Invalid_Image_has_been_selected_Please_Choose_image_again">ভুল ছবি নির্বাচন করা হয়েছে! আবার ছবি নির্বাচন করুন।</string>
-    <string name="snackBar_Unable_to_book_schedule_Please_try_again_after_some_time">ভুল ছবি নির্বাচন করা হয়েছে! আবার ছবি নির্বাচন করুন।</string>
-    <string name="Nid_Number_can_not_be_lower_than_10_or_higher_than_17_Character">"এনআইডি সংখ্যা ১০ এর কম বা ১৭ ক্যারেক্টারের বেশি হতে পারে না।"</string>
-    <string name="No_skill_found">কোন স্কিল খুজে পাওয়া যায়নি।</string>
+    <string name="Invalid_Image_has_been_selected">অকার্যকর ছবি নির্বাচন করা হয়েছে! আবার ছবি নির্বাচন করুন।</string>
+    <string name="Image_can_not_be_larger_than_3MB">ছবির সাইজ 3MB-এর বেশী হওয়া যাবে না। </string>
+    <string name="Invalid_Image_has_been_selected_Please_Choose_image_again">অকার্যকর ছবি নির্বাচন করা হয়েছে! আবার ছবি নির্বাচন করুন।</string>
+    <string name="snackBar_Unable_to_book_schedule_Please_try_again_after_some_time">অকার্যকর ছবি নির্বাচন করা হয়েছে! আবার ছবি নির্বাচন করুন।</string>
+    <string name="Nid_Number_can_not_be_lower_than_10_or_higher_than_17_Character">"এনআইডি নাম্বার ১০ ডিজিটের কম অথবা ১৭ ডিজিটের বেশি হওয়া যাবে না"</string>
+    <string name="No_skill_found">কোন দক্ষতা পাওয়া যায়নি!</string>
     <string name="Item_Removed">আইটেম সরানো হয়েছে!</string>
     <string name="already_exists">এই আইটেমটি আগে থেকেই আছে!</string>
     <string name="Added">অ্যাড করা হয়েছে।  </string>
@@ -2085,7 +2073,7 @@
     <string name="Retry">"আবার চেষ্টা করুন"</string>
 
     <!-- TabStateAdapter kt start -->
-    <string name="common_Point_Details">পয়েন্ট বিবরণী</string>
+    <string name="common_Point_Details">পয়েন্ট ডিটেইলস</string>
     <string name="common_Redeem_Points">রিডিমড পয়েন্টস</string>
     <string name="common_Points_History">পয়েন্টস হিস্টোরি</string>
     <!-- TabStateAdapter kt end -->
@@ -2109,7 +2097,7 @@
 গোল্ড: ২০০-২৯৯  পয়েন্টস
 ডায়মন্ড: ৩০০-৪৯৯ পয়েন্টস
 প্লাটিনাম: ৫০০+</string>-->
-    <string name="points_faq_q_4">৪. "েভেল পয়েন্টস কি? রিডিম করলে আমার লেভেল পয়েন্টস কমে যাবে কি?</string>
+    <string name="points_faq_q_4">৪. "লেভেল পয়েন্টস কি? রিডিম করলে আমার লেভেল পয়েন্টস কমে যাবে কি?</string>
     <string name="points_faq_a_4">লেভেল পয়েন্টস আপনাকে পরবর্তী লেভেলে পৌঁছাতে এবং আরও সুবিধা পেতে সাহায্য করে। একবার কাঙ্ক্ষিত লেভেল পয়েন্টস-এ পৌঁছে গেলে, পয়েন্টস রিডিম করলেও আপনার লেভেল নিচে নেমে আসবে না।</string>
     <string name="points_faq_q_5">৫. আমি কিভাবে "মাই পয়েন্টস" অর্জন করতে পারি ?</string>
     <string name="points_faq_a_5">আপনার বিডিজবস অ্যাকাউন্ট লগ ইন রেখে  অ্যাক্টিভ থাকুন, যেমন একটি রিজিউমি তৈরি করা, আপনার প্রোফাইল আপডেট করা, চাকরির জন্য আবেদন করা বা ইন্টারভিউ অ্যাটেন্ড করা ইত্যাদির জন্য পয়েন্টস পাবেন। আরও জানতে "মাই পয়েন্টস"  ইউজার গাইড দেখুন।</string>
@@ -2124,38 +2112,38 @@
     <string name="points_faq_q_10">১০.রিডিম করতে "মাই পয়েন্টস"-এর সংখ্যার কি কোনো সীমা আছে?</string>
     <string name="points_faq_a_10">না। "মাই পয়েন্টস" রিডিম করার জন্য কোন সীমাবদ্ধতা নেই।</string>
     <string name="points_faq_q_11">১১. "মাই পয়েন্টস" রিডিম করতে কোনো অসুবিধা হলে আমার কি করা উচিত?</string>
-    <string name="points_faq_a_11">পয়েন্টস রিডিম করার জন্য আপনি যদি কোনো টেকনিক্যাল বা অন্যান্য সমস্যার সম্মুখীন হন অনুগ্রহ করে 16479 বা 09612444888 নাম্বারে কল করুন।</string>
+    <string name="points_faq_a_11">পয়েন্টস রিডিম করার জন্য আপনি যদি কোনো টেকনিক্যাল বা অন্যান্য সমস্যার সম্মুখীন হন অনুগ্রহ করে ১৬৪৭৯ বা ০৯৬১২৪৪৪৮৮৮ নাম্বারে কল করুন।</string>
     <string name="points_faq_activities_ans">১ অপ্রাসঙ্গিক চাকরিতে আবেদনের জন্য ৫ পয়েন্টস ডিডাক্ট হবে ।\n২ ইন্টারভিউ ইনভাইটেশনে রেসপন্স না করলে ২ পয়েন্টস ডিডাক্ট হবে।\n৫ ইন্টারভিউতে অনুপস্থিত থাকলে ৫ পয়েন্টস ডিডাক্ট হবে।</string>
-    <string name="video_resume_2">ভিডিও রিজিউমি</string>
+    <string name="video_resume_2">ভিডিও সিভি</string>
     <string name="point_guide">পয়েন্ট গাইড</string>
-    <string name="Visible_to_Employers">নিয়োগকারীদের কাছে দৃশ্যমান:</string>
+    <string name="Visible_to_Employers">নিয়োগকর্তার কাছে দৃশ্যমানতা:</string>
     <string name="resumeDashBoard_binding_adapter_Public">পাবলিক</string>
     <string name="resumeDashBoard_binding_adapter_Private">প্রাইভেট</string>
     <string name="public_recommended">পাবলিক (প্রস্তাবিত)</string>
-    <string name="select_your_availability_status">তাৎক্ষণিক উপলব্ধতা:</string>
+    <string name="select_your_availability_status">আপনার এভেইলেবিলিটি স্ট্যাটাস নির্বাচন করুন:</string>
     <string name="yes_recommended">হ্যাঁ (প্রস্তাবিত)</string>
-    <string name="all_employer_s_can_see_your_availability">সমস্ত নিয়োগকর্তা(গুলি) আপনার উপলব্ধতা দেখতে পারেন৷</string>
-    <string name="no_employer_s_can_see_your_availability">কোনো নিয়োগকর্তা আপনার উপলব্ধতা দেখতে পারবেন না।</string>
+    <string name="all_employer_s_can_see_your_availability">সমস্ত নিয়োগকর্তা(রা) আপনার এভেইলেবিলিটি দেখতে পারবে৷</string>
+    <string name="no_employer_s_can_see_your_availability">কোনো নিয়োগকর্তা(রা) আপনার এভেইলেবিলিটি দেখতে পারবে না।</string>
     <string name="No">না</string>
     <string name="resumeDashBoard_binding_adapter_Limited">লিমিটেড</string>
     <string name="resumeDashBoard_binding_percent_completed">% কপ্লিটেড  </string>
     <string name="resumeDashBoard_binding_Last_updated_on">সর্বশেষ আপডেট হয়েছে: </string>
     <string name="DownloadResumeFragment_Statistics_calculated_from">পরিসংখ্যান থেকে গণনা করা</string>
-    <string name="Applied_jobs_Resume_viewed">রেসিউমি ভিউড</string>
+    <string name="Applied_jobs_Resume_viewed">প্রোফাইল ভিউড</string>
     <string name="Questions">২০টি প্রশ্ন</string>
     <!--EmployerViewedMyResumeAdapter Kt start-->
     <!--<string name="Views">ভিউস</string>-->
     <string name="View">ভিউ</string>
     <!--EmployerViewedMyResumeAdapter Kt end-->
-    <string name="get"> </string>
-    <string name="_Bonus_SMS">টি বোনাস এসএমএস পান</string>
+    <string name="get">নিন</string>
+    <string name="_Bonus_SMS">বোনাস এসএমএস</string>
 
     <!--LoggedIn User Landing HorizontalAdapter Kt start-->
-    <string name="HorizontalAdapter_Favourite_Search">প্রিয়\n অনুসন্ধান</string>
+    <string name="HorizontalAdapter_Favourite_Search">ফেভারিট\n সার্চ</string>
     <string name="HorizontalAdapter_Applied_Jobs">আবেদনকৃত\n চাকরি</string>
-    <string name="HorizontalAdapter_Followed_Employers">অনুসরণকৃত\n নিয়োগকর্তা</string>
+    <string name="HorizontalAdapter_Followed_Employers">ফলো করা\n নিয়োগকর্তা</string>
     <string name="HorizontalAdapter_Employer_List">নিয়োগকর্তার\n তালিকা</string>
-    <string name="HorizontalAdapter_Manage_Profile">প্রোফাইল\n ঠিক করুন</string>
+    <string name="HorizontalAdapter_Manage_Profile">প্রোফাইল\n ম্যানেজ করুন</string>
     <!--LoggedIn User Landing HorizontalAdapter Kt end-->
 
     <string-array name="redeem_point_data_list">
@@ -2163,29 +2151,29 @@
         <item>জব অ্যাপ্লাই লিমিট</item>
     </string-array>
     <string name="sms_job_alert_description">আপনার অর্জিত পয়েন্টসের সাহায্যে যে কোনো প্যাকেজ কিনুন।</string>
-    <string name="job_apply_limit_description">Use points to purchase Job Apply Limit when it reaches</string>
+    <string name="job_apply_limit_description">জব অ্যাপ্লাই লিমিট শেষ হলে পয়েন্ট ব্যবহার করে কিনুন।</string>
 
     <!--logoutFragment Kt start-->
     <string name="logoutFragment_Are_you_sure_you_want_to_Sign_out">আপনি কি সাইন আউট করতে চান?</string>
-    <string name="logoutFragment_Logging_out">Logging out</string>
+    <string name="logoutFragment_Logging_out">সাইনিং আউট</string>
     <!--logoutFragment Kt end-->
 
     <string name="redeem_points_dialog_title">ম্যাসেজ</string>
     <string name="dialog_message">You can use this feature when your Job Apply Limit reaches.</string>
     <string name="career_ncounselling">ক্যারিয়ার\nকাউন্সেলিং</string>
     <string name="fresher_jobs">ফ্রেসার\nজবস</string>
-    <string name="err_msg_name">ইউজার নেম খালি রাখা যাবে না।</string>
+    <string name="err_msg_name">ইউজারের নাম খালি রাখা যাবে না।</string>
     <string name="hint.level_of_education">শিক্ষা পর্যায় *</string>
-    <string name="hint.exam_degree_title">Exam / পরীক্ষা/ডিগ্রীর নাম  *</string>
-    <string name="hint.concentration_major_group">\u0020Concentration / মেজর / গ্রুপ *</string>
+    <string name="hint.exam_degree_title">পরীক্ষা/ডিগ্রীর নাম  *</string>
+    <string name="hint.concentration_major_group">\u0020কনসেনট্রেশন/মেজর/গ্রুপ *</string>
     <string name="hint.board">বোর্ড  *</string>
     <string name="hint.institute_name">\u0020প্রতিষ্ঠানের নাম *</string>
     <string name="hint.institute_name_prf">শিক্ষা প্রতিষ্ঠানের নাম  *</string>
     <string name="hint.ref_designation">পদবীর নাম *</string>
-    <string name="hint.duration">কর্মস্থান সময়কাল</string>
-    <string name="hint.achievement">অ্যাচিভমেন্ট</string>
+    <string name="hint.duration">কাজের সময়কাল</string>
+    <string name="hint.achievement">অর্জনসমূহ</string>
     <string name="hint.save">সেভ</string>
-    <string name="err_msg_password_not_match">পাসওয়ার্ডটি ভুল</string>
+    <string name="err_msg_password_not_match">পাসওয়ার্ড দুটি মিলছে না।</string>
 
     //---------------new add for specialization---------5/22/2019
     <string name="notification_employer_message"> নিয়োগকর্তার বার্তা</string>
@@ -2193,34 +2181,35 @@
     <string name="notification_other">অন্যান্য</string>
 
     <!-- Video Interview -->
-    <string name="type_employer_name_for_suggestions">সাজেশন দেখতে এমপ্লয়ারের নাম টাইপ করুন</string>
-    <string name="label_video_resume_encouragement">এই এমপ্লয়ার আপনাকে ভিডিও সিভি জমা দিতে উৎসাহিত করেছেন। <b>Submit Now</b></string>
+    <string name="type_employer_name_for_suggestions">সাজেশন দেখতে নিয়োগকর্তার নাম টাইপ করুন</string>
+    <string name="label_video_resume_encouragement">এই নিয়োগকর্তা আপনাকে কাস্টোমাইজড সিভি জমা দিতে উৎসাহিত করেছেন। <b>সাবমিট করুন</b></string>
     <string name="please_enter_your_current_salary">আপনার বর্তমান বেতন লিখুন</string>
     <string name="priority_level_title">প্রায়োরিটি লেভেল</string>
     <string name="expected_salary_title">প্রত্যাশিত বেতন</string>
-    <string name="your_current_salary">বর্তমান বেতন (প্রতি মাস)</string>
+    <string name="your_current_salary">বর্তমান বেতন (মাসিক)</string>
     <string name="attachment_title">অ্যাটাচমেন্ট</string>
-    <string name="attachment_not_added">এই এমপ্লয়ার আপনাকে কাস্টোমাইজড সিভি জমা দিতে উৎসাহিত করেছেন। <font color="#0060DB"><b><u>Upload Now</u></b></font></string>
+    <string name="attachment_not_added">এই নিয়োগকর্তা আপনাকে কাস্টোমাইজড সিভি জমা দিতে উৎসাহিত করেছেন। <font color="#0060DB"><b><u>আপলোড করুন</u></b></font></string>
     <string name="video_cv_title">ভিডিও সিভি</string>
-    <string name="video_cv_apply_step_not_added">ভিডিও সিভি অপশন থেকে আপনার ভিডিও সিভিটি অ্যাড করতে পারবেন\n<font color="#0060DB"><b><u>Upload Now</u></b></font></string>
-    <string name="video_cv_apply_step_open">এই এমপ্লয়ার আপনাকে ভিডিও সিভি জমা দিতে করতে উৎসাহিত করেছেন।\n<font color="#0060DB"><b><u>Make Visible Now</u></b></font></string>
-    <string name="apply_info_title">আবেদনের বিবরণ</string>
+    <string name="video_cv_apply_step_not_added">ভিডিও সিভি অপশন থেকে আপনার ভিডিও সিভিটি অ্যাড করতে পারবেন\n<font color="#0060DB"><b><u>আপলোড করুন</u></b></font></string>
+    <string name="video_cv_apply_step_open">এই নিয়োগকর্তা আপনাকে ভিডিও সিভি জমা দিতে উৎসাহিত করেছেন।\n<font color="#0060DB"><b><u>
+    দৃশ্যমান করুন</u></b></font></string>
+    <string name="apply_info_title">আবেদনের তথ্য</string>
     <string name="user_info_title">আপনার তথ্য</string>
-    <string name="edit_info_apply_step">এডিট ইনফরমেশন</string>
+    <string name="edit_info_apply_step">এডিটের তথ্য</string>
     <string name="edit_user_info_apply_step">এডিট</string>
     <string name="primary_mobile_apply_step">প্রাইমারি মোবাইল নাম্বার</string>
-    <string name="email_apply_step">ই মেইল অ্যাড্রেস</string>
+    <string name="email_apply_step">ইমেইল অ্যাড্রেস</string>
     <string name="present_address_apply_step">বর্তমান ঠিকানা</string>
     <string name="current_salary_apply_step">বর্তমান বেতন</string>
     <string name="close">বন্ধ করুন</string>
 
     <!--    Online Test System Strings -->
 
-    <string name="ot_marks_title">নাম্বার:</string>
+    <string name="ot_marks_title">মার্কস:</string>
     <string name="signIn">সাইন ইন</string>
-    <string name="search_with_your_keyword">কি ওয়ার্ড দিয়ে সার্চ করুন</string>
+    <string name="search_with_your_keyword">কীওয়ার্ড দিয়ে সার্চ করুন</string>
     <string name="search_category">সার্চ ক্যাটাগরি</string>
-    <string name="search_location">লোকেশন সার্চ</string>
+    <string name="search_location">কর্মস্থান সার্চ</string>
     <string name="today_s_event">আজকের ইভেন্ট</string>
     <string name="upcoming_event">আসন্ন ইভেন্ট</string>
     <string name="material_calendar_monday">সোম</string>
@@ -2238,21 +2227,21 @@
     <string name="view_applied_jobs">আবেদনকৃত চাকরি দেখুন</string>
     <string name="more_info">আরও তথ্য</string>
     <string name="add_application_limit">অ্যাপ্লিকেশন লিমিট অ্যাড করুন</string>
-    <string name="activity_flow">অ্যাক্টিভিটি ফ্লো</string>
+    <string name="activity_flow">প্রক্রিয়া প্রবাহ</string>
     <string name="employer_interested">নিয়োগকর্তা আগ্রহ দেখিয়েছেন</string>
     <string name="_20_apr_2021">২০ এপ্রিল ২০২১</string>
     <string name="empInterestedToolsText">Bangladesh Country Coordinating Soft Tech Mechanism Tech Mechanism</string>
     <string name="total_job">মোট চাকরিঃ</string>
     <string name="show_interest">আগ্রহ দেখিয়েছে</string>
-    <string name="job_activity">হায়ারিং অ্যাক্টিভিটি</string>
+    <string name="job_activity">নিয়োগ প্রক্রিয়া</string>
     <string name="_10">10</string>
     <string name="offered">অফার পেয়েছি</string>
-    <string name="Contacted">যোগাযোগ করেছে</string>
-    <string name="Joined">যোগদান করেছেন</string>
+    <string name="Contacted">কল/ইমেইল পেয়েছি</string>
+    <string name="Joined">নিয়োগ পেয়েছি</string>
     <string name="video_resume_applied_jobs">ভিডিও সিভি</string>
-    <string name="i_am_already_employed_and_do_not_want_to_switch_job">আমি বর্তমানে চাকরি করছি এবং এই মুহূর্তে চাকরি পরিবর্তন করতে চাই না</string>
-    <string name="the_office_is_far_away_from_my_residence">অফিস আমার বাসা থেকে অনেক দূরে</string>
-    <string name="not_interested_to_work_in_the_organization">এই প্রতিষ্ঠানে কাজ করতে আগ্রহি নই</string>
+    <string name="i_am_already_employed_and_do_not_want_to_switch_job">আমি বর্তমানে চাকরি করছি এবং এই মুহূর্তে চাকরি পরিবর্তন করতে চাই না।</string>
+    <string name="the_office_is_far_away_from_my_residence">অফিস আমার বাসা থেকে অনেক দূরে।</string>
+    <string name="not_interested_to_work_in_the_organization">এই প্রতিষ্ঠানে কাজ করতে আগ্রহি নই।</string>
     <string name="save_amp_next">সাবমিট</string>
     <string name="please_let_us_know_the_reason_for_now_joining_the_company">চাকরিতে জয়েন না করার কারণটি আমাদেরকে জানান</string>
     <string name="make_video_resume">ভিডিও সিভি বানান</string>
@@ -2263,25 +2252,25 @@
     <string name="upload_video">আপলোড ভিডিও</string>
     <string name="upload_text">আপলোড</string>
     <string name="upload_again">আবার আপলোড করুন</string>
-    <string name="cancel_processing_upload_video_resume"><u>ক্যান্সেল</u></string>
+    <string name="cancel_processing_upload_video_resume"><u>বাতিল করুণ</u></string>
     <string name="successfully_submitted_msg">আপনি সফলভাবে আপনার আবেদনটি সাবমিট করেছেন। আপনার জন্য শুভকামনা!</string>
     <string name="submit_your_customized_cv_and_video_cv_msg">এই নিয়োগকর্তা আপনাকে ভিডিও সিভি জমা দিতে উৎসাহিত করেছেন।</string>
-    <string name="submit_your_video_cv_msg">এই নিয়োগকর্তা আপনাকে ভিডিও সিভি জমা দিতে উৎসাহিত করেছেন।.</string>
+    <string name="submit_your_video_cv_msg">এই নিয়োগকর্তা আপনাকে ভিডিও সিভি জমা দিতে উৎসাহিত করেছেন।</string>
     <string name="submit_your_customized_cv_msg">এই নিয়োগকর্তা আপনাকে কাস্টমাইজড সিভি জমা দিতে উৎসাহিত করেছেন।</string>
     <string name="to_take_any_action">কোন পদক্ষেপ নিন</string>
     <string name="go_to_manage_profile">ম্যানেজ প্রোফাইলে যান</string>
     <string name="back_to_home">হোমে ফিরে যান</string>
     <string name="relevant_jobs_that_matches_your_profile">আপনার প্রোফাইলের সাথে ম্যাচ করা চাকরিসমূহ</string>
     <string name="photo_upload_guide"><u>কিভাবে সঠিক ছবি আপলোড করবেন</u></string>
-    <string name="photo_upload_guide_bn"><u>ফটো আপলোড গাইড</u></string>
+    <string name="photo_upload_guide_bn"><u>ছবি আপলোড গাইড</u></string>
     <string name="Upload_Photo">ছবি আপলোড করুন</string>
     <string name="Overall_Ratings">মোট রেটিং</string>
-    <string name="Visible_Employers">নিয়োগকর্তাদের জন্য দৃশ্যমান</string>
+    <string name="Visible_Employers">নিয়োগকর্তার কাছে দৃশ্যমান</string>
     <string name="No_companies_viewed">কতগুলা কম্পানি দেখেছে</string>
     <string name="No_times_viewed">কতবার দেখা হয়েছে</string>
-    <string name="create_video_cv">ভিডিও সিভি তৈরি</string>
-    <string name="Change_Photo">ছবি চেঞ্জ করুন</string>
-    <string name="view_and_edit">দেখুন &#38; এডিট</string>
+    <string name="create_video_cv">ভিডিও সিভি তৈরি করুন</string>
+    <string name="Change_Photo">ছবি পরিবর্তন করুন</string>
+    <string name="view_and_edit">দেখুন &#38; এডিট করুন</string>
     <string name="bdjobs_home">হোম</string>
     <string name="career_home">ফিড</string>
     <string name="categories_career">ক্যাটাগরি</string>
@@ -2290,42 +2279,42 @@
     <string name="career_counseling_ask_a_question">প্রশ্ন করুন</string>
     <string name="career_counseling_answer_questions">উত্তর দিন</string>
     <string name="career_counseling_categories">ক্যাটাগরি</string>
-    <string name="My_Interested_categories">পছন্দের ক্যাটাগরি</string>
-    <string name="My_Followed_Categories">আমার অনুসরণ করা বিভাগ</string>
+    <string name="My_Interested_categories">আমার পছন্দের ক্যাটাগরি</string>
+    <string name="My_Followed_Categories">আমার ফলো করা বিভাগ</string>
     <string name="career_counseling_trending_category">ট্রেন্ডিং ক্যাটাগরি</string>
     <string name="career_counseling_demo_question">IT শিল্পে একটি উপযুক্ত চাকরি পেতে একটি নিখুঁত রেজ্যুমে কীভাবে লিখবেন? লরেম ইপসাম রেজ্যুমে ক্যারিয়ার গ্রোথ কাউন্সেলিং?</string>
     <string name="career_view_all_button">সব দেখুন</string>
     <string name="welcome_to_career_counseling">ক্যারিয়ার কাউন্সিলিংয়ে আপনাকে স্বাগতম!</string>
     <string name="what_do_you_want_to_ask">আপনার প্রশ্নটি লিখুন</string>
     <string name="_1_answer_has_been_added_to_your_question">আপনার প্রশ্নটির জন্য একটি উত্তর এসেছে</string>
-    <string name="no_ques_followed">আপনি এখনও কোনো প্রশ্ন অনুসরণ করেননি</string>
-    <string name="no_ans">কোন উত্তর এখনো পোস্ট করা হয়নি</string>
+    <string name="no_ques_followed">আপনি এখনও কোনো প্রশ্ন ফলো করেননি</string>
+    <string name="no_ans">কোন উত্তর এখনো পোস্ট হয়নি</string>
     <string name="no_answer">আপনি এখনও কোনো প্রশ্নের উত্তর দেননি</string>
-    <string name="explore_ques">অন্যান্য প্রশ্ন অন্বেষণ</string>
-    <string name="View_answer">আপনার দক্ষতার সাথে মেলে এমন প্রশ্নগুলি দেখুন এবং উত্তর দিন</string>
-    <string name="view_follow">আপনি চান যে কোনো প্রশ্ন দেখুন এবং অনুসরণ করুন</string>
-    <string name="Unanswered_ques">অনুত্তরিত প্রশ্ন দেখুন</string>
+    <string name="explore_ques">বাকি প্রশ্নগুলো দেখুন</string>
+    <string name="View_answer">আপনার দক্ষতার সাথে মেলে এমন প্রশ্নগুলো দেখুন এবং উত্তর দিন</string>
+    <string name="view_follow">আপনি ইচ্ছেমত যেকোনো প্রশ্ন দেখুন এবং ফলো করুন</string>
+    <string name="Unanswered_ques">উত্তরবিহীন প্রশ্নগুলো দেখুন</string>
     <string name="goto_feed">ফিডে যান</string>
     <string name="post_ans">উত্তর পোস্ট করুন</string>
-    <string name="bdjobs_ai_logo_image">Bdjobs AI Logo Image</string>
+    <string name="bdjobs_ai_logo_image">বিডিজবস এআই ইমেজ</string>
     <string name="Trending">ট্রেন্ডিং</string>
     <string name="Write_answer">আপনার উত্তর লিখুন</string>
-    <string name="ques_who">আপনি কাকে আপনার প্রশ্ন জিজ্ঞাসা করতে চান?</string>
+    <string name="ques_who">আপনি কাকে প্রশ্ন করতে চান?</string>
     <string name="tips_cc">দ্রুত এবং নিখুঁতভাবে উত্তর পাওয়ার জন্য টিপস</string>
     <string name="Bdjobs_Community">বিডিজবস কমিউনিটি</string>
     <string name="Post_Now">এখন পোস্ট করুন</string>
     <string name="Popular">পপুলার</string>
-    <string name="Unanswered">উত্তরহীন</string>
-    <string name="elab">আপনার প্রোফাইল উন্নত করতে আপনার পোর্টফোলিও, প্রকল্প, পেপার/জার্নাল, প্রকাশনা ইত্যাদি নির্বাচন করুন ও যোগ করুন</string>
+    <string name="Unanswered">উত্তরবিহীন</string>
+    <string name="elab">আপনার প্রোফাইল আরও আকর্ষণীয় করতে আপনার পোর্টফোলিও, প্রজেক্ট, পেপার/জার্নাল, প্রকাশনা ইত্যাদি যোগ করুন।</string>
     <string name="bdjobs_bot_first_reply">হাই নাম, আমি আপনাকে কিভাবে সাহায্য করতে পারি?</string>
     <string name="bdjobs_bot_second_reply">আপনার প্রশ্নটির জন্য নির্দিষ্ট ক্যাটাগরি নির্বাচন করতে চান?</string>
-    <string name="bdjobs_user_demo_reply">How can I write a resume for a job as a Designer? I am mostly focused to be an Mobile App Developer?</string>
+    <string name="bdjobs_user_demo_reply">আপনি কীভাবে একজন ডিজাইনার হিসেবে চাকরির জন্য একটি রেজুমে লিখতে পারেন? আমি মূলত মোবাইল অ্যাপ ডেভেলপমেন্টের ওপর বেশি ফোকাস করছি।</string>
     <string name="hide_name_message">আপনার প্রোফাইল ছবি এবং নাম আপনার প্রশ্নের সাথে দেখানো হবে</string>
     <string name="hide_name_message_2">আপনার প্রোফাইল ছবি এবং নাম আপনার প্রশ্নের সাথে দেখানো হবে</string>
     <string name="hide_your_name">নাম গোপন করুন</string>
     <string name="write_your_question">আপনার প্রশ্ন লিখুন</string>
     <string name="choose_category">* আপনাকে প্রথমে একটি বিভাগ বেছে নিতে হবে।</string>
-    <string name="who_do_you_want_to_ask_your_question">আনি কাকে প্রশ্ন করতে চান?</string>
+    <string name="who_do_you_want_to_ask_your_question">আপনি কাকে প্রশ্ন করতে চান?</string>
     <string name="tools_text1">সাক্ষাৎকার, যার মাধ্যমে নিয়োগকর্তা আপনার ব্যক্তিত্ব, আগ্রহ, আপনার জীবনের উদ্দেশ্য ও লক্ষ্য জানতে পারেন, আপনি আর আপনার দক্ষতা তখন আর কোনও কাগজে সীমাবদ্ধ থাকে না। নিয়োগকর্তার সামনে নিজেকে দক্ষভাবে তুলে ধরার একটি অনন্য সুযোগ হয়ে আসে সাক্ষাৎকার।</string>
     <string name="career_article_rv_layout_read_more">...... আরও পড়ুন</string>
     <string name="tools_text_article_details">Just received a phone call from YZX Corporation. \"I\'m delighted to inform you that you have been short-listed for interview.\" Adrenalin runs pumping, you become nervous and tensed. Relax and take it easy!!! Cool down your nerves and prepare an Interview Cheat Sheet. Cheat Sheet is in fact the planning of an interview attendance. Interviews can be scary experiences and the only way to quell your fears is to memorize the Cheat Sheet in a skilled manner. In our country except few Executives, most of the job seekers attend an interview without taking any serious preparation.</string>
@@ -2333,15 +2322,15 @@
     <string name="career_counselling_tips_bottomsheet_tip1">সঠিক ক্যাটাগরি সিলেক্ট করুন</string>
     <string name="career_counselling_tips_bottomsheet_tip2">প্রশ্নটি সংক্ষিপ্ত এবং সামঞ্জস্যপূর্ন রাখুন</string>
     <string name="career_counselling_tips_bottomsheet_tip3">গ্রামার, বানান এবং কন্টেন্ট চেক করুন</string>
-    <string name="career_counselling_tips_bottomsheet_tip4">বিডিজবস এআই কে সর্বোচ্চ ২ টি প্রশ্ন ( প্রতিদিন) করতে পারবেন।</string>
-    <string name="plan_and_pricing_tip1">আরও ইন্টারভিউ কল পান এবং আপনার চাকরির খোঁজ সুপারচার্জ করুন।</string>
-    <string name="plan_and_pricing_tip2">পছন্দের এমপ্লয়ারকে মেসেজ করুন।</string>
+    <string name="career_counselling_tips_bottomsheet_tip4">বিডিজবস এআই কে সর্বোচ্চ ২ টি প্রশ্ন (প্রতিদিন) করতে পারবেন।</string>
+    <string name="plan_and_pricing_tip1">আরও বেশি ইন্টারভিউ কল পেয়ে আপনার চাকরির সন্ধানকে আরও গতিশীল করুন!</string>
+    <string name="plan_and_pricing_tip2">পছন্দের নিয়োগকর্তাকে মেসেজ করুন।</string>
     <string name="plan_and_pricing_tip3">আপনার চাকরির আবেদন ট্রাক করুন।</string>
-    <string name="plan_and_pricing_tip4">আপানআর চাকরির সুযোগ বাড়ান.</string>
+    <string name="plan_and_pricing_tip4">আপনার চাকরির সুযোগ বাড়ান।</string>
     <string name="Passport_Number">পাসপোর্ট নাম্বার</string>
     <string name="Passport_Issue">পাসপোর্ট ইস্যুর তারিখ</string>
     <string name="write_answer">উত্তর লিখুন</string>
-    <string name="delete_question_dialog">প্রশ্ন ডিলিট</string>
+    <string name="delete_question_dialog">প্রশ্ন ডিলিট করুন</string>
     <string name="career_delete_question_confimation_tv">আপনার প্রশ্নটি ডিলিট করতে চান? </string>
     <string name="ask_question_publically_yes_ask_expert">হ্যাঁ, এক্সপার্টকে জিজ্ঞেস করুন</string>
     <string name="careeer_delete_question_no">না</string>
@@ -2351,22 +2340,22 @@
     <string name="ask_question_dialog_confirmation_tv">আপনার প্রশ্নটি কি পাব্লিকলি জিজ্ঞেস করতে চান ?</string>
     <string name="career_ask_question_publically_yes_ask_expert">হ্যাঁ, এক্সপার্টকে জিজ্ঞেস করুন</string>
     <string name="career_counselling_search_button">ক্যারিয়ার কাউন্সিলিং সার্চ বাটন</string>
-    <string name="search_by_keywords">কি ওয়ার্ড দিয়ে সার্চ করুণ </string>
+    <string name="search_by_keywords">কীওয়ার্ড দিয়ে সার্চ করুন </string>
     <string name="category">ক্যাটাগরি</string>
-    <string name="Asked_Questions">করা প্রশ্ন</string>
-    <string name="Followed_Questions">অনুসরণ করা প্রশ্ন</string>
+    <string name="Asked_Questions">আমার জিজ্ঞাসিত প্রশ্নসমূহ</string>
+    <string name="Followed_Questions">ফলো করা প্রশ্নসমূহ</string>
     <string name="My_Answers">আমার উত্তর</string>
     <string name="no_question">আপনি এখনও কোন প্রশ্ন জিজ্ঞাসা করেননি</string>
     <string name="first_question">আপনার প্রথম প্রশ্ন জিজ্ঞাসা করুন এবং উত্তর পান</string>
-    <string name="search_here">এখানে সার্চ করুণ</string>
-    <string name="search_question">অনুসন্ধান প্রশ্ন</string>
+    <string name="search_here">এখানে সার্চ করুন</string>
+    <string name="search_question">প্রশ্ন সার্চ করুন</string>
     <string name="career_counseling_search">ক্যারিয়ার কাউন্সিলিং সার্চ</string>
-    <string name="report_sheet_text">ইস্যু সিলেক্ট করুণ</string>
+    <string name="report_sheet_text">ইস্যু সিলেক্ট করুন</string>
     <string name="spam_report">স্প্যাম</string>
     <string name="bdjobs_ai">বিডিজবস এআই</string>
     <string name="spam_report_text">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id es</string>
-    <string name="violence_report">সহিংসতা</string>
-    <string name="hate_speech_report">ঘৃণাবাচক কথা</string>
+    <string name="violence_report">আক্রমণাত্মক</string>
+    <string name="hate_speech_report">ঘৃণামূলক বক্তব্য</string>
     <string name="others_report">অন্যান্য</string>
     <string name="describe_objection_report">আপনার সমস্যাটি লিখুন (সর্বোচ্চ ক্যারেক্টর ৫০)</string>
     <string name="ok_report_button">ঠিক আছে</string>
@@ -2374,7 +2363,7 @@
     <string name="choose_a_category">ক্যাটাগরি সিলেক্ট করুন</string>
     <string name="daily_limit">আপনার দৈনিক সীমা শেষ!</string>
     <string name="career_coach">ক্যারিয়ার কোচের ধরন বেছে নিন</string>
-    <string name="update_the_first_three_answers_only">ভিডিও সিভি আপডেড করতে শুধুমাত্র প্রথম তিনটি প্রশ্নের উত্তর দিন। \n <b>After 30 days</b> your additional answers will be removed from our system."</string>
+    <string name="update_the_first_three_answers_only">ভিডিও সিভি আপডেড করতে শুধুমাত্র প্রথম তিনটি প্রশ্নের উত্তর দিন। \n <b>৩০ দিন পর</b> আপনার অতিরিক্ত উত্তরগুলি আমাদের সিস্টেম থেকে ডিলিট হয়ে যাবে।"</string>
     <string name="answer_question_one_first">পরবর্তি  প্রশ্নগুলি দেখতে প্রথম প্রশ্নটির উত্তর দিন</string>
 
     <string-array name="question_details_spinner">
@@ -2407,7 +2396,7 @@
 
     ///////////////////////////////forgot password fragment
     <string name="forgot_password_fragment_tv_recover_your_sign_in_details">সাইন ইন ডিটেইলস পুনরুদ্ধার করুন</string>
-    <string name="please_select_an_option_which_you_want_to_recover">অ্যাকাউন্ট পুনরুদ্ধারের অপশন সিলেক্ট করুণ</string>
+    <string name="please_select_an_option_which_you_want_to_recover">অ্যাকাউন্ট পুনরুদ্ধারের অপশন সিলেক্ট করুন</string>
     <string name="user_id_password"><![CDATA[ইউজার আইডি এবং পাসওয়ার্ড]]></string>
     <string name="password">পাসওয়ার্ড</string>
     <string name="continueTxt">চালিয়ে যান</string>
@@ -2710,81 +2699,81 @@ You have completed the process. To publish this job,
     <string name="lastUpdateOn">Last updated on:</string>
     <string name="profileFetchFailed">Sorry, Bdjobs Profile stat fetching failed!</string>
     <string name="personalityTestVoice">Personality Test by Voice</string>
-    <string name="priorityLevelUserGuide">প্রায়োরিটি লেভেল ইউজার গাইড</string>
+    <string name="priorityLevelUserGuide">Priority Level User Guide</string>
     <string name="payment1">পেমেন্ট</string>
-    <string name="applyJob">অ্যাপ্লাই জব</string>
-    <string name="whatsNew">নতুন সব ফিচারস</string>
-    <string name="profileDetails">প্রোফাইলের বিস্তারিত</string>
-    <string name="noPhotoUploaded">প্রোফাইলে ছবি আপলোড করা নেই</string>
-    <string name="uploadPhotoTypeSize">JPG, GIF, PNG অথবা BMP আপলোড করুন ছবির সর্বোচ্চ সাইজ ৩ এমবি</string>
-    <string name="changeDeletePhoto">আপনি আপনার ছবি পরিবর্তন বা মুছে ফেলতে পারবেন</string>
-    <string name="deletePhoto">ঞ্ছবি মুছে ফেলা হচ্ছে.....</string>
-    <string name="deletePhotoSuccess">ছবি সফলভাবে মুছে ফেলা হয়েছে।</string>
-    <string name="uploadingPhoto">ছবি আপলোড করা হচ্ছে..</string>
-    <string name="uploadingPhotoSuccess">ছবি সফলভাবে আপডেট করা হয়েছে।</string>
-    <string name="errorAgain">কিছু ত্রুটি ঘটেছে, অনুগ্রহ করে আবার চেষ্টা করুন।</string>
-    <string name="invalidImageSelected">অকার্যকর ছবি নির্বাচন করা হয়েছে!</string>
-    <string name="notLargerThan5">ছবি ৫ এমবি এর বেশি হতে পারবে না।</string>
-    <string name="selectReligion">আপনার ধর্ম নির্বাচন করুন</string>
-    <string name="selectBloodGroup">আপনার রক্তের গ্রুপ নির্বাচন করুন</string>
-    <string name="nidValidation">এনআইডি নাম্বার ১০ ডিজিটের কম অথবা ১৭ ডিজিটের বেশি হওয়া যাবে না</string>
-    <string name="primaryEmail">প্রাইমারী ইমেইল</string>
-    <string name="division">বিভাগ</string>
-    <string name="selectDistrict">আপনার জেলা নির্বাচন করুন</string>
-    <string name="selectThana">আপনার থানা নির্বাচন করুন</string>
-    <string name="selectPostOffice">আপনার পোস্ট অফিস নির্বাচন করুন</string>
-    <string name="selectCountryOrRegionCode">আপনার দেশ/অঞ্চলের কোড নির্বাচন করুন।</string>
-    <string name="fillPrimaryMobileEmailAddress">অনুগ্রহ করে কমপক্ষে একটি প্রাইমারী মোবাইল নাম্বার বা ইমেইল পূরণ করুন।</string>
-    <string name="selectInsideBangladeshOutsideBangladeshPresentAddress">বর্তমান ঠিকানার জন্য অনুগ্রহ করে বাংলাদেশের অভ্যন্তরে অথবা বাংলাদেশের বাহিরে নির্বাচন করুন</string>
-    <string name="selectInsideBangladeshOutsideBangladeshPermanentAddress">স্থায়ী ঠিকানার জন্য অনুগ্রহ করে বাংলাদেশের অভ্যন্তরে অথবা বাংলাদেশের বাহিরে নির্বাচন করুন</string>
-    <string name="selectDistrict_">আপনার জেলা নির্বাচন করুন</string>
-    <string name="selectThana_">আপনার থানা নির্বাচন করুন</string>
-    <string name="selectDistrictFirst">প্রথমে একটি জেলা নির্বাচন করুন</string>
-    <string name="typeValidPrimaryEmailAddress">অনুগ্রহ করে একটি কার্যকর প্রাইমারী ইমেইল টাইপ করুন।</string>
-    <string name="typeValidAlternateEmailAddress">অনুগ্রহ করে একটি কার্যকর বিকল্প ইমেল টাইপ করুন।</string>
-    <string name="primaryMobileCanNotEmpty">প্রাইমারী মোবাইল নাম্বার খালি রাখা যাবে না</string>
-    <string name="enterValidMobileNumber">দয়া করে একটি কার্যকর মোবাইল নম্বর লিখুন।</string>
-    <string name="keywordsMaximumCharacters">কীওয়ার্ড সর্বোচ্চ ২৫০ অক্ষর</string>
-    <string name="reachedMaxLimitKeywords">সর্বোচ্চ কীওয়ার্ড সীমায় পৌঁছে গেছেন</string>
-    <string name="pleaseAddKeywords">কীওয়ার্ড যোগ করুন</string>
-    <string name="canNotConnectServerTry">সার্ভারের সাথে সংযোগ করা যাচ্ছে না! আবার চেষ্টা করুন।</string>
-    <string name="functionalJobCategoriesMax3">ফাংশনাল চাকরির বিভাগ সর্বোচ্চ ৩টি</string>
-    <string name="specialSkilledJobCategoriesMax3">বিশেষ দক্ষতাসম্পন্ন চাকরির বিভাগ সর্বোচ্চ ৩টি</string>
-    <string name="organizationsMax12">প্রতিষ্ঠান সর্বোচ্চ ১২টি</string>
-    <string name="districtsmax15">জেলা সর্বোচ্চ ১৫টি</string>
-    <string name="countriesOrRegionsMax10">দেশ/অঞ্চল সর্বোচ্চ ১০টি</string>
-    <string name="functionalJobCategoryNotAvailable">ফাংশনাল চাকরির বিভাগ পাওয়া যায় নি</string>
-    <string name="specialSkilledJobCategoryNotAvailable">বিশেষ দক্ষতাসম্পন্ন চাকরির বিভাগ পাওয়া যায় নি</string>
-    <string name="organizationTypeNotAvailable">শিল্প সংস্থা পাওয়া যায় নি</string>
-    <string name="districtNotAvailable">জেলা পাওয়া যায় নি</string>
-    <string name="countryOrRegionNotAvailable">দেশ/অঞ্চল পাওয়া যায় নি</string>
-    <string name="categoryAlreadyAdded">ক্যাটাগরি ইতোমধ্যে যোগ করা হয়েছে</string>
-    <string name="Max3Added">সর্বোচ্চ ৩টি আইটেম যোগ করা যাবে।</string>
-    <string name="organizationAlreadyAdded">শিল্প সংস্থা ইতোমধ্যে যোগ করা হয়েছে</string>
-    <string name="max12Added">সর্বোচ্চ ১২টি আইটেম যোগ করা যাবে।</string>
-    <string name="districtAlreadyAdded">ইতোমধ্যে জেলা যোগ করা হয়েছে</string>
-    <string name="max15Added">সর্বোচ্চ ১৫টি আইটেম যোগ করা যাবে।</string>
-    <string name="countryOrRegionAlreadyAdded">ইতোমধ্যে দেশ/অঞ্চল যোগ করা হয়েছে।</string>
-    <string name="max10Added">সর্বোচ্চ ১০টি আইটেম যোগ করা যাবে।</string>
-    <string name="havingIssue">মনে হচ্ছে কোন সমস্যা হচ্ছে!</string>
+    <string name="applyJob">Apply Job</string>
+    <string name="whatsNew">What\'s New</string>
+    <string name="profileDetails">Profile Details</string>
+    <string name="noPhotoUploaded">No photo is uploaded yet</string>
+    <string name="uploadPhotoTypeSize">Upload JPG, GIF, PNG or BMP Max size of photo is 3MB</string>
+    <string name="changeDeletePhoto">You can change or delete your photo</string>
+    <string name="deletePhoto">Deleting Photo.....</string>
+    <string name="deletePhotoSuccess">Photo has been deleted successfully.</string>
+    <string name="uploadingPhoto">Uploading Photo..</string>
+    <string name="uploadingPhotoSuccess">Photo has been updated successfully.</string>
+    <string name="errorAgain">Some error occurred, Please try again.</string>
+    <string name="invalidImageSelected">Invalid Image has been selected!</string>
+    <string name="notLargerThan5">Image can not be larger than 5 MB</string>
+    <string name="selectReligion">Please select your religion</string>
+    <string name="selectBloodGroup">Please select your blood group</string>
+    <string name="nidValidation">Nid Number can not be lower than 10 or higher than 17 Character</string>
+    <string name="primaryEmail">Primary Email</string>
+    <string name="division">Division</string>
+    <string name="selectDistrict">Please select your district</string>
+    <string name="selectThana">Please select your thana</string>
+    <string name="selectPostOffice">Please select your post office</string>
+    <string name="selectCountryOrRegionCode">Please select your country/region code</string>
+    <string name="fillPrimaryMobileEmailAddress">Please fill at least a Primary Mobile No or Email Address.</string>
+    <string name="selectInsideBangladeshOutsideBangladeshPresentAddress">Please select Inside Bangladesh or Outside Bangladesh for Present Address</string>
+    <string name="selectInsideBangladeshOutsideBangladeshPermanentAddress">Please select Inside Bangladesh or Outside Bangladesh for Permanent Address</string>
+    <string name="selectDistrict_">Please select District</string>
+    <string name="selectThana_">Please select Thana</string>
+    <string name="selectDistrictFirst">Select a district first</string>
+    <string name="typeValidPrimaryEmailAddress">Please type a valid Primary Email Address.</string>
+    <string name="typeValidAlternateEmailAddress">Please type a valid Alternate Email Address.</string>
+    <string name="primaryMobileCanNotEmpty">Primary Mobile No can not be empty</string>
+    <string name="enterValidMobileNumber">Please enter a valid mobile number</string>
+    <string name="keywordsMaximumCharacters">Keywords maximum 250 characters</string>
+    <string name="reachedMaxLimitKeywords">Reached the max limit of keywords</string>
+    <string name="pleaseAddKeywords">Please add keywords</string>
+    <string name="canNotConnectServerTry">Can not connect to the server! Try again</string>
+    <string name="functionalJobCategoriesMax3">কার্যকরী চাকরির বিভাগ সর্বাধিক ৩টি</string>
+    <string name="specialSkilledJobCategoriesMax3">বিশেষ দক্ষতাসম্পন্ন চাকরির বিভাগ সর্বাধিক ৩টি</string>
+    <string name="organizationsMax12">প্রতিষ্ঠান সর্বাধিক ১২টি</string>
+    <string name="districtsmax15">জেলা সর্বাধিক ১৫টি</string>
+    <string name="countriesOrRegionsMax10">দেশ/অঞ্চল সর্বাধিক ১০টি</string>
+    <string name="functionalJobCategoryNotAvailable">Functional Job Category is not available</string>
+    <string name="specialSkilledJobCategoryNotAvailable">Special Skilled Job Category is not available</string>
+    <string name="organizationTypeNotAvailable">Organization Type is not available</string>
+    <string name="districtNotAvailable">District is not available</string>
+    <string name="countryOrRegionNotAvailable">Country/Region is not available</string>
+    <string name="categoryAlreadyAdded">ক্যাটাগরি ইতিমধ্যে যোগ করা হয়েছে</string>
+    <string name="Max3Added">Maximum 3 items can be added.</string>
+    <string name="organizationAlreadyAdded">Organization type already added</string>
+    <string name="max12Added">Maximum 12 items can be added.</string>
+    <string name="districtAlreadyAdded">District already added</string>
+    <string name="max15Added">Maximum 15 items can be added.</string>
+    <string name="countryOrRegionAlreadyAdded">Country/Region already added</string>
+    <string name="max10Added">Maximum 10 items can be added.</string>
+    <string name="havingIssue">Looks like we are having an issue!</string>
     <string name="tryAgain">অনুগ্রহ করে আবার চেষ্টা করুন।</string>
-    <string name="maxEducationRemoveOne">আপনি ইতোমধ্যে সর্বোচ্চ সংখ্যক একাডেমিক যোগ্যতা যোগ করেছেন। নতুন একটি যোগ করার জন্য আপনাকে আপনার বিদ্যমান একাডেমিক যোগ্যতার একটি মুছে ফেলতে হবে।</string>
-    <string name="majorOption">কনসেনট্রেশন</string>
-    <string name="cannot10AcademicQualifications">আপনি ১০টির বেশি শিক্ষাগত যোগ্যতা যোগ করতে পারবেন না।</string>
-    <string name="waitLoaded">তথ্য লোড হওয়া পর্যন্ত অনুগ্রহ করে অপেক্ষা করুন।</string>
-    <string name="examOrDegreeTitle">পরীক্ষা/ডিগ্রীর নাম *</string>
+    <string name="maxEducationRemoveOne">আপনি ইতোমধ্যে সর্বাধিক সংখ্যক একাডেমিক যোগ্যতা যোগ করেছেন। নতুন একটি যোগ করার জন্য আপনাকে আপনার বিদ্যমান একাডেমিক যোগ্যতার একটি মুছে ফেলতে হবে।</string>
+    <string name="majorOption">Concentration</string>
+    <string name="cannot10AcademicQualifications">You cannot add more than 10 Academic Qualifications.</string>
+    <string name="waitLoaded">Please wait while data is being loaded.</string>
+    <string name="examOrDegreeTitle">Exam/Degree Title *</string>
     <string name="marks">নাম্বার</string>
-    <string name="tooShort">এটা খুব ছোট</string>
-    <string name="selectEducation">শিক্ষা পর্যায় নির্বাচন করুন</string>
-    <string name="selectBoard">বোর্ড নির্বাচন করুন</string>
-    <string name="enterValidMarks">দয়া করে একটি কার্যকর মার্ক লিখুন</string>
-    <string name="enterValidScale">দয়া করে একটি কার্যকর স্কেল লিখুন</string>
+    <string name="tooShort">it is too short</string>
+    <string name="selectEducation">Select level of education</string>
+    <string name="selectBoard">Select board</string>
+    <string name="enterValidMarks">Please enter a valid marks</string>
+    <string name="enterValidScale">Please enter a valid scale</string>
     <string name="marksPercentage">নাম্বার(%)</string>
-    <string name="maxTraining">আপনি ইতোমধ্যে সর্বোচ্চ সংখ্যা ট্রেনিং সারাংশ যোগ করেছেন। একটি নতুন ট্রেনিং সারাংশ যোগ করার জন্য আপনাকে আপনার বিদ্যমান ট্রেনিং সারাংশগুলির মধ্যে একটি মুছে ফেলতে হবে।</string>
-    <string name="cannot20TrainingSummaries.">আপনি ২০টির বেশি ট্রেনিং এর সংক্ষিপ্ত বিবরণী যোগ করতে পারবেন না। </string>
-    <string name="maxProfessionalCertificate">আপনি ইতোমধ্যে সর্বোচ্চ সংখ্যক সার্টিফিকেশন যোগ করেছেন। নতুন একটি যোগ করার জন্য আপনাকে আপনার বিদ্যমান সার্টিফিকেশন গুলির একটি সরিয়ে ফেলতে হবে।</string>
-    <string name="cannot20ProfessionalSummaries">আপনি ২০টির বেশি সার্টিফিকেশন যোগ করতে পারবেন না।</string>
-    <string name="startDateCannotGreaterThanEndDate">শুরুর তারিখ শেষ তারিখের চেয়ে বড় হতে পারবে না!</string>
+    <string name="maxTraining">আপনি ইতিমধ্যে সর্বাধিক সংখ্যা ট্রেনিং সারাংশ যোগ করেছেন। একটি নতুন ট্রেনিং সারাংশ যোগ করার জন্য আপনাকে আপনার বিদ্যমান ট্রেনিং সারাংশগুলির মধ্যে একটি মুছে ফেলতে হবে।</string>
+    <string name="cannot20TrainingSummaries.">You cannot add more than 20 Training Summaries.</string>
+    <string name="maxProfessionalCertificate">You have already added the maximum number of Professional Certification Summary. You have to remove one of your existing Professional Certification Summaries to add a new one.</string>
+    <string name="cannot20ProfessionalSummaries">You cannot add more than 20 Professional Certification Summaries.</string>
+    <string name="startDateCannotGreaterThanEndDate">Start Date cannot be greater than End Date!</string>
 
     <string name="job_location">কাজের অবস্থান</string>
     <string name="job_information">কাজের তথ্য</string>
@@ -2817,46 +2806,46 @@ You have completed the process. To publish this job,
     <string name="this_employer_has_encouraged_you_to_submit_your_video_cv_b_submit_now_b"><![CDATA[এই নিয়োগকর্তা আপনাকে আপনার ভিডিও সিভি জমা দিতে উৎসাহিত করেছেন। <b>এখনই জমা দিন</b>]]></string>
     <string name="this_employer_has_encouraged_you_to_submit_your_customized_cv_which_is_already_available_in_your_profile">এই নিয়োগকর্তা আপনাকে আপনার কাস্টমাইজড সিভি জমা দিতে উৎসাহিত করেছেন, যা ইতিমধ্যেই আপনার প্রোফাইলে উপলব্ধ রয়েছে।</string>
     <string name="this_employer_has_encouraged_you_to_submit_your_customized_cv_b_submit_now_b"><![CDATA[এই নিয়োগকর্তা আপনাকে আপনার কাস্টমাইজড সিভি জমা দিতে উৎসাহিত করেছেন। <b>এখনই জমা দিন</b>]]></string>
-    <string name="or_to_email_cv_from_my_bdjobs_account_please">"অথবা BdJobs অ্যাকাউন্ট থেকে ইমেইলের মাধ্যমে সিভি পাঠান। "</string>
+    <string name="or_to_email_cv_from_my_bdjobs_account_please">"অথবা আমার BdJobs অ্যাকাউন্ট থেকে ইমেইলের মাধ্যমে সিভি পাঠান। "</string>
     <string name="only_males_are_allowed_to_apply">শুধুমাত্র পুরুষ প্রার্থীরা আবেদন করতে পারবেন।</string>
     <string name="only_females_are_allowed_to_apply">শুধুমাত্র মহিলা প্রার্থীরা আবেদন করতে পারবেন।</string>
     <string name="any">যেকোনো</string>
     <string name="this_line_indicates_your_matching_position_compared_to_other_applicants">এই লাইনটি অন্যান্য আবেদনকারীদের তুলনায় আপনার মিলের অবস্থান নির্দেশ করে।</string>
     <string name="this_line_indicates_your_experience_level_compared_to_other_applicants">এই লাইনটি অন্যান্য আবেদনকারীদের তুলনায় আপনার অভিজ্ঞতার স্তর নির্দেশ করে।</string>
     <string name="it_displays_the_number_of_profiles_viewed_and_shortlisted_by_employers">এটি নিয়োগকর্তাদের দ্বারা দেখা এবং সংক্ষিপ্ত তালিকাভুক্ত প্রোফাইলের সংখ্যা প্রদর্শন করে।</string>
-    <string name="it_highlights_the_salary_range_most_commonly_requested_by_job_seekers">এটি চাকরিপ্রার্থীদের দ্বারা সর্বোচ্চ অনুরোধ করা বেতনের পরিসরকে হাইলাইট করে।</string>
-    <string name="maxEmploymentRemoveOne">আপনি ইতোমধ্যে সর্বোচ্চ সংখ্যক চাকরির ইতিহাস যোগ করেছেন। নতুন একটি যোগ করার জন্য আপনাকে আপনার বিদ্যমান চাকরির ইতিহাসগুলোর একটি মুছে ফেলতে হবে।</string>
-    <string name="maxEmployment20">আপনি ২০টির বেশি  কর্মসংস্থান এর বিবরণী যোগ করতে পারবেন না।</string>
-    <string name="itemRemoved">আইটেম সরানো হয়েছে!</string>
-    <string name="startDateNotGreaterEndDate">শুরুর তারিখ শেষ তারিখের চেয়ে বড় হতে পারবে না!</string>
-    <string name="max3Expertise">সর্বোচ্চ ৩টি কর্মদক্ষতা যোগ করা যাবে</string>
-    <string name="companyNameRequired">কোম্পানির নাম বাধ্যতামূলক</string>
-    <string name="positionRequired">পদবীর নাম বাধ্যতামূলক</string>
+    <string name="it_highlights_the_salary_range_most_commonly_requested_by_job_seekers">এটি চাকরিপ্রার্থীদের দ্বারা সর্বাধিক অনুরোধ করা বেতনের পরিসরকে হাইলাইট করে।</string>
+    <string name="maxEmploymentRemoveOne">আপনি ইতোমধ্যে সর্বাধিক সংখ্যক চাকরির ইতিহাস যোগ করেছেন। নতুন একটি যোগ করার জন্য আপনাকে আপনার বিদ্যমান চাকরির ইতিহাসগুলোর একটি মুছে ফেলতে হবে।</string>
+    <string name="maxEmployment20">You cannot add more than 20 Employment Histories.</string>
+    <string name="itemRemoved">Item Removed!</string>
+    <string name="startDateNotGreaterEndDate">Start Date can not be greater than End Date</string>
+    <string name="max3Expertise">Maximum 3 Area of Expertise can be added.</string>
+    <string name="companyNameRequired">Company name is required</string>
+    <string name="positionRequired">Position is required</string>
     <string name="updateFailed">আপডেট ব্যর্থ হয়েছে</string>
-    <string name="noExpertiseFound">কর্মদক্ষতা খুঁজে পাওয়া যায়নি!</string>
-    <string name="totalExperienceTimeLength">কাজের দক্ষতার সময়কাল এই অভিজ্ঞতার মোট সময়কাল থেকে বেশি হবে না।</string>
-    <string name="alreadyExists">ইতোমধ্যে বিদ্যমান!</string>
-    <string name="added">যোগ করা হয়েছে!</string>
-    <string name="errorOccurred">ত্রুটি ঘটেছে!</string>
-    <string name="commissionRetirementCannotSame">কমিশনের তারিখ এবং অবসরের তারিখ একই হতে পারে না!</string>
+    <string name="noExpertiseFound">No Area of Expertise Found!</string>
+    <string name="totalExperienceTimeLength">Total expertise duration exceeds this experience time length (duration).</string>
+    <string name="alreadyExists">already exists!</string>
+    <string name="added">Added!</string>
+    <string name="errorOccurred">Error occurred</string>
+    <string name="commissionRetirementCannotSame">Date of Commission and Date of Retirement cannot be same!</string>
 
     <string name="manage_resume">জীবনবৃত্তান্ত পরিচালনা করুন</string>
     <string name="activities">কার্যক্রম</string>
-    <string name="addPortfolio">পোর্টফোলিও যোগ করুন</string>
-    <string name="addProject">প্রোজেক্ট যোগ করুন </string>
-    <string name="addPublication">পাবলিকেশন যোগ করুন</string>
-    <string name="addAwardHonor">পুরস্কার/সম্মান যোগ করুন</string>
-    <string name="addOther">অন্যান্য যোগ করুন</string>
-    <string name="portfolioViewPager">পোর্টফোলিও</string>
-    <string name="projects">প্রোজেক্ট</string>
-    <string name="publications">পাবলিকেশন</string>
-    <string name="awardsHonors">পুরস্কার/সম্মান</string>
-    <string name="itemUpdatedSuccessfully">আইটেমটি সফলভাবে আপডেট করা হয়েছে</string>
-    <string name="itemDeletedSuccessfully">আইটেমটি সফলভাবে মুছে ফেলা হয়েছে</string>
-    <string name="itemInsertedSuccessfully">আইটেমটি সফলভাবে সংযুক্ত হয়েছে</string>
-    <string name="titleNotEmpty">* টাইটেল খালি রাখা যাবে না।.</string>
-    <string name="invalidURL">* অকার্যকর URL.</string>
-    <string name="descriptionFieldNotEmpty">* ডেসক্রিপশন খালি রাখা যাবে না।</string>
+    <string name="addPortfolio">Add Portfolio</string>
+    <string name="addProject">Add Project</string>
+    <string name="addPublication">Add Publication</string>
+    <string name="addAwardHonor">Add Award/Honor</string>
+    <string name="addOther">Add Other</string>
+    <string name="portfolioViewPager">Portfolio</string>
+    <string name="projects">Projects</string>
+    <string name="publications">Publications</string>
+    <string name="awardsHonors">Awards/Honors</string>
+    <string name="itemUpdatedSuccessfully">Item has been updated successfully</string>
+    <string name="itemDeletedSuccessfully">Item has been deleted successfully</string>
+    <string name="itemInsertedSuccessfully">Item has been inserted successfully</string>
+    <string name="titleNotEmpty">* Title field can not be empty.</string>
+    <string name="invalidURL">* Invalid URL.</string>
+    <string name="descriptionFieldNotEmpty">* Description field can not be empty.</string>
     <string name="url_can_not_be_more_than_characters">* URL %1$d অক্ষরের বেশি হতে পারে না।</string>
     <string name="title_can_not_be_more_than_characters">* শিরোনাম %1$d অক্ষরের বেশি হতে পারে না।</string>
     <string name="description_can_not_be_more_than_characters">* বর্ণনা %1$d অক্ষরের বেশি হতে পারে না।</string>
@@ -2873,8 +2862,8 @@ You have completed the process. To publish this job,
     <string name="you_to_enjoy_the_unlimited_job_application">আপনি সীমাহীন চাকরির আবেদন উপভোগ করতে পারেন।</string>
     <string name="get_bdjobs_pro_2">Bdjobs Pro পান</string>
     <string name="boost_application_is_unavailable_for_this_job">এই কাজের জন্য বুস্ট অ্যাপ্লিকেশন অনুপলব্ধ।</string>
-    <string name="upgrade_your_plan_to_boost_more_applications">আরো অ্যাপ্লিকেশন বুস্ট করতে আপনার প্যাকেজ আপগ্রেড করুন.</string>
-    <string name="you_have_reached_the_maximum_number_of_boost_applications">আপনি বুস্ট অ্যাপ্লিকেশনের সর্বোচ্চ সংখ্যায় পৌঁছেছেন৷</string>
+    <string name="upgrade_your_plan_to_boost_more_applications">আরো অ্যাপ্লিকেশন বুস্ট করতে আপনার পরিকল্পনা আপগ্রেড করুন.</string>
+    <string name="you_have_reached_the_maximum_number_of_boost_applications">আপনি বুস্ট অ্যাপ্লিকেশনের সর্বাধিক সংখ্যায় পৌঁছেছেন৷</string>
     <string name="you_need_at_least_matching_to_boost_this_application">এই অ্যাপ্লিকেশনটিকে বুস্ট করার জন্য আপনার কমপক্ষে %1$d%% মিল প্রয়োজন।</string>
     <string name="this_employer_has_encouraged_you_to_provide_your_video_cv_font_color_0060db_b_u_record_now_u_b"><![CDATA[এই নিয়োগকর্তা আপনাকে আপনার ভিডিও সিভি জমা দিতে উৎসাহিত করেছেন। <font color=\'#0060DB\'><b><u>এখনই রেকর্ড করুন</u></b>]]></string>
     <string name="this_employer_has_encouraged_you_to_provide_your_video_cv_font_color_0060db_b_u_make_visible_now_u_b_font"><![CDATA[এই নিয়োগকর্তা আপনাকে আপনার ভিডিও সিভি জমা দিতে উৎসাহিত করেছেন। <font color=\'#0060DB\'><b><u>এখনই দৃশ্যমান করুন</u></b></font>]]></string>
@@ -2927,26 +2916,26 @@ You have completed the process. To publish this job,
     <string name="view_edit">দেখুন/এডিট করুন</string>
     <string name="please_wait_until_the_upload_is_finished">অনুগ্রহ করে অপেক্ষা করুন যতক্ষণ না আপলোড সম্পন্ন হয়।</string>
     <string name="no_skill_found">কোন দক্ষতা পাওয়া যায়নি!</string>
-    <string name="skill_maximum_10">দক্ষতা সর্বোচ্চ ১০টি</string>
-    <string name="are_you_sure_want_to_delete_this_record">আপনি কি নিশ্চিত, এই রেকর্ডটি মুছে ফেলতে চান?</string>
-    <string name="select_ntvqf_level">NTVQF লেভেল সিলেক্ট করুন</string>
-    <string name="please_type_valid_skill">কার্যকর দক্ষতা টাইপ করুন</string>
-    <string name="this_skill_already_exists">এই দক্ষতা ইতিমধ্যে বিদ্যমান</string>
-    <string name="please_select_ntvqf_level">NTVQF লেভেল সিলেক্ট করুন</string>
-    <string name="please_select_how_you_have_learned_the_skill">আপনি কীভাবে দক্ষতা অর্জন করেছেন তা নির্বাচন করুন।</string>
-    <string name="please_type_your_skill">কার্যকর দক্ষতা টাইপ করুন</string>
-    <string name="ntvqf_level">NTVQF লেভেল</string>
-    <string name="skill_you_learned_from1">যেখান থেকে আপনি দক্ষতা অর্জন করেছেন</string>
-    <string name="add_link_account">লিঙ্ক অ্যাকাউন্ট এড করুন</string>
-    <string name="you_can_t_add_more_than_3_link_accounts">আপনি ৩টির বেশি লিঙ্ক অ্যাকাউন্ট যোগ করতে পারবেন না।</string>
+    <string name="skill_maximum_10">Skill maximum 10</string>
+    <string name="are_you_sure_want_to_delete_this_record">Are you sure, want to delete this record?</string>
+    <string name="select_ntvqf_level">Select NTVQF level</string>
+    <string name="please_type_valid_skill">Please type valid skill</string>
+    <string name="this_skill_already_exists">This skill already exists</string>
+    <string name="please_select_ntvqf_level">Please select NTVQF level</string>
+    <string name="please_select_how_you_have_learned_the_skill">Please select how you have learned the skill</string>
+    <string name="please_type_your_skill">Please type your Skill</string>
+    <string name="ntvqf_level">NTVQF Level</string>
+    <string name="skill_you_learned_from1">Skill you learned from</string>
+    <string name="add_link_account">Add Link Account</string>
+    <string name="you_can_t_add_more_than_3_link_accounts">You can\'t add more than 3 Link Accounts</string>
     <string name="cancel_uper">বাতিল করুন</string>
     <string name="link">লিঙ্ক - %1$d</string>
-    <string name="the_information_has_been_added_successfully">তথ্যটি সফলভাবে যোগ করা হয়েছে।</string>
-    <string name="the_information_has_been_updated_successfully">তথ্যটি সফলভাবে আপডেট করা হয়েছে।</string>
-    <string name="please_enter_valid_url">দয়া করে কার্যকর URL লিখুন!</string>
-    <string name="you_need_to_choose_at_least_one_option">*আপনাকে অন্তত একটি অপশন বেছে নিতে হবে</string>
+    <string name="the_information_has_been_added_successfully">The information has been added successfully</string>
+    <string name="the_information_has_been_updated_successfully">The information has been updated successfully</string>
+    <string name="please_enter_valid_url">Please enter valid url!</string>
+    <string name="you_need_to_choose_at_least_one_option">*You need to choose at least one option</string>
     <string name="this_field_can_not_be_empty">*এই ফিল্ডটি খালি রাখা যাবে না</string>
-    <string name="are_you_sure_you_want_to_delete">আপনি কি নিশ্চিত যে আপনি মুছে ফেলতে চান?</string>
+    <string name="are_you_sure_you_want_to_delete">Are you sure you want to delete?</string>
     <string name="regular_jobs">নিয়মিত চাকরি (%1$s)</string>
     <string name="fair_job">ফেয়ার চাকরি (%1$s)</string>
     <string name="you_haven_t_applied_for_any_job_yet">আপনি এখনও কোনো চাকরির জন্য আবেদন করেননি।</string>
@@ -2960,25 +2949,20 @@ You have completed the process. To publish this job,
     <string name="your_bdjobs_profile_is_not_completed_yet">আপনার Bdjobs প্রোফাইল এখনো সম্পূর্ণ হয়নি!</string>
     <string name="ok">ঠিক আছে</string>
     <string name="sorry_customized_cv_stat_fetching_failed">দুঃখিত, কাস্টমাইজড সিভি পরিসংখ্যান আনতে ব্যর্থ হয়েছে!: %1$s</string>
-    <string name="it_is_an_invalid_file">এটি একটি অকার্যকর ফাইল।</string>
+    <string name="it_is_an_invalid_file">এটি একটি অবৈধ ফাইল।</string>
     <string name="you_can_not_upload_file_more_than_1mb_in_size">আপনি ১MB-এর বেশি আকারের ফাইল আপলোড করতে পারবেন না।</string>
     <string name="failed_to_get_file_from_uri">URI থেকে ফাইল আনতে ব্যর্থ হয়েছে।</string>
     <string name="please_select_a_valid_pdf_or_doc_or_docx_file">অনুগ্রহ করে একটি বৈধ PDF, DOC, অথবা DOCX ফাইল নির্বাচন করুন।</string>
     <string name="file_not_found">ফাইল পাওয়া যায়নি।</string>
-    <string name="are_you_sure_you_want_to_delete_your_uploaded_resume">আপনি কি নিশ্চিত যে আপনি আপনার আপলোড করা সিভি মুছতে চান?</string>
-    <string name="sorry_personalized_resume_stat_fetching_failed">দুঃখিত, কাস্টমাইজড সিভি পরিসংখ্যান আনতে ব্যর্থ হয়েছে: %1$s</string>
+    <string name="are_you_sure_you_want_to_delete_your_uploaded_resume">আপনি কি নিশ্চিত যে আপনি আপনার আপলোড করা রিজিউমে মুছতে চান?</string>
+    <string name="sorry_personalized_resume_stat_fetching_failed">দুঃখিত, ব্যক্তিগতকৃত রিজিউমে পরিসংখ্যান আনতে ব্যর্থ হয়েছে: %1$s</string>
     <string name="your_customized_cv_is_not_uploaded_yet">আপনার কাস্টমাইজড সিভি এখনও আপলোড করা হয়নি।</string>
-<<<<<<< HEAD
-    <string name="please_upload_your_resume_now_pdf_n_doc_docx">দয়া করে এখনই আপনার কাস্টমাইজড সিভি আপলোড করুন .pdf, .doc ফরম্যাটে।</string>
-    <string name="steps_of_following_your_employer">নিয়োগকর্তাকে ফলো করার পদক্ষেপ:</string>
-=======
     <string name="please_upload_your_resume_now_pdf_n_doc_docx">দয়া করে এখনই আপনার রিজিউমে আপলোড করুন .pdf, .doc ফরম্যাটে।</string>
-    <string name="steps_of_following_your_employer">নিয়োগকর্তাকে অনুসরণ করার পদক্ষেপ:</string>
->>>>>>> bb016d9256cf32fbe0a6d242624afd491cfbb658
+    <string name="steps_of_following_your_employer">নিয়োগকর্তাকে ফলো করার পদক্ষেপ:</string>
     <string name="go_to_employer_list_from_more_menu">- More মেনু থেকে নিয়োগকর্তা তালিকা তে যান।</string>
     <string name="search_for_your_desired_company">- আপনার পছন্দসই কোম্পানি অনুসন্ধান করুন।</string>
-    <string name="would_you_like_to_follow_your_favourite_employer_now">আপনি কি এখন আপনার পছন্দের নিয়োগকর্তাকে অনুসরণ করতে চান?</string>
-    <string name="follow_employer">নিয়োগকর্তাকে অনুসরণ করুন</string>
+    <string name="would_you_like_to_follow_your_favourite_employer_now">আপনি কি এখন আপনার পছন্দের নিয়োগকর্তাকে ফলো করতে চান?</string>
+    <string name="follow_employer">নিয়োগকর্তাকে ফলো করুন</string>
     <string name="search_is_already_saved">অনুসন্ধান ইতিমধ্যে সংরক্ষিত হয়েছে।</string>
     <string name="no_jobs_found">কোনো চাকরি পাওয়া যায়নি।</string>
     <string name="find_out_who_viewed_your_profile">আপনার প্রোফাইল কে দেখেছে তা খুঁজে বের করুন</string>
@@ -2990,29 +2974,29 @@ You have completed the process. To publish this job,
     <string name="_0_employer">0 নিয়োগকর্তা</string>
     <string name="b_font_color_b32d7d_font_b_employers"><![CDATA[<b><font color=\'#B32D7D\'>%1$s</font></b> নিয়োগকর্তা]]></string>
     <string name="title_change_password">পাসওয়ার্ড পরিবর্তন করুন</string>
-    <string name="password_should_be_8_to_12_character_long">পাসওয়ার্ড ৮ থেকে ১২ অক্ষরের হতে হবে!</string>
+    <string name="password_should_be_8_to_12_character_long">Password should be 8 to 12 character long!</string>
     <string name="you_can_indicate_your_immediate_availability_status_to_let_employers_know_you_can_join_their_organization_right_away">নিয়োগকর্তাদের জানাতে আপনি এখনই তাদের সংস্থায় যোগদান করতে পারেন বলে আপনি আপনার তাৎক্ষণিক প্রাপ্যতার অবস্থা নির্দেশ করতে পারেন।</string>
     <string name="to_show_you_are_immediately_available_select_yes">- আপনি অবিলম্বে উপলব্ধ দেখানোর জন্য, <b>\'হ্যাঁ\'</b> নির্বাচন করুন।</string>
     <string name="if_you_are_not_available_immediately_select_no">- আপনি অবিলম্বে উপলব্ধ না হলে, <b>\'না\'</b> নির্বাচন করুন।</string>
     <string name="label_privacy_info_three">আপনার প্রোফাইল দেখতে সীমাবদ্ধ করতে <b>প্রাইভেট</b> বা <b>লিমিটেড</b> নির্বাচন করুন।</string>
-    <string name="b_all_employer_s_b_can_see_your_profile"><![CDATA[<b>সকল নিয়োগকর্তা</b> আপনার প্রোফাইল দেখতে পাবেন।]]></string>
-    <string name="b_no_employer_s_b_can_see_your_profile_from_b_bdjobs_cv_bank_b"><![CDATA[<b>কোনো নিয়োগকর্তা</b> বিডিজবসের সিভি ব্যাংক থেকে \n<b> আপনার প্রোফাইল দেখতে পারবে না।</b>]]></string>
-    <string name="only_b_selected_employer_s_b_can_not_see_your_profile"><![CDATA[শুধুমাত্র <b>নির্বাচিত নিয়োগকর্তারা</b> আপনার প্রোফাইল দেখতে পারবে না।]]></string>
+    <string name="b_all_employer_s_b_can_see_your_profile"><![CDATA[<b>All Employer(s)</b> can see your profile.]]></string>
+    <string name="b_no_employer_s_b_can_see_your_profile_from_b_bdjobs_cv_bank_b"><![CDATA[<b>No Employer(s)</b> can see your profile from \n<b>Bdjobs CV Bank.</b>]]></string>
+    <string name="only_b_selected_employer_s_b_can_not_see_your_profile"><![CDATA[Only <b>Selected Employer(s)</b> can not see your profile.]]></string>
     <string name="update_failed">আপডেট ব্যর্থ হয়েছে: %1$s</string>
     <string name="profile_visibility_status">প্রোফাইল দৃশ্যমানতা</string>
     <string name="Public">সর্বজনীন</string>
     <string name="immediately_available_status">তাৎক্ষণিক উপলব্ধতা</string>
     <string name="recommended"> (প্রস্তাবিত)</string>
-    <string name="choose_limit">সীমা নির্বাচন করুন</string>
-    <string name="get_followed_employers_favourite_search">ফলো দেয়া নিয়োগকর্তা/ফেভারিট সার্চ পান</string>
-    <string name="payment_confirmation">পেমেন্ট নিশ্চিতকরণ</string>
-    <string name="package_details">প্যাকেজ বিবরণ</string>
-    <string name="get_bonus_sms">%1$d টি বোনাস এসএমএস নিন</string>
-    <string name="sms_job_alert_ended">এসএমএস জব এলার্ট শেষ হয়েছে</string>
+    <string name="choose_limit">Choose Limit</string>
+    <string name="get_followed_employers_favourite_search">Get Followed Employers/ Favourite Search</string>
+    <string name="payment_confirmation">Payment Confirmation</string>
+    <string name="package_details">Package Details</string>
+    <string name="get_bonus_sms">Get %1$d Bonus SMS</string>
+    <string name="sms_job_alert_ended">SMS Job Alert Ended</string>
     <string name="remaining_sms">এসএমএস বাকি আছে: %1$d</string>
     <string name="apply_limit">আবেদনের সীমা</string>
-    <string name="package_name">প্যাকেজের নাম</string>
-    <string name="if_you_upgrade_or_repurchase_your_remaining_balance_will_be_added_to_your_newly_purchased_package_first_month_only">আপনি যদি আপগ্রেড করেন, তাহলে আপনাকে আপনার বর্তমান প্যাকেজ থেকে নতুন প্যাকেজে স্যুইচ করা হবে এবং যেকোন অবশিষ্ট ব্যালেন্স শুধুমাত্র প্রথম মাসে যোগ করা হবে।</string>
+    <string name="package_name">Package Name</string>
+    <string name="if_you_upgrade_or_repurchase_your_remaining_balance_will_be_added_to_your_newly_purchased_package_first_month_only">If you upgrade or repurchase, your remaining balance will be added to your newly purchased package (first month only).</string>
     <string name="this_renew_package_will_be_activated_after_the_expiration_of_your_month_package_it_will_not_activate_now">This renew package will be activated after the expiration of your %1$s-month %2$s package. It will not activate now.</string>
     <string name="smsTotalAmount">%1$d/-</string>
     <string name="read_before_proceed">Read before proceed</string>
