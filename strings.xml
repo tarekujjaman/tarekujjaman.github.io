@@ -20,7 +20,7 @@
     <string name="turn_on_wifi">ওয়াই-ফাই অন করুন</string>
     <string name="alert_no_internet">ইন্টারনেট সংযোগ নেই!</string>
     <string name="otp_message">আপনার +৮৮ নাম্বারে পাঠানো ভেরিফিকেশন কোডটি লিখুন।</string>
-    <string name="hint.rf_phone_office">ফোন নম্বর (অফিস)</string>
+    <string name="hint.rf_phone_office">ফোন নাম্বার (অফিস)</string>
     <string name="my_npoints_n">মাই পয়েন্টস</string>
     <string name="help_career_summary">ক্যারিয়ার সামারি সেকশনটি আপনার রিজিউমির একটি অপশনাল কাস্টমাইজড সেকশন যেখানে আপনি যে পজিশনের জন্য আবেদন করছেন তার সাথে রিলেভেন্ট অ্যাচিভমেন্ট, স্কিলস এবং অভিজ্ঞতা তালিকাভুক্ত করতে পারবেন৷ আপনার ক্যারিয়ার সামারি সেকশনটি  আপনার রিলেভেন্ট অভিজ্ঞতার উপর ফোকাস করে এবং সম্ভাব্য নিয়োগকর্তাকে এটি জানায় যে আপনি একটি সিভি তৈরি করতে সময় নিয়েছেন এবং আপনি কীভাবে চাকরির জন্য যোগ্য।</string>
     <string name="help_special_qualification">বিশেষ যোগ্যতা আপনার রিজিউমির ৩-৫টি সংক্ষিপ্ত বাক্য। এটি আপনার সবচেয়ে প্রাসঙ্গিক অভিজ্ঞতা এবং যোগ্যতার সারসংক্ষেপ যা আপনি যে পদে আবেদন করছেন তার জন্য কাস্টমাইজ করা হয়েছে। এটি এমন একটি জায়গা যেখানে সময়ানুবর্তিতা এবং সততার মতো গুণাবলী প্রকাশ করা যেতে পারে যা জব এক্সপেরিয়েন্স হিসেবে উপযুক্ত হবে না। আপনার দক্ষতা, জব পজিশন, স্কিল এবং সম্পর্কিত অভিজ্ঞতার ক্ষেত্রগুলি সনাক্ত করতে সহায়তা করার জন্য জব ডেসক্রিপশন দিন। </string>
@@ -1002,8 +1002,13 @@
 
     <string name="select_a_site">একটি সাইট নির্বাচন করুন</string>
     <string name="select_ratting">রেটিং নির্বাচন করুন</string>
+<<<<<<< HEAD
+    <string name="FeedbackSupportFragment_err_msg_phone_number">দয়া করে বৈধ ফোন নাম্বার প্রদান করুন।</string>
+    <string name="FeedbackSupportFragment_err_msg_email_address">দয়া করে বৈধ ইমেল ঠিকানা প্রদান করুন।</string>
+=======
     <string name="FeedbackSupportFragment_err_msg_phone_number">দয়া করে সঠিক ফোন নম্বর প্রদান করুন।</string>
     <string name="FeedbackSupportFragment_err_msg_email_address">দয়া করে সঠিক ইমেল প্রদান করুন।</string>
+>>>>>>> bb016d9256cf32fbe0a6d242624afd491cfbb658
 
     <string name="no_transaction_history">আপনি এখনো কোনো লেনদেন সম্পন্ন করেননি</string>
 
@@ -1123,10 +1128,17 @@
 
     <!--fragment Details confirm layout start-->
     <string name="apply_online">অ্যাপ্লাই অনলাইন</string>
+<<<<<<< HEAD
+    <string name="your_expected_salary">প্রত্যাশিত স্যালারি <font color="#AC0000">*</font></string>
+    <string name="bdt_month">টাকা/মাস</string>
+    <string name="please_enter_your_expected_salary">আপনার প্রত্যাশিত স্যালারি লিখুন</string>
+    <string name="details_confirm_your_expected_salary_is_higher">আপনার প্রত্যাশিত স্যালারি প্রদত্ত স্যালারির থেকে বেশি।</string>
+=======
     <string name="your_expected_salary">প্রত্যাশিত বেতন<font color="#AC0000">*</font></string>
     <string name="bdt_month">টাকা/মাস</string>
     <string name="please_enter_your_expected_salary">আপনার প্রত্যাশিত বেতন লিখুন</string>
     <string name="details_confirm_your_expected_salary_is_higher">আপনার প্রত্যাশিত বেতন প্রদত্ত বেতন থেকে বেশি।</string>
+>>>>>>> bb016d9256cf32fbe0a6d242624afd491cfbb658
     <string name="priority_level">প্রায়োরিটি লেভেল<font color="#AC0000">*</font></string>
     <string name="high_available">হাঁই<font color="#13A10D">(এভেইলেবেল)</font></string>
     <string name="details_confirm_only_one_job_available_per_week">(প্রতি সপ্তাহে একটি চাকরি এভেইলেবেল)</string>
@@ -1336,7 +1348,7 @@
     <string name="hint_How_Satisfied_you_are_with_this_module">আপনি এই মডিউলটি নিয়ে কতটা সন্তুষ্ট ?</string>
     <string name="hint_type_your_msg">আপনার মেসেজ টাইপ করুন...</string>
     <string name="hint_enter_your_email">আপনার ই মেইল অ্যাড্রেস লিখুন</string>
-    <string name="hint_enter_your_number">আপনার ফোন নম্বর লিখুন</string>
+    <string name="hint_enter_your_number">আপনার ফোন নাম্বার লিখুন</string>
     <string name="are_you_facing_any_problem">আপনি কোন সমস্যার সম্মুখীন?</string>
     <string name="do_you_have_any_suggestions">আপনার কোন পরামর্শ আছে?</string>
     <string name="email_id">ই মেইল আইডি</string>
@@ -1518,7 +1530,7 @@
     <!--item live interview details start-->
     <string name="date">তারিখ</string>
     <string name="time">সময়</string>
-    <string name="contact_no">কন্টাক্ট নম্বর</string>
+    <string name="contact_no">কন্টাক্ট নাম্বার</string>
     <string name="venue_details">ভেন্যু</string>
     <string name="venue_details2">ভেন্যু</string>
     <string name="online_test_msg">এই অনলাইন টেস্ট এ আপনি আপনার সুবিধাজনক যেকোন স্থান থেকেই অংশগ্রহণ করতে পারবেন।</string>
@@ -1714,7 +1726,7 @@
     <!--wc social info end-->
 
     <!--wc phone email start-->
-    <string name="provide_your_mobile_no_and_email_address_atleast_one">আপনার মোবাইল নম্বর এবং ই মেইল অ্যাড্রেস (অন্তত একটি) দিন</string>
+    <string name="provide_your_mobile_no_and_email_address_atleast_one">আপনার মোবাইল নাম্বার এবং ই মেইল অ্যাড্রেস (অন্তত একটি) দিন</string>
     <string name="hint_country_region_code">দেশ/ অঞ্চল কোড</string>
     <string name="bangladesh_88">বাংলাদেশ (৮৮)</string>
     <string name="hint_email_">ই মেইল</string>
@@ -2055,7 +2067,7 @@
     <!--TrainingListFragment Kt end-->
     <string name="Fields_are_mandatory">ফিল্ডগুলি বাধ্যতামূলক</string>
     <string name="Something_went_wrong">কিছু সমস্যা হয়েছে!</string>
-    <string name="Please_fill_at_least_a_Primary_Mobile_No_or_Email_Address">অন্তত একটি প্রাথমিক মোবাইল নম্বর বা ইমেইল অ্যাড্রেস পূরণ করুন৷</string>
+    <string name="Please_fill_at_least_a_Primary_Mobile_No_or_Email_Address">অন্তত একটি প্রাইমারী মোবাইল নাম্বার বা ইমেইল অ্যাড্রেস পূরণ করুন৷</string>
     <string name="Invalid_Image_has_been_selected">ভুল ছবি নির্বাচন করা হয়েছে! আবার ছবি নির্বাচন করুন।</string>
     <string name="Image_can_not_be_larger_than_3MB">ছবি 3MB-এর বেশী বড় হওয়া যাবে না। </string>
     <string name="Invalid_Image_has_been_selected_Please_Choose_image_again">ভুল ছবি নির্বাচন করা হয়েছে! আবার ছবি নির্বাচন করুন।</string>
@@ -2112,7 +2124,7 @@
     <string name="points_faq_q_10">১০.রিডিম করতে "মাই পয়েন্টস"-এর সংখ্যার কি কোনো সীমা আছে?</string>
     <string name="points_faq_a_10">না। "মাই পয়েন্টস" রিডিম করার জন্য কোন সীমাবদ্ধতা নেই।</string>
     <string name="points_faq_q_11">১১. "মাই পয়েন্টস" রিডিম করতে কোনো অসুবিধা হলে আমার কি করা উচিত?</string>
-    <string name="points_faq_a_11">পয়েন্টস রিডিম করার জন্য আপনি যদি কোনো টেকনিক্যাল বা অন্যান্য সমস্যার সম্মুখীন হন অনুগ্রহ করে 16479 বা 09612444888 নম্বরে কল করুন।</string>
+    <string name="points_faq_a_11">পয়েন্টস রিডিম করার জন্য আপনি যদি কোনো টেকনিক্যাল বা অন্যান্য সমস্যার সম্মুখীন হন অনুগ্রহ করে 16479 বা 09612444888 নাম্বারে কল করুন।</string>
     <string name="points_faq_activities_ans">১ অপ্রাসঙ্গিক চাকরিতে আবেদনের জন্য ৫ পয়েন্টস ডিডাক্ট হবে ।\n২ ইন্টারভিউ ইনভাইটেশনে রেসপন্স না করলে ২ পয়েন্টস ডিডাক্ট হবে।\n৫ ইন্টারভিউতে অনুপস্থিত থাকলে ৫ পয়েন্টস ডিডাক্ট হবে।</string>
     <string name="video_resume_2">ভিডিও রিজিউমি</string>
     <string name="point_guide">পয়েন্ট গাইড</string>
@@ -2196,7 +2208,7 @@
     <string name="user_info_title">আপনার তথ্য</string>
     <string name="edit_info_apply_step">এডিট ইনফরমেশন</string>
     <string name="edit_user_info_apply_step">এডিট</string>
-    <string name="primary_mobile_apply_step">প্রাইমারি মোবাইল নম্বর</string>
+    <string name="primary_mobile_apply_step">প্রাইমারি মোবাইল নাম্বার</string>
     <string name="email_apply_step">ই মেইল অ্যাড্রেস</string>
     <string name="present_address_apply_step">বর্তমান ঠিকানা</string>
     <string name="current_salary_apply_step">বর্তমান বেতন</string>
@@ -2204,7 +2216,7 @@
 
     <!--    Online Test System Strings -->
 
-    <string name="ot_marks_title">নম্বর:</string>
+    <string name="ot_marks_title">নাম্বার:</string>
     <string name="signIn">সাইন ইন</string>
     <string name="search_with_your_keyword">কি ওয়ার্ড দিয়ে সার্চ করুন</string>
     <string name="search_category">সার্চ ক্যাটাগরি</string>
@@ -2411,11 +2423,11 @@
     <string name="Verify_your_account">অ্যাকাউন্ট ভেরিফাই করুন</string>
     <string name="Your_password_has_been_changed_successfully">আপনার পাসওয়ার্ডটি সফলভাবে পরিবর্তন হয়েছে</string>
     <string name="Your_password_and_userid_has_been_changed_successfully">আপনার পাসওয়ার্ড এবং ইউজার আইডি সফলভাবে পরিবর্তন হয়েছে </string>
-    <string name="msgDescriptionEmail">ইমেল ঠিকানা বা মোবাইল নম্বর লিখুন যেটি আপনি আপনার মাই বিডিজবস অ্যাকাউন্টে ব্যবহার করেছেন \n account.</string>
+    <string name="msgDescriptionEmail">ইমেল ঠিকানা বা মোবাইল নাম্বার লিখুন যেটি আপনি আপনার মাই বিডিজবস অ্যাকাউন্টে ব্যবহার করেছেন \n account.</string>
     <string name="msgDescriptionSelectRecoverOption">অ্যাকাউন্ট পুনরুদ্ধারের অপশনটি সিলেক্ট করুন </string>
     <string name="msgDescriptionVerifyAccount">আপনার My Bdjobs অ্যাকাউন্ট যাচাই করতে নিম্নলিখিত তথ্য দিন।</string>
     <string name="date_of_birth">জন্মতারিখ</string>
-    <string name="email_address_mobile_number">ই মেইল/ মোবাইল নম্বর</string>
+    <string name="email_address_mobile_number">ই মেইল/ মোবাইল নাম্বার</string>
     <string name="confirm_password">কনফার্ম পাসওয়ার্ড</string>
     <string name="new_password">নতুন পাসওয়ার্ড</string>
     <string name="write_the_code">কোডটি লিখুন</string>
@@ -2465,7 +2477,7 @@
     <string name="send_message">নিয়োগকর্তাকে মেসেজ দিন</string>
     <string name="backBtn">ফেরত যান</string>
     <string name="types_of_cv">সিভির ধরন:</string>
-    <string name="service_details_help_line"> পেমেন্ট সংক্রান্ত যেকোন সমস্যায় কল করুন ১৬৪৭৯ অথবা ০৯৬১২৪৪৪৮৮৮ নম্বরে।</string>
+    <string name="service_details_help_line"> পেমেন্ট সংক্রান্ত যেকোন সমস্যায় কল করুন ১৬৪৭৯ অথবা ০৯৬১২৪৪৪৮৮৮ নাম্বারে।</string>
     <string name="service_details">সার্ভিসের বিবরণ</string>
     <string name="selected_plan">নির্বাচিত প্ল্যানঃ</string>
     <string name="employer_interest">আগ্রহী নিয়োগকর্তা</string>
@@ -2698,81 +2710,81 @@ You have completed the process. To publish this job,
     <string name="lastUpdateOn">Last updated on:</string>
     <string name="profileFetchFailed">Sorry, Bdjobs Profile stat fetching failed!</string>
     <string name="personalityTestVoice">Personality Test by Voice</string>
-    <string name="priorityLevelUserGuide">Priority Level User Guide</string>
+    <string name="priorityLevelUserGuide">প্রায়োরিটি লেভেল ইউজার গাইড</string>
     <string name="payment1">পেমেন্ট</string>
-    <string name="applyJob">Apply Job</string>
-    <string name="whatsNew">What\'s New</string>
-    <string name="profileDetails">Profile Details</string>
-    <string name="noPhotoUploaded">No photo is uploaded yet</string>
-    <string name="uploadPhotoTypeSize">Upload JPG, GIF, PNG or BMP Max size of photo is 3MB</string>
-    <string name="changeDeletePhoto">You can change or delete your photo</string>
-    <string name="deletePhoto">Deleting Photo.....</string>
-    <string name="deletePhotoSuccess">Photo has been deleted successfully.</string>
-    <string name="uploadingPhoto">Uploading Photo..</string>
-    <string name="uploadingPhotoSuccess">Photo has been updated successfully.</string>
-    <string name="errorAgain">Some error occurred, Please try again.</string>
-    <string name="invalidImageSelected">Invalid Image has been selected!</string>
-    <string name="notLargerThan5">Image can not be larger than 5 MB</string>
-    <string name="selectReligion">Please select your religion</string>
-    <string name="selectBloodGroup">Please select your blood group</string>
-    <string name="nidValidation">Nid Number can not be lower than 10 or higher than 17 Character</string>
-    <string name="primaryEmail">Primary Email</string>
-    <string name="division">Division</string>
-    <string name="selectDistrict">Please select your district</string>
-    <string name="selectThana">Please select your thana</string>
-    <string name="selectPostOffice">Please select your post office</string>
-    <string name="selectCountryOrRegionCode">Please select your country/region code</string>
-    <string name="fillPrimaryMobileEmailAddress">Please fill at least a Primary Mobile No or Email Address.</string>
-    <string name="selectInsideBangladeshOutsideBangladeshPresentAddress">Please select Inside Bangladesh or Outside Bangladesh for Present Address</string>
-    <string name="selectInsideBangladeshOutsideBangladeshPermanentAddress">Please select Inside Bangladesh or Outside Bangladesh for Permanent Address</string>
-    <string name="selectDistrict_">Please select District</string>
-    <string name="selectThana_">Please select Thana</string>
-    <string name="selectDistrictFirst">Select a district first</string>
-    <string name="typeValidPrimaryEmailAddress">Please type a valid Primary Email Address.</string>
-    <string name="typeValidAlternateEmailAddress">Please type a valid Alternate Email Address.</string>
-    <string name="primaryMobileCanNotEmpty">Primary Mobile No can not be empty</string>
-    <string name="enterValidMobileNumber">Please enter a valid mobile number</string>
-    <string name="keywordsMaximumCharacters">Keywords maximum 250 characters</string>
-    <string name="reachedMaxLimitKeywords">Reached the max limit of keywords</string>
-    <string name="pleaseAddKeywords">Please add keywords</string>
-    <string name="canNotConnectServerTry">Can not connect to the server! Try again</string>
-    <string name="functionalJobCategoriesMax3">কার্যকরী চাকরির বিভাগ সর্বাধিক ৩টি</string>
-    <string name="specialSkilledJobCategoriesMax3">বিশেষ দক্ষতাসম্পন্ন চাকরির বিভাগ সর্বাধিক ৩টি</string>
-    <string name="organizationsMax12">প্রতিষ্ঠান সর্বাধিক ১২টি</string>
-    <string name="districtsmax15">জেলা সর্বাধিক ১৫টি</string>
-    <string name="countriesOrRegionsMax10">দেশ/অঞ্চল সর্বাধিক ১০টি</string>
-    <string name="functionalJobCategoryNotAvailable">Functional Job Category is not available</string>
-    <string name="specialSkilledJobCategoryNotAvailable">Special Skilled Job Category is not available</string>
-    <string name="organizationTypeNotAvailable">Organization Type is not available</string>
-    <string name="districtNotAvailable">District is not available</string>
-    <string name="countryOrRegionNotAvailable">Country/Region is not available</string>
-    <string name="categoryAlreadyAdded">ক্যাটাগরি ইতিমধ্যে যোগ করা হয়েছে</string>
-    <string name="Max3Added">Maximum 3 items can be added.</string>
-    <string name="organizationAlreadyAdded">Organization type already added</string>
-    <string name="max12Added">Maximum 12 items can be added.</string>
-    <string name="districtAlreadyAdded">District already added</string>
-    <string name="max15Added">Maximum 15 items can be added.</string>
-    <string name="countryOrRegionAlreadyAdded">Country/Region already added</string>
-    <string name="max10Added">Maximum 10 items can be added.</string>
-    <string name="havingIssue">Looks like we are having an issue!</string>
+    <string name="applyJob">অ্যাপ্লাই জব</string>
+    <string name="whatsNew">নতুন সব ফিচারস</string>
+    <string name="profileDetails">প্রোফাইলের বিস্তারিত</string>
+    <string name="noPhotoUploaded">প্রোফাইলে ছবি আপলোড করা নেই</string>
+    <string name="uploadPhotoTypeSize">JPG, GIF, PNG অথবা BMP আপলোড করুন ছবির সর্বোচ্চ সাইজ ৩ এমবি</string>
+    <string name="changeDeletePhoto">আপনি আপনার ছবি পরিবর্তন বা মুছে ফেলতে পারবেন</string>
+    <string name="deletePhoto">ঞ্ছবি মুছে ফেলা হচ্ছে.....</string>
+    <string name="deletePhotoSuccess">ছবি সফলভাবে মুছে ফেলা হয়েছে।</string>
+    <string name="uploadingPhoto">ছবি আপলোড করা হচ্ছে..</string>
+    <string name="uploadingPhotoSuccess">ছবি সফলভাবে আপডেট করা হয়েছে।</string>
+    <string name="errorAgain">কিছু ত্রুটি ঘটেছে, অনুগ্রহ করে আবার চেষ্টা করুন।</string>
+    <string name="invalidImageSelected">অকার্যকর ছবি নির্বাচন করা হয়েছে!</string>
+    <string name="notLargerThan5">ছবি ৫ এমবি এর বেশি হতে পারবে না।</string>
+    <string name="selectReligion">আপনার ধর্ম নির্বাচন করুন</string>
+    <string name="selectBloodGroup">আপনার রক্তের গ্রুপ নির্বাচন করুন</string>
+    <string name="nidValidation">এনআইডি নাম্বার ১০ ডিজিটের কম অথবা ১৭ ডিজিটের বেশি হওয়া যাবে না</string>
+    <string name="primaryEmail">প্রাইমারী ইমেইল</string>
+    <string name="division">বিভাগ</string>
+    <string name="selectDistrict">আপনার জেলা নির্বাচন করুন</string>
+    <string name="selectThana">আপনার থানা নির্বাচন করুন</string>
+    <string name="selectPostOffice">আপনার পোস্ট অফিস নির্বাচন করুন</string>
+    <string name="selectCountryOrRegionCode">আপনার দেশ/অঞ্চলের কোড নির্বাচন করুন।</string>
+    <string name="fillPrimaryMobileEmailAddress">অনুগ্রহ করে কমপক্ষে একটি প্রাইমারী মোবাইল নাম্বার বা ইমেইল পূরণ করুন।</string>
+    <string name="selectInsideBangladeshOutsideBangladeshPresentAddress">বর্তমান ঠিকানার জন্য অনুগ্রহ করে বাংলাদেশের অভ্যন্তরে অথবা বাংলাদেশের বাহিরে নির্বাচন করুন</string>
+    <string name="selectInsideBangladeshOutsideBangladeshPermanentAddress">স্থায়ী ঠিকানার জন্য অনুগ্রহ করে বাংলাদেশের অভ্যন্তরে অথবা বাংলাদেশের বাহিরে নির্বাচন করুন</string>
+    <string name="selectDistrict_">আপনার জেলা নির্বাচন করুন</string>
+    <string name="selectThana_">আপনার থানা নির্বাচন করুন</string>
+    <string name="selectDistrictFirst">প্রথমে একটি জেলা নির্বাচন করুন</string>
+    <string name="typeValidPrimaryEmailAddress">অনুগ্রহ করে একটি কার্যকর প্রাইমারী ইমেইল টাইপ করুন।</string>
+    <string name="typeValidAlternateEmailAddress">অনুগ্রহ করে একটি কার্যকর বিকল্প ইমেল টাইপ করুন।</string>
+    <string name="primaryMobileCanNotEmpty">প্রাইমারী মোবাইল নাম্বার খালি রাখা যাবে না</string>
+    <string name="enterValidMobileNumber">দয়া করে একটি কার্যকর মোবাইল নম্বর লিখুন।</string>
+    <string name="keywordsMaximumCharacters">কীওয়ার্ড সর্বোচ্চ ২৫০ অক্ষর</string>
+    <string name="reachedMaxLimitKeywords">সর্বোচ্চ কীওয়ার্ড সীমায় পৌঁছে গেছেন</string>
+    <string name="pleaseAddKeywords">কীওয়ার্ড যোগ করুন</string>
+    <string name="canNotConnectServerTry">সার্ভারের সাথে সংযোগ করা যাচ্ছে না! আবার চেষ্টা করুন।</string>
+    <string name="functionalJobCategoriesMax3">ফাংশনাল চাকরির বিভাগ সর্বোচ্চ ৩টি</string>
+    <string name="specialSkilledJobCategoriesMax3">বিশেষ দক্ষতাসম্পন্ন চাকরির বিভাগ সর্বোচ্চ ৩টি</string>
+    <string name="organizationsMax12">প্রতিষ্ঠান সর্বোচ্চ ১২টি</string>
+    <string name="districtsmax15">জেলা সর্বোচ্চ ১৫টি</string>
+    <string name="countriesOrRegionsMax10">দেশ/অঞ্চল সর্বোচ্চ ১০টি</string>
+    <string name="functionalJobCategoryNotAvailable">ফাংশনাল চাকরির বিভাগ পাওয়া যায় নি</string>
+    <string name="specialSkilledJobCategoryNotAvailable">বিশেষ দক্ষতাসম্পন্ন চাকরির বিভাগ পাওয়া যায় নি</string>
+    <string name="organizationTypeNotAvailable">শিল্প সংস্থা পাওয়া যায় নি</string>
+    <string name="districtNotAvailable">জেলা পাওয়া যায় নি</string>
+    <string name="countryOrRegionNotAvailable">দেশ/অঞ্চল পাওয়া যায় নি</string>
+    <string name="categoryAlreadyAdded">ক্যাটাগরি ইতোমধ্যে যোগ করা হয়েছে</string>
+    <string name="Max3Added">সর্বোচ্চ ৩টি আইটেম যোগ করা যাবে।</string>
+    <string name="organizationAlreadyAdded">শিল্প সংস্থা ইতোমধ্যে যোগ করা হয়েছে</string>
+    <string name="max12Added">সর্বোচ্চ ১২টি আইটেম যোগ করা যাবে।</string>
+    <string name="districtAlreadyAdded">ইতোমধ্যে জেলা যোগ করা হয়েছে</string>
+    <string name="max15Added">সর্বোচ্চ ১৫টি আইটেম যোগ করা যাবে।</string>
+    <string name="countryOrRegionAlreadyAdded">ইতোমধ্যে দেশ/অঞ্চল যোগ করা হয়েছে।</string>
+    <string name="max10Added">সর্বোচ্চ ১০টি আইটেম যোগ করা যাবে।</string>
+    <string name="havingIssue">মনে হচ্ছে কোন সমস্যা হচ্ছে!</string>
     <string name="tryAgain">অনুগ্রহ করে আবার চেষ্টা করুন।</string>
-    <string name="maxEducationRemoveOne">আপনি ইতোমধ্যে সর্বাধিক সংখ্যক একাডেমিক যোগ্যতা যোগ করেছেন। নতুন একটি যোগ করার জন্য আপনাকে আপনার বিদ্যমান একাডেমিক যোগ্যতার একটি মুছে ফেলতে হবে।</string>
-    <string name="majorOption">Concentration</string>
-    <string name="cannot10AcademicQualifications">You cannot add more than 10 Academic Qualifications.</string>
-    <string name="waitLoaded">Please wait while data is being loaded.</string>
-    <string name="examOrDegreeTitle">Exam/Degree Title *</string>
-    <string name="marks">নম্বর</string>
-    <string name="tooShort">it is too short</string>
-    <string name="selectEducation">Select level of education</string>
-    <string name="selectBoard">Select board</string>
-    <string name="enterValidMarks">Please enter a valid marks</string>
-    <string name="enterValidScale">Please enter a valid scale</string>
-    <string name="marksPercentage">নম্বর(%)</string>
-    <string name="maxTraining">আপনি ইতিমধ্যে সর্বাধিক সংখ্যা ট্রেনিং সারাংশ যোগ করেছেন। একটি নতুন ট্রেনিং সারাংশ যোগ করার জন্য আপনাকে আপনার বিদ্যমান ট্রেনিং সারাংশগুলির মধ্যে একটি মুছে ফেলতে হবে।</string>
-    <string name="cannot20TrainingSummaries.">You cannot add more than 20 Training Summaries.</string>
-    <string name="maxProfessionalCertificate">You have already added the maximum number of Professional Certification Summary. You have to remove one of your existing Professional Certification Summaries to add a new one.</string>
-    <string name="cannot20ProfessionalSummaries">You cannot add more than 20 Professional Certification Summaries.</string>
-    <string name="startDateCannotGreaterThanEndDate">Start Date cannot be greater than End Date!</string>
+    <string name="maxEducationRemoveOne">আপনি ইতোমধ্যে সর্বোচ্চ সংখ্যক একাডেমিক যোগ্যতা যোগ করেছেন। নতুন একটি যোগ করার জন্য আপনাকে আপনার বিদ্যমান একাডেমিক যোগ্যতার একটি মুছে ফেলতে হবে।</string>
+    <string name="majorOption">কনসেনট্রেশন</string>
+    <string name="cannot10AcademicQualifications">আপনি ১০টির বেশি শিক্ষাগত যোগ্যতা যোগ করতে পারবেন না।</string>
+    <string name="waitLoaded">তথ্য লোড হওয়া পর্যন্ত অনুগ্রহ করে অপেক্ষা করুন।</string>
+    <string name="examOrDegreeTitle">পরীক্ষা/ডিগ্রীর নাম *</string>
+    <string name="marks">নাম্বার</string>
+    <string name="tooShort">এটা খুব ছোট</string>
+    <string name="selectEducation">শিক্ষা পর্যায় নির্বাচন করুন</string>
+    <string name="selectBoard">বোর্ড নির্বাচন করুন</string>
+    <string name="enterValidMarks">দয়া করে একটি কার্যকর মার্ক লিখুন</string>
+    <string name="enterValidScale">দয়া করে একটি কার্যকর স্কেল লিখুন</string>
+    <string name="marksPercentage">নাম্বার(%)</string>
+    <string name="maxTraining">আপনি ইতোমধ্যে সর্বোচ্চ সংখ্যা ট্রেনিং সারাংশ যোগ করেছেন। একটি নতুন ট্রেনিং সারাংশ যোগ করার জন্য আপনাকে আপনার বিদ্যমান ট্রেনিং সারাংশগুলির মধ্যে একটি মুছে ফেলতে হবে।</string>
+    <string name="cannot20TrainingSummaries.">আপনি ২০টির বেশি ট্রেনিং এর সংক্ষিপ্ত বিবরণী যোগ করতে পারবেন না। </string>
+    <string name="maxProfessionalCertificate">আপনি ইতোমধ্যে সর্বোচ্চ সংখ্যক সার্টিফিকেশন যোগ করেছেন। নতুন একটি যোগ করার জন্য আপনাকে আপনার বিদ্যমান সার্টিফিকেশন গুলির একটি সরিয়ে ফেলতে হবে।</string>
+    <string name="cannot20ProfessionalSummaries">আপনি ২০টির বেশি সার্টিফিকেশন যোগ করতে পারবেন না।</string>
+    <string name="startDateCannotGreaterThanEndDate">শুরুর তারিখ শেষ তারিখের চেয়ে বড় হতে পারবে না!</string>
 
     <string name="job_location">কাজের অবস্থান</string>
     <string name="job_information">কাজের তথ্য</string>
@@ -2805,46 +2817,46 @@ You have completed the process. To publish this job,
     <string name="this_employer_has_encouraged_you_to_submit_your_video_cv_b_submit_now_b"><![CDATA[এই নিয়োগকর্তা আপনাকে আপনার ভিডিও সিভি জমা দিতে উৎসাহিত করেছেন। <b>এখনই জমা দিন</b>]]></string>
     <string name="this_employer_has_encouraged_you_to_submit_your_customized_cv_which_is_already_available_in_your_profile">এই নিয়োগকর্তা আপনাকে আপনার কাস্টমাইজড সিভি জমা দিতে উৎসাহিত করেছেন, যা ইতিমধ্যেই আপনার প্রোফাইলে উপলব্ধ রয়েছে।</string>
     <string name="this_employer_has_encouraged_you_to_submit_your_customized_cv_b_submit_now_b"><![CDATA[এই নিয়োগকর্তা আপনাকে আপনার কাস্টমাইজড সিভি জমা দিতে উৎসাহিত করেছেন। <b>এখনই জমা দিন</b>]]></string>
-    <string name="or_to_email_cv_from_my_bdjobs_account_please">"অথবা আমার BdJobs অ্যাকাউন্ট থেকে ইমেইলের মাধ্যমে সিভি পাঠান। "</string>
+    <string name="or_to_email_cv_from_my_bdjobs_account_please">"অথবা BdJobs অ্যাকাউন্ট থেকে ইমেইলের মাধ্যমে সিভি পাঠান। "</string>
     <string name="only_males_are_allowed_to_apply">শুধুমাত্র পুরুষ প্রার্থীরা আবেদন করতে পারবেন।</string>
     <string name="only_females_are_allowed_to_apply">শুধুমাত্র মহিলা প্রার্থীরা আবেদন করতে পারবেন।</string>
     <string name="any">যেকোনো</string>
     <string name="this_line_indicates_your_matching_position_compared_to_other_applicants">এই লাইনটি অন্যান্য আবেদনকারীদের তুলনায় আপনার মিলের অবস্থান নির্দেশ করে।</string>
     <string name="this_line_indicates_your_experience_level_compared_to_other_applicants">এই লাইনটি অন্যান্য আবেদনকারীদের তুলনায় আপনার অভিজ্ঞতার স্তর নির্দেশ করে।</string>
     <string name="it_displays_the_number_of_profiles_viewed_and_shortlisted_by_employers">এটি নিয়োগকর্তাদের দ্বারা দেখা এবং সংক্ষিপ্ত তালিকাভুক্ত প্রোফাইলের সংখ্যা প্রদর্শন করে।</string>
-    <string name="it_highlights_the_salary_range_most_commonly_requested_by_job_seekers">এটি চাকরিপ্রার্থীদের দ্বারা সর্বাধিক অনুরোধ করা বেতনের পরিসরকে হাইলাইট করে।</string>
-    <string name="maxEmploymentRemoveOne">আপনি ইতোমধ্যে সর্বাধিক সংখ্যক চাকরির ইতিহাস যোগ করেছেন। নতুন একটি যোগ করার জন্য আপনাকে আপনার বিদ্যমান চাকরির ইতিহাসগুলোর একটি মুছে ফেলতে হবে।</string>
-    <string name="maxEmployment20">You cannot add more than 20 Employment Histories.</string>
-    <string name="itemRemoved">Item Removed!</string>
-    <string name="startDateNotGreaterEndDate">Start Date can not be greater than End Date</string>
-    <string name="max3Expertise">Maximum 3 Area of Expertise can be added.</string>
-    <string name="companyNameRequired">Company name is required</string>
-    <string name="positionRequired">Position is required</string>
+    <string name="it_highlights_the_salary_range_most_commonly_requested_by_job_seekers">এটি চাকরিপ্রার্থীদের দ্বারা সর্বোচ্চ অনুরোধ করা বেতনের পরিসরকে হাইলাইট করে।</string>
+    <string name="maxEmploymentRemoveOne">আপনি ইতোমধ্যে সর্বোচ্চ সংখ্যক চাকরির ইতিহাস যোগ করেছেন। নতুন একটি যোগ করার জন্য আপনাকে আপনার বিদ্যমান চাকরির ইতিহাসগুলোর একটি মুছে ফেলতে হবে।</string>
+    <string name="maxEmployment20">আপনি ২০টির বেশি  কর্মসংস্থান এর বিবরণী যোগ করতে পারবেন না।</string>
+    <string name="itemRemoved">আইটেম সরানো হয়েছে!</string>
+    <string name="startDateNotGreaterEndDate">শুরুর তারিখ শেষ তারিখের চেয়ে বড় হতে পারবে না!</string>
+    <string name="max3Expertise">সর্বোচ্চ ৩টি কর্মদক্ষতা যোগ করা যাবে</string>
+    <string name="companyNameRequired">কোম্পানির নাম বাধ্যতামূলক</string>
+    <string name="positionRequired">পদবীর নাম বাধ্যতামূলক</string>
     <string name="updateFailed">আপডেট ব্যর্থ হয়েছে</string>
-    <string name="noExpertiseFound">No Area of Expertise Found!</string>
-    <string name="totalExperienceTimeLength">Total expertise duration exceeds this experience time length (duration).</string>
-    <string name="alreadyExists">already exists!</string>
-    <string name="added">Added!</string>
-    <string name="errorOccurred">Error occurred</string>
-    <string name="commissionRetirementCannotSame">Date of Commission and Date of Retirement cannot be same!</string>
+    <string name="noExpertiseFound">কর্মদক্ষতা খুঁজে পাওয়া যায়নি!</string>
+    <string name="totalExperienceTimeLength">কাজের দক্ষতার সময়কাল এই অভিজ্ঞতার মোট সময়কাল থেকে বেশি হবে না।</string>
+    <string name="alreadyExists">ইতোমধ্যে বিদ্যমান!</string>
+    <string name="added">যোগ করা হয়েছে!</string>
+    <string name="errorOccurred">ত্রুটি ঘটেছে!</string>
+    <string name="commissionRetirementCannotSame">কমিশনের তারিখ এবং অবসরের তারিখ একই হতে পারে না!</string>
 
     <string name="manage_resume">জীবনবৃত্তান্ত পরিচালনা করুন</string>
     <string name="activities">কার্যক্রম</string>
-    <string name="addPortfolio">Add Portfolio</string>
-    <string name="addProject">Add Project</string>
-    <string name="addPublication">Add Publication</string>
-    <string name="addAwardHonor">Add Award/Honor</string>
-    <string name="addOther">Add Other</string>
-    <string name="portfolioViewPager">Portfolio</string>
-    <string name="projects">Projects</string>
-    <string name="publications">Publications</string>
-    <string name="awardsHonors">Awards/Honors</string>
-    <string name="itemUpdatedSuccessfully">Item has been updated successfully</string>
-    <string name="itemDeletedSuccessfully">Item has been deleted successfully</string>
-    <string name="itemInsertedSuccessfully">Item has been inserted successfully</string>
-    <string name="titleNotEmpty">* Title field can not be empty.</string>
-    <string name="invalidURL">* Invalid URL.</string>
-    <string name="descriptionFieldNotEmpty">* Description field can not be empty.</string>
+    <string name="addPortfolio">পোর্টফোলিও যোগ করুন</string>
+    <string name="addProject">প্রোজেক্ট যোগ করুন </string>
+    <string name="addPublication">পাবলিকেশন যোগ করুন</string>
+    <string name="addAwardHonor">পুরস্কার/সম্মান যোগ করুন</string>
+    <string name="addOther">অন্যান্য যোগ করুন</string>
+    <string name="portfolioViewPager">পোর্টফোলিও</string>
+    <string name="projects">প্রোজেক্ট</string>
+    <string name="publications">পাবলিকেশন</string>
+    <string name="awardsHonors">পুরস্কার/সম্মান</string>
+    <string name="itemUpdatedSuccessfully">আইটেমটি সফলভাবে আপডেট করা হয়েছে</string>
+    <string name="itemDeletedSuccessfully">আইটেমটি সফলভাবে মুছে ফেলা হয়েছে</string>
+    <string name="itemInsertedSuccessfully">আইটেমটি সফলভাবে সংযুক্ত হয়েছে</string>
+    <string name="titleNotEmpty">* টাইটেল খালি রাখা যাবে না।.</string>
+    <string name="invalidURL">* অকার্যকর URL.</string>
+    <string name="descriptionFieldNotEmpty">* ডেসক্রিপশন খালি রাখা যাবে না।</string>
     <string name="url_can_not_be_more_than_characters">* URL %1$d অক্ষরের বেশি হতে পারে না।</string>
     <string name="title_can_not_be_more_than_characters">* শিরোনাম %1$d অক্ষরের বেশি হতে পারে না।</string>
     <string name="description_can_not_be_more_than_characters">* বর্ণনা %1$d অক্ষরের বেশি হতে পারে না।</string>
@@ -2861,8 +2873,8 @@ You have completed the process. To publish this job,
     <string name="you_to_enjoy_the_unlimited_job_application">আপনি সীমাহীন চাকরির আবেদন উপভোগ করতে পারেন।</string>
     <string name="get_bdjobs_pro_2">Bdjobs Pro পান</string>
     <string name="boost_application_is_unavailable_for_this_job">এই কাজের জন্য বুস্ট অ্যাপ্লিকেশন অনুপলব্ধ।</string>
-    <string name="upgrade_your_plan_to_boost_more_applications">আরো অ্যাপ্লিকেশন বুস্ট করতে আপনার পরিকল্পনা আপগ্রেড করুন.</string>
-    <string name="you_have_reached_the_maximum_number_of_boost_applications">আপনি বুস্ট অ্যাপ্লিকেশনের সর্বাধিক সংখ্যায় পৌঁছেছেন৷</string>
+    <string name="upgrade_your_plan_to_boost_more_applications">আরো অ্যাপ্লিকেশন বুস্ট করতে আপনার প্যাকেজ আপগ্রেড করুন.</string>
+    <string name="you_have_reached_the_maximum_number_of_boost_applications">আপনি বুস্ট অ্যাপ্লিকেশনের সর্বোচ্চ সংখ্যায় পৌঁছেছেন৷</string>
     <string name="you_need_at_least_matching_to_boost_this_application">এই অ্যাপ্লিকেশনটিকে বুস্ট করার জন্য আপনার কমপক্ষে %1$d%% মিল প্রয়োজন।</string>
     <string name="this_employer_has_encouraged_you_to_provide_your_video_cv_font_color_0060db_b_u_record_now_u_b"><![CDATA[এই নিয়োগকর্তা আপনাকে আপনার ভিডিও সিভি জমা দিতে উৎসাহিত করেছেন। <font color=\'#0060DB\'><b><u>এখনই রেকর্ড করুন</u></b>]]></string>
     <string name="this_employer_has_encouraged_you_to_provide_your_video_cv_font_color_0060db_b_u_make_visible_now_u_b_font"><![CDATA[এই নিয়োগকর্তা আপনাকে আপনার ভিডিও সিভি জমা দিতে উৎসাহিত করেছেন। <font color=\'#0060DB\'><b><u>এখনই দৃশ্যমান করুন</u></b></font>]]></string>
@@ -2915,26 +2927,26 @@ You have completed the process. To publish this job,
     <string name="view_edit">দেখুন/এডিট করুন</string>
     <string name="please_wait_until_the_upload_is_finished">অনুগ্রহ করে অপেক্ষা করুন যতক্ষণ না আপলোড সম্পন্ন হয়।</string>
     <string name="no_skill_found">কোন দক্ষতা পাওয়া যায়নি!</string>
-    <string name="skill_maximum_10">Skill maximum 10</string>
-    <string name="are_you_sure_want_to_delete_this_record">Are you sure, want to delete this record?</string>
-    <string name="select_ntvqf_level">Select NTVQF level</string>
-    <string name="please_type_valid_skill">Please type valid skill</string>
-    <string name="this_skill_already_exists">This skill already exists</string>
-    <string name="please_select_ntvqf_level">Please select NTVQF level</string>
-    <string name="please_select_how_you_have_learned_the_skill">Please select how you have learned the skill</string>
-    <string name="please_type_your_skill">Please type your Skill</string>
-    <string name="ntvqf_level">NTVQF Level</string>
-    <string name="skill_you_learned_from1">Skill you learned from</string>
-    <string name="add_link_account">Add Link Account</string>
-    <string name="you_can_t_add_more_than_3_link_accounts">You can\'t add more than 3 Link Accounts</string>
+    <string name="skill_maximum_10">দক্ষতা সর্বোচ্চ ১০টি</string>
+    <string name="are_you_sure_want_to_delete_this_record">আপনি কি নিশ্চিত, এই রেকর্ডটি মুছে ফেলতে চান?</string>
+    <string name="select_ntvqf_level">NTVQF লেভেল সিলেক্ট করুন</string>
+    <string name="please_type_valid_skill">কার্যকর দক্ষতা টাইপ করুন</string>
+    <string name="this_skill_already_exists">এই দক্ষতা ইতিমধ্যে বিদ্যমান</string>
+    <string name="please_select_ntvqf_level">NTVQF লেভেল সিলেক্ট করুন</string>
+    <string name="please_select_how_you_have_learned_the_skill">আপনি কীভাবে দক্ষতা অর্জন করেছেন তা নির্বাচন করুন।</string>
+    <string name="please_type_your_skill">কার্যকর দক্ষতা টাইপ করুন</string>
+    <string name="ntvqf_level">NTVQF লেভেল</string>
+    <string name="skill_you_learned_from1">যেখান থেকে আপনি দক্ষতা অর্জন করেছেন</string>
+    <string name="add_link_account">লিঙ্ক অ্যাকাউন্ট এড করুন</string>
+    <string name="you_can_t_add_more_than_3_link_accounts">আপনি ৩টির বেশি লিঙ্ক অ্যাকাউন্ট যোগ করতে পারবেন না।</string>
     <string name="cancel_uper">বাতিল করুন</string>
     <string name="link">লিঙ্ক - %1$d</string>
-    <string name="the_information_has_been_added_successfully">The information has been added successfully</string>
-    <string name="the_information_has_been_updated_successfully">The information has been updated successfully</string>
-    <string name="please_enter_valid_url">Please enter valid url!</string>
-    <string name="you_need_to_choose_at_least_one_option">*You need to choose at least one option</string>
+    <string name="the_information_has_been_added_successfully">তথ্যটি সফলভাবে যোগ করা হয়েছে।</string>
+    <string name="the_information_has_been_updated_successfully">তথ্যটি সফলভাবে আপডেট করা হয়েছে।</string>
+    <string name="please_enter_valid_url">দয়া করে কার্যকর URL লিখুন!</string>
+    <string name="you_need_to_choose_at_least_one_option">*আপনাকে অন্তত একটি অপশন বেছে নিতে হবে</string>
     <string name="this_field_can_not_be_empty">*এই ফিল্ডটি খালি রাখা যাবে না</string>
-    <string name="are_you_sure_you_want_to_delete">Are you sure you want to delete?</string>
+    <string name="are_you_sure_you_want_to_delete">আপনি কি নিশ্চিত যে আপনি মুছে ফেলতে চান?</string>
     <string name="regular_jobs">নিয়মিত চাকরি (%1$s)</string>
     <string name="fair_job">ফেয়ার চাকরি (%1$s)</string>
     <string name="you_haven_t_applied_for_any_job_yet">আপনি এখনও কোনো চাকরির জন্য আবেদন করেননি।</string>
@@ -2948,16 +2960,21 @@ You have completed the process. To publish this job,
     <string name="your_bdjobs_profile_is_not_completed_yet">আপনার Bdjobs প্রোফাইল এখনো সম্পূর্ণ হয়নি!</string>
     <string name="ok">ঠিক আছে</string>
     <string name="sorry_customized_cv_stat_fetching_failed">দুঃখিত, কাস্টমাইজড সিভি পরিসংখ্যান আনতে ব্যর্থ হয়েছে!: %1$s</string>
-    <string name="it_is_an_invalid_file">এটি একটি অবৈধ ফাইল।</string>
+    <string name="it_is_an_invalid_file">এটি একটি অকার্যকর ফাইল।</string>
     <string name="you_can_not_upload_file_more_than_1mb_in_size">আপনি ১MB-এর বেশি আকারের ফাইল আপলোড করতে পারবেন না।</string>
     <string name="failed_to_get_file_from_uri">URI থেকে ফাইল আনতে ব্যর্থ হয়েছে।</string>
     <string name="please_select_a_valid_pdf_or_doc_or_docx_file">অনুগ্রহ করে একটি বৈধ PDF, DOC, অথবা DOCX ফাইল নির্বাচন করুন।</string>
     <string name="file_not_found">ফাইল পাওয়া যায়নি।</string>
-    <string name="are_you_sure_you_want_to_delete_your_uploaded_resume">আপনি কি নিশ্চিত যে আপনি আপনার আপলোড করা রিজিউমে মুছতে চান?</string>
-    <string name="sorry_personalized_resume_stat_fetching_failed">দুঃখিত, ব্যক্তিগতকৃত রিজিউমে পরিসংখ্যান আনতে ব্যর্থ হয়েছে: %1$s</string>
+    <string name="are_you_sure_you_want_to_delete_your_uploaded_resume">আপনি কি নিশ্চিত যে আপনি আপনার আপলোড করা সিভি মুছতে চান?</string>
+    <string name="sorry_personalized_resume_stat_fetching_failed">দুঃখিত, কাস্টমাইজড সিভি পরিসংখ্যান আনতে ব্যর্থ হয়েছে: %1$s</string>
     <string name="your_customized_cv_is_not_uploaded_yet">আপনার কাস্টমাইজড সিভি এখনও আপলোড করা হয়নি।</string>
+<<<<<<< HEAD
+    <string name="please_upload_your_resume_now_pdf_n_doc_docx">দয়া করে এখনই আপনার কাস্টমাইজড সিভি আপলোড করুন .pdf, .doc ফরম্যাটে।</string>
+    <string name="steps_of_following_your_employer">নিয়োগকর্তাকে ফলো করার পদক্ষেপ:</string>
+=======
     <string name="please_upload_your_resume_now_pdf_n_doc_docx">দয়া করে এখনই আপনার রিজিউমে আপলোড করুন .pdf, .doc ফরম্যাটে।</string>
     <string name="steps_of_following_your_employer">নিয়োগকর্তাকে অনুসরণ করার পদক্ষেপ:</string>
+>>>>>>> bb016d9256cf32fbe0a6d242624afd491cfbb658
     <string name="go_to_employer_list_from_more_menu">- More মেনু থেকে নিয়োগকর্তা তালিকা তে যান।</string>
     <string name="search_for_your_desired_company">- আপনার পছন্দসই কোম্পানি অনুসন্ধান করুন।</string>
     <string name="would_you_like_to_follow_your_favourite_employer_now">আপনি কি এখন আপনার পছন্দের নিয়োগকর্তাকে অনুসরণ করতে চান?</string>
@@ -2973,13 +2990,13 @@ You have completed the process. To publish this job,
     <string name="_0_employer">0 নিয়োগকর্তা</string>
     <string name="b_font_color_b32d7d_font_b_employers"><![CDATA[<b><font color=\'#B32D7D\'>%1$s</font></b> নিয়োগকর্তা]]></string>
     <string name="title_change_password">পাসওয়ার্ড পরিবর্তন করুন</string>
-    <string name="password_should_be_8_to_12_character_long">Password should be 8 to 12 character long!</string>
+    <string name="password_should_be_8_to_12_character_long">পাসওয়ার্ড ৮ থেকে ১২ অক্ষরের হতে হবে!</string>
     <string name="you_can_indicate_your_immediate_availability_status_to_let_employers_know_you_can_join_their_organization_right_away">নিয়োগকর্তাদের জানাতে আপনি এখনই তাদের সংস্থায় যোগদান করতে পারেন বলে আপনি আপনার তাৎক্ষণিক প্রাপ্যতার অবস্থা নির্দেশ করতে পারেন।</string>
     <string name="to_show_you_are_immediately_available_select_yes">- আপনি অবিলম্বে উপলব্ধ দেখানোর জন্য, <b>\'হ্যাঁ\'</b> নির্বাচন করুন।</string>
     <string name="if_you_are_not_available_immediately_select_no">- আপনি অবিলম্বে উপলব্ধ না হলে, <b>\'না\'</b> নির্বাচন করুন।</string>
     <string name="label_privacy_info_three">আপনার প্রোফাইল দেখতে সীমাবদ্ধ করতে <b>প্রাইভেট</b> বা <b>লিমিটেড</b> নির্বাচন করুন।</string>
-    <string name="b_all_employer_s_b_can_see_your_profile"><![CDATA[<b>All Employer(s)</b> can see your profile.]]></string>
-    <string name="b_no_employer_s_b_can_see_your_profile_from_b_bdjobs_cv_bank_b"><![CDATA[<b>No Employer(s)</b> can see your profile from \n<b>Bdjobs CV Bank.</b>]]></string>
+    <string name="b_all_employer_s_b_can_see_your_profile"><![CDATA[<b>সকল নিয়োগকর্তা</b> আপনার প্রোফাইল দেখতে পাবেন।]]></string>
+    <string name="b_no_employer_s_b_can_see_your_profile_from_b_bdjobs_cv_bank_b"><![CDATA[<b>কোনো নিয়োগকর্তা</b> বিডিজবসের সিভি ব্যাংক থেকে \n<b> আপনার প্রোফাইল দেখতে পারবে না।</b>]]></string>
     <string name="only_b_selected_employer_s_b_can_not_see_your_profile"><![CDATA[Only <b>Selected Employer(s)</b> can not see your profile.]]></string>
     <string name="update_failed">আপডেট ব্যর্থ হয়েছে: %1$s</string>
     <string name="profile_visibility_status">প্রোফাইল দৃশ্যমানতা</string>
