@@ -994,18 +994,18 @@
     <string name="Sign_out_dialog_title">আপনি কি সাইন আউট করতে চান?</string>
     <string name="logging_out_progress_title">লগ আউট</string>
     <string name="save_search_snackBar">সার্চ সেভ করতে অন্তত একটি ফিল্টার প্রয়োগ করুন</string>
-    <string name="video_cv_resume_hide_dialog_message_hide_from_emp">This action will hide your Video CV/Resume from Employers. Do you want to continue?</string>
-    <string name="video_cv_resume_hide_dialog_message_visible_to_emp">This action will make your Video CV/Resume visible to Employers. Do you want to continue??</string>
+    <string name="video_cv_resume_hide_dialog_message_hide_from_emp">আপনি যদি ভিডিও রিজিউমি না দেখাতে চান তাহলে নিয়োগকর্তা তা দেখতে পারবেন না। আপনি কি চাচ্ছেন নিয়োগকর্তা দেখতে পাবেন না?</string>
+    <string name="video_cv_resume_hide_dialog_message_visible_to_emp">ভিডিও রিজিউমি করার ফলে নিয়োগকর্তা তা দেখতে পাবেন। আপনি কি কন্টিনিউ করতে চান?</string>
     <string name="video_cv_resume_hide_dialog_title">কনফার্ম করুন</string>
-    <string name="video_cv_resume_hide_dialog_positive">হ্যাঁ, চালিয়ে যান</string>
-    <string name="video_cv_resume_hide_dialog_negative">ক্যান্সেল</string>
+    <string name="video_cv_resume_hide_dialog_positive">হ্যাঁ, দেখাবো না</string>
+    <string name="video_cv_resume_hide_dialog_negative">বাতিল করুন</string>
 
     <string name="select_a_site">একটি সাইট নির্বাচন করুন</string>
     <string name="select_ratting">রেটিং নির্বাচন করুন</string>
-    <string name="FeedbackSupportFragment_err_msg_phone_number">দয়া করে বৈধ ফোন নম্বর প্রদান করুন।</string>
-    <string name="FeedbackSupportFragment_err_msg_email_address">দয়া করে বৈধ ইমেল ঠিকানা প্রদান করুন।</string>
+    <string name="FeedbackSupportFragment_err_msg_phone_number">দয়া করে সঠিক ফোন নম্বর প্রদান করুন।</string>
+    <string name="FeedbackSupportFragment_err_msg_email_address">দয়া করে সঠিক ইমেল প্রদান করুন।</string>
 
-    <string name="no_transaction_history">আপনি এখনও কোন ট্রান্সজেকশন করেননি।</string>
+    <string name="no_transaction_history">আপনি এখনো কোনো লেনদেন সম্পন্ন করেননি</string>
 
     <string name="TAB_home">হোম</string>
     <string name="TAB_certificate_list">সার্টিফিকেট লিস্ট</string>
@@ -1018,8 +1018,8 @@
     <!--Language Change dialog end-->
 
     <!--activity suggestive search start-->
-    <string name="suggestive_search_start_typing_for_suggestions">সাজেশনের জন্য টাইপ করুন</string>
-    <string name="recent_searched_location_s">সাম্প্রতিক সার্চ</string>
+    <string name="suggestive_search_start_typing_for_suggestions">সাজেশন পেতে টাইপ করুন</string>
+    <string name="recent_searched_location_s">সাম্প্রতিক অনুসন্ধান</string>
     <string name="locations">আমার লোকেশন</string>
     <string name="district_s">জেলাসমুহ</string>
     <string name="suggestive_search_clear_all">ক্লিয়ার করুন</string>
@@ -1030,22 +1030,22 @@
 
     <!--save search dialog start-->
     <string name="title_save_search">সার্চ সেভ করুন</string>
-    <string name="save_search_update">আপডেট</string>
+    <string name="save_search_update">আপডেট করুন</string>
     <string name="save_search_save_as_new">নতুন হিসেবে সেভ করুন</string>
-    <string name="save_search_hint_name_of_your_favorite_search_filter">আপনার পছন্দের সার্চ ফিল্টারের নাম দিন</string>
+    <string name="save_search_hint_name_of_your_favorite_search_filter">ফেভারিট সার্চের নামটি লিখুন</string>
     <string name="save_search_save">সেভ</string>
     <string name="save_search_cancel">বাতিল করুন</string>
     <!--save search dialog end-->
 
     <!--fragment download/upload resume (personalize resume) start-->
-    <string name="personalized_resume">পার্সোনালাইজড রিজিউমি</string>
-    <string name="personalize_resume_statistics">পূর্ববর্তী পার্সোনালাইজড রিজিউমি স্ট্যাটাস</string>
-    <string name="personalize_resume_upload_viewed">নিয়োগকর্তা দেখেছেন</string>
+    <string name="personalized_resume">কাস্টমাইজড সিভি</string>
+    <string name="personalize_resume_statistics">পূর্ববর্তী কাস্টমাইজড সিভি স্ট্যাটাস</string>
+    <string name="personalize_resume_upload_viewed"> নিয়োগকর্তা দেখেছেন </string>
     <string name="personalize_resume_upload_downloaded">ডাউনলোড</string>
     <string name="personalize_resume_upload_emailed">ইমেইল</string>
-    <string name="label_upload_resume">এখানে, আপনি ব্যক্তিগত রেজুমে আপলোড করতে পারেন। একটি সঠিক কাজ পাওয়ার সম্ভাবনা বাড়ানোর জন্য, আপনার আপলোড করা রেজুমেটি আপডেট করা নিশ্চিত করুন।</string>
-    <string name="personalized_resume_not_uploaded">আপনার ব্যক্তিগত রেজ্যুমে এখনও আপলোড করা হয়নি।</string>
-    <string name="personalized_resume_upload_format">দয়া করে এখন আপনার রেজ্যুমে আপলোড করুন .pdf,\n.doc, .docx</string>
+    <string name="label_upload_resume">এখানে কাস্টমাইজড সিভি দেখতে পারবেন। কাঙ্ক্ষিত চাকরি খুঁজে পেতে কাস্টমাইজড সিভি আপডেটেড রাখুন।</string>
+    <string name="personalized_resume_not_uploaded">আপনার কাস্টমাইজড সিভি এখনও আপলোড করা হয়নি।</string>
+    <string name="personalized_resume_upload_format">দয়া করে এখন আপনার সিভি আপলোড করুন .pdf,\n.doc, .docx</string>
     <string name="personalize_resume_download_views">নিয়োগকর্তা দেখেছেন</string>
     <string name="personalize_resume_download_downloads">ডাউনলোড</string>
     <string name="personalize_resume_download_emailed">ইমেইল</string>
@@ -1070,12 +1070,12 @@
     <string name="interview_session_not_now">এখন না</string>
     <string name="interview_session_mute">মিউট</string>
     <string name="interview_session_camera_on">ক্যামেরা অন করুন</string>
-    <string name="interview_session_attended_successfully_msg">আপনার ইন্টারভিউ সফলভাবে শেষ হয়েছে।</string>
-    <string name="interview_session_duration">সময়কাল</string>
+    <string name="interview_session_attended_successfully_msg">আপনার ইন্টারভিউ সফলভাবে সম্পন্ন হয়েছে।</string>
+    <string name="interview_session_duration">ডেডলাইন</string>
     <string name="interview_session_rate_this_interview">ইন্টারভিউটি রেট করুণ</string>
     <string name="interview_session_submit">সাবমিট করুন</string>
-    <string name="interview_session_message_employer">এমপ্লয়ারকে মেসেজ করুন</string>
-    <string name="interview_session_go_back_to_live_interview">লাইভ ইন্টারভিউয়ে ফেরৎ যান।</string>
+    <string name="interview_session_message_employer">নিয়োগকর্তাকে মেসেজ করুন</string>
+    <string name="interview_session_go_back_to_live_interview">লাইভ ইন্টারভিউয়ে ফেরত যান।</string>
     <string name="interview_session_give_your_feedback">আপনার ফিডব্যাক দিন।</string>
     <string name="interview_session_write_messages">মেসেজ লিখুন</string>
     <string name="label_starting_interview">ইন্টারভিউ শুরু হচ্ছে...</string>
@@ -1099,7 +1099,7 @@
     <!--fragment video resume record Start-->
     <string name="label_change">চেঞ্জ করুন</string>
     <string name="video_resume_rec">REC</string>
-    <string name="optional">( অপশনাল)</string>
+    <string name="optional">অপশনাল</string>
     <string name="record_vr_1">১</string>
     <string name="record_vr_2">২</string>
     <string name="record_vr_3">৩</string>
@@ -1110,21 +1110,21 @@
 
     <!--fragment Video Interview Invitation Details start-->
     <string name="video_interview_invitation">ভিডিও ইন্টারভিউ ইনভাইটেশন</string>
-    <string name="video_interview_invitation_congratulation_msg">অভিনন্দন! আপনাকে একটি ভিডিও সাক্ষাত্কারের জন্য নির্বাচিত করা হয়েছে। নিয়োগকর্তার কিছু প্রশ্ন রয়েছে যা আপনি উত্তরগুলি রেকর্ড করার আগে দেখতে পারেন।</string>
-    <string name="video_interview_invitation_deadline">সময়সীমা</string>
+    <string name="video_interview_invitation_congratulation_msg">অভিনন্দন! আপনাকে একটি ভিডিও ইন্টারভিউইয়ের জন্য নির্বাচিত করা হয়েছে। নিয়োগকর্তার কিছু প্রশ্ন রয়েছে, যা আপনি উত্তর রেকর্ডের আগে দেখতে পারবেন।</string>
+    <string name="video_interview_invitation_deadline">ডেডলাইন</string>
     <string name="video_interview_invitation_total_time">সর্বমোট সময়</string>
     <string name="video_interview_invitation_questions">প্রশ্নাবলী</string>
-    <string name="video_interview_invitation_extra_attempt_s">অতিরিক্ত প্রচেষ্টা</string>
+    <string name="video_interview_invitation_extra_attempt_s">পুনরায় চেষ্টা</string>
     <string name="video_interview_invitation_view_job_details">জব ডিটেইলস দেখুন</string>
     <string name="video_interview_invitation_BTN_submit">ভিডিও ইন্টারভিউ সাবমিট করুন</string>
-    <string name="viewed_by_employer_by_date">Viewed by Employer, <b><big>%1$s</big></b></string>
+    <string name="viewed_by_employer_by_date">নিয়োগকর্তা দেখেছেন,<b><big>%1$s</big></b></string>
     <string name="view_video">ভিডিও দেখুন</string>
     <!--fragment Video Interview Invitation Details end-->
 
     <!--fragment Details confirm layout start-->
     <string name="apply_online">অ্যাপ্লাই অনলাইন</string>
     <string name="your_expected_salary">প্রত্যাশিত স্যালারি <font color="#AC0000">*</font></string>
-    <string name="bdt_month">BDT/মাস</string>
+    <string name="bdt_month">টাকা/মাস</string>
     <string name="please_enter_your_expected_salary">আপনার প্রত্যাশিত স্যালারি লিখুন</string>
     <string name="details_confirm_your_expected_salary_is_higher">আপনার প্রত্যাশিত স্যালারি প্রদত্ত স্যালারির থেকে বেশি।</string>
     <string name="priority_level">প্রায়োরিটি লেভেল<font color="#AC0000">*</font></string>
