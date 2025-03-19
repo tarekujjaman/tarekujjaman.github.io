@@ -371,56 +371,56 @@
     <string name="notification">নোটিফিকেশন</string>
     <!-- Assessment Strings -->
     <string name="title_activity_assesment_base">এমপ্লয়বিলিটি সার্টিফিকেশন</string>
-    <string name="test_payment_amount"><strike>BDT 550/-</strike> Free for first time</string>
+    <string name="test_payment_amount"><strike>৫৫০ টাকা</strike> প্রথমবারের জন্য বিনামূল্যে</string>
     <string name="tv_test_date_txt">টেস্টের তারিখ</string>
     <string name="tv_test_time_txt">টেস্টের সময়</string>
-    <string name="dialog_body_when_answered">If you are <b>সাবমিট করতে চাই না</b> Video Interview, then the employer will be informed that you are not interested to submit it and they will not see your recorded video(s). Also you will not be able to attend Video Interview for this job anymore. Do you still want to continue?</string>
-    <string name="dialog_body_when_not_answered">If you are <b>Not interested to submit</b> Video Interview, then the employer will be informed that you are not interested to submit it. Also you will not be able to attend Video Interview for this job anymore. Do you still want to continue?</string>
+    <string name="dialog_body_when_answered">যদি আপনি <b>ভিডিও ইন্টারভিউ সাবমিট করতে না চান</b>, তাহলে নিয়োগকর্তাকে জানানো হবে যে আপনি এটি জমা দিতে আগ্রহী নন এবং তারা আপনার রেকর্ড করা ভিডিও(গুলো) দেখতে পারবেন না। এছাড়া, আপনি আর এই চাকরির জন্য ভিডিও ইন্টারভিউ দিতে পারবেন না। আপনি কি নিশ্চিতভাবে চালিয়ে যেতে চান?</string>
+    <string name="dialog_body_when_not_answered">যদি আপনি <b>ভিডিও ইন্টারভিউ জমা দিতে আগ্রহী না হন</b>, তাহলে নিয়োগকর্তাকে জানানো হবে যে আপনি এটি জমা দিতে চান না। এছাড়া, আপনি আর এই চাকরির জন্য ভিডিও ইন্টারভিউ দিতে পারবেন না। আপনি কি নিশ্চিতভাবে চালিয়ে যেতে চান?</string>
     <string name="submission_info">Submitted on &lt;b>%1$s&lt;/b></string>
     <!-- Video Interview -->
-    <string name="homepage.slider_text">You have been selected for %1$s Video Interview. The employer has some question(s). You are requested to record yourself while you give the answer(s).</string>
+    <string name="homepage.slider_text">আপনি %1$s ভিডিও ইন্টারভিউর জন্য নির্বাচিত হয়েছেন। নিয়োগকর্তার কিছু প্রশ্ন রয়েছে, যার উত্তর দেওয়ার সময় আপনাকে নিজেকে ভিডিওতে রেকর্ড করার অনুরোধ করা হচ্ছে।</string>
     <string name="submit_all_videos">Submit&lt;small>(All videos)&lt;/small></string>
-    <string name="video_not_interested_none_answered">If you checked <b>\"Not interested to submit\"</b> Video Interview, then you will not able to record answer(s) for this invitation anymore.</string>
-    <string name="video_not_interested_some_answered">If you checked <b>\"Not interested to submit\"</b> Video Interview, then you will not able to attend Video Interview for this job anymore.</string>
+    <string name="video_not_interested_none_answered">যদি আপনি <b>"সাবমিট করতে চাই না"</b> ভিডিও ইন্টারভিউ নির্বাচন করেন, তাহলে আপনি আর এই আমন্ত্রণের জন্য উত্তর রেকর্ড করতে পারবেন না।</string>
+    <string name="video_not_interested_some_answered">যদি আপনি <b>"সাবমিট করতে চাই না"</b> ভিডিও ইন্টারভিউ নির্বাচন করেন, তাহলে আপনি আর এই চাকরির জন্য ভিডিও ইন্টারভিউ দিতে পারবেন না।</string>
 
     // Transaction
 
     <!-- Live Interview -->
-    <string name="live_interview_date_time">Do you want to present in the live interview on %1$s, at %2$s?</string>
-    <string name="label_resume_invisible_text">Your Video CV/Resume is not visible to employer(s). Make it visible to employer(s) to increase interview call.</string>
+    <string name="live_interview_date_time">আপনি কি %1$s তারিখে, %2$s সময়ে লাইভ ইন্টারভিউতে উপস্থিত থাকতে চান?</string>
+    <string name="label_resume_invisible_text">আপনার ভিডিও সিভি/রিজিউমে নিয়োগকর্তার জন্য দৃশ্যমান নয়। ইন্টারভিউ ডাকের সুযোগ বাড়াতে এটি দৃশ্যমান করুন।</string>
     <string name="label_buy_sms">এসএমএস কিনুন</string>
     <string name="label_follow_emp">ফলো এমপ্লয়ার/ ফেভারিট সার্চ</string>
     <string name="label_get_matched_job_alert">ম্যচড জবের অ্যালার্ট পান</string>
-    <string name="label_subscribe_employer_favorite_search_for_sms_alert">Subscribe Employer/Favorite Search for SMS Alert</string>
+    <string name="label_subscribe_employer_favorite_search_for_sms_alert">এসএমএস আলার্ট পেতে নিয়োগকর্তা বা ফেভারিট সার্চ সাবস্ক্রাইব করুন।</string>
     <string name="label_get_instant_sms_job_alert">এসএমএসের মাধ্যমে তাৎক্ষনিক জব অ্যালার্ট পান </string>
-    <string name="label_steps_of_receiving_sms_job_alert_of_your_choice">Steps of receiving SMS Job Alert of your choice</string>
-    <string name="label_confirmation_review">The employer will be able to review your application and, if needed, can contact with you.</string>
+    <string name="label_steps_of_receiving_sms_job_alert_of_your_choice">আপনার পছন্দের এসএমএস জব আলার্ট পাওয়ার ধাপসমূহ</string>
+    <string name="label_confirmation_review">নিয়োগকর্তা আপনার আবেদন পর্যালোচনা করতে পারবেন এবং প্রয়োজন হলে আপনার সঙ্গে যোগাযোগ করতে পারেন</string>
     <string name="label_personalized">পার্সোনালাইজড</string>
-    <string name="label_video_resume_visibility_to_employer_s">Status of showing Video CV/Resume to Employer(s)</string>
-    <string name="label_join_interview_30_mins">You will get Join Interview button before<b> 60 minutes </b>of interview.</string>
-    <string name="label_join_test_instruction">On test day, sign in to your My Bdjobs account from the latest Chrome or Firefox browser to enter the test room.</string>
-    <string name="label_join_test_instruction_new">You can participate in the test from here. To participate, button will be available 1 hour before the test.</string>
-    <string name="label_join_live_instruction">On the scheduled day, you can join the Interview from Live Interview Page.</string>
+    <string name="label_video_resume_visibility_to_employer_s">নিয়োগকর্তার কাছে ভিডিও সিভি/রিজিউমে প্রদর্শনের স্ট্যাটাস </string>
+    <string name="label_join_interview_30_mins">ইন্টারভিউ শুরুর <b>৬০ মিনিট</b> আগে আপনি ইন্টারভিউ তে জয়েন করার বাটনটি  পাবেন।</string>
+    <string name="label_join_test_instruction">পরীক্ষার দিনে, সর্বশেষ ক্রোম বা ফায়ারফক্স ব্রাউজার ব্যবহার করে আপনার মাই বিডিজবস  অ্যাকাউন্টে সাইন ইন করুন এবং টেস্ট রুমে প্রবেশ করুন।</string>
+    <string name="label_join_test_instruction_new">আপনি এখান থেকে পরীক্ষায় অংশ নিতে পারবেন। অংশগ্রহণের জন্য বোতামটি পরীক্ষা শুরুর ১ ঘণ্টা আগে সক্রিয় হবে।</string>
+    <string name="label_join_live_instruction">নির্ধারিত দিনে, আপনি লাইভ ইন্টারভিউ পেজ থেকে ইন্টারভিউতে যোগ দিতে পারবেন।</string>
     <string name="label_join_test_from_live_instruction">On the scheduled day, you can join the Interview from Online Test Page.</string>
-    <string name="label_join_general_instruction">On the scheduled day you can attend the interview at the venue mentioned in the invitation details.</string>
-    <string name="label_join_common_instruction">Congratulations, you have been selected for an Interview. 0n the scheduled day you can attend the interview at given time.</string>
+    <string name="label_join_general_instruction">নির্ধারিত দিনে, আপনি অনলাইন টেস্ট পেজ থেকে ইন্টারভিউতে যোগ দিতে পারবেন।</string>
+    <string name="label_join_common_instruction">অভিনন্দন! আপনি ইন্টারভিউর জন্য নির্বাচিত হয়েছেন। নির্ধারিত দিনে ও নির্দিষ্ট সময়ে আপনি ইন্টারভিউতে অংশ নিতে পারবেন।</string>
     <string name="ShortListedJobFragment_Shortlisted_Jobs">শর্টলিস্টেড জবস</string>
     <string name="tab_label_followed_employers">ফলোড এমপ্লয়ার</string>
     <string name="tab_label_favourite_search">ফেভারিট সার্চ</string>
 
-    <string name="jobdetail_item_list_label_video_resume_encouragement">This Employer has encouraged you to submit your Video CV/Resume. <b>Submit Now</b></string>
+    <string name="jobdetail_item_list_label_video_resume_encouragement">এই নিয়োগকর্তা আপনাকে ভিডিও সিভি/রিজিউমে জমা দেওয়ার জন্য উৎসাহিত করেছেন। <b>সাবমিট করুন </b></string>
 
     <string-array name="spinnerFilterItemEmailResume">
-        <item>All</item>
-        <item>Bdjobs Profile</item>
-        <item>Personalized Resume</item>
+        <item>সব</item>
+        <item>বিডিজবস প্রোফাইল</item>
+        <item>কাস্টমাইজড  সিভি</item>
     </string-array>
 
     <!--    Ajker Deal Strings-->
-    <string name="app_name_folder">Ajkerdeal</string>
+    <string name="app_name_folder">আজকের ডিল</string>
 
-    <string name="content_description">image</string>
-    <string name="cd">image</string>
+    <string name="content_description">ছবি</string>
+    <string name="cd">ছবি</string>
 
     <string name="menu_home">হোম</string>
     <string name="buyNow">এখনই কিনুন</string>
@@ -444,19 +444,19 @@
     <string name="loading_checkorder_process">অপেক্ষা করুন...</string>
     <string name="notification_channel_id_reminder">রিমাইন্ডার</string>
     <string name="notification_channel_name_reminder">রিমাইন্ডার</string>
-    <string name="notification_channel_description_reminder">Reminder notification channel</string>
+    <string name="notification_channel_description_reminder">রিমাইন্ডার নোটিফিকেশন চ্যানেল</string>
     <string name="title_sms_settings">এসএমএস সেটিংশ</string>
     <string name="video_resume_encouragement">আবেদনকারীদের ভিডিও সিভি/রিজুমে জমা দিতে উৎসাহিত করা হয়। <u>ভিডিও সিভি/রিজুমে সম্পর্কে আরও জানুন</u></string>
-    <string name="live_interview_msg">This is a live interview so no need to be present at company office. You can attend this interview from home or any convenient place.</string>
+    <string name="live_interview_msg">এটি একটি লাইভ ইন্টারভিউ, তাই কোম্পানির অফিসে উপস্থিত থাকার প্রয়োজন নেই। আপনি এটি বাসা বা সুবিধাজনক যেকোনো স্থান থেকে অংশ নিতে পারবেন।</string>
     <string name="online_application">অনলাইন অ্যাপ্লিকেশান</string>
     <string name="high_not_available">হাই (এভেইলেবল নেই)</string>
     <string name="note_txt">আবেদন করার আগে অনুগ্রহ করে পড়ুন<font color="#AC0000">*</font></string>
-    <string name="note_txt_EN">Please read before applying<font color="#AC0000">*</font></string>
+    <string name="note_txt_EN">আবেদন করার আগে অনুগ্রহ করে পড়ুন<font color="#AC0000">*</font></string>
     <string name="bdjobs_com">বিডিজবস শুধুমাত্রই নিয়োগকর্তা এবং চাকরিপ্রার্থীদের মাঝে যোগাযোগ মাধ্যম হিসেবে কাজ করে। বিডিজবস ওয়েবসাইটের মাধ্যমে চাকরিতে আবেদন করার পর কোম্পানি যদি আপনার সাথে কোনো আর্থিক লেনদেন অথবা অনিয়ম/প্রতারণা করে তার জন্য Bdjobs.com লিমিটেড দায়ী থাকবেনা।</string>
     <string name="tr_BD">বাংলায় দেখুন</string>
-    <string name="submit_now"><font color='#707070'>The employer has encouraged you to submit your Video CV/Resume.</font> <font color='black'>Submit Now</font>.</string>
+    <string name="submit_now"><font color='#707070'>নিয়োগকর্তা আপনাকে ভিডিও সিভি/রিজিউমে জমা দিতে উৎসাহিত করেছেন।</font> <font color='black'>সাবমিট করুন</font>.</string>
     <string name="input_country_without_special_character">"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZঁঁঃঅংআইঈউঊঋঌএঐওঔকখগঘঙচছজঝঞটঠডঢণতথদধনপফবভমযরলশষসহ়ঽািীৎ ু ৃ ৄ ূ ে ৈ ো ৌ ্ ৗ ড়ঢ়য়ৠৡৢৣ-\u0020"</string>
-    <string name="contact_16479">If you do not get the email, we are here to help! Please contact 16479</string>
+    <string name="contact_16479">যদি আপনি ইমেল না পান, চিন্তার কিছু নেই! সাহায্যের জন্য ০৯৬৩৮৬৬৬৪৪৪ নম্বরে যোগাযোগ করুন।</string>
     <string name="add_to_calender">ক্যালেন্ডারে যোগ করুন</string>
     <!--    Online Test System Strings -->
     <string name="bdjobs_online_test">বিডিজবস অনলাইন টেস্ট</string>
@@ -466,9 +466,9 @@
     <string name="ot_enter_test_msg">আপনি টেস্ট শুরু করুন</string>
     <string name="ot_next_btn">পরবর্তি</string>
     <string name="ot_waiting_room_validation">তথ্যটি দিন</string>
-    <string name="ot_user_instruction">Provide the following information before starting the test.</string>
-    <string name="ot_user_location_question">1. From which district/country you are participating this test now? <b><font color='#FF0000'>*</font></b></string>
-    <string name="ot_user_precise_location_question">2. From where are you participating in this test? <b><font color='#FF0000'>*</font></b></string>
+    <string name="ot_user_instruction">পরীক্ষা শুরু করার আগে নিম্নলিখিত তথ্য প্রদান করুন।</string>
+    <string name="ot_user_location_question">১. আপনি এখন কোন জেলা/দেশ থেকে এই পরীক্ষায় অংশগ্রহণ করছেন?<b><font color='#FF0000'>*</font></b></string>
+    <string name="ot_user_precise_location_question">২. আপনি কোথা থেকে এই পরীক্ষায় অংশ নিচ্ছেন?<b><font color='#FF0000'>*</font></b></string>
     <string name="ot_user_precise_location_home">হোম</string>
     <string name="ot_user_precise_location_office">অফিস</string>
     <string name="ot_user_precise_location_academic">শিক্ষা প্রতিষ্ঠান (কলেজ/ইউনিভার্সিটি/ট্রেইনিং সেন্টার)</string>
@@ -486,13 +486,13 @@
     <string name="clock_colon">:</string>
     <string name="enter_test_btn_text">টেস্ট শুরু</string>
     <string name="ot_waiting_room_note_title">নোট</string>
-    <string name="ot_static_msg_for_instruction">Read the instructions carefully before entering the test room</string>
+    <string name="ot_static_msg_for_instruction">পরীক্ষার কক্ষে প্রবেশের আগে নির্দেশনাগুলো মনোযোগ দিয়ে পড়ুন।</string>
     <string name="ot_static_msg_for_mobile_user">মোবাইল ইউজারদের জন্য নির্দেশনাবলী</string>
-    <string name="ot_static_msg_for_do_and_do_not">Do &amp; Don’ts During Online Test</string>
-    <string name="mobile_user_instruction">1. Use your Bdjobs mobile app to attend the online test. Try mobile browser (Google Chrome, Firefox) if you have trouble attending from mobile app.\n\n2. Close all your background mobile applications before starting the test.\n\n3. Do not use other mobile applications during the test.\n\n4. Make sure that you have a good internet connection.\n\n5. Leaving, swapping, minimizing the test screen, background running apps, notifications, calls, and mobile screen lock will be considered as unauthorized attempts.</string>
-    <string name="do_and_do_not_instruction"><b>Do\'s:</b>\n\n1. You need a webcam on your device on which you are taking the test.\n\n2. Take preparation before the test.\n\n3. Be seated in a plain quiet background with proper amount of light.\n\n4. Ensure that you have internet and power backups। e.g: Mobile data, UPS.\n\n<b>Don\'ts:</b>\n\n1. If any suspicious activity is observed during the test, in that case the test will stand canceled.\n\n2. If you use multiple devices at the same time and the system detects this the test can be terminated for you.\n\n3. Don\'t speak to anyone.\n\n4. Don\’t perform any activities outside the test screen.</string>
-    <string name="do_and_do_not_instruction_without_webcam"><b>Do\'s:</b>\n\n1. Take preparation before the test.\n\n2. Be seated in a plain quiet background with proper amount of light.\n\n3. Ensure that you have internet and power backups। e.g: Mobile data, UPS.\n\n<b>Don\'ts:</b>\n\n1. If any suspicious activity is observed during the test, in that case the test will stand canceled.\n\n2. If you use multiple devices at the same time and the system detects this the test can be terminated for you.\n\n3. Don\'t speak to anyone.\n\n4. Don\’t perform any activities outside the test screen.</string>
-    <string name="online_test_instruction">1.You will have 5 questions to answer\n\n2. Don\'t speak to anyone.\n\n2. You need to complete your sample test with in 60 seconds.\n\n3. Sample test will help you to be familiar with Bdjobs Online Test system.\n\n4. You can join sample test from Bdjobs Mobile app.</string>
+    <string name="ot_static_msg_for_do_and_do_not">অনলাইন পরীক্ষার সময় করণীয় ও বর্জনীয়"</string>
+    <string name="mobile_user_instruction">১. অনলাইন পরীক্ষায় অংশ নিতে আপনার Bdjobs মোবাইল অ্যাপ ব্যবহার করুন।\nআপনার মোবাইল অ্যাপে সমস্যা হলে, Google Chrome বা Firefox ব্রাউজার ব্যবহার করে চেষ্টা করুন।\n\n2. পরীক্ষার আগে আপনার মোবাইলের ব্যাকগ্রাউন্ডে চালু থাকা সব অ্যাপ বন্ধ করুন।\n\n3. পরীক্ষার সময় অন্য কোনো মোবাইল অ্যাপ ব্যবহার করবেন না।\n\n4. ভালো ইন্টারনেট সংযোগ নিশ্চিত করুন।\n\n5. পরীক্ষার সময় স্ক্রিন থেকে বের হওয়া, অ্যাপ পরিবর্তন করা, পরীক্ষা মিনিমাইজ করা, ব্যাকগ্রাউন্ডে অ্যাপ চালু থাকা, নোটিফিকেশন, কল গ্রহণ করা বা মোবাইল স্ক্রিন লক হওয়া অননুমোদিত কার্যক্রম হিসেবে গণ্য হবে।</string>
+    <string name="do_and_do_not_instruction"><b>করণীয়:</b>\n\n1. পরীক্ষার জন্য যে ডিভাইস ব্যবহার করছেন, তাতে ওয়েবক্যাম থাকতে হবে।\n\n2. পরীক্ষার আগে যথাযথ প্রস্তুতি নিন।\n\n3. নিরিবিলি, সাদামাটা পরিবেশে এবং যথাযথ আলোতে বসুন।\n\n4. ইন্টারনেট ও বিদ্যুৎ ব্যাকআপ নিশ্চিত করুন, যেমন: মোবাইল ডাটা, ইউপিএস।\n\nবর্জনীয়:</b>\n\n1. পরীক্ষার সময় কোনো সন্দেহজনক কার্যক্রম লক্ষ্য করা গেলে, পরীক্ষা বাতিল করা হতে পারে।\n\n2. একাধিক ডিভাইস ব্যবহার করলে এবং সিস্টেম এটি শনাক্ত করলে, আপনার পরীক্ষা বাতিল করা হতে পারে।\n\n3. পরীক্ষার সময় অন্য কারও সঙ্গে কথা বলবেন না।\n\n4. পরীক্ষার স্ক্রিনের বাইরে কোনো কাজ করবেন না।</string>
+    <string name="do_and_do_not_instruction_without_webcam"><b>করণীয়:</b>\n\n1. পরীক্ষার আগে যথাযথ প্রস্তুতি নিন।\n\n2. নিরিবিলি, সাদামাটা পরিবেশে যথাযথ আলোতে বসুন।\n\n3. ইন্টারনেট ও বিদ্যুৎ ব্যাকআপ নিশ্চিত করুন, যেমন: মোবাইল ডাটা, ইউপিএস।\n\n**<b>বর্জনীয়:</b>**\n\n1. পরীক্ষার সময় কোনো সন্দেহজনক কার্যক্রম লক্ষ্য করা গেলে, পরীক্ষা বাতিল করা হতে পারে।\n\n2. একাধিক ডিভাইস ব্যবহার করলে এবং সিস্টেম এটি শনাক্ত করলে, আপনার পরীক্ষা বাতিল করা হতে পারে।\n\n3. পরীক্ষার সময় অন্য কারও সঙ্গে কথা বলবেন না।\n\n4. পরীক্ষার স্ক্রিনের বাইরে কোনো কার্যক্রম করবেন না।</string>
+    <string name="online_test_instruction">১. আপনাকে ৫টি প্রশ্নের উত্তর দিতে হবে।\n\n2. পরীক্ষার সময় অন্য কারও সঙ্গে কথা বলবেন না।\n\n3. ৬০ সেকেন্ডের মধ্যে আপনার নমুনা পরীক্ষা সম্পন্ন করতে হবে।\n\n4. নমুনা পরীক্ষা আপনাকে বিডিজবস অনলাইন টেস্ট সিস্টেমের সাথে পরিচিত হতে সহায়তা করবে।\n\n5. আপনি বিডিজবস মোবাইল অ্যাপ থেকে নমুনা পরীক্ষায় অংশ নিতে পারেন।</string>
     <string name="btn_remove_text">বাদ দিন</string>
     <string name="btn_undo_text">বাতিল করুন</string>
     <string name="continue_btn">চালিয়া যান</string>
@@ -501,40 +501,40 @@
     <string name="ot_submit_and_finish"><![CDATA[Submit & Finish]]></string>
     <string name="ot_submit_and_next"><![CDATA[Submit & Next]]></string>
     <string name="ot_static_msg_read_questions_carefully">ভাল্ভাবে প্রশ্ন পড়ুন</string>
-    <string name="feedback_test_completed_icon">Feedback Test Completed Icon</string>
+    <string name="feedback_test_completed_icon">ফিডব্যাক টেস্ট সম্পন্ন আইকন</string>
     <string name="senior_executive_product">সিনিয়র এক্সিকিউটিভ, প্রোডাক্ট</string>
     <string name="xyz_company_ltd">XYZ Company Ltd</string>
     <string name="test_completed">টেস্ট শেষ</string>
     <string name="congratulations_md_naimur_rahman_you_have_completed_your_mcq_exam_for_probition_officer_thank_you_for_participating">Congratulations! MD Naimur Rahman, You have completed your MCQ Exam for Probition Officer. Thank you for participating.</string>
     <string name="back_to_test_details">টেস্ট ডিটেইলসে ফেরত যান</string>
-    <string name="congratulations_you_have_completed_your_sample_test_thank_you_for_participating_the_test">Congratulations! You have completed your sample test. Thank you for participating the test.</string>
-    <string name="timeout">Timeout !</string>
-    <string name="dear_md_naimur_rahman_your_exam_time_has_been_finished_thank_you_for_participating">Dear MD Naimur Rahman, Your exam time has been finished. Thank you for participating.</string>
+    <string name="congratulations_you_have_completed_your_sample_test_thank_you_for_participating_the_test">অভিনন্দন! আপনি আপনার নমুনা পরীক্ষা সম্পন্ন করেছেন। পরীক্ষায় অংশগ্রহণের জন্য আপনাকে ধন্যবাদ।</string>
+    <string name="timeout">সময় শেষ!</string>
+    <string name="dear_md_naimur_rahman_your_exam_time_has_been_finished_thank_you_for_participating">প্রিয় মোঃ নাইমুর রহমান, আপনার পরীক্ষার সময় শেষ হয়েছে। পরীক্ষায় অংশগ্রহণের জন্য আপনাকে ধন্যবাদ।</string>
     <string name="send_us_your_feedback">আপনার ফিডব্যাক দিন।</string>
     <string name="how_was_your_experience">আপনার অভিজ্ঞতা কেমন ছিল?</string>
     <string name="write_your_comment">কমেন্ট  লিখুন</string>
-    <string name="message_cannot_be_more_the_160_character_and_left_single_quote_written_as_are_not_allowed_etc">Message can not be more than 1000 characters.</string>
+    <string name="message_cannot_be_more_the_160_character_and_left_single_quote_written_as_are_not_allowed_etc">ম্যাসেজটি  ১০০০ অক্ষরের বেশি হতে পারবে না।</string>
     <string name="message">মেসেজ</string>
     <string name="rate_this_online_exam_system">অনলাইন টেস্টটি রেট করুন</string>
     <string name="submit">সাবমিট</string>
     <string name="unauthorized_attempt">অননুমোদিত প্রচেষ্টা</string>
-    <string name="you_have_unauthorized_attempt_for_this_test_following_reasons_will_be_considered_as_unauthorized_attempt">You have unauthorized attempt for this test. Following reasons will be considered as unauthorized attempt:</string>
-    <string name="unauthorized_msg_1">• Leaving test screen\n\n• Opening, swapping or switching to another tab/app\n\n• Minimizing the test screen\n\n• Background running apps\n\n• Pop up Notifications\n\n• Mobile calls\n\n• Desktop/Mobile screen lock</string>
+    <string name="you_have_unauthorized_attempt_for_this_test_following_reasons_will_be_considered_as_unauthorized_attempt">আপনার এই পরীক্ষার জন্য অননুমোদিত অবৈধ শনাক্ত করা হয়েছে। নিম্নলিখিত কারণগুলো অবৈধ প্রচেষ্টা হিসেবে গণ্য হবে:</string>
+    <string name="unauthorized_msg_1">• পরীক্ষার স্ক্রিন থেকে বের হওয়া\n\n• নতুন ট্যাব/অ্যাপ খুলা, অদলবদল বা অন্য অ্যাপে স্যুইচ করা\n\n• পরীক্ষার স্ক্রিন মিনিমাইজ করা\n\n• ব্যাকগ্রাউন্ডে চলমান অ্যাপস\n\n• পপ-আপ নোটিফিকেশন\n\n• মোবাইল কল\n\n• ডেস্কটপ/মোবাইল স্ক্রিন লক</string>
     <string name="try_again">আবার চেস্টা করুন</string>
     <string name="enter_test_room">টেস্ট রুমে প্রবেশ করুন</string>
     <string name="view_job_details">জব ডিটেইলস দেখুন</string>
     <string name="nice_amp_smooth"><![CDATA[Nice & Smooth]]></string>
     <string name="question_loading_time_was_slow">প্রশ্ন লোডিং হতে সময় বেশী লেগেছে </string>
-    <string name="had_an_issue_in_answering_questions">Had an issue in answering questions</string>
-    <string name="showing_time_out_before_the_test_time_ends">Showing \'Time Out\' before the test time ends</string>
-    <string name="site_stuck_for_a_while">Site stuck for a while</string>
+    <string name="had_an_issue_in_answering_questions">প্রশ্নের উত্তর দেওয়ার সময় সমস্যার সম্মুখীন হয়েছেন।</string>
+    <string name="showing_time_out_before_the_test_time_ends">পরীক্ষার সময় শেষ হওয়ার আগেই 'সময় শেষ' দেখাচ্ছে।</string>
+    <string name="site_stuck_for_a_while">যান্ত্রিক গোলযোগের জন্য সাইটটি কিছু সময়ের জন্য বন্ধ ছিল</string>
     <string name="other">অন্যান্য</string>
 
     <!--    Online Test System Strings -->
     <string name="skip">স্কিপ</string>
     <string name="questionImage">প্রশ্নের ছবি</string>
     <string name="please_wait">অপেক্ষা করুন</string>
-    <string name="sample_test_completed">"Congratulations! You have completed your sample test. Thank you for participating the test."</string>
+    <string name="sample_test_completed">"অভিনন্দন! আপনি আপনার নমুনা পরীক্ষা সম্পন্ন করেছেন। পরীক্ষায় অংশগ্রহণের জন্য ধন্যবাদ।"</string>
     <string name="primary_mobile">প্রাইমারী মোবাইল</string>
     <string name="favorite_search">আমার ফেভারিট সার্চ</string>
     <string name="my_calender">My\nCalender</string>
@@ -543,7 +543,7 @@
     <string name="profileImage">প্রোফাইল ছবি</string>
     <string name="employer_viewed">এমপ্লয়ার দেখেছেন</string>
     <string name="all_jobs">সকল জব</string>
-    <string name="guest_user_bottom_sheet_title">Bangladesh Country Coordinating Mechanism (BCCM)</string>
+    <string name="guest_user_bottom_sheet_title">বাংলাদেশ কান্ট্রি কোঅর্ডিনেটিং মেকানিজম (BCCM)</string>
     <string name="bdjobs_limited">বিডিজবস লিমিটেড</string>
     <string name="profile_picture">প্রফিলে_পিকচার</string>
     <string name="_0">0</string>
@@ -556,7 +556,7 @@
 
     <string name="saved">সেভড</string>
     <string name="ui_ux_designer">UI UX ডিজাইনার</string>
-    <string name="design_creative_dhaka_less_than_1_year">Design/Creative, Dhaka, Less than 1 year</string>
+    <string name="design_creative_dhaka_less_than_1_year">ডিজাইন/ক্রিয়েটিভ, ঢাকা, ১ বছরের কম অভিজ্ঞতা</string>
     <string name="contractual_jobs_home">চুক্তিভিত্তিক চাকরি</string>
     <string name="my_bdjobs">মাই বিডিজবস</string>
     <string name="there_is_no_event_on_this_day">এদিন কোনো ইভেন্ট নেই।</string>
@@ -615,7 +615,7 @@
     <string name="hint.newspaper_job">সংবাদপত্রের চাকরি</string>
     <string name="advanceSearch.tv.headline">অ্যাডভান্স সার্চ</string>
     <string name="advanceSearch.tv.search">সার্চ</string>
-    <string name="advanceSearch.hint.keyword">কী ওয়ার্ড</string>
+    <string name="advanceSearch.hint.keyword">কীওয়ার্ড</string>
     <string name="hint_general_category">সাধারণ ক্যাটাগরি</string>
     <string name="hint.special_skilled_category">স্পেশাল স্কিল্‌ড বিভাগ</string>
     <string name="hint.industry">শিল্প বিভাগ</string>
@@ -642,7 +642,7 @@
     <string name="tv_job_type">চাকরির ধরণ</string>
     <string name="advanced_search_tv_all_jobs">সকল চাকরি</string>
     <string name="tv_special_skilled_jobs">স্পেশাল স্কিল্‌ড জবস</string>
-    <string name="tv_all_except_special_skilled_jobs">All except special skilled jobs</string>
+    <string name="tv_all_except_special_skilled_jobs">বিশেষ দক্ষতা প্রয়োজন এমন চাকরি ব্যতীত সকল চাকরি</string>
     <string name="tv_job_level">চাকরির লেভেল</string>
     <string name="tv_entry_level">এন্ট্রি লেভেল</string>
     <string name="tv_mid_level">মিড লেভেল</string>
@@ -704,7 +704,7 @@
     <string name="video_resume_overall_ratings">সর্বমোট রেটিং</string>
     <string name="video_resume_yes">হ্যাঁ</string>
     <string name="video_resume_no">না</string>
-    <string name="label_resume_invisible_text_new">Your Video CV/Resume is not visible to employers. Answer the first question or any three questions to get visibility options.</string>
+    <string name="label_resume_invisible_text_new">আপনার ভিডিও সিভি এবং বিডিজবস প্রোফাইল নিয়োগকর্তাদের জন্য দৃশ্যমান নয়। দৃশ্যমানতার বিকল্প পেতে প্রথম প্রশ্নের উত্তর দিন বা যেকোনো তিনটি প্রশ্নের উত্তর দিন।</string>
     <string name="video_resume_make_visible">নিয়োগকর্তাকে দেখান</string>
     <string name="video_resume_hide">গোপন রাখুন</string>
     <string name="video_resume_create_video_cv_resume">ভিডিও সিভি তৈরি করুন</string>
@@ -718,7 +718,7 @@
 
     <!--Visible to Employer start-->
     <string name="visible_to_employer_visible_to_employer_s">নিয়োগকর্তাকে দেখান</string>
-    <string name="visible_to_employer_visible_to_employers_desc">Visible to Employers means whether the employer(s) can see your Video CV/Resume or not.</string>
+    <string name="visible_to_employer_visible_to_employers_desc">"নিয়োগকর্তাদের জন্য দৃশ্যমান  " অর্থ হলো নিয়োগকর্তারা আপনার ভিডিও সিভি এবং বিডিজবস প্রোফাইল দেখতে পারবেন কি না।</string>
     <string name="common_okay">ঠিক আছে</string>
     <!--Visible to Employer end-->
 
@@ -728,13 +728,13 @@
     <string name="companies">কোম্পানি</string>
     <string name="new_jobs">নতুন জব</string>
     <string name="benefits">সুবিধাসমূহ</string>
-    <string name="home_new_design_1_one_click_job_applications_tv">1) One-click job applications with My Bdjobs Profile. || 2) Your My BDJobs Profile can help you get noticed by potential employers. || 3) Create My Bdjobs Profile to increase your chances of getting an interview call.</string>
+    <string name="home_new_design_1_one_click_job_applications_tv">১) মাই বিডিজবস প্রোফাইল  ব্যবহার করে এক ক্লিকে চাকরির আবেদন করুন। || ২) আপনার মাই বিডিজবস প্রোফাইল  সম্ভাব্য নিয়োগদাতাদের নজরে আসতে সহায়তা করবে। || ৩) সাক্ষাৎকারের ডাক পাওয়ার সম্ভাবনা বাড়াতে মাই বিডিজবস প্রোফাইল  তৈরি করুন।</string>
     <string name="complete_bdjobs_profile">বিডিজবস প্রোফাইল সম্পূর্ণ করুন</string>
     <string name="invitations">ইনভাইটেশন</string>
     <string name="profile_complete">প্রোফাইল</string>
     <string name="video_resume_home">ভিডিও সিভি</string>
     <string name="manage">ম্যানেজ</string>
-    <string name="company_interested_in_you_last_month">Company interested in you (last month)</string>
+    <string name="company_interested_in_you_last_month">গত মাসে যে কোম্পানিগুলি আপনার প্রতি আগ্রহ দেখিয়েছে</string>
     <string name="_00">00</string>
     <string name="applied_jobs">এপ্লাইড জবস</string>
     <string name="shortlisted_jobs">শর্টলিস্টেট চাকরিসমূহ</string>
@@ -752,7 +752,7 @@
     <string name="view_all">সব দেখুন</string>
     <string name="interview_invitations">আসন্ন ইন্টারভিউ  এবং টেস্ট ইনভাইটেশন</string>
     <string name="bdjobs_learning_top_courses">আপনার স্কিল বাড়ান</string>
-    <string name="trending_in_bdjobs">Trending in Bdjobs</string>
+    <string name="trending_in_bdjobs">বিডিজবস এ ট্রেন্ডিং</string>
     <string name="hot_jobs">হট জবস</string>
     <string name="my_ncalendar">আমার ক্যালেন্ডার</string>
     <!--Home New Design page end-->
@@ -868,7 +868,7 @@
     <string name="sms_guideline_emp3"><b>ধাপ ৩:</b> আপনার পছন্দের নিয়োগকর্তার চাকরি সতর্কতায় সাবস্ক্রাইব করার জন্য এসএমএস এ ক্লিক করুন।</string>
     <string name="sms_guideline_fav1"><b>ধাপ ১:</b> আপনি নিয়োগকর্তার তালিকা বা চাকরির বিশদ পৃষ্ঠায় ফলো ক্লিক করে আপনার উল্লেখিত নিয়োগকর্তাদের অনুসরণ করতে পারেন।</string>
     <string name="sms_guideline_fav2"><b>ধাপ ২:</b> আপনার পছন্দের নিয়োগকর্তার চাকরি সতর্কতায় সাবস্ক্রাইব করার জন্য এসএমএস এ ক্লিক করুন।</string>
-    <string name="sms_guideline_fav3"><b>ধাপ ৩:</b> You can cancel SMS alert for any employer anytime.</string>
+    <string name="sms_guideline_fav3"><b>ধাপ ৩:</b> আপনি যে কোনো সময় যেকোনো নিয়োগদাতার জন্য এসএমএস অ্যালার্ট বাতিল করতে পারেন।</string>
     <string name="guideline_sms_steps_to_get_favorite_search_job_alert">আপানার ফেভরিট সার্চ থেকে জবের তথ্য পাওইয়ার ধাপ</string>
     <!--fragment guideline sms end-->
 
