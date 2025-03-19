@@ -1150,24 +1150,24 @@
     <!--fragment question details start-->
     <string name="question_details_video_interview">ভিডিও ইন্টারভিউ</string>
     <string name="question_details_user_guide">ইউজার গাইড</string>
-    <string name="question_details_time_counter_msg">আপনি যখন সাক্ষাত্কারের প্রশ্ন(গুলি) রেকর্ড করা শুরু করবেন তখন সময় কাউন্টার শুরু হবে। রেকর্ডিং শুরু হওয়ার পর থেকে সব উত্তর জমা দিতে আপনি ১ ঘণ্টা সময় পাবেন।</string>
+    <string name="question_details_time_counter_msg">আপনি যখন ইন্টারভিউইয়ের প্রশ্ন(গুলি) রেকর্ড করা শুরু করবেন তখন সময় গণনা শুরু হবে। রেকর্ডিং শুরু হওয়ার পর থেকে সব উত্তর জমা দিতে আপনি ১ ঘণ্টা সময় পাবেন।</string>
     <string name="question_details_total_time">সর্বমোট সময়ঃ</string>
     <string name="question_details_not_interested_to_submit">সাবমিট করতে ইচ্ছুক নই।</string>
-    <string name="video_not_interested_generic_text">If you submit <b>\"Not interested\"</b>, you will no longer be able to participate in this video interview.</string>
+    <string name="video_not_interested_generic_text"> আপনি যদি <b>"আগ্রহী নয়"</b> সাবমিট করেন, তবে আপনি আর এই ভিডিও ইন্টারভিউতে অংশগ্রহণ করতে পারবেন না।</string>
     <string name="question_details_submit_later">পরে সাবমিট করব</string>
     <string name="question_details_record_video">ভিডিও রেকর্ড</string>
     <string name="question_details_view_video">ভিডিও দেখুন</string>
     <string name="question_details_not_answered">উত্তর দেওয়া হয় নাই</string>
-    <string name="q1">Q1</string>
-    <string name="q2">Q2</string>
-    <string name="q3">Q3</string>
-    <string name="q4">Q4</string>
-    <string name="q5">Q5</string>
-    <string name="_1_hr">1 hr</string>
+    <string name="q1">প্রশ্ন ১</string>
+    <string name="q2">প্রশ্ন ২</string>
+    <string name="q3">প্রশ্ন ৩</string>
+    <string name="q4">প্রশ্ন ৪</string>
+    <string name="q5">প্রশ্ন ৫</string>
+    <string name="_1_hr">১ ঘন্টা</string>
     <!--fragment question details end-->
 
     <!--fragment record video start-->
-    <string name="record_video_msg">কেন আপনি মনে করেন এই চাকরিটি আপনার জন্য উপযুক্ত?</string>
+    <string name="record_video_msg"> আপনি কেন মনে করেন এই চাকরিটি আপনার জন্য উপযুক্ত?</string>
     <string name="record_video_time">সময়</string>
     <string name="record_video_start_recording">রেকর্ড শুরু করুণ</string>
     <string name="record_video_rec">REC</string>
@@ -1176,21 +1176,21 @@
     <!--fragment record video end-->
 
     <!--fragment view video start-->
-    <string name="view_video_extra_attempts">অতিরিক্ত প্রচেষ্টাঃ</string>
+    <string name="view_video_extra_attempts">পুনরায় চেষ্টা</string>
     <string name="view_video_record_again">পুনরায় রেকর্ড করুন</string>
     <!--fragment view video end-->
 
     <!--fragment ratting start-->
-    <string name="ratting_successfully_attended">আপনি সফলভাবে ভিডিও ইন্টারভিউয়ে অংশগ্রহণ করেছেন।</string>
-    <string name="ratting_rate_this_interview">রেটিং দিন</string>
+    <string name="ratting_successfully_attended">সফলভাবে অংশগ্রহণ করেছেন।</string>
+    <string name="ratting_rate_this_interview">ইন্টারভিউটি রেটিং করুন</string>
     <string name="ratting_submit">সাবমিট</string>
     <string name="ratting_hint_write_feedback">ফিডব্যাক লিখুন</string>
     <!--fragment ratting end-->
 
     <!--fragment after submit feedback start-->
     <string name="after_submit_feedback_thank_you_for_your_feedback">আপনার ফিডব্যাকের জন্য ধন্যবাদ।</string>
-    <string name="video_resume_bottom_guide_create_video_cv_resume">ভিডিও সিভি/ রিজিউমি তৈরি করুন।</string>
-    <string name="video_resume_bottom_guide_you_can_build_a_video_cv_resume">আপনি Bdjobs প্ল্যাটফর্ম থেকে একটি ভিডিও CV/রেজ্যুমে তৈরি করতে পারেন যাতে সমস্ত নিয়োগকর্তার কাছে নিজেকে দৃশ্যমানভাবে উপস্থাপন করতে পারেন।</string>
+    <string name="video_resume_bottom_guide_create_video_cv_resume">ভিডিও সিভি/রিজিউমি তৈরি করুন।</string>
+    <string name="video_resume_bottom_guide_you_can_build_a_video_cv_resume">আপনি বিডিজবস প্ল্যাটফর্ম থেকে একটি ভিডিও সিভি/রিজিউমি তৈরি করতে পারেন যাতে সকল নিয়োগকর্তার কাছে নিজেকে সুন্দর ভাবে উপস্থাপন করতে পারেন।</string>
     <string name="learn_more"><u>আরও জানুন</u></string>
     <!--fragment after submit feedback end-->
 
@@ -1220,7 +1220,7 @@
     <!--fragment general interview details end-->
 
     <!--fragment guest user job search start-->
-    <string name="hint.search_with_your_keyword">কি-ওয়ার্ড দিয়ে সার্চ করুন</string>
+    <string name="hint.search_with_your_keyword">কীওয়ার্ড দিয়ে সার্চ করুন</string>
     <string name="hint.search_category">ক্যাটাগরি সার্চ করুন</string>
     <string name="hint.search_location">লোকেশন সার্চ করুন</string>
     <string name="sign_in">সাইন ইন</string>
@@ -1241,15 +1241,15 @@
     <string name="warning_cancel_button">বাদ দিন</string>
     <string name="bdjobs_profile_">বিডিজবস প্রোফাইল</string>
     <string name="summary_view">প্রোফাইলের সারাংশ</string>
-    <string name="personalized_resume_">কাস্টোমাইজড রিজিউমি</string>
+    <string name="personalized_resume_">কাস্টোমাইজড সিভি</string>
     <string name="video_cv_resume_">ভিডিও সিভি/রিজিউমি</string>
     <!--Filter employer view Dialog end-->
 
     <!--Preparation Dialog start-->
-    <string name="msg_preparation">এখান থেকে আপনি নিয়োগকর্তার সাথে সাক্ষাত্কারের আগে অনুশীলনের জন্য রেকর্ড করতে পারেন এবং আপনার ক্যামেরা/মাইক্রোফোন পরীক্ষা করতে পারেন।</string>
+    <string name="msg_preparation">এখান থেকে আপনি নিয়োগকর্তার সঙ্গে ইন্টারভিউয়ের আগে অনুশীলনের জন্য রেকর্ড করতে এবং আপনার ক্যামেরা/মাইক্রোফোন পরীক্ষা করতে পারেন।</string>
     <string name="record_video_button">ভিডিও রেকর্ড করুন</string>
     <string name="check_audio_video_button">অডিও/ ভিডিও চেক করুন</string>
-    <string name="msg_buy_sms"> ফলো করা কোম্পানি থেকে তাৎক্ষনিক জব অ্যালার্ট পেতে তাদের এসএমএস কিনুন।</string>
+    <string name="msg_buy_sms"> ফলো করা কোম্পানিগুলো থেকে তাৎক্ষণিক জব অ্যালার্ট পেতে এসএমএস কিনুন।</string>
     <string name="jobs_alert">জব আলার্ট</string>
     <!--Preparation Dialog end-->
 
