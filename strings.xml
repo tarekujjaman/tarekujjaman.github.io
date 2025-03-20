@@ -1859,7 +1859,7 @@
 
     <!--facebook warning dialog start-->
     <string name="oops">দুঃখিত!</string>
-    <string name="facebook_email_id">দুঃখিত, ফেসবুকের টেকনিকাল সমস্যার কারণে আপনি আপনার অ্যাকাউন্টে সাইন ইন করতে পারছেন না। শীঘ্রই আপনার ফেসবুক ইমেইল আইডিতে নতুন সাইন ইন ্ ডিটেইলস সহ একটি ইমেইল পাঠানো হবে।</string>
+    <string name="facebook_email_id">দুঃখিত, ফেসবুকের টেকনিকাল সমস্যার কারণে আপনি আপনার অ্যাকাউন্টে সাইন ইন করতে পারছেন না। শীঘ্রই আপনার ফেসবুক ইমেইল আইডিতে নতুন সাইন ইন ডিটেইলস সহ একটি ইমেইল পাঠানো হবে।</string>
     <string name="online_test_warning">এই অনলাইন টেস্টে আপনি বাড়ি অথবা যেকোনো সুবিধাজনক স্থান থেকেই অংশগ্রহণ করতে পারবেন।</string>
     <!--facebook warning dialog end-->
 
@@ -2015,7 +2015,7 @@
     <!--feedback Support Fragment Kt end-->
 
     <!--MainLanding Activity Kt start-->
-    <string name="alert_msg_complete_profile">>এই ফিচারটি পেতে আপনার বিডিজবস প্রোফাইল কমপ্লিট করুন।</string>
+    <string name="alert_msg_complete_profile">এই ফিচারটি পেতে আপনার বিডিজবস প্রোফাইল কমপ্লিট করুন।</string>
     <string name="common_profile_is_not_complete">আপনার বিডিজবস প্রোফাইল কমপ্লিট আছে। </string>
     <string name="complete_your_profile">বিডিজবস প্রোফাইল কমপ্লিট করুন!</string>
     <!--MainLanding Activity Kt end-->
@@ -2395,8 +2395,8 @@
     </string-array>
 
     ///////////////////////////////forgot password fragment
-    <string name="forgot_password_fragment_tv_recover_your_sign_in_details">সাইন ইন ডিটেইলস পুনরুদ্ধার করুন</string>
-    <string name="please_select_an_option_which_you_want_to_recover">অ্যাকাউন্ট পুনরুদ্ধারের অপশন সিলেক্ট করুন</string>
+    <string name="forgot_password_fragment_tv_recover_your_sign_in_details">সাইন ইনের তথ্য পুনরুদ্ধার</string>
+    <string name="please_select_an_option_which_you_want_to_recover">অ্যাকাউন্ট পুনরুদ্ধারের অপশনটি সিলেক্ট করুন</string>
     <string name="user_id_password"><![CDATA[ইউজার আইডি এবং পাসওয়ার্ড]]></string>
     <string name="password">পাসওয়ার্ড</string>
     <string name="continueTxt">চালিয়ে যান</string>
@@ -2412,20 +2412,20 @@
     <string name="Verify_your_account">অ্যাকাউন্ট ভেরিফাই করুন</string>
     <string name="Your_password_has_been_changed_successfully">আপনার পাসওয়ার্ডটি সফলভাবে পরিবর্তন হয়েছে</string>
     <string name="Your_password_and_userid_has_been_changed_successfully">আপনার পাসওয়ার্ড এবং ইউজার আইডি সফলভাবে পরিবর্তন হয়েছে </string>
-    <string name="msgDescriptionEmail">ইমেল ঠিকানা বা মোবাইল নাম্বার লিখুন যেটি আপনি আপনার মাই বিডিজবস অ্যাকাউন্টে ব্যবহার করেছেন \n account.</string>
+    <string name="msgDescriptionEmail">ইমেল ঠিকানা বা মোবাইল নাম্বার লিখুন যেটি \n আপনি আপনার বিডিজবস অ্যাকাউন্টে ব্যবহার করেছেন।</string>
     <string name="msgDescriptionSelectRecoverOption">অ্যাকাউন্ট পুনরুদ্ধারের অপশনটি সিলেক্ট করুন </string>
-    <string name="msgDescriptionVerifyAccount">আপনার My Bdjobs অ্যাকাউন্ট যাচাই করতে নিম্নলিখিত তথ্য দিন।</string>
+    <string name="msgDescriptionVerifyAccount">আপনার বিডিজবস অ্যাকাউন্ট যাচাই করতে নিম্নলিখিত তথ্য দিন।</string>
     <string name="date_of_birth">জন্মতারিখ</string>
-    <string name="email_address_mobile_number">ই মেইল/ মোবাইল নাম্বার</string>
+    <string name="email_address_mobile_number">ইমেইল/ মোবাইল নাম্বার</string>
     <string name="confirm_password">কনফার্ম পাসওয়ার্ড</string>
     <string name="new_password">নতুন পাসওয়ার্ড</string>
     <string name="write_the_code">কোডটি লিখুন</string>
     <string name="type_user_id">ইউজার আইডি লিখুন</string>
-    <string name="answered_questions">প্রশ্নের উত্তর</string>
+    <string name="answered_questions">উত্তর দেওয়া প্রশ্নসমূহ</string>
     <string name="please_enter_at_least_one_character_to_search">* সার্চ করতে অন্তত একটি ক্যারেক্টার লিখুন</string>
     <string name="back_button">ফিরে যান</string>
-    <string name="flot_button">প্রশ্ন করুন</string>
-    <string name="premium_slider_image">Premium slider image</string>
+    <string name="flot_button">ফ্লোট বাটন</string>
+    <string name="premium_slider_image">প্রিমিয়াম স্লাইডার ইমেইজ</string>
     <string name="plans_start_title">৯৯টাকা/মাস থেকে প্ল্যান শুরু</string>
     <string name="cancel_anytime">যে কোন সময় ক্যান্সেল করুন</string>
     <string name="plans_and_pricing">প্ল্যান এবং প্রাইসিং</string>
@@ -2437,10 +2437,10 @@
     <string name="basic">ব্যাসিক</string>
     <string name="free">ফ্রী</string>
     <string name="job_application_package"><u>মাসিক আবেদনের প্যাকেজ</u></string>
-    <string name="profile_views_tracker"><u>প্রোফাইল ভিউ ট্রাকার</u></string>
+    <string name="profile_views_tracker"><u>প্রোফাইল ভিউ ট্র্যাকার</u></string>
     <string name="message_employers_directly"><u>নিয়োগকর্তাকে সরাসরি মেসেজ</u></string>
     <string name="application_status_indicator"><u>দেখুন কে আপনাকে শর্টলিস্ট করেছে</u></string>
-    <string name="upload_video_cv"><u>আপলোড ভিডিও সিভি</u></string>
+    <string name="upload_video_cv"><u>ভিডিও সিভি আপলোড করুন</u></string>
     <string name="post_deadline_access"><u>ডেডলাইন পরবর্তি অ্যাক্সেস</u></string>
     <string name="job_application_package_description">অন্যরা চাকরির আবেদনের সীমাবদ্ধতার দ্বারা আবদ্ধ থাকলেও, প্রিমিয়ামের সাথে, আপনি  যত খুশী তত চাকরির জন্য আবেদন করতে পারবেন। আপনার ক্যারিয়ারের পছন্দ এবং চাকরির সুযোগগুলিকে আর সীমাবদ্ধ করার প্রয়োজন নেই। আজই প্রিমিয়াম প্যাকেজ বেছে নিন এবং আপনার চাকরির সম্ভাবনা বাড়ান।</string>
     <string name="profile_views_tracker_description">এই সুপার পাওয়ার আপনাকে আপনার চাকরির আবেদন সম্পর্কে আরও বেশি ধারণা দিবে। আপনি দেখতে পারবেন যে কোন নিয়োগকর্তারা আপনার প্রোফাইলটি কতটা পছন্দ করছেন এবং তারা আপনার সাথে যোগাযোগ করার সম্ভাবনা কতটা বেশি। এটি আপনাকে আপনার চাকরি খোঁজার কৌশলগুলিকে আরও কার্যকর করতে সহায়তা করবে।   </string>
