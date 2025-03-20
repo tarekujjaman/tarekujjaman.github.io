@@ -1136,14 +1136,14 @@
     <string name="details_confirm_important_note_for_priority_level">গুরুত্বপূর্ণ নোট অগ্রাধিকার স্তরের জন্য</string>
     <string name="priority_level_more_details">"* অগ্রাধিকার স্তর প্রতি সপ্তাহে একটি চাকরির জন্য (শনিবার থেকে শুক্রবার) উচ্চে সেট করা যেতে পারে।\n* একবার অগ্রাধিকার স্তর উচ্চ সেট করা হলে, এটি বাতিল করা যাবে না।\n* উচ্চ অগ্রাধিকার এখনও নির্বাচিত না হলে আবেদনকৃত চাকরি তালিকা থেকে এখন বা পরে সেট করা যেতে পারে।"</string>
     <string name="learn_more_about_priority_level"><u>অগ্রাধিকার স্তর সম্পর্কে আরও জানুন</u></string>
-    <string name="tr_EN">Translate into English</string>
+    <string name="tr_EN">ইংরেজিতে অনুবাদ করুন</string>
     <string name="details_confirm_checkBox_msg">আপনি আবেদন করার আগে নীচের বাক্সটি চেক করুন।</string>
     <string name="apply">আবেদন করুন</string>
     <!--fragment Details confirm layout end-->
 
 
     <!--fragment guideline viewpager start-->
-    <string name="by_clicking_lets_start_now">Instruction: By clicking <b>\"Let\'s Start Now\"</b> you can view the question(s) and record answer(s). You will get 1 hour to submit all the answer(s) after starting recording.</string>
+    <string name="by_clicking_lets_start_now">নির্দেশনা: <b>“চলুন শুরু করি”</b> ক্লিক করলে আপনি প্রশ্নগুলো দেখতে ও উত্তর রেকর্ড করতে পারবেন। রেকর্ডিং শুরু করার পর আপনাকে ১ ঘণ্টার মধ্যে সব উত্তর জমা দিতে হবে।</string>
     <string name="let_s_start_now">চলুন এখন শুরু করি</string>
     <!--fragment guideline viewpager end-->
 
@@ -1190,7 +1190,7 @@
     <!--fragment after submit feedback start-->
     <string name="after_submit_feedback_thank_you_for_your_feedback">আপনার ফিডব্যাকের জন্য ধন্যবাদ।</string>
     <string name="video_resume_bottom_guide_create_video_cv_resume">ভিডিও সিভি/ রিজিউমি তৈরি করুন।</string>
-    <string name="video_resume_bottom_guide_you_can_build_a_video_cv_resume">আপনি Bdjobs প্ল্যাটফর্ম থেকে একটি ভিডিও CV/রেজ্যুমে তৈরি করতে পারেন যাতে সমস্ত নিয়োগকর্তার কাছে নিজেকে দৃশ্যমানভাবে উপস্থাপন করতে পারেন।</string>
+    <string name="video_resume_bottom_guide_you_can_build_a_video_cv_resume">আপনি  প্ল্যাটফর্ম থেকে একটি ভিডিও CV/রেজ্যুমে তৈরি করতে পারেন যাতে সমস্ত নিয়োগকর্তার কাছে নিজেকে দৃশ্যমানভাবে উপস্থাপন করতে পারেন।</string>
     <string name="learn_more"><u>আরও জানুন</u></string>
     <!--fragment after submit feedback end-->
 
@@ -1220,7 +1220,7 @@
     <!--fragment general interview details end-->
 
     <!--fragment guest user job search start-->
-    <string name="hint.search_with_your_keyword">কি-ওয়ার্ড দিয়ে সার্চ করুন</string>
+    <string name="hint.search_with_your_keyword">কীওয়ার্ড দিয়ে সার্চ করুন</string>
     <string name="hint.search_category">ক্যাটাগরি সার্চ করুন</string>
     <string name="hint.search_location">লোকেশন সার্চ করুন</string>
     <string name="sign_in">সাইন ইন</string>
@@ -1263,7 +1263,7 @@
     <string name="not_interested_to_submit">সাবমিট করতে ইচছুক না। </string>
     <string name="common_yes_continue_button">হ্যাঁ, কন্টিনিউ</string>
     <string name="cancel_button">বাতিল করুন</string>
-    <string name="not_interested_to_submit_msg">যদি আপনি ভিডিও সাক্ষাৎকার জমা দিতে আগ্রহী না হন, তবে নিয়োগকর্তা আপনার রেকর্ডকৃত ভিডিওগুলি দেখতে পারবেন না। এছাড়াও, আপনি আর এই চাকরির জন্য ভিডিও সাক্ষাৎকারে অংশ নিতে পারবেন না। আপনি কি নিশ্চিত যে আপনি চালিয়ে যেতে চান?</string>
+    <string name="not_interested_to_submit_msg">যদি আপনি ভিডিও ইন্টারভিউ জমা না দেন, নিয়োগকর্তা আপনার রেকর্ডকৃত ভিডিও দেখতে পারবেন না এবং আপনি আর এই চাকরির ভিডিও ইন্টারভিউতে অংশ নিতে পারবেন না। আপনি কি নিশ্চিত যে কন্টিনিউ করতে চান?</string>
     <!--Not interested to submit Dialog end-->
 
     <!--Edit res photo Dialog start-->
@@ -1286,21 +1286,21 @@
     <string name="RB_general_search__3_5_years">৩-৫ বছর</string>
     <string name="RB_general_search__5_10_years">৫-১০ বছর</string>
     <string name="RB_general_search_over_10_years">১০ বছরের বেশী</string>
-    <string name="hint_location_district">লোকেশ্ন/জেলা</string>
+    <string name="hint_location_district">লোকেশন/জেলা</string>
     <!--general search end-->
 
     <!--job application guideline start-->
     <string name="manage_profile_toolBarText">ম্যানেজ প্রোফাইল</string>
     <string name="guideline_job_application_how_it_works">কিভাবে কাজ করে?</string>
-    <string name="guideline_description_job_application">• Bdjobs-এর চাকরিপ্রার্থী প্রতি মাসে সীমিত সংখ্যক সার্কুলারে আবেদন করতে পারেন।\n• আবেদনের সীমার বৈধতা সময়কাল প্রতি মাসে ৫০টি চাকরি।\n• এটি প্রতি মাসে নবীকৃত হবে।\n• ব্যবহৃত “আবেদন ভলিউম” পরবর্তী মাসে নিয়ে যাওয়া হবে না।</string>
-    <string name="usage_guide_to_effective_online_application">কার্যকর অনলাইন আবেদন করার জন্য ব্যবহারের নির্দেশিকা</string>
+    <string name="guideline_description_job_application">• বিডিজবস-এর চাকরিপ্রার্থী প্রতি মাসে নির্দিষ্ট সংখ্যক সার্কুলারে আবেদন করতে পারবেন।\n• প্রতি মাসে সর্বোচ্চ ৫০টি জবের জন্য আবেদন করা যাবে।\n• আবেদন সীমা প্রতি মাসে পুনরায় নবায়ন করা হবে।\n• অব্যবহৃত “আবেদন কোটা” পরবর্তী মাসে যুক্ত হবে না।</string>
+    <string name="usage_guide_to_effective_online_application">কার্যকরভাবে অনলাইন আবেদন গাইড</string>
     <string name="job_application_guideline_toolbar_text">চাকরির আবেদন নির্দেশিকা</string>
     <string name="step_1">ধাপ ১</string>
-    <string name="label_updated_profile">আপডেট করা প্রোফাইল</string>
-    <string name="update_profile_description">যখন এটি প্রয়োজন তখন আপনার প্রোফাইল আপডেট করুন। মনে রাখবেন, আপনার প্রোফাইল নিয়োগকর্তার কাছে আপনাকে উপস্থাপন করে। তাই সবসময় এটি আপডেট রাখুন।</string>
+    <string name="label_updated_profile"> প্রোফাইল আপডেট করা</string>
+    <string name="update_profile_description">প্রয়োজন অনুযায়ী আপনার প্রোফাইল আপডেট করুন। মনে রাখবেন, নিয়োগকর্তার কাছে আপনার প্রোফাইলই আপনার পরিচয়। তাই সবসময় প্রোফাইল আপডেট রাখুন।</string>
     <string name="step_2">ধাপ ২</string>
-    <string name="label_matching_job_requirements">চাকরির প্রয়োজনীয়তার সাথে মিলানো</string>
-    <string name="matching_job_requirements_description">আবেদনকারীদের এমন একটি চাকরি খুঁজতে হবে যা দক্ষতার সাথে মেলে। উদাহরণস্বরূপ, চাকরির দায়িত্ব, শিক্ষা এবং অভিজ্ঞতা সম্পর্কে বিস্তারিতভাবে পড়ুন।</string>
+    <string name="label_matching_job_requirements">চাকরির প্রয়োজনীয় বিষয়সমূহের সাথে মিলানো</string>
+    <string name="matching_job_requirements_description">আবেদনকারীদের উচিত এমন একটি চাকরি খোঁজা যা তাদের দক্ষতার সাথে মেলে। মনোযোগ সহকারে শিক্ষা ও চাকরির বিবরণ যেমন: চাকরির দায়িত্ব, শিক্ষাগত যোগ্যতা এবং অভিজ্ঞতা পড়া।</string>
     <string name="step_3">ধাপ ৩</string>
     <string name="label_increase_interview_calls">সাক্ষাৎকারের কল বাড়ান</string>
     <string name="increase_interview_calls_description">অবস্থান এবং আপনার প্রাসঙ্গিকতা সম্পর্কে আরও ভালো বোঝার জন্য পুরো চাকরির প্রয়োজনীয়তা যাচাই করা সবসময় ভাল এবং ভাল অভ্যাস।</string>
