@@ -1,0 +1,77 @@
+
+function doPost(e) {
+  try {
+    const data = e.parameter;
+    const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    const now = new Date();
+
+    const rowData = [
+      now,
+      data.date,
+      data.time,
+      parseInt(data.count),
+      data.mood,
+      data.location,
+      data.notes
+    ];
+
+    sheet.appendRow(rowData);
+
+    return ContentService.createTextOutput(
+      JSON.stringify({ result: "success", data: JSON.stringify(rowData) })
+    ).setMimeType(ContentService.MimeType.JSON);
+
+  } catch (error) {
+    return ContentService.createTextOutput(
+      JSON.stringify({ result: "error", message: error.toString() })
+    ).setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+function doGet(e) {
+  try {
+    const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    const data = sheet.getDataRange().getValues();
+    const timeZone = Session.getScriptTimeZone();
+    
+    if (data.length <= 1) {
+      return ContentService.createTextOutput(JSON.stringify({ records: [] })).setMimeType(ContentService.MimeType.JSON);
+    }
+
+    const headers = data.shift();
+
+    const records = data.map(row => {
+      let record = {};
+      headers.forEach((header, index) => {
+        const key = header.toLowerCase();
+        const value = row[index];
+
+        // =====> THE FIX IS HERE <=====
+        // This now correctly formats BOTH the date and time columns.
+        if (key === 'date' && value instanceof Date) {
+          record[key] = Utilities.formatDate(value, timeZone, "yyyy-MM-dd");
+        } else if (key === 'time' && value instanceof Date) {
+          // This is the new line that formats the time correctly.
+          record[key] = Utilities.formatDate(value, timeZone, "HH:mm:ss");
+        } else {
+          record[key] = value;
+        }
+      });
+      return record;
+    }).reverse();
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ records: records }))
+      .setMimeType(ContentService.MimeType.JSON);
+
+  } catch (error) {
+     return ContentService.createTextOutput(
+      JSON.stringify({ result: "error", message: error.toString() })
+    ).setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+function doOptions() {
+  return ContentService.createTextOutput("")
+    .setMimeType(ContentService.MimeType.TEXT);
+}
