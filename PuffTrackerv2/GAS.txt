@@ -1,0 +1,344 @@
+const SS = SpreadsheetApp.getActiveSpreadsheet();
+const USERS_SHEET = SS.getSheetByName("Users");
+const LOGS_SHEET = SS.getSheetByName("Logs");
+
+// Main function to handle both GET and POST requests
+function doGet(e) {
+  // This is now used for fetching user-specific data
+  const params = e.parameter;
+  const action = params.action;
+
+  if (action === "loadData") {
+    if (isTokenValid(params.userID, params.token)) {
+      return getUserLogs(params.userID);
+    } else {
+      return jsonError("Invalid session. Please log in again.");
+    }
+  }
+  return jsonError("Invalid action.");
+}
+
+function doPost(e) {
+  const params = e.parameter;
+  const action = params.action;
+
+  if (action === "register") {
+    return registerUser(params.email, params.password);
+  }
+  if (action === "login") {
+    return loginUser(params.email, params.password);
+  }
+  if (action === "logEntry") {
+    if (isTokenValid(params.userID, params.token)) {
+      return addLogEntry(params);
+    } else {
+      return jsonError("Invalid session. Please log in again.");
+    }
+  }
+  return jsonError("Invalid action.");
+}
+
+// --- USER MANAGEMENT FUNCTIONS ---
+
+function registerUser(email, password) {
+  if (!email || !password) return jsonError("Email and password are required.");
+  
+  const usersData = USERS_SHEET.getDataRange().getValues();
+  const userExists = usersData.some(row => row[1] === email);
+  if (userExists) return jsonError("User with this email already exists.");
+
+  const userID = Utilities.getUuid();
+  const passwordHash = hashPassword(password);
+
+  USERS_SHEET.appendRow([userID, email, passwordHash, "", ""]);
+  return jsonSuccess({ message: "Registration successful." });
+}
+
+function loginUser(email, password) {
+  const usersData = USERS_SHEET.getDataRange().getValues();
+  const headers = usersData.shift();
+  const emailIndex = headers.indexOf("Email");
+  const hashIndex = headers.indexOf("PasswordHash");
+  const idIndex = headers.indexOf("UserID");
+
+  for (let i = 0; i < usersData.length; i++) {
+    if (usersData[i][emailIndex] === email) {
+      const userRow = usersData[i];
+      if (checkPassword(password, userRow[hashIndex])) {
+        const token = Utilities.getUuid();
+        const expiry = new Date(new Date().getTime() + 3600 * 1000 * 24); // 24-hour token
+        
+        // Update token and expiry in the sheet
+        USERS_SHEET.getRange(i + 2, headers.indexOf("SessionToken") + 1).setValue(token);
+        USERS_SHEET.getRange(i + 2, headers.indexOf("TokenExpiry") + 1).setValue(expiry);
+        
+        return jsonSuccess({
+          message: "Login successful.",
+          userID: userRow[idIndex],
+          token: token
+        });
+      }
+    }
+  }
+  return jsonError("Invalid email or password.");
+}
+
+function isTokenValid(userID, token) {
+  if (!userID || !token) return false;
+  
+  const usersData = USERS_SHEET.getDataRange().getValues();
+  const headers = usersData.shift();
+  const idIndex = headers.indexOf("UserID");
+  const tokenIndex = headers.indexOf("SessionToken");
+  const expiryIndex = headers.indexOf("TokenExpiry");
+
+  for (let i = 0; i < usersData.length; i++) {
+    if (usersData[i][idIndex] === userID && usersData[i][tokenIndex] === token) {
+      const expiryDate = new Date(usersData[i][expiryIndex]);
+      return new Date() < expiryDate; // Check if token has expired
+    }
+  }
+  return false;
+}
+
+// --- DATA MANAGEMENT FUNCTIONS ---
+
+function addLogEntry(data) {
+  const rowData = [
+    data.userID,
+    new Date(),
+    data.date,
+    data.time,
+    parseInt(data.count),
+    data.mood,
+    data.location,
+    "" // Notes
+  ];
+  LOGS_SHEET.appendRow(rowData);
+  return jsonSuccess({ message: "Entry logged." });
+}
+
+function getUserLogs(userID) {
+  const allLogs = LOGS_SHEET.getDataRange().getValues();
+  const headers = allLogs.shift();
+  
+  // Filter logs for the specific user
+  const userLogs = allLogs.filter(row => row[0] === userID);
+
+  // Convert to array of objects
+  const records = userLogs.map(row => {
+    let record = {};
+    headers.forEach((header, index) => {
+      // Your date/time formatting logic from previous version
+      record[header.toLowerCase()] = row[index]; 
+    });
+    return record;
+  }).reverse();
+
+  return jsonSuccess({ records: records });
+}
+
+
+// --- UTILITY & SECURITY FUNCTIONS ---
+
+function hashPassword(password) {
+  const salt = "puff-tracker-salt"; // A static salt for simplicity
+  const digest = Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, password + salt);
+  return Utilities.base64Encode(digest);
+}
+
+function checkPassword(password, hash) {
+  return hashPassword(password) === hash;
+}
+
+function jsonSuccess(data) {
+  return ContentService.createTextOutput(JSON.stringify({ status: "success", ...data }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+function jsonError(message) {
+  return ContentService.createTextOutput(JSON.stringify({ status: "error", message: message }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+
+
+
+
+
+
+
+-----------------New---------------
+
+
+
+
+
+
+const SS = SpreadsheetApp.getActiveSpreadsheet();
+const USERS_SHEET = SS.getSheetByName("Users");
+const LOGS_SHEET = SS.getSheetByName("Logs");
+
+// Main function to handle both GET and POST requests
+function doGet(e) {
+  const params = e.parameter;
+  if (params.action === "loadData") {
+    if (isTokenValid(params.userID, params.token)) {
+      return getUserLogs(params.email); // Filter by email
+    } else {
+      return jsonError("Invalid session. Please log in again.");
+    }
+  }
+  return jsonError("Invalid action.");
+}
+
+function doPost(e) {
+  const params = e.parameter;
+  const action = params.action;
+
+  if (action === "register") {
+    return registerUser(params.email, params.password, params.nickname); // Add nickname
+  }
+  if (action === "login") {
+    return loginUser(params.email, params.password);
+  }
+  if (action === "logEntry") {
+    if (isTokenValid(params.userID, params.token)) {
+      return addLogEntry(params); // Uses email from params
+    } else {
+      return jsonError("Invalid session. Please log in again.");
+    }
+  }
+  return jsonError("Invalid action.");
+}
+
+// --- USER MANAGEMENT FUNCTIONS ---
+
+function registerUser(email, password, nickname) {
+  if (!email || !password || !nickname) return jsonError("Email, password, and nickname are required.");
+  
+  const usersData = USERS_SHEET.getDataRange().getValues();
+  const userExists = usersData.some(row => row[1] === email);
+  if (userExists) return jsonError("User with this email already exists.");
+
+  const userID = Utilities.getUuid();
+  const passwordHash = hashPassword(password);
+
+  USERS_SHEET.appendRow([userID, email, nickname, passwordHash, "", ""]); // Add nickname to row
+  return jsonSuccess({ message: "Registration successful." });
+}
+
+function loginUser(email, password) {
+  const usersData = USERS_SHEET.getDataRange().getValues();
+  const headers = usersData.shift();
+  const emailIndex = headers.indexOf("Email");
+  const nicknameIndex = headers.indexOf("Nickname");
+  const hashIndex = headers.indexOf("PasswordHash");
+  const idIndex = headers.indexOf("UserID");
+
+  for (let i = 0; i < usersData.length; i++) {
+    if (usersData[i][emailIndex] === email) {
+      const userRow = usersData[i];
+      if (checkPassword(password, userRow[hashIndex])) {
+        const token = Utilities.getUuid();
+        const expiry = new Date(new Date().getTime() + 3600 * 1000 * 24); // 24-hour token
+        
+        USERS_SHEET.getRange(i + 2, headers.indexOf("SessionToken") + 1).setValue(token);
+        USERS_SHEET.getRange(i + 2, headers.indexOf("TokenExpiry") + 1).setValue(expiry);
+        
+        return jsonSuccess({
+          message: "Login successful.",
+          userID: userRow[idIndex],
+          email: userRow[emailIndex],
+          nickname: userRow[nicknameIndex],
+          token: token
+        });
+      }
+    }
+  }
+  return jsonError("Invalid email or password.");
+}
+
+function isTokenValid(userID, token) {
+  if (!userID || !token) return false;
+  const usersData = USERS_SHEET.getDataRange().getValues();
+  const headers = usersData.shift();
+  const idIndex = headers.indexOf("UserID");
+  const tokenIndex = headers.indexOf("SessionToken");
+  const expiryIndex = headers.indexOf("TokenExpiry");
+  for (let i = 0; i < usersData.length; i++) {
+    if (usersData[i][idIndex] === userID && usersData[i][tokenIndex] === token) {
+      return new Date() < new Date(usersData[i][expiryIndex]);
+    }
+  }
+  return false;
+}
+
+// --- DATA MANAGEMENT FUNCTIONS ---
+
+function addLogEntry(data) {
+  const rowData = [
+    data.email, // Use email instead of UserID
+    new Date(),
+    data.date,
+    data.time,
+    parseInt(data.count),
+    data.mood,
+    data.location,
+    "" // Notes
+  ];
+  LOGS_SHEET.appendRow(rowData);
+  return jsonSuccess({ message: "Entry logged." });
+}
+
+function getUserLogs(email) {
+  const allLogs = LOGS_SHEET.getDataRange().getValues();
+  const headers = allLogs.shift();
+  const emailIndex = headers.indexOf("Email");
+  
+  if (emailIndex === -1) {
+    return jsonError("Email column not found in Logs sheet.");
+  }
+  
+  const userLogs = allLogs.filter(row => row[emailIndex] === email);
+
+  const records = userLogs.map(row => {
+    let record = {};
+    headers.forEach((header, index) => {
+      let key = header.toLowerCase();
+      if (key) {
+        if ((key === 'date' || key === 'timestamp') && row[index] instanceof Date) {
+          record[key] = Utilities.formatDate(row[index], Session.getScriptTimeZone(), "yyyy-MM-dd");
+        } else if (key === 'time' && row[index] instanceof Date) {
+          record[key] = Utilities.formatDate(row[index], Session.getScriptTimeZone(), "HH:mm:ss");
+        } else {
+          record[key] = row[index];
+        }
+      }
+    });
+    return record;
+  }).reverse();
+
+  return jsonSuccess({ records: records });
+}
+
+// --- UTILITY & SECURITY FUNCTIONS ---
+function hashPassword(password) {
+  const salt = "puff-tracker-salt";
+  const digest = Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, password + salt);
+  return Utilities.base64Encode(digest);
+}
+
+function checkPassword(password, hash) {
+  return hashPassword(password) === hash;
+}
+
+function jsonSuccess(data) {
+  return ContentService.createTextOutput(JSON.stringify({ status: "success", ...data }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+function jsonError(message) {
+  return ContentService.createTextOutput(JSON.stringify({ status: "error", message: message }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
