@@ -82,13 +82,13 @@ body::before {
     border-radius: 10px;
     font-weight: 600;
     transition: all 0.3s ease;
-    display: inline-flex;
+    display: inline-flex; /* Use flex for better icon/text alignment */
     align-items: center;
     justify-content: center;
     text-decoration: none;
     font-size: clamp(0.9rem, 2vw, 1rem); /* Responsive font size */
     cursor: pointer;
-    white-space: nowrap;
+    white-space: nowrap; /* Prevent text wrapping */
     line-height: 1; /* Ensure consistent vertical alignment */
 }
 .btn i {
@@ -103,7 +103,7 @@ body::before {
 .btn-primary:hover { 
     background-color: var(--primary-color-dark); 
     color: var(--dark-bg); 
-    transform: translateY(-2px);
+    transform: translateY(-2px); /* Slightly less aggressive lift */
     box-shadow: var(--button-hover-shadow);
 }
 .btn-primary:active {
@@ -145,7 +145,7 @@ body::before {
     align-items: center;
     min-height: 100vh;
     padding: var(--space-xl);
-    background: var(--dark-bg);
+    background: var(--dark-bg); /* Ensure dark background */
     overflow: hidden; /* Prevent scroll on bounce animation */
 }
 .auth-container {
@@ -162,7 +162,7 @@ body::before {
     padding: var(--space-xl);
     border-radius: 20px;
     width: 100%;
-    max-width: 450px;
+    max-width: 450px; /* Slightly wider for better form layout */
     text-align: center;
     border: 1px solid var(--border-color);
     box-shadow: var(--box-shadow-dark);
@@ -232,7 +232,7 @@ body::before {
     padding: var(--space-md) var(--space-lg);
     font-size: 1.1rem;
     font-weight: 700;
-    letter-spacing: 0.05em; /* Slightly more spaced out */
+    letter-spacing: 0.05em;
 }
 .auth-switch { margin-top: var(--space-xl); }
 .auth-switch p {
@@ -254,7 +254,7 @@ body::before {
     margin-bottom: var(--space-md); 
     text-align: center; 
     font-size: 0.95rem;
-    background-color: var(--light-bg); /* Use lighter background for alerts */
+    background-color: var(--light-bg);
     border: 1px solid;
     box-shadow: var(--box-shadow-light);
 }
@@ -297,7 +297,7 @@ body::before {
 }
 .logo {
     font-family: 'Poppins', sans-serif;
-    font-size: clamp(1.4rem, 3vw, 1.6rem); /* Responsive logo size */
+    font-size: clamp(1.4rem, 3vw, 1.6rem);
     font-weight: 700;
     color: var(--text-color);
     text-decoration: none;
@@ -329,7 +329,7 @@ body::before {
     padding: 8rem var(--space-xl) var(--space-xl);
     gap: var(--space-xl);
     flex-wrap: wrap;
-    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--medium-dark-bg) 100%); /* Subtle linear gradient */
+    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--medium-dark-bg) 100%);
 }
 .hero-content { 
     max-width: 55%; 
@@ -353,7 +353,7 @@ body::before {
     line-height: 1.6;
 }
 .hero-content .btn-lg {
-    padding: 0.9rem 1.5rem; /* Revert to a standard padding for better responsiveness */
+    padding: 0.9rem 1.5rem;
     font-size: 1.05rem;
 }
 
@@ -363,19 +363,19 @@ body::before {
     min-width: 300px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--space-md); /* Increased gap for visual separation */
+    gap: var(--space-md);
     padding: var(--space-md);
-    background: rgba(34, 34, 34, 0.7); /* Slightly more opaque for glass effect */
-    backdrop-filter: blur(10px); /* Frosted glass effect */
+    background: rgba(34, 34, 34, 0.7);
+    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 25px;
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Lighter border */
+    border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: var(--box-shadow-dark);
 }
 
 .visual-card {
-    background: rgba(30, 30, 30, 0.9); /* Opaque internal card background */
-    border: 1px solid rgba(255, 255, 255, 0.08); /* Even lighter border */
+    background: rgba(30, 30, 30, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 15px;
     padding: var(--space-md) var(--space-lg);
     display: flex;
@@ -388,7 +388,7 @@ body::before {
 }
 .visual-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 255, 171, 0.2); /* Subtle glow on hover */
+    box-shadow: 0 8px 25px rgba(0, 255, 171, 0.2);
 }
 .visual-card.card-1 { grid-column: span 1; }
 .visual-card.card-2 { grid-column: span 1; }
@@ -432,7 +432,7 @@ body::before {
 
 /* --- Features Section --- */
 .features-section {
-    background-color: var(--dark-bg); /* Use dark-bg to break up sections */
+    background-color: var(--dark-bg);
     padding: var(--space-xxl) var(--space-xl);
     text-align: center;
 }
@@ -457,7 +457,7 @@ h2.section-title {
     text-align: left; 
 }
 .feature-card { 
-    background: var(--medium-dark-bg); /* Use medium-dark-bg for feature cards */
+    background: var(--medium-dark-bg);
     padding: var(--space-xl); 
     border-radius: 20px; 
     border: 1px solid var(--border-color); 
@@ -476,7 +476,7 @@ h2.section-title {
     font-size: clamp(2rem, 5vw, 2.5rem); 
     color: var(--primary-color); 
     margin-bottom: var(--space-md); 
-    background: rgba(0, 255, 171, 0.15); /* Stronger background for icon */
+    background: rgba(0, 255, 171, 0.15);
     padding: var(--space-sm);
     border-radius: 12px;
     display: inline-flex;
@@ -494,9 +494,9 @@ h2.section-title {
     font-size: clamp(0.9rem, 2vw, 0.95rem);
 }
 
-/* --- How It Works Section --- */
+/* How It Works Section */
 .how-it-works-section { 
-    background-color: var(--light-bg); /* Lighter background to differentiate */
+    background-color: var(--light-bg);
     border-radius: 25px; 
     margin: 0 auto;
     max-width: 1300px;
@@ -506,43 +506,43 @@ h2.section-title {
 
 /* Desktop Grid View */
 .steps-grid-view {
-    display: flex; /* Default to flex for side-by-side */
+    display: flex;
     justify-content: center; 
     align-items: flex-start; 
-    gap: var(--space-lg); /* Space between cards and arrows */
-    flex-wrap: nowrap; /* Prevent wrapping on desktop */
+    gap: var(--space-lg); 
+    flex-wrap: nowrap;
     padding: var(--space-lg) var(--space-md); 
-    max-width: 100%; /* Ensure it doesn't overflow */
-    overflow-x: auto; /* Enable scroll if needed on very wide screens or small desktop */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling for touch devices */
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 .steps-grid-view .step-arrow {
     font-size: 2.5rem; 
     color: var(--primary-color); 
-    margin-top: 50px; /* Aligns arrows with steps */
+    margin-top: 50px;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .steps-grid-view .step { 
-    flex: 1; /* Allow steps to grow and shrink evenly */
-    min-width: 280px; /* Ensure a minimum width */
-    max-width: 300px; /* Optional: limit max width for each step */
+    flex: 1; 
+    min-width: 280px;
+    max-width: 300px;
     padding: var(--space-lg) var(--space-md);
 }
 
 
 /* Mobile Slider View - Hidden by default */
 .steps-slider-view {
-    display: none; /* Hidden by default for desktop */
+    display: none;
     align-items: center;
     justify-content: center;
     width: 100%;
     position: relative;
-    overflow: hidden; /* Hide overflow when slides transition */
-    padding-bottom: var(--space-xl); /* Space for pagination dots */
-    padding-top: var(--space-lg); /* Added top padding for slider view */
+    overflow: hidden;
+    padding-bottom: var(--space-xl);
+    padding-top: var(--space-lg);
 }
 
 .slides-wrapper {
@@ -553,7 +553,7 @@ h2.section-title {
 
 /* Common Step Styling (shared by both grid and slider views) */
 .step { 
-    min-width: 280px; /* A good base width for a single slide */
+    min-width: 280px;
     flex-shrink: 0; 
     width: 100%; 
     box-sizing: border-box; 
@@ -600,7 +600,7 @@ h2.section-title {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.6); /* Slightly more opaque */
+    background: rgba(0, 0, 0, 0.6);
     color: white;
     border: none;
     padding: var(--space-sm) var(--space-xs);
@@ -636,7 +636,7 @@ h2.section-title {
     border-radius: 50%;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border for dots */
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 .steps-slider-view .dot.active {
     background-color: var(--primary-color);
@@ -647,7 +647,7 @@ h2.section-title {
 
 /* --- Testimonial Section --- */
 .testimonial-section {
-    background: linear-gradient(to right, rgba(0, 255, 171, 0.05), transparent); /* Stronger gradient */
+    background: linear-gradient(to right, rgba(0, 255, 171, 0.05), transparent);
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
     padding: var(--space-xxl) var(--space-xl);
@@ -670,7 +670,7 @@ h2.section-title {
     color: rgba(0, 255, 171, 0.3);
     position: absolute;
     top: -10px;
-    font-family: 'Poppins', sans-serif; /* Use Poppins for quotes */
+    font-family: 'Poppins', sans-serif;
 }
 .testimonial-section blockquote::before { left: -10px; }
 .testimonial-section blockquote::after { right: -10px; }
@@ -703,19 +703,19 @@ h2.section-title {
 
 /* --- Main App Styles (Dashboard) --- */
 .app-container { 
-    padding: var(--space-lg); /* Overall padding for app */
-    padding-bottom: 80px; /* Space for bottom nav */
-    background: var(--dark-bg); /* Consistent background */
+    padding: var(--space-lg);
+    padding-bottom: 80px;
+    background: var(--dark-bg);
     min-height: 100vh;
 }
 .main-content { 
-    padding: 0; /* Remove padding here, use container/section padding */
+    padding: 0;
     max-width: 1200px; 
     margin: 0 auto; 
 }
 .content-section { 
     display: none; 
-    padding-bottom: var(--space-xl); /* Space at bottom of section */
+    padding-bottom: var(--space-xl);
 }
 .content-section.active { display: block; animation: fadeInApp 0.5s ease-in-out; }
 @keyframes fadeInApp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -723,14 +723,14 @@ h2.section-title {
 .header { 
     display: flex; 
     justify-content: space-between; 
-    align-items: center; /* Align items vertically */
+    align-items: center;
     margin-bottom: var(--space-lg); 
     flex-wrap: wrap; 
 }
 .welcome-section {
     flex-grow: 1;
-    flex-basis: auto; /* Allow content to dictate width */
-    padding-right: var(--space-md); /* Space from logout button */
+    flex-basis: auto;
+    padding-right: var(--space-md);
 }
 #welcome-message { 
     font-weight: 700; 
@@ -743,7 +743,7 @@ h2.section-title {
 .date-display { 
     color: var(--text-muted); 
     font-size: 0.9rem; 
-    flex-basis: 100%; /* Make it take full width below welcome message */
+    flex-basis: 100%;
     margin-top: var(--space-xs);
 }
 .btn-logout { 
@@ -755,8 +755,8 @@ h2.section-title {
     cursor: pointer; 
     transition: all 0.3s ease; 
     font-size: 0.9rem;
-    align-self: flex-start; /* Align to top of flex container */
-    flex-shrink: 0; /* Prevent shrinking */
+    align-self: flex-start;
+    flex-shrink: 0;
 }
 .btn-logout:hover { 
     background: var(--light-bg); 
@@ -766,19 +766,19 @@ h2.section-title {
 
 /* Individual stat card outside grid (Time Since Last) */
 .bento-box.single-row-stat {
-    background: var(--light-bg); /* Lighter background for prominent stat */
+    background: var(--light-bg);
     backdrop-filter: blur(10px); 
     border-radius: 20px; 
-    padding: var(--space-xl); /* Larger padding for prominence */
+    padding: var(--space-xl);
     border: 1px solid var(--border-color); 
-    margin-bottom: var(--space-md); 
+    margin-bottom: var(--space-md);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     box-shadow: var(--box-shadow-light);
 }
 .bento-box.single-row-stat .stat-value {
-    font-size: clamp(2.5rem, 6vw, 3.5rem); /* Much larger for prominence */
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
     color: var(--primary-color);
     text-shadow: 0 0 15px rgba(0, 255, 171, 0.5);
 }
@@ -795,24 +795,24 @@ h2.section-title {
 
 .bento-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Desktop default (more flexible than 250px) */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: var(--space-sm);
-    margin-bottom: var(--space-lg); /* Space below grid */
+    margin-bottom: var(--space-lg);
 }
 .bento-box { 
     background: var(--card-bg); 
-    backdrop-filter: blur(8px); /* Slightly less blur for internal cards */
+    backdrop-filter: blur(8px);
     border-radius: 20px; 
-    padding: var(--space-md); /* Default padding for dashboard cards */
-    border: 1px solid rgba(255, 255, 255, 0.08); /* Lighter border */
+    padding: var(--space-md);
+    border: 1px solid rgba(255, 255, 255, 0.08); 
     display: flex; 
     flex-direction: column; 
     transition: all 0.2s ease; 
     box-shadow: var(--box-shadow-light); 
 }
 .bento-box:hover { 
-    transform: translateY(-3px); /* Less aggressive lift */
-    box-shadow: 0 0 15px rgba(0, 255, 171, 0.15); /* Subtle glow on hover */
+    transform: translateY(-3px); 
+    box-shadow: 0 0 15px rgba(0, 255, 171, 0.15); 
 }
 .box-content { 
     flex-grow: 1; 
@@ -832,12 +832,12 @@ h2.section-title {
 .chart-header i { margin-right: var(--space-xs); color: var(--primary-color); }
 .chart-container { position: relative; flex-grow: 1; min-height: 250px; }
 .stat-value { 
-    font-size: clamp(1.5rem, 3.5vw, 2.2rem); /* Responsive stat value font */
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
     font-weight: 700; 
     color: var(--primary-color);
 }
 .stat-label { 
-    font-size: clamp(0.75rem, 1.8vw, 0.9rem); /* Responsive stat label font */
+    font-size: clamp(0.75rem, 1.8vw, 0.9rem);
     color: var(--text-muted); 
     margin-top: var(--space-xxs);
 }
@@ -851,14 +851,14 @@ h2.section-title {
     bottom: 0; 
     left: 0; 
     width: 100%; 
-    background: rgba(18, 18, 18, 0.9); /* More opaque for clarity */
+    background: rgba(18, 18, 18, 0.9);
     backdrop-filter: blur(15px); 
     display: flex; 
     justify-content: space-around; 
     padding: var(--space-sm) 0; 
     border-top: 1px solid var(--border-color); 
     z-index: 1000; 
-    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3); /* Shadow to lift it */
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
 }
 .bottom-nav .nav-item { 
     color: var(--text-muted); 
@@ -873,34 +873,34 @@ h2.section-title {
     text-decoration: none; 
     transition: color 0.3s, transform 0.2s ease; 
     flex: 1; 
-    padding: var(--space-xs) 0; /* Add some padding */
+    padding: var(--space-xs) 0;
 }
 .bottom-nav .nav-item.active { 
     color: var(--primary-color); 
-    transform: translateY(-2px); /* Subtle lift */
+    transform: translateY(-2px);
     text-shadow: 0 0 8px rgba(0, 255, 171, 0.2);
 }
 .bottom-nav .nav-item:hover { color: var(--text-color); }
 .bottom-nav .nav-item i { font-size: 1.5rem; }
-.bottom-nav .log-button { /* Central Log Button */
+.bottom-nav .log-button {
     position: relative;
-    top: -15px; /* Lift it visually */
+    top: -15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background: linear-gradient(45deg, var(--primary-color), var(--primary-color-dark));
     border-radius: 50%;
-    width: 60px; /* Larger circular button */
+    width: 60px;
     height: 60px;
     box-shadow: 0 5px 20px rgba(0, 255, 171, 0.4);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    flex-shrink: 0; /* Prevent it from shrinking */
-    color: var(--dark-bg); /* Text/icon color */
+    flex-shrink: 0;
+    color: var(--dark-bg);
     font-weight: 600;
 }
 .bottom-nav .log-button i { 
-    font-size: 2rem; /* Larger icon */
+    font-size: 2rem; 
     color: var(--dark-bg);
     margin: 0;
 }
@@ -910,14 +910,14 @@ h2.section-title {
     color: var(--dark-bg);
 }
 .bottom-nav .log-button:hover { 
-    transform: translateY(-18px) scale(1.05); /* More pronounced hover */
+    transform: translateY(-18px) scale(1.05);
     box-shadow: 0 8px 30px rgba(0, 255, 171, 0.6);
 }
 
 
 /* Modal Styles - Bootstrap Overrides */
 .modal-content { 
-    background-color: var(--medium-dark-bg); /* Use medium-dark-bg for modal content */
+    background-color: var(--medium-dark-bg);
     color: var(--text-color); 
     border: 1px solid rgba(255, 255, 255, 0.15); 
     border-radius: 15px; 
@@ -935,7 +935,7 @@ h2.section-title {
 .modal-footer { padding: var(--space-md) var(--space-lg); border-top: 1px solid var(--border-color); }
 
 .btn-close { 
-    filter: invert(1) grayscale(100%) brightness(200%); 
+    filter: invert(1) grayscale(100%) brightness(200%);
     font-size: 0.8rem;
     background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23e0e0e0'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
     opacity: 0.8;
@@ -945,7 +945,7 @@ h2.section-title {
 
 .form-label { font-weight: 500; color: var(--text-muted); margin-bottom: var(--space-xs); }
 .form-control, .form-select, .form-control[type="number"] {
-    background-color: var(--dark-bg); /* Darker input background */
+    background-color: var(--dark-bg);
     border: 1px solid var(--border-color);
     color: var(--text-color);
     border-radius: 8px;
@@ -976,7 +976,7 @@ h2.section-title {
 .number-input .form-control {
     text-align: center;
     flex-grow: 1;
-    -moz-appearance: textfield; /* Firefox */
+    -moz-appearance: textfield;
 }
 /* Hide default arrows on Chrome/Safari */
 .number-input input[type=number]::-webkit-inner-spin-button, 
@@ -988,13 +988,13 @@ h2.section-title {
     padding: var(--space-xs) calc(var(--space-sm) * 0.8);
     font-size: 1.1rem;
     min-width: 35px;
-    height: 38px; /* Match input height roughly */
+    height: 38px;
 }
 
 
 .mood-grid { 
     display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     gap: var(--space-sm); 
 }
 .mood-option { 
@@ -1030,7 +1030,7 @@ h2.section-title {
 
 /* History Table */
 #historyTable thead th, #historyTable tbody td {
-    white-space: nowrap; /* Prevent text wrapping in history table */
+    white-space: nowrap;
 }
 .table-responsive { 
     background-color: var(--light-bg); 
@@ -1060,16 +1060,16 @@ tbody td {
     font-size: 0.9rem;
 }
 tbody tr:last-child td {
-    border-bottom: none; /* No border on last row */
+    border-bottom: none;
 }
 tbody tr:nth-child(even) {
-    background-color: rgba(0, 0, 0, 0.05); /* Subtle zebra striping */
+    background-color: rgba(0, 0, 0, 0.05);
 }
 .badge {
     font-size: 0.75rem; 
     padding: 0.3em 0.6em;
     border-radius: 6px;
-    background-color: rgba(0, 255, 171, 0.2); /* Use primary color for badges */
+    background-color: rgba(0, 255, 171, 0.2);
     color: var(--primary-color);
 }
 
@@ -1088,10 +1088,11 @@ tbody tr:nth-child(even) {
         padding: 6rem var(--space-md) var(--space-lg); 
         gap: var(--space-lg);
     }
+    .hero-content { max-width: 100%; flex: none; }
     .hero-headline { font-size: clamp(2rem, 7vw, 3rem); } 
     .hero-subheadline { font-size: clamp(0.9rem, 2.5vw, 1.1rem); margin: var(--space-sm) 0 var(--space-xl); }
     .hero-content .btn-lg { 
-        padding: var(--space-md) var(--space-lg); /* Use consistent padding from global btn */
+        padding: var(--space-md) var(--space-lg);
         font-size: 1.05rem;
     }
 
@@ -1131,7 +1132,7 @@ tbody tr:nth-child(even) {
     }
     .steps-slider-view .slider-arrow,
     .steps-slider-view .slider-pagination {
-        display: flex;
+        display: flex; 
     }
     .steps-slider-view .step {
         width: 100%; 
@@ -1157,7 +1158,7 @@ tbody tr:nth-child(even) {
         margin-bottom: var(--space-md);
     }
     .bento-grid {
-        grid-template-columns: repeat(2, 1fr); /* Force 2 columns */
+        grid-template-columns: repeat(2, 1fr); 
         gap: var(--space-sm);
     }
     .bento-box {
