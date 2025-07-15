@@ -1,6 +1,6 @@
 // const scriptUrl = "https://script.google.com/macros/s/AKfycbwgjQgJtz4lRwvSlVEYdkYZKGwcoXNPR1k9EePnHchRlsZ2-Rj0rJQJYTV5jJIMfLUOuw/exec";
 
-const scriptUrl = "https://script.google.com/macros/u/2/s/AKfycbxywbGNfGmGL8GI64DU-z8prtM6hZ1TikVYz9bAGlvVCi6dp6QhSOrHqORosi9TfXZaKQ/exec";
+const scriptUrl = "https://script.google.com/macros/s/AKfycbwgjQgJtz4lRwvSlVEYdkYZKGwcoXNPR1k9EePnHchRlsZ2-Rj0rJQJYTV5jJIMfLUOuw/exec";
 const userID = localStorage.getItem('puffTrackerUserID');
 const token = localStorage.getItem('puffTrackerToken');
 const nickname = localStorage.getItem('puffTrackerNickname');
