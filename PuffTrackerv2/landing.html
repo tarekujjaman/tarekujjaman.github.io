@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puff Tracker - Take Control of Your Smoking Habit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="landing-header">
+        <nav class="landing-nav container">
+            <a href="#" class="logo">
+                <i class="fas fa-smoking"></i> Puff Tracker
+            </a>
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-secondary">Login</a>
+                <a href="register.html" class="btn btn-primary">Get Started</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section container">
+            <div class="hero-content">
+                <h1 class="hero-headline">Take Control of Your <span class="highlight-text">Smoking Habit.</span></h1>
+                <p class="hero-subheadline">The intelligent tracker that reveals your patterns, empowers your choices, and guides you toward a healthier life.</p>
+                <a href="register.html" class="btn btn-primary btn-lg">Create Free Account</a>
+            </div>
+            <div class="hero-visual">
+                <div class="visual-card card-1">
+                    <div class="card-header">Smoked Today</div>
+                    <div class="card-value">5</div>
+                </div>
+                <div class="visual-card card-2">
+                    <div class="card-header">Avg Interval</div>
+                    <div class="card-value">2h 15m</div>
+                </div>
+                <div class="visual-card card-3">
+                    <div class="card-header">Daily Trend</div>
+                    <div class="card-chart">
+                        <svg width="100%" height="100%" viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 40 Q 15 10, 30 30 T 60 20 T 90 45 L 100 35" stroke="#00ffab" fill="transparent" stroke-width="2"></path></svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features-section container">
+            <h2 class="section-title">A Smarter Way to Track</h2>
+            <p class="section-subtitle">Go beyond simple counting. Understand the "why" behind every puff.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-pie"></i></div>
+                    <h3>Identify Your Triggers</h3>
+                    <p>Log your mood and location with every cigarette to discover what drives your cravings.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-calendar-day"></i></div>
+                    <h3>Visualize Your Progress</h3>
+                    <p>See your daily, weekly, and monthly trends with intuitive charts and a powerful heatmap calendar.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-trophy"></i></div>
+                    <h3>Celebrate Your Wins</h3>
+                    <p>Stay motivated by tracking your longest smoke-free streaks and celebrating your "best days."</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonial-section">
+            <div class="container">
+                <blockquote>
+                    "Seeing my 'Stress' smokes mapped out on the dashboard was a wake-up call. Puff Tracker helped me cut my daily count in half in just one month."
+                </blockquote>
+                <cite>— Alex J., Former Smoker</cite>
+            </div>
+        </section>
+        
+        <section class="cta-section container">
+            <h2 class="section-title">Ready to Start Your Journey?</h2>
+            <p class="section-subtitle">Your path to a healthier life begins with a single, mindful log.</p>
+            <a href="register.html" class="btn btn-primary btn-lg">It's Free - Sign Up Now</a>
+        </section>
+    </main>
+
+    <footer class="landing-footer">
+        <p>&copy; 2025 Puff Tracker. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const header = document.querySelector('.landing-header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
+</body>
+</html>
