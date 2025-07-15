@@ -36,60 +36,44 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroMoneySaved = document.getElementById('hero-money-saved');
     const heroLongestStreak = document.getElementById('hero-longest-streak');
 
-    if (heroSmokedToday) {
-        let count = 0;
-        const targetCount = 5;
-        const interval = setInterval(() => {
-            heroSmokedToday.textContent = count;
-            if (count < targetCount) {
-                count++;
-            } else {
-                clearInterval(interval);
+    // Function to animate counter values
+    function animateCounter(element, start, end, duration, prefix = '', suffix = '') {
+        let current = start;
+        const range = end - start;
+        const increment = end > start ? 1 : -1;
+        const stepTime = Math.abs(Math.floor(duration / range));
+
+        const timer = setInterval(() => {
+            current += increment;
+            element.textContent = `${prefix}${current}${suffix}`;
+            if (current === end) {
+                clearInterval(timer);
             }
-        }, 150);
+        }, stepTime);
     }
 
-    if (heroCigsSaved) {
-        let count = 0;
-        const targetCount = 150;
-        const interval = setInterval(() => {
-            heroCigsSaved.textContent = count;
-            if (count < targetCount) {
-                count += 5;
-            } else {
-                heroCigsSaved.textContent = targetCount;
-                clearInterval(interval);
-            }
-        }, 50);
+    // Trigger animations when hero visuals become visible (or on page load for initial view)
+    const heroVisuals = document.querySelector('.hero-visual');
+    if (heroVisuals) {
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Only animate if not already animated or if a reset is needed
+                    if (!heroVisuals.dataset.animated) {
+                        if (heroSmokedToday) animateCounter(heroSmokedToday, 0, 5, 800);
+                        if (heroAvgInterval) heroAvgInterval.textContent = '2h 15m'; // Static for demo
+                        if (heroCigsSaved) animateCounter(heroCigsSaved, 0, 150, 1000);
+                        if (heroMoneySaved) animateCounter(heroMoneySaved, 0, 75, 1200, '$');
+                        if (heroLongestStreak) animateCounter(heroLongestStreak, 0, 30, 1000, '', 'd');
+                        heroVisuals.dataset.animated = 'true'; // Mark as animated
+                    }
+                    heroObserver.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, { threshold: 0.5 }); // Trigger when 50% of the element is visible
+        heroObserver.observe(heroVisuals);
     }
 
-    if (heroMoneySaved) {
-        let count = 0;
-        const targetCount = 75;
-        const interval = setInterval(() => {
-            heroMoneySaved.textContent = `$${count}`;
-            if (count < targetCount) {
-                count += 3;
-            } else {
-                heroMoneySaved.textContent = `$${targetCount}`;
-                clearInterval(interval);
-            }
-        }, 50);
-    }
-
-    if (heroLongestStreak) {
-        let count = 0;
-        const targetCount = 30;
-        const interval = setInterval(() => {
-            heroLongestStreak.textContent = `${count}d`;
-            if (count < targetCount) {
-                count++;
-            } else {
-                heroLongestStreak.textContent = `${targetCount}d`;
-                clearInterval(interval);
-            }
-        }, 100);
-    }
 
     // Smooth scrolling for navigation links
     document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
@@ -100,8 +84,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetElement = document.querySelector(targetId);
 
             if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
+                const headerOffset = document.querySelector('.landing-header').offsetHeight; // Get height of fixed header
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
                 });
             }
         });
@@ -136,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             display: false
                         },
                         ticks: {
-                            color: '#a0a0a0'
+                            color: 'var(--text-muted)'
                         }
                     },
                     y: {
@@ -145,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             color: 'rgba(255, 255, 255, 0.05)'
                         },
                         ticks: {
-                            color: '#a0a0a0',
+                            color: 'var(--text-muted)',
                             maxTicksLimit: 5
                         }
                     }
@@ -194,15 +183,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const updateSlider = () => {
             if (!isMobileBreakpoint()) {
-                // If not mobile, clear interval and reset transform for desktop view
                 clearInterval(slideInterval);
                 slidesWrapper.style.transform = `translateX(0)`; 
                 return;
             }
 
-            // Only update slider transform if it's the mobile breakpoint
             if (slides.length > 0) {
-                const slideWidth = slides[0].offsetWidth; // Get width of one slide
+                const slideWidth = slides[0].offsetWidth; 
                 slidesWrapper.style.transform = `translateX(${-currentSlide * slideWidth}px)`;
 
                 // Update dots
@@ -221,20 +208,20 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const showNextSlide = () => {
-            currentSlide = (currentSlide + 1) % slides.length; // Loop back to first slide
+            currentSlide = (currentSlide + 1) % slides.length; 
             updateSlider();
         };
 
         const showPrevSlide = () => {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length; // Loop back to last slide
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
             updateSlider();
         };
 
         // Auto-sliding functionality
         const startAutoSlide = () => {
-            clearInterval(slideInterval); // Clear any existing interval
-            if (isMobileBreakpoint()) { // Only auto-slide on mobile
-                slideInterval = setInterval(showNextSlide, 4000); // Change slide every 4 seconds
+            clearInterval(slideInterval);
+            if (isMobileBreakpoint()) {
+                slideInterval = setInterval(showNextSlide, 4000);
             }
         };
 
@@ -243,10 +230,9 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         if (prevArrow && nextArrow) {
-            prevArrow.addEventListener('click', showPrevSlide);
-            nextArrow.addEventListener('click', showNextSlide);
+            prevArrow.addEventListener('click', (e) => { stopAutoSlide(); showPrevSlide(); startAutoSlide(); });
+            nextArrow.addEventListener('click', (e) => { stopAutoSlide(); showNextSlide(); startAutoSlide(); });
 
-            // Stop auto-slide on manual interaction
             prevArrow.addEventListener('mouseover', stopAutoSlide);
             nextArrow.addEventListener('mouseover', stopAutoSlide);
             prevArrow.addEventListener('mouseout', startAutoSlide);
@@ -258,25 +244,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 dot.addEventListener('click', (e) => {
                     currentSlide = parseInt(e.target.dataset.slide);
                     updateSlider();
-                    stopAutoSlide(); // Stop auto-slide on manual interaction
-                    startAutoSlide(); // Restart after a brief pause
+                    stopAutoSlide();
+                    startAutoSlide();
                 });
                 dot.addEventListener('mouseover', stopAutoSlide);
                 dot.addEventListener('mouseout', startAutoSlide);
             });
         }
 
-        // Initial update and on resize
+        // Initial call and on resize
         window.addEventListener('resize', () => {
             updateSlider();
             if (isMobileBreakpoint()) {
-                startAutoSlide(); // Start/restart auto-slide if entering mobile view
+                startAutoSlide(); 
             } else {
-                stopAutoSlide(); // Stop auto-slide if entering desktop view
+                stopAutoSlide();
             }
         });
         
-        // Initial call to set up the slider and start auto-slide if applicable
         updateSlider(); 
         startAutoSlide();
     }
