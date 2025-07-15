@@ -1,10 +1,14 @@
-const scriptUrl = "https://script.google.com/macros/s/AKfycbwgjQgJtz4lRwvSlVEYdkYZKGwcoXNPR1k9EePnHchRlsZ2-Rj0rJQJYTV5jJIMfLUOuw/exec";
+const scriptUrl = "https://script.google.com/macros/u/2/s/AKfycbxywbGNfGmGL8GI64DU-z8prtM6hZ1TikVYz9bAGlvVCi6dp6QhSOrHqORosi9TfXZaKQ/exec"; // Your Google Apps Script URL
 const loginForm = document.getElementById('login-form');
 const registerForm = document.getElementById('register-form');
 const alertContainer = document.getElementById('alert-container');
 
 function showAlert(message, type) {
     alertContainer.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
+    // Optional: Auto-hide after some time
+    setTimeout(() => {
+        alertContainer.innerHTML = '';
+    }, 4000);
 }
 
 if (loginForm) {
@@ -12,7 +16,7 @@ if (loginForm) {
         e.preventDefault();
         const submitButton = this.querySelector('button[type="submit"]');
         submitButton.disabled = true;
-        submitButton.textContent = 'Logging in...';
+        submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Logging in...'; // Add spinner
 
         const data = new FormData(this);
         data.append('action', 'login');
@@ -25,15 +29,21 @@ if (loginForm) {
                     localStorage.setItem('puffTrackerToken', response.token);
                     localStorage.setItem('puffTrackerNickname', response.nickname);
                     localStorage.setItem('puffTrackerEmail', response.email);
-                    window.location.href = 'index.html';
+                    showAlert('Login successful!', 'success');
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1000); // Shorter delay before redirect
                 } else {
                     showAlert(response.message, 'danger');
                 }
             })
-            .catch(error => showAlert('An error occurred. Please try again.', 'danger'))
+            .catch(error => {
+                console.error('Error during login:', error);
+                showAlert('An error occurred. Please try again.', 'danger');
+            })
             .finally(() => {
                 submitButton.disabled = false;
-                submitButton.textContent = 'Login';
+                submitButton.innerHTML = 'Login'; // Reset button text
             });
     });
 }
@@ -43,7 +53,7 @@ if (registerForm) {
         e.preventDefault();
         const submitButton = this.querySelector('button[type="submit"]');
         submitButton.disabled = true;
-        submitButton.textContent = 'Registering...';
+        submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Registering...'; // Add spinner
 
         const data = new FormData(this);
         data.append('action', 'register');
@@ -60,10 +70,13 @@ if (registerForm) {
                     showAlert(response.message, 'danger');
                 }
             })
-            .catch(error => showAlert('An error occurred. Please try again.', 'danger'))
+            .catch(error => {
+                console.error('Error during registration:', error);
+                showAlert('An error occurred. Please try again.', 'danger');
+            })
             .finally(() => {
                 submitButton.disabled = false;
-                submitButton.textContent = 'Register';
+                submitButton.innerHTML = 'Register'; // Reset button text
             });
     });
 }
