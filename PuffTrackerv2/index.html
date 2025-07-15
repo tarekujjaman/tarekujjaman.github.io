@@ -23,55 +23,58 @@
                     <button id="logout-button" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
                 </div>
 
-                <div class="bento-box single-row-stat">
+                <div class="bento-box single-row-stat stat-highlight">
                     <div class="box-content">
-                        <div class="stat-icon"><i class="fas fa-history"></i></div>
+                        <div class="stat-icon"><i class="fas fa-hourglass-half"></i></div>
                         <div class="stat-value" id="timeSinceLast">--</div>
-                        <div class="stat-label">Time Since Last</div>
+                        <div class="stat-label">Time Since Last Puff</div>
                     </div>
                 </div>
 
                 <div class="bento-grid">
                     <div class="bento-box">
                         <div class="box-content">
-                            <div class="stat-icon"><i class="fas fa-calendar-day"></i></div>
+                            <div class="stat-icon"><i class="fas fa-cigarette"></i></div>
                             <div class="stat-value" id="todayCount">0</div>
-                            <div class="stat-label">Smoked Today</div>
+                            <div class="stat-label">Puffs Today</div>
                         </div>
                     </div>
+                    
                     <div class="bento-box">
                         <div class="box-content">
-                            <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                            <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
                             <div class="stat-value" id="avgInterval">--</div>
-                            <div class="stat-label">Avg Interval</div>
+                            <div class="stat-label">Avg Interval Today</div>
+                        </div>
+                    </div>
+                    
+                    <div class="bento-box">
+                        <div class="box-content">
+                            <div class="stat-icon"><i class="fas fa-calendar-alt"></i></div>
+                            <div class="stat-value" id="longestStreak">--</div>
+                            <div class="stat-label">Longest Smoke-Free Streak</div>
                         </div>
                     </div>
                     <div class="bento-box">
                         <div class="box-content">
                             <div class="stat-icon"><i class="fas fa-trophy"></i></div>
-                            <div class="stat-value" id="longestStreak">--</div>
-                            <div class="stat-label">Longest Streak</div>
-                        </div>
-                    </div>
-                    <div class="bento-box">
-                        <div class="box-content">
-                            <div class="stat-icon"><i class="fas fa-star"></i></div>
                             <div class="stat-value" id="bestDay">--</div>
-                            <div class="stat-label">Best Day</div>
+                            <div class="stat-label">Best Day (Fewest Puffs)</div>
                         </div>
                     </div>
+
                     <div class="bento-box">
                         <div class="box-content">
-                            <div class="stat-icon"><i class="fas fa-calculator"></i></div>
-                            <div class="stat-value" id="avgDaily">0</div>
-                            <div class="stat-label">Daily Average</div>
+                            <div class="stat-icon"><i class="fas fa-money-bill-wave"></i></div>
+                            <div class="stat-value" id="moneySaved">--</div>
+                            <div class="stat-label">Money Saved</div>
                         </div>
                     </div>
-                    <div class="bento-box">
+                     <div class="bento-box">
                         <div class="box-content">
-                            <div class="stat-icon"><i class="fas fa-fire"></i></div>
-                            <div class="stat-value" id="topTrigger">--</div>
-                            <div class="stat-label">Top Trigger</div>
+                            <div class="stat-icon"><i class="fas fa-heartbeat"></i></div>
+                            <div class="stat-value" id="healthImpact">--</div>
+                            <div class="stat-label">Health Benefits Gained</div>
                         </div>
                     </div>
                     
@@ -99,7 +102,7 @@
                                 <th>Count</th>
                                 <th>Mood</th>
                                 <th>Location</th>
-                            </tr>
+                                <th>Notes</th> </tr>
                         </thead>
                         <tbody></tbody>
                     </table>
@@ -153,6 +156,10 @@
                                 <option value="Outside Home">Outside Home</option>
                                 <option value="Other">Other</option>
                             </select>
+                        </div>
+                        <div class="mb-4">
+                            <label for="notes" class="form-label">Notes (Optional)</label>
+                            <textarea class="form-control" id="notes" rows="2"></textarea>
                         </div>
                     </form>
                 </div>
