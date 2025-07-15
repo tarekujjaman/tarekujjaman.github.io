@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puff Tracker - Understand Your Smoking Habits</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="landing-header">
+        <nav class="landing-nav">
+            <a href="#" class="logo">
+                <i class="fas fa-smoking"></i> Puff Tracker
+            </a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+            </div>
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-secondary">Login</a>
+                <a href="register.html" class="btn btn-primary">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="fade-in">Understand Your Habits.</h1>
+                <h1 class="fade-in-delay-1">Reclaim Your Health.</h1>
+                <p class="fade-in-delay-2">Puff Tracker provides the insights you need to take control of your smoking journey. Simple, private, and powerful.</p>
+                <a href="register.html" class="btn btn-primary btn-lg fade-in-delay-3">Get Started for Free</a>
+            </div>
+            <div class="hero-image fade-in-delay-3">
+                <img src="https://storage.googleapis.com/gemini-prod/images/4096a1a4-28b9-4791-88d3-c9170367468a" alt="Puff Tracker Dashboard Mockup">
+            </div>
+        </section>
+
+        <section id="features" class="features-section">
+            <h2>Everything You Need to Succeed</h2>
+            <p class="section-subtitle">Track, analyze, and understand every aspect of your habit.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-pie"></i></div>
+                    <h3>Insightful Dashboard</h3>
+                    <p>Visualize your habits with at-a-glance stats like daily counts, averages, and your top smoking triggers.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Advanced Analytics</h3>
+                    <p>Track your progress over time with our 7-day trend chart and identify patterns to help you cut back.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-user-shield"></i></div>
+                    <h3>Private & Secure</h3>
+                    <p>Your data is your own. Register for a private account to keep your log history secure and accessible only to you.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="how-it-works-section">
+            <h2>Get Started in 3 Simple Steps</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Create Your Account</h3>
+                    <p>Sign up for a free, secure account with your nickname and email.</p>
+                </div>
+                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Log Your Puffs</h3>
+                    <p>Quickly log each cigarette with context like your mood and location.</p>
+                </div>
+                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Gain Insights</h3>
+                    <p>Watch your dashboard reveal your personal patterns and trends over time.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Ready to Take the First Step?</h2>
+            <p>Your journey to a healthier life starts with a single log.</p>
+            <a href="register.html" class="btn btn-primary btn-lg">Create Your Free Account</a>
+        </section>
+    </main>
+
+    <footer class="landing-footer">
+        <p>&copy; 2025 Puff Tracker. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Simple scroll animation for the header
+        const header = document.querySelector('.landing-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
