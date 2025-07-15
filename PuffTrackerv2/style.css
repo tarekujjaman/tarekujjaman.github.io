@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap'); /* Added Poppins for headlines */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap');
 
 :root {
     --primary-color: #00ffab;
@@ -151,14 +151,14 @@ body::before {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 8rem 2rem 2rem; /* Adjusted top padding for fixed header */
+    padding: 8rem 2rem 2rem;
     gap: 3rem;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    flex-wrap: wrap;
 }
 .hero-content { 
     max-width: 55%; 
-    flex: 1 1 55%; /* Flexible width for content */
-    min-width: 300px; /* Minimum width before wrapping */
+    flex: 1 1 55%;
+    min-width: 300px;
 }
 .hero-headline { 
     font-family: 'Poppins', sans-serif;
@@ -177,13 +177,13 @@ body::before {
 }
 
 .hero-visual {
-    flex: 1 1 40%; /* Flexible width for visual */
-    min-width: 300px; /* Minimum width before wrapping */
+    flex: 1 1 40%;
+    min-width: 300px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusted for more cards */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
     padding: 1rem;
-    background: rgba(30, 30, 30, 0.5); /* Semi-transparent background for the whole visual area */
+    background: rgba(30, 30, 30, 0.5);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border-radius: 25px;
@@ -209,11 +209,11 @@ body::before {
 .visual-card.card-5 { grid-column: span 1; }
 .visual-card.card-6 { grid-column: span 1; }
 .visual-card.card-3 { 
-    grid-column: 1 / -1; /* Daily Trend Chart always spans full width */
+    grid-column: 1 / -1;
     min-height: 180px; 
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Ensure Chart.js doesn't overflow */
+    overflow: hidden;
 }
 
 .card-header {
@@ -229,12 +229,12 @@ body::before {
 }
 .card-chart {
     width: 100%;
-    height: 100px; /* Adjust height for the chart area */
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.card-chart canvas { /* Style the Chart.js canvas */
+.card-chart canvas {
     max-width: 100%;
     max-height: 100%;
 }
@@ -243,7 +243,7 @@ body::before {
 .features-section, .how-it-works-section, .testimonial-section, .cta-section {
     padding: 6rem 2rem;
     text-align: center;
-    position: relative; /* For scroll animations */
+    position: relative;
 }
 h2.section-title { 
     font-family: 'Poppins', sans-serif;
@@ -308,59 +308,56 @@ h2.section-title {
     border-radius: 25px; 
     margin: 0 auto;
     max-width: 1300px;
-    position: relative; /* Needed for absolute positioning of arrows/dots */
+    position: relative;
 }
 
 /* Desktop Grid View */
 .steps-grid-view {
-    display: flex; /* Default to flex for side-by-side */
+    display: flex;
     justify-content: center; 
     align-items: flex-start; 
     gap: 2rem; 
-    flex-wrap: nowrap; /* Prevent wrapping on desktop */
-    padding: 2rem; /* Added padding to steps-grid-view */
+    flex-wrap: nowrap; /* Ensure steps stay in a single row on desktop */
+    padding: 2rem; 
 }
-/* Style for arrows in desktop grid view */
 .steps-grid-view .step-arrow {
     font-size: 2.5rem; 
     color: var(--primary-color); 
-    margin-top: 50px; /* Aligns arrows with steps */
+    margin-top: 50px;
     flex-shrink: 0;
-    display: flex; /* Show arrows for desktop grid */
+    display: flex;
     align-items: center;
     justify-content: center;
 }
-.steps-grid-view .step { /* Ensure steps flex properly in desktop grid */
+.steps-grid-view .step { 
     flex: 1; /* Allow steps to grow and shrink evenly */
     max-width: 300px; /* Optional: limit max width for each step */
 }
 
-
 /* Mobile Slider View - Hidden by default */
 .steps-slider-view {
-    display: none; /* Hidden by default for desktop */
+    display: none;
     align-items: center;
     justify-content: center;
     width: 100%;
-    position: relative; /* For arrows */
-    overflow: hidden; /* Hide overflow when slides transition */
-    padding-bottom: 3rem; /* Space for pagination dots */
-    padding-top: 2rem; /* Added top padding for slider view */
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 3rem;
+    padding-top: 2rem;
 }
 
 .slides-wrapper {
     display: flex;
-    transition: transform 0.5s ease-in-out; /* Smooth slide transition */
+    transition: transform 0.5s ease-in-out;
     width: 100%; 
 }
 
 /* Common Step Styling (shared by both grid and slider views) */
 .step { 
-    /* min-width and flex-shrink are critical for slider */
-    min-width: 280px; /* A good base width for a single slide */
-    flex-shrink: 0; /* Prevent steps from shrinking when not in view */
-    width: 100%; /* For slider, each step takes full width of slides-wrapper */
-    box-sizing: border-box; /* Include padding in width */
+    min-width: 280px;
+    flex-shrink: 0;
+    width: 100%;
+    box-sizing: border-box;
     text-align: center; 
     background: rgba(30, 30, 30, 0.9);
     border: 1px solid var(--border-color);
@@ -398,9 +395,8 @@ h2.section-title {
     font-size: 0.95rem;
 }
 
-
 /* Slider Arrows */
-.steps-slider-view .slider-arrow { /* Target arrows specifically within slider view */
+.steps-slider-view .slider-arrow { 
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -413,7 +409,7 @@ h2.section-title {
     font-size: 1.5rem;
     border-radius: 8px;
     transition: background-color 0.3s ease;
-    display: none; /* Hidden by default (desktop) */
+    display: none;
 }
 .steps-slider-view .slider-arrow:hover {
     background-color: var(--primary-color);
@@ -423,14 +419,14 @@ h2.section-title {
 .steps-slider-view .next-arrow { right: 1rem; }
 
 /* Pagination Dots */
-.steps-slider-view .slider-pagination { /* Target pagination specifically within slider view */
+.steps-slider-view .slider-pagination { 
     position: absolute;
     bottom: 1rem;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     gap: 0.5rem;
-    display: none; /* Hidden by default (desktop) */
+    display: none;
 }
 .steps-slider-view .dot {
     width: 10px;
@@ -548,7 +544,7 @@ h2.section-title {
 .alert-danger { background-color: rgba(255, 71, 87, 0.1); color: #ff4757; }
 
 
-/* --- Main App Styles (retained existing for completeness, but not modified for landing page) --- */
+/* --- Main App Styles --- */
 .app-container { padding-bottom: 80px; }
 .main-content { padding: 1rem; max-width: 1200px; margin: 0 auto; }
 .content-section { display: none; }
@@ -557,15 +553,21 @@ h2.section-title {
 .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; }
 #welcome-message { font-weight: 700; font-size: 1.8rem; margin: 0; }
 #welcome-message span { color: var(--primary-color); }
-.date-display { color: var(--text-muted); font-size: 1.2rem; }
+.date-display { color: var(--text-muted); font-size: 0.9rem; }
 .btn-logout { background: var(--light-bg); color: var(--text-color); border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; }
 .btn-logout:hover { background: #444; border-color: var(--text-muted); }
-.bento-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Desktop default */
+    gap: 1rem;
+}
 .bento-box { background: var(--card-bg); backdrop-filter: blur(10px); border-radius: 20px; padding: 1.25rem; border: 1px solid var(--border-color); display: flex; flex-direction: column; transition: all 0.3s ease; }
 .bento-box:hover { transform: translateY(-5px); box-shadow: 0 0 20px rgba(0, 255, 171, 0.1); }
 .box-content { flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
-.box-3 { grid-column: 1 / -1; }
-@media (min-width: 768px) { .box-3 { grid-column: span 2; } }
+/* .box-3 class for chart-full-width */
+.bento-box.chart-full-width { grid-column: 1 / -1; } /* Ensures it always spans full width */
+
 .chart-header { display: flex; align-items: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem; }
 .chart-header i { margin-right: 8px; color: var(--primary-color); }
 .chart-container { position: relative; flex-grow: 1; min-height: 250px; }
@@ -742,6 +744,20 @@ thead th { font-weight: 600; background-color: rgba(255, 255, 255, 0.1); }
     }
     .card-value { font-size: 2.2rem; }
     .card-header { font-size: 0.85rem; }
+
+    /* Dashboard: Smaller font size for stats value for better fit */
+    .app-container .stat-value {
+        font-size: 1.8rem;
+    }
+    .app-container .stat-label {
+        font-size: 0.8rem;
+    }
+    .app-container .stat-icon {
+        font-size: 1.2rem;
+    }
+    .app-container .bento-box {
+        padding: 1rem; /* Slightly reduced padding for bento boxes */
+    }
 }
 
 @media (max-width: 576px) { /* Small smartphones (portrait) */
@@ -801,5 +817,22 @@ thead th { font-weight: 600; background-color: rgba(255, 255, 255, 0.1); }
         width: 100%;
         padding: 0.8rem 1.5rem;
         font-size: 1rem;
+    }
+
+    /* Dashboard: Re-evaluate stat card size for very small phones */
+    .app-container .bento-grid {
+        grid-template-columns: 1fr; /* Stack all dashboard cards on very small screens */
+    }
+    .app-container .bento-box {
+        padding: 1.25rem; /* Default padding for stacked cards */
+    }
+    .app-container .stat-value {
+        font-size: 2.2rem; /* Restore default size when stacked */
+    }
+    .app-container .stat-label {
+        font-size: 0.9rem; /* Restore default size */
+    }
+    .app-container .stat-icon {
+        font-size: 1.5rem; /* Restore default size */
     }
 }
