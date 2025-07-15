@@ -1,4 +1,4 @@
-const scriptUrl = "https://script.google.com/macros/s/AKfycbwgjQgJtz4lRwvSlVEYdkYZKGwcoXNPR1k9EePnHchRlsZ2-Rj0rJQJYTV5jJIMfLUOuw/exec"; // Your Google Apps Script URL
+const scriptUrl = "https://script.google.com/macros/s/AKfycbyYpNObDAGRvhkQR6PosvVndMVLOaCMYz194tiQqmmqa7XOXgkLqWb3mkKP63D3rDGdxQ/exec"; // Your Google Apps Script URL
 const loginForm = document.getElementById('login-form');
 const registerForm = document.getElementById('register-form');
 const alertContainer = document.getElementById('alert-container');
