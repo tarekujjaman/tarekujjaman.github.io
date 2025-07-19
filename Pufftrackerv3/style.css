@@ -1,0 +1,910 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap'); /* Added Poppins for headlines */
+
+:root {
+    --primary-color: #00ffab;
+    --dark-bg: #121212;
+    --light-bg: #1e1e1e;
+    --card-bg: rgba(30, 30, 30, 0.7);
+    --text-color: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --hover-shadow: 0 8px 30px rgba(0, 255, 171, 0.2);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 255, 171, 0.05), transparent 30%);
+    animation: rotate 30s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Base container for content sections */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* --- Animations --- */
+.animate-on-load {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 1s ease-out forwards;
+}
+
+.animate-on-load.delay-1 { animation-delay: 0.2s; }
+.animate-on-load.delay-2 { animation-delay: 0.4s; }
+.animate-on-load.delay-3 { animation-delay: 0.6s; }
+.animate-on-load.delay-4 { animation-delay: 0.8s; }
+.animate-on-load.delay-5 { animation-delay: 1.0s; }
+.animate-on-load.delay-6 { animation-delay: 1.2s; }
+.animate-on-load.delay-7 { animation-delay: 1.4s; }
+.animate-on-load.delay-8 { animation-delay: 1.6s; }
+
+@keyframes fadeInSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.delay-1 { transition-delay: 0.1s; }
+.animate-on-scroll.delay-2 { transition-delay: 0.2s; }
+.animate-on-scroll.delay-3 { transition-delay: 0.3s; }
+.animate-on-scroll.delay-4 { transition-delay: 0.4s; }
+.animate-on-scroll.delay-5 { transition-delay: 0.5s; }
+.animate-on-scroll.delay-6 { transition-delay: 0.6s; }
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* --- Landing Page Styles --- */
+.landing-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+    padding: 1rem 0;
+}
+.landing-header.scrolled {
+    background-color: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.8rem 0;
+}
+.landing-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.logo i { color: var(--primary-color); font-size: 1.8rem; }
+.nav-links a {
+    margin: 0 1.2rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+.nav-links a:hover { color: var(--text-color); }
+
+.btn {
+    padding: 0.7rem 1.4rem;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 0.95rem;
+    text-align: center;
+}
+.nav-actions .btn {
+    padding: 0.8rem 1.5rem;
+}
+.btn-primary { background-color: var(--primary-color); color: var(--dark-bg); border: 1px solid var(--primary-color);}
+.btn-primary:hover { background-color: #fff; color: var(--dark-bg); transform: translateY(-3px); border-color: #fff; box-shadow: var(--hover-shadow);}
+.btn-secondary { background: transparent; border: 1px solid var(--border-color); color: var(--text-color); }
+.btn-secondary:hover { background-color: var(--text-color); color: var(--dark-bg); transform: translateY(-3px); box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1); }
+.btn-lg { padding: 1rem 2.5rem; font-size: 1.15rem; border-radius: 12px; }
+
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8rem 2rem 2rem; /* Adjusted top padding for fixed header */
+    gap: 3rem;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+.hero-content { 
+    max-width: 55%; 
+    flex: 1 1 55%; /* Flexible width for content */
+    min-width: 300px; /* Minimum width before wrapping */
+}
+.hero-headline { 
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.8rem; 
+    font-weight: 800; 
+    margin: 0 0 1rem 0; 
+    line-height: 1.2; 
+    color: #fff;
+}
+.hero-headline .highlight-text { color: var(--primary-color); }
+.hero-subheadline { 
+    font-size: 1.3rem; 
+    color: var(--text-muted); 
+    margin: 1.5rem 0 2.5rem; 
+    line-height: 1.6;
+}
+
+.hero-visual {
+    flex: 1 1 40%; /* Flexible width for visual */
+    min-width: 300px; /* Minimum width before wrapping */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusted for more cards */
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(30, 30, 30, 0.5); /* Semi-transparent background for the whole visual area */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 25px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.visual-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-height: 120px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.visual-card.card-1 { grid-column: span 1; }
+.visual-card.card-2 { grid-column: span 1; }
+.visual-card.card-4 { grid-column: span 1; }
+.visual-card.card-5 { grid-column: span 1; }
+.visual-card.card-6 { grid-column: span 1; }
+.visual-card.card-3 { 
+    grid-column: 1 / -1; /* Daily Trend Chart always spans full width */
+    min-height: 180px; 
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensure Chart.js doesn't overflow */
+}
+
+.card-header {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+}
+.card-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1;
+}
+.card-chart {
+    width: 100%;
+    height: 100px; /* Adjust height for the chart area */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-chart canvas { /* Style the Chart.js canvas */
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+.features-section, .how-it-works-section, .testimonial-section, .cta-section {
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative; /* For scroll animations */
+}
+h2.section-title { 
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.8rem; 
+    font-weight: 700; 
+    margin-bottom: 1rem;
+    color: #fff;
+}
+.section-subtitle { 
+    color: var(--text-muted); 
+    font-size: 1.2rem; 
+    max-width: 700px; 
+    margin: 1rem auto 4rem; 
+    line-height: 1.6;
+}
+.features-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 2rem; 
+    text-align: left; 
+}
+.feature-card { 
+    background: var(--light-bg); 
+    padding: 2.5rem; 
+    border-radius: 20px; 
+    border: 1px solid var(--border-color); 
+    transition: all 0.3s ease; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+.feature-card:hover { 
+    transform: translateY(-8px); 
+    border-color: var(--primary-color); 
+    box-shadow: var(--hover-shadow);
+}
+.feature-icon { 
+    font-size: 2.5rem; 
+    color: var(--primary-color); 
+    margin-bottom: 1.5rem; 
+    background: rgba(0, 255, 171, 0.1);
+    padding: 15px;
+    border-radius: 12px;
+    display: inline-flex;
+}
+.feature-card h3 { 
+    font-size: 1.6rem; 
+    margin-bottom: 0.8rem; 
+    color: #fff;
+    font-weight: 700;
+}
+.feature-card p { 
+    color: var(--text-muted); 
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* How It Works Section */
+.how-it-works-section { 
+    background-color: var(--light-bg); 
+    border-radius: 25px; 
+    margin: 0 auto;
+    max-width: 1300px;
+    position: relative; /* Needed for absolute positioning of arrows/dots */
+}
+
+/* Desktop Grid View */
+.steps-grid-view {
+    display: flex; /* Default to flex for side-by-side */
+    justify-content: center; 
+    align-items: flex-start; 
+    gap: 2rem; 
+    flex-wrap: nowrap; /* Prevent wrapping on desktop */
+    padding: 2rem; /* Added padding to steps-grid-view */
+}
+/* Style for arrows in desktop grid view */
+.steps-grid-view .step-arrow {
+    font-size: 2.5rem; 
+    color: var(--primary-color); 
+    margin-top: 50px; /* Aligns arrows with steps */
+    flex-shrink: 0;
+    display: flex; /* Show arrows for desktop grid */
+    align-items: center;
+    justify-content: center;
+}
+.steps-grid-view .step { /* Ensure steps flex properly in desktop grid */
+    flex: 1; /* Allow steps to grow and shrink evenly */
+    max-width: 300px; /* Optional: limit max width for each step */
+}
+
+
+/* Mobile Slider View - Hidden by default */
+.steps-slider-view {
+    display: none; /* Hidden by default for desktop */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative; /* For arrows */
+    overflow: hidden; /* Hide overflow when slides transition */
+    padding-bottom: 3rem; /* Space for pagination dots */
+    padding-top: 2rem; /* Added top padding for slider view */
+}
+
+.slides-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Smooth slide transition */
+    width: 100%; 
+}
+
+/* Common Step Styling (shared by both grid and slider views) */
+.step { 
+    /* min-width and flex-shrink are critical for slider */
+    min-width: 280px; /* A good base width for a single slide */
+    flex-shrink: 0; /* Prevent steps from shrinking when not in view */
+    width: 100%; /* For slider, each step takes full width of slides-wrapper */
+    box-sizing: border-box; /* Include padding in width */
+    text-align: center; 
+    background: rgba(30, 30, 30, 0.9);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.step-number { 
+    width: 60px; 
+    height: 60px; 
+    background-color: var(--primary-color); 
+    color: var(--dark-bg); 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 1.8rem; 
+    font-weight: 800; 
+    margin: 0 auto 1.5rem; 
+    box-shadow: 0 0 25px rgba(0, 255, 171, 0.4);
+}
+.step-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+.step h3 { 
+    font-size: 1.6rem; 
+    margin-bottom: 0.8rem;
+    color: #fff;
+}
+.step p { 
+    color: var(--text-muted); 
+    font-size: 0.95rem;
+}
+
+
+/* Slider Arrows */
+.steps-slider-view .slider-arrow { /* Target arrows specifically within slider view */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 1rem 0.8rem;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    display: none; /* Hidden by default (desktop) */
+}
+.steps-slider-view .slider-arrow:hover {
+    background-color: var(--primary-color);
+    color: var(--dark-bg);
+}
+.steps-slider-view .prev-arrow { left: 1rem; }
+.steps-slider-view .next-arrow { right: 1rem; }
+
+/* Pagination Dots */
+.steps-slider-view .slider-pagination { /* Target pagination specifically within slider view */
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    display: none; /* Hidden by default (desktop) */
+}
+.steps-slider-view .dot {
+    width: 10px;
+    height: 10px;
+    background-color: var(--text-muted);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.steps-slider-view .dot.active {
+    background-color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+
+.testimonial-section {
+    background: linear-gradient(to right, rgba(0, 255, 171, 0.03), transparent);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+.testimonial-section blockquote {
+    font-size: 1.8rem;
+    font-style: italic;
+    color: #fff;
+    max-width: 900px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.5;
+    position: relative;
+    padding: 0 20px;
+}
+.testimonial-section blockquote::before,
+.testimonial-section blockquote::after {
+    content: '"';
+    font-size: 4rem;
+    color: rgba(0, 255, 171, 0.3);
+    position: absolute;
+    top: -10px;
+}
+.testimonial-section blockquote::before {
+    left: -10px;
+}
+.testimonial-section blockquote::after {
+    right: -10px;
+}
+.testimonial-section cite {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.cta-section p { margin-bottom: 2.5rem; }
+.landing-footer { 
+    text-align: center; 
+    padding: 2.5rem; 
+    color: var(--text-muted); 
+    border-top: 1px solid var(--border-color); 
+    font-size: 0.9rem;
+}
+
+/* --- Authentication Pages (Retained existing styles) --- */
+.auth-container { display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 2rem; }
+.auth-box {
+    background: var(--card-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 2.5rem;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 30px rgba(0, 255, 171, 0.1);
+}
+.auth-box h1 { color: var(--primary-color); margin-bottom: 0.5rem; }
+.auth-box h1 i { margin-right: 10px; }
+.auth-box h2 { margin-bottom: 2rem; color: var(--text-muted); font-weight: 400; }
+.input-group { text-align: left; margin-bottom: 1.5rem; }
+.input-group label { display: block; margin-bottom: 0.5rem; color: var(--text-muted); }
+.input-group input {
+    width: 100%;
+    padding: 0.8rem;
+    background: var(--light-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+.input-group input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(0, 255, 171, 0.3);
+    outline: none;
+}
+.btn-submit {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 0.8rem 2.5rem;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    color: var(--dark-bg);
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.btn-submit:hover { transform: translateY(-3px); box-shadow: 0 4px 15px rgba(0, 255, 171, 0.3); }
+.btn-submit:disabled { background-color: #555; cursor: not-allowed; }
+.auth-switch { margin-top: 2rem; }
+.auth-switch a { color: var(--primary-color); text-decoration: none; font-weight: 600; }
+.alert { padding: 0.8rem; border-radius: 8px; margin-bottom: 1rem; text-align: center; }
+.alert-success { background-color: rgba(0, 255, 171, 0.1); color: var(--primary-color); }
+.alert-danger { background-color: rgba(255, 71, 87, 0.1); color: #ff4757; }
+
+
+/* --- Main App Styles (retained existing for completeness, but not modified for landing page) --- */
+.app-container { padding-bottom: 80px; }
+.main-content { padding: 1rem; max-width: 1200px; margin: 0 auto; }
+.content-section { display: none; }
+.content-section.active { display: block; animation: fadeInApp 0.5s ease-in-out; }
+@keyframes fadeInApp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; }
+#welcome-message { font-weight: 700; font-size: 1.8rem; margin: 0; }
+#welcome-message span { color: var(--primary-color); }
+.date-display { color: var(--text-muted); font-size: 1.2rem; }
+.btn-logout { background: var(--light-bg); color: var(--text-color); border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; }
+.btn-logout:hover { background: #444; border-color: var(--text-muted); }
+.bento-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+.bento-box { background: var(--card-bg); backdrop-filter: blur(10px); border-radius: 20px; padding: 1.25rem; border: 1px solid var(--border-color); display: flex; flex-direction: column; transition: all 0.3s ease; }
+.bento-box:hover { transform: translateY(-5px); box-shadow: 0 0 20px rgba(0, 255, 171, 0.1); }
+.box-content { flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+.box-3 { grid-column: 1 / -1; }
+@media (min-width: 768px) { .box-3 { grid-column: span 2; } }
+.chart-header { display: flex; align-items: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem; }
+.chart-header i { margin-right: 8px; color: var(--primary-color); }
+.chart-container { position: relative; flex-grow: 1; min-height: 250px; }
+.stat-value { font-size: 2.2rem; font-weight: 700; }
+.stat-label { font-size: 0.9rem; color: var(--text-muted); }
+.stat-icon { font-size: 1.5rem; color: var(--primary-color); margin-bottom: 10px; }
+.bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(18, 18, 18, 0.8); backdrop-filter: blur(15px); display: flex; justify-content: space-around; padding: 10px 0; border-top: 1px solid var(--border-color); z-index: 1000; }
+.bottom-nav .nav-item { color: var(--text-muted); text-align: center; font-size: 0.75rem; background: none; border: none; display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none; transition: color 0.3s; }
+.bottom-nav .nav-item.active, .bottom-nav .nav-item:hover { color: var(--primary-color); }
+.bottom-nav .nav-item i { font-size: 1.5rem; }
+.bottom-nav .log-button i { font-size: 2.5rem; color: var(--primary-color); margin-top: -15px; transition: transform 0.3s; }
+.bottom-nav .log-button:hover i { transform: scale(1.1); }
+.modal-content { background-color: #2a2a2a; color: var(--text-color); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 15px; }
+.modal-header, .modal-footer { border: none; }
+.btn-close { filter: invert(1) grayscale(100%) brightness(200%); }
+.form-label { font-weight: 500; }
+.form-control, .form-select {
+    background-color: #3a3a3a;
+    border: 1px solid #555;
+    color: var(--text-color);
+    border-radius: 8px;
+}
+.form-control:focus, .form-select:focus {
+    background-color: #3a3a3a;
+    color: var(--text-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(0, 255, 171, 0.25);
+}
+/* Style the dropdown arrow for dark mode */
+.form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23a0a0a0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+/* =====> FIX FOR NUMBER INPUT <===== */
+.number-input {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Adds space between buttons and input */
+}
+.number-input .form-control {
+    text-align: center; /* Centers the number */
+}
+/* Remove browser default spinners for number input */
+.number-input input[type=number]::-webkit-inner-spin-button, 
+.number-input input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+.number-input input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.mood-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.mood-option { border: 1px solid #555; border-radius: 8px; padding: 10px; text-align: center; cursor: pointer; display: flex; flex-direction: column; gap: 5px; transition: all 0.3s ease; }
+.mood-option:hover { background-color: #3a3a3a; }
+.mood-option.selected { border-color: var(--primary-color); background-color: rgba(0, 255, 171, 0.1); color: var(--primary-color); }
+.table { --bs-table-bg: transparent; --bs-table-color: var(--text-color); border-radius: 15px; overflow: hidden; }
+.table-responsive { background-color: #2a2a2a; border-radius: 15px; padding: 0.5rem; }
+thead th { font-weight: 600; background-color: rgba(255, 255, 255, 0.1); }
+
+/* Add these new styles to your existing style.css */
+
+/* Goal Specific Styles */
+#activeGoalsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+#activeGoalsContainer .bento-box .stat-icon {
+    font-size: 1.8rem; /* Slightly smaller icon for goals */
+    margin-bottom: 5px;
+}
+
+#activeGoalsContainer .bento-box .stat-label {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+#activeGoalsContainer .bento-box .stat-value {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.text-info { /* Re-using bootstrap's info color for active status/progress */
+    color: #0dcaf0 !important;
+}
+
+.text-danger { /* For overdue goals */
+    color: #dc3545 !important;
+}
+
+.progress {
+    background-color: var(--light-bg);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: var(--primary-color);
+}
+
+.badge.bg-info {
+    background-color: rgba(13, 202, 240, 0.2); /* Lighter background for info badge */
+    color: #0dcaf0;
+}
+
+.badge.bg-success {
+    background-color: rgba(40, 167, 69, 0.2);
+    color: #28a745;
+}
+
+.badge.bg-danger {
+    background-color: rgba(220, 53, 69, 0.2);
+    color: #dc3545;
+}
+
+.badge.bg-secondary { /* Existing, just ensure it works */
+    background-color: rgba(108, 117, 125, 0.2);
+    color: #ffffff;
+}
+
+/* For form hint text */
+.form-text {
+    font-size: 0.85rem;
+}
+
+/* Specific styling for Analytics section charts if needed */
+#analytics .chart-full-width .chart-container {
+    min-height: 280px; /* Adjust height for these charts if needed */
+}
+
+/* Adjustments for bottom nav items for new sections */
+.bottom-nav .nav-item span {
+    display: block; /* Ensure span takes full width under icon */
+    font-size: 0.75rem;
+    margin-top: 4px;
+}
+
+/* Adjust the log button's text visibility */
+.bottom-nav .log-button span {
+    visibility: hidden; /* Hide the "Log" text */
+    height: 0;
+    margin: 0;
+    padding: 0;
+    display: block; /* Ensure it still occupies space for layout */
+    line-height: 0;
+    font-size: 0; /* Make sure it doesn't affect icon size */
+}
+
+/* Media query adjustments for mobile navigation */
+@media (max-width: 576px) {
+    .bottom-nav .nav-item {
+        padding: 5px 0; /* Adjust padding for smaller screens */
+    }
+    .bottom-nav .nav-item i {
+        font-size: 1.2rem; /* Slightly smaller icons for regular items */
+    }
+    .bottom-nav .log-button i {
+        font-size: 2rem; /* Keep log button icon larger */
+        margin-top: -10px; /* Adjust if needed */
+    }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) { /* Tablets and larger phones */
+    .nav-links { display: none; } /* Hide desktop nav links on smaller screens */
+
+    .landing-nav .nav-actions { /* Align buttons in header */
+        display: flex;
+        gap: 0.8rem;
+    }
+    .landing-nav .nav-actions .btn { /* Smaller buttons for header on tablets */
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .hero-section { 
+        flex-direction: column; 
+        text-align: center; 
+        padding-top: 6rem; /* Adjust padding for fixed header */
+        gap: 2rem;
+    }
+    .hero-content { max-width: 100%; flex: none; } /* Full width for content */
+    .hero-headline { font-size: 3rem; }
+    .hero-subheadline { font-size: 1.1rem; margin: 1rem 0 2rem; }
+    .hero-content .btn-lg { /* Main CTA button on hero section */
+        padding: 0.9rem 0.1rem; /* Adjusted based on your feedback */
+        font-size: 1.05rem;
+    }
+
+
+    .hero-visual {
+        max-width: 100%; 
+        flex: none; /* Full width for visual */
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adaptive 2 or 3 columns */
+        padding: 1.5rem;
+    }
+    .visual-card.card-1, 
+    .visual-card.card-2, 
+    .visual-card.card-4, 
+    .visual-card.card-5, 
+    .visual-card.card-6 {
+        grid-column: span 1; /* Ensure these cards take 1 column */
+    }
+    .visual-card.card-3 { 
+        grid-column: 1 / -1; /* Daily trend spans full width */
+        min-height: 150px; /* Adjust chart card height */
+    }
+    .card-chart canvas { 
+        height: 120px !important; /* Important to override Chart.js default aspect ratio if needed */
+    }
+
+
+    .features-section, .how-it-works-section, .testimonial-section, .cta-section {
+        padding: 4rem 1.5rem; /* Adjust section padding */
+    }
+    h2.section-title { font-size: 2.2rem; }
+    .section-subtitle { font-size: 1rem; margin: 0.8rem auto 2rem; }
+
+    .features-grid { grid-template-columns: 1fr; gap: 1.5rem; } /* Single column for features */
+    .feature-card { padding: 2rem; }
+    .feature-icon { font-size: 2rem; padding: 12px; margin-bottom: 1rem; }
+    .feature-card h3 { font-size: 1.4rem; }
+
+    /* How It Works desktop grid hidden, slider enabled */
+    .steps-grid-view {
+        display: none; /* Hide the desktop grid layout */
+    }
+    .steps-slider-view {
+        display: flex; /* Show the slider container */
+        flex-direction: row; /* Ensure items are in a row */
+        align-items: center;
+        justify-content: center;
+    }
+    .steps-slider-view .slider-arrow,
+    .steps-slider-view .slider-pagination {
+        display: flex; /* Show slider navigation */
+    }
+    /* Common step styling for slider */
+    .steps-slider-view .step {
+        max-width: none; /* Remove max-width constraint for slider */
+        width: 100%; /* Ensure each step takes full width of slider view */
+        flex-shrink: 0; /* Prevent steps from shrinking */
+    }
+
+
+    .testimonial-section blockquote { font-size: 1.4rem; padding: 0 10px; }
+    .testimonial-section blockquote::before,
+    .testimonial-section blockquote::after { font-size: 3rem; top: -5px; }
+    .testimonial-section cite { font-size: 1.1rem; }
+
+    .cta-section .btn-lg { /* CTA button at the bottom of the page */
+        width: 100%; /* Make it full width */
+        padding: 0.9rem 0.1rem; /* Adjusted based on your feedback */
+        font-size: 1.05rem;
+    }
+}
+
+@media (max-width: 768px) { /* Standard smartphone landscape / small tablets */
+    .landing-nav .nav-actions {
+        gap: 0.6rem; /* Slightly reduce gap between buttons */
+    }
+    .landing-nav .nav-actions .btn {
+        padding: 0.5rem 1rem; /* Smaller padding for header buttons */
+        font-size: 0.85rem; /* Smaller font size */
+    }
+
+    .hero-visual {
+        grid-template-columns: repeat(2, minmax(130px, 1fr)); /* Force 2 columns for stat cards, slightly smaller min-width */
+        gap: 0.8rem; /* Slightly reduced gap */
+        padding: 1rem;
+    }
+    .visual-card {
+        min-height: 100px; /* Slightly reduced min-height for cards */
+        padding: 0.9rem 1rem; /* Adjust padding */
+    }
+    .card-value { font-size: 2.2rem; }
+    .card-header { font-size: 0.85rem; }
+}
+
+@media (max-width: 576px) { /* Small smartphones (portrait) */
+    .container { padding: 0 1rem; } /* Smaller container padding on very small screens */
+    .landing-header { padding: 0.5rem 0; }
+    
+    .landing-nav .nav-actions {
+        gap: 0.4rem; /* Even smaller gap for very small screens */
+        flex-wrap: wrap; /* Allow buttons to wrap if necessary */
+        justify-content: center; /* Center buttons if they wrap */
+    }
+    .landing-nav .nav-actions .btn {
+        padding: 0.4rem 0.8rem; /* Even smaller padding */
+        font-size: 0.8rem; /* Even smaller font size */
+    }
+
+
+    .hero-section { padding-top: 5rem; gap: 1.5rem; }
+    .hero-headline { font-size: 2.5rem; }
+    .hero-subheadline { font-size: 1rem; margin: 0.8rem 0 1.5rem; }
+
+    .hero-visual { 
+        padding: 1rem; 
+        grid-template-columns: 1fr; /* Force single column for all cards */
+        gap: 1rem;
+    }
+    .visual-card { 
+        min-height: 100px; 
+        grid-column: 1 / -1 !important; /* Force all cards to span full width */
+        padding: 1rem 1.2rem; /* Restore slightly larger padding when single column */
+    }
+    .card-value { font-size: 2.5rem; } /* Revert to larger size for single column */
+    .card-header { font-size: 0.9rem; } /* Revert to larger size */
+    .card-chart { height: 100px; } /* Restore default chart height */
+
+    .features-section, .how-it-works-section, .testimonial-section, .cta-section {
+        padding: 3rem 1rem;
+    }
+    h2.section-title { font-size: 2rem; }
+    .section-subtitle { font-size: 0.9rem; margin-bottom: 1.5rem; }
+
+    .feature-card { padding: 1.5rem; }
+    .feature-icon { font-size: 1.8rem; padding: 10px; margin-bottom: 0.8rem; }
+    .feature-card h3 { font-size: 1.3rem; }
+    .feature-card p { font-size: 0.9rem; }
+
+    .step { max-width: 100%; padding: 1.2rem; }
+    .step h3 { font-size: 1.3rem; }
+    .step p { font-size: 0.9rem; }
+
+    .testimonial-section blockquote { font-size: 1.2rem; }
+    .testimonial-section blockquote::before,
+    .testimonial-section blockquote::after { font-size: 2.5rem; }
+    .testimonial-section cite { font-size: 0.9rem; }
+
+    .btn-lg { /* Ensure main CTA buttons are full width and well-sized */
+        width: 100%;
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+}

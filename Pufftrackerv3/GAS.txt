@@ -1,0 +1,295 @@
+const SS = SpreadsheetApp.getActiveSpreadsheet();
+const USERS_SHEET = SS.getSheetByName("Users");
+const LOGS_SHEET = SS.getSheetByName("Logs");
+const GOALS_SHEET = SS.getSheetByName("Goals"); // New: Reference to Goals sheet
+
+// Main function to handle both GET and POST requests
+function doGet(e) {
+  const params = e.parameter;
+  if (params.action === "loadData") {
+    if (isTokenValid(params.userID, params.token)) {
+      return getUserLogs(params.email); // Filter by email
+    } else {
+      return jsonError("Invalid session. Please log in again.");
+    }
+  } else if (params.action === "loadGoals") { // New: Action to load goals
+    if (isTokenValid(params.userID, params.token)) {
+      return getUserGoals(params.email);
+    } else {
+      return jsonError("Invalid session. Please log in again.");
+    }
+  } else if (params.action === "exportData") { // New: Action to export data
+    if (isTokenValid(params.userID, params.token)) {
+      return exportUserLogs(params.email);
+    } else {
+      return jsonError("Invalid session. Please log in again.");
+    }
+  }
+  return jsonError("Invalid action.");
+}
+
+function doPost(e) {
+  const params = e.parameter;
+  const action = params.action;
+  if (action === "register") {
+    return registerUser(params.email, params.password, params.nickname); // Add nickname
+  }
+  if (action === "login") {
+    return loginUser(params.email, params.password);
+  }
+  if (action === "logEntry") {
+    if (isTokenValid(params.userID, params.token)) {
+      return addLogEntry(params);
+    } else {
+      return jsonError("Invalid session. Please log in again.");
+    }
+  } else if (action === "saveGoal") { // New: Action to save goals
+    if (isTokenValid(params.userID, params.token)) {
+      return saveUserGoal(params);
+    } else {
+      return jsonError("Invalid session. Please log in again.");
+    }
+  } else if (action === "updateGoalProgress") { // New: Action to update goal progress (optional for backend updates)
+     if (isTokenValid(params.userID, params.token)) {
+      return updateGoalProgress(params.email, params.goalType, params.currentProgress);
+    } else {
+      return jsonError("Invalid session. Please log in again.");
+    }
+  }
+  return jsonError("Invalid action.");
+}
+
+// --- USER MANAGEMENT FUNCTIONS ---
+
+function registerUser(email, password, nickname) {
+  if (!email || !password || !nickname) return jsonError("Email, password, and nickname are required.");
+  const usersData = USERS_SHEET.getDataRange().getValues();
+  const userExists = usersData.some(row => row[1] === email);
+  if (userExists) return jsonError("User with this email already exists.");
+
+  const userID = Utilities.getUuid();
+  const passwordHash = hashPassword(password);
+  USERS_SHEET.appendRow([userID, email, nickname, passwordHash, "", ""]);
+  return jsonSuccess({ message: "Registration successful." });
+}
+
+function loginUser(email, password) {
+  const usersData = USERS_SHEET.getDataRange().getValues();
+  const headers = usersData.shift();
+  const emailIndex = headers.indexOf("Email");
+  const nicknameIndex = headers.indexOf("Nickname");
+  const hashIndex = headers.indexOf("PasswordHash");
+  const idIndex = headers.indexOf("UserID");
+  for (let i = 0; i < usersData.length; i++) {
+    if (usersData[i][emailIndex] === email) {
+      const userRow = usersData[i];
+      if (checkPassword(password, userRow[hashIndex])) {
+        const token = Utilities.getUuid();
+        const expiry = new Date(new Date().getTime() + 3600 * 1000 * 24);
+        
+        USERS_SHEET.getRange(i + 2, headers.indexOf("SessionToken") + 1).setValue(token);
+        USERS_SHEET.getRange(i + 2, headers.indexOf("TokenExpiry") + 1).setValue(expiry);
+        
+        return jsonSuccess({
+          message: "Login successful.",
+          userID: userRow[idIndex],
+          email: userRow[emailIndex],
+          nickname: userRow[nicknameIndex],
+          token: token
+        });
+      }
+    }
+  }
+  return jsonError("Invalid email or password.");
+}
+
+function isTokenValid(userID, token) {
+  if (!userID || !token) return false;
+  const usersData = USERS_SHEET.getDataRange().getValues();
+  const headers = usersData.shift();
+  const idIndex = headers.indexOf("UserID");
+  const tokenIndex = headers.indexOf("SessionToken");
+  const expiryIndex = headers.indexOf("TokenExpiry");
+  for (let i = 0; i < usersData.length; i++) {
+    if (usersData[i][idIndex] === userID && usersData[i][tokenIndex] === token) {
+      return new Date() < new Date(usersData[i][expiryIndex]);
+    }
+  }
+  return false;
+}
+
+// --- DATA MANAGEMENT FUNCTIONS ---
+
+function addLogEntry(data) {
+  const rowData = [
+    data.email,
+    new Date(),
+    data.date,
+    data.time,
+    parseInt(data.count),
+    data.mood,
+    data.location,
+    "" // Notes
+  ];
+  LOGS_SHEET.appendRow(rowData);
+  return jsonSuccess({ message: "Entry logged." });
+}
+
+function getUserLogs(email) {
+  const allLogs = LOGS_SHEET.getDataRange().getValues();
+  const headers = allLogs.shift();
+  const emailIndex = headers.indexOf("Email");
+  
+  if (emailIndex === -1) {
+    return jsonError("Email column not found in Logs sheet.");
+  }
+  
+  const userLogs = allLogs.filter(row => row[emailIndex] === email);
+  const records = userLogs.map(row => {
+    let record = {};
+    headers.forEach((header, index) => {
+      let key = header.toLowerCase();
+      if (key) {
+        // *** CRITICAL CHANGE HERE ***
+        if ((key === 'date' || key === 'timestamp') && row[index] instanceof Date) {
+          // Format date to ISO 8601 string (YYYY-MM-DDTHH:mm:ss) for reliable parsing on frontend
+          record[key] = Utilities.formatDate(row[index], Session.getScriptTimeZone(), "yyyy-MM-dd'T'HH:mm:ss");
+        } else if (key === 'time' && row[index] instanceof Date) {
+          record[key] = Utilities.formatDate(row[index], Session.getScriptTimeZone(), "HH:mm:ss");
+        } else {
+          record[key] = row[index];
+        }
+      }
+    });
+    return record;
+  }).reverse();
+  return jsonSuccess({ records: records });
+}
+
+// --- NEW: GOAL MANAGEMENT FUNCTIONS ---
+function saveUserGoal(data) {
+  const email = data.email;
+  const goalType = data.goalType;
+  const targetValue = data.targetValue;
+  const targetDate = data.targetDate; // YYYY-MM-DD
+  const startDate = new Date(); // Current date when goal is set
+
+  if (!email || !goalType || !targetValue || !targetDate) {
+    return jsonError("All goal fields are required.");
+  }
+
+  const goalsData = GOALS_SHEET.getDataRange().getValues();
+  const headers = goalsData.shift();
+  const emailIndex = headers.indexOf("Email");
+  const goalTypeIndex = headers.indexOf("GoalType");
+  let goalFoundRowIndex = -1;
+
+  for (let i = 0; i < goalsData.length; i++) {
+    if (goalsData[i][emailIndex] === email && goalsData[i][goalTypeIndex] === goalType) {
+      goalFoundRowIndex = i + 2;
+      break;
+    }
+  }
+
+  const rowData = [email, goalType, targetValue, targetDate, 0, "Active", Utilities.formatDate(startDate, Session.getScriptTimeZone(), "yyyy-MM-dd")];
+
+  if (goalFoundRowIndex !== -1) {
+    GOALS_SHEET.getRange(goalFoundRowIndex, 1, 1, rowData.length).setValues([rowData]);
+    return jsonSuccess({ message: "Goal updated successfully." });
+  } else {
+    GOALS_SHEET.appendRow(rowData);
+    return jsonSuccess({ message: "Goal saved successfully." });
+  }
+}
+
+function getUserGoals(email) {
+  const allGoals = GOALS_SHEET.getDataRange().getValues();
+  const headers = allGoals.shift();
+  const emailIndex = headers.indexOf("Email");
+
+  if (emailIndex === -1) {
+    return jsonError("Email column not found in Goals sheet.");
+  }
+
+  const userGoals = allGoals.filter(row => row[emailIndex] === email);
+  const records = userGoals.map(row => {
+    let record = {};
+    headers.forEach((header, index) => {
+      record[header.toLowerCase()] = row[index];
+    });
+    return record;
+  });
+  return jsonSuccess({ goals: records });
+}
+
+function updateGoalProgress(email, goalType, currentProgress) {
+  const goalsData = GOALS_SHEET.getDataRange().getValues();
+  const headers = goalsData.shift();
+  const emailIndex = headers.indexOf("Email");
+  const goalTypeIndex = headers.indexOf("GoalType");
+  const currentProgressIndex = headers.indexOf("CurrentProgress");
+  const statusIndex = headers.indexOf("Status");
+
+  for (let i = 0; i < goalsData.length; i++) {
+    if (goalsData[i][emailIndex] === email && goalsData[i][goalTypeIndex] === goalType) {
+      GOALS_SHEET.getRange(i + 2, currentProgressIndex + 1).setValue(currentProgress);
+      return jsonSuccess({ message: "Goal progress updated." });
+    }
+  }
+  return jsonError("Goal not found.");
+}
+
+
+// --- NEW: DATA EXPORT FUNCTIONS ---
+function exportUserLogs(email) {
+  const allLogs = LOGS_SHEET.getDataRange().getValues();
+  const headers = allLogs.shift();
+  const emailIndex = headers.indexOf("Email");
+  
+  if (emailIndex === -1) {
+    return jsonError("Email column not found in Logs sheet.");
+  }
+
+  const userLogs = allLogs.filter(row => row[emailIndex] === email);
+  
+  // Prepare data for CSV
+  let csvContent = headers.join(",") + "\n";
+  userLogs.forEach(row => {
+    const formattedRow = row.map(cell => {
+      if (cell instanceof Date) {
+        return Utilities.formatDate(cell, Session.getScriptTimeZone(), "yyyy-MM-dd HH:mm:ss");
+      }
+      if (typeof cell === 'string' && cell.includes(',')) {
+        return `"${cell.replace(/"/g, '""')}"`;
+      }
+      return cell;
+    }).join(",");
+    csvContent += formattedRow + "\n";
+  });
+
+  return ContentService.createTextOutput(csvContent)
+    .setMimeType(ContentService.MimeType.CSV)
+    .downloadAsFile("PuffTracker_Data_Export.csv");
+}
+
+
+// --- UTILITY & SECURITY FUNCTIONS ---
+function hashPassword(password) {
+  const salt = "puff-tracker-salt";
+  const digest = Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, password + salt);
+  return Utilities.base64Encode(digest);
+}
+
+function checkPassword(password, hash) {
+  return hashPassword(password) === hash;
+}
+
+function jsonSuccess(data) {
+  return ContentService.createTextOutput(JSON.stringify({ status: "success", ...data }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+function jsonError(message) {
+  return ContentService.createTextOutput(JSON.stringify({ status: "error", message: message }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
