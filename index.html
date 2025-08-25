@@ -3,10 +3,13 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>Md Tarekujjaman Riad – Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Md Tarekujjaman Riad — Product Analyst & Data Specialist</title>
   <meta name="description"
-    content="Portfolio of Md Tarekujjaman Riad – Product Analyst, Data Science Enthusiast, Mathematician." />
+    content="Portfolio of Md Tarekujjaman Riad — Product Analyst, Data Science Enthusiast, and Mathematician with expertise in data-driven product development." />
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
 
   <!-- Bootstrap & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -14,16 +17,14 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css" />
-  
-  <!-- Mobile optimizations -->
-  <meta name="theme-color" content="#0f1224" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 </head>
 
 <body>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress"></div>
+
   <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg sticky-top">
+  <nav class="navbar navbar-expand-lg sticky-top" aria-label="Main navigation">
     <div class="container">
       <a class="navbar-brand fw-bold text-white" href="#home">Riad<span class="text-info">.</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav"
@@ -49,21 +50,23 @@
     <div class="blob one floating"></div>
     <div class="blob two floating"></div>
     <div class="row align-items-center g-4 position-relative" style="z-index:1">
-      <div class="col-12 col-lg-7 order-2 order-lg-1">
+      <div class="col-12 col-lg-7">
         <span class="chip mb-3"><i class="bi bi-activity"></i> Product Analyst • Data Science</span>
         <h1 class="title mb-3">Hi, I'm <span class="gradient-text">Md Tarekujjaman Riad</span></h1>
         <p class="lead subtitle max mb-4">Results-oriented <strong>Product Analyst</strong> blending data science with
           product strategy to ship features, grow engagement, and tell stories with data.</p>
-        <div class="d-flex flex-wrap gap-2 mb-4">
-          <a href="#contact" class="btn btn-brand px-4 py-2 rounded-pill"><i class="bi bi-send me-2"></i>Hire Me</a>
-          <a href="#experience" class="btn btn-outline-info px-4 py-2 rounded-pill"><i class="bi bi-bezier me-2"></i>My Work</a>
-          <a href="cv/Md_Tarekujjaman_Riad_CV.pdf" class="btn btn-outline-light px-4 py-2 rounded-pill" download><i
-              class="bi bi-file-earmark-arrow-down me-2"></i>Download CV</a>
+        <div class="d-flex flex-wrap gap-2">
+          <a href="#contact" class="btn btn-brand px-4 py-2 rounded-pill"><i class="bi bi-send"></i> Hire Me</a>
+          <a href="#experience" class="btn btn-outline-info px-4 py-2 rounded-pill"><i class="bi bi-bezier"></i> My
+            Work</a>
+          <a href="#" class="btn btn-outline-light px-4 py-2 rounded-pill cv-download"><i
+              class="bi bi-file-earmark-arrow-down"></i> Download CV</a>
         </div>
-        <div class="text-secondary small">Currently: <span class="text-info">Product Analyst @ Celloscope Ltd (Aug
-            2025 – Present)</span></div>
+        <div class="mt-4 current-role">
+          <span class="text-secondary">Currently: </span><span class="text-info">Product Analyst @ Celloscope Ltd</span>
+        </div>
       </div>
-      <div class="col-12 col-lg-5 order-1 order-lg-2">
+      <div class="col-12 col-lg-5">
         <div class="glass p-4 shadow-soft rounded-4">
           <div class="d-grid gap-3">
             <div class="d-flex align-items-center gap-3">
@@ -71,30 +74,30 @@
             </div>
             <div class="row g-3 text-center">
               <div class="col-4">
-                <div class="p-3 rounded-4" style="background:rgba(255,255,255,.04);">
-                  <div class="h4 mb-0" id="kpi-features">40+</div>
+                <div class="p-3 rounded-4 stat-card">
+                  <div class="h4 mb-0 counter" data-target="40">0</div>
                   <div class="small section-muted">Features Launched</div>
                 </div>
               </div>
               <div class="col-4">
-                <div class="p-3 rounded-4" style="background:rgba(255,255,255,.04);">
-                  <div class="h4 mb-0" id="kpi-dau">10%+</div>
+                <div class="p-3 rounded-4 stat-card">
+                  <div class="h4 mb-0 counter" data-target="10">0</div>
                   <div class="small section-muted">DAU Growth</div>
                 </div>
               </div>
               <div class="col-4">
-                <div class="p-3 rounded-4" style="background:rgba(255,255,255,.04);">
-                  <div class="h4 mb-0" id="kpi-rev">+15%</div>
+                <div class="p-3 rounded-4 stat-card">
+                  <div class="h4 mb-0 counter" data-target="15">0</div>
                   <div class="small section-muted">Revenue Lift</div>
                 </div>
               </div>
             </div>
-            <div class="d-flex gap-3 justify-content-center flex-wrap">
+            <div class="d-flex gap-3 justify-content-center social-icons">
               <a class="text-decoration-none" href="https://linkedin.com/in/tarekujjamanriad" target="_blank"
                 rel="noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin fs-3"></i></a>
               <a class="text-decoration-none" href="mailto:tarekujjamanriad@gmail.com" aria-label="Email"><i
                   class="bi bi-envelope fs-3"></i></a>
-              <a class="text-decoration-none" href="https://tarekujjaman.github.io" target="_blank" rel="noreferrer" aria-label="Portfolio"><i
+              <a class="text-decoration-none" href="https://tarekujjaman.github.io" target="_blank" rel="noreferrer" aria-label="Portfolio Website"><i
                   class="bi bi-globe2 fs-3"></i></a>
               <a class="text-decoration-none" href="tel:+8801645141542" aria-label="Phone"><i class="bi bi-telephone fs-3"></i></a>
             </div>
@@ -108,16 +111,16 @@
   <section id="about" class="container reveal">
     <div class="row align-items-center g-4">
       <div class="col-12 col-lg-6">
-        <h2 class="section-title mb-3">About</h2>
-        <p class="lead section-muted">I translate complex data into <strong>actionable insight</strong> to inform
-          product strategy. I love finding signal in noisy datasets, running experiments, and building UX that earns
-          attention.</p>
+        <h2 class="section-title mb-3">About Me</h2>
+        <p class="lead section-muted">I translate complex data into <strong>actionable insights</strong> to inform
+          product strategy. I specialize in finding signals in noisy datasets, running experiments, and building UX that earns
+          user engagement and loyalty.</p>
         <div class="d-flex flex-wrap gap-2 mt-3">
-          <span class="skill">SQL & Python/R</span>
+          <span class="skill">SQL &amp; Python/R</span>
           <span class="skill">A/B Testing</span>
           <span class="skill">Amplitude/Mixpanel</span>
           <span class="skill">Power BI</span>
-          <span class="skill">GA</span>
+          <span class="skill">Google Analytics</span>
           <span class="skill">Jira • Agile</span>
           <span class="skill">Tableau</span>
         </div>
@@ -138,6 +141,9 @@
               <div class="chip w-100 justify-content-between"><span>Education</span><span>MSc ASDS</span></div>
             </div>
           </div>
+          <div class="mt-4">
+            <a href="#projects" class="btn btn-outline-info w-100 rounded-pill">View My Projects</a>
+          </div>
         </div>
       </div>
     </div>
@@ -147,47 +153,55 @@
   <section id="experience" class="container reveal">
     <div class="row g-4">
       <div class="col-12 col-lg-5">
-        <h2 class="section-title mb-3">Experience</h2>
-        <p class="section-muted">End‑to‑end product execution – roadmap, analysis, experimentation, launch, and
-          iteration.</p>
+        <h2 class="section-title mb-3">Work Experience</h2>
+        <p class="section-muted">End‑to‑end product execution — from roadmap planning and analysis to experimentation, launch, and iteration.</p>
       </div>
       <div class="col-12 col-lg-7">
         <div class="timeline">
-          <div class="tl-item glass p-3">
-            <div class="d-flex flex-wrap justify-content-between align-items-start gap-2">
+          <div class="tl-item glass p-4">
+            <div class="d-flex justify-content-between align-items-start">
               <div>
                 <h5 class="mb-1">Product Analyst <span class="text-info">• Celloscope Ltd</span></h5>
-                <div class="small section-muted">Aug 2025 – Present • Dhaka</div>
+                <div class="small section-muted">Aug 2023 — Present · Dhaka</div>
               </div>
-              <span class="badge rounded-pill text-bg-info">Now</span>
+              <span class="badge rounded-pill text-bg-info">Current</span>
             </div>
+            <ul class="mt-2 mb-0 section-muted">
+              <li>Analyze product performance metrics and user behavior data</li>
+              <li>Collaborate with cross-functional teams to define product requirements</li>
+              <li>Develop and maintain dashboards for tracking key performance indicators</li>
+            </ul>
           </div>
-          <div class="tl-item glass p-3">
-            <div class="d-flex flex-wrap justify-content-between align-items-start gap-2">
+          <div class="tl-item glass p-4">
+            <div class="d-flex justify-content-between align-items-start">
               <div>
                 <h5 class="mb-1">Product Analyst <span class="text-info">• Bdjobs.com</span></h5>
-                <div class="small section-muted">Mar 2023 – Jul 2025 • Dhaka</div>
+                <div class="small section-muted">Mar 2023 — Jul 2023 · Dhaka</div>
               </div>
-              <span class="badge rounded-pill text-bg-secondary">2.5 yrs</span>
+              <span class="badge rounded-pill text-bg-secondary">5 mos</span>
             </div>
             <ul class="mt-2 mb-0 section-muted">
               <li>Owned B2C (Job Seeker) product lifecycle from ideation to continuous improvement.</li>
-              <li>Introduced & enhanced <strong>40+ features</strong>; lifted <strong>DAU by 10%</strong> and
+              <li>Introduced &amp; enhanced <strong>40+ features</strong>; lifted <strong>DAU by 10%</strong> and
                 <strong>session time by 15%</strong>.</li>
-              <li>Launched <strong>Bdjobs Pro</strong> – 180k+ paying subscribers; <strong>+15% monthly
+              <li>Launched <strong>Bdjobs Pro</strong> — 180k+ paying subscribers; <strong>+15% monthly
                   revenue</strong>.</li>
               <li>Drove 10+ large‑scale Job Fairs; optimized user flows for engagement.</li>
             </ul>
           </div>
-          <div class="tl-item glass p-3">
-            <div class="d-flex flex-wrap justify-content-between align-items-start gap-2">
+          <div class="tl-item glass p-4">
+            <div class="d-flex justify-content-between align-items-start">
               <div>
                 <h5 class="mb-1">Junior Instructor (Mathematics) <span class="text-info">• Daffodil Polytechnic
                     Institute</span></h5>
-                <div class="small section-muted">Jun 2022 – Feb 2023 • Dhaka</div>
+                <div class="small section-muted">Jun 2022 — Feb 2023 · Dhaka</div>
               </div>
               <span class="badge rounded-pill text-bg-secondary">9 mos</span>
             </div>
+            <ul class="mt-2 mb-0 section-muted">
+              <li>Designed and delivered mathematics curriculum for diploma engineering students</li>
+              <li>Implemented data-driven assessment strategies to track student progress</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -198,12 +212,12 @@
   <section id="skills" class="container reveal">
     <div class="row g-4">
       <div class="col-12">
-        <h2 class="section-title mb-3">Skills</h2>
+        <h2 class="section-title mb-3">Skills & Expertise</h2>
       </div>
       <div class="col-12 col-lg-6">
         <div class="glass p-4 h-100">
           <h6 class="text-uppercase text-info mb-3">Data • Analytics</h6>
-          <div class="d-flex flex-wrap gap-2 mb-4">
+          <div class="d-flex flex-wrap gap-2 mt-2">
             <span class="skill">SQL</span>
             <span class="skill">Python</span>
             <span class="skill">R</span>
@@ -214,9 +228,9 @@
             <span class="skill">Google Analytics</span>
             <span class="skill">Tableau</span>
           </div>
-          <hr class="border-secondary-subtle" />
-          <h6 class="text-uppercase text-info mb-3">Modeling • Stats</h6>
-          <div class="d-flex flex-wrap gap-2">
+          <hr class="border-secondary-subtle my-4" />
+          <h6 class="text-uppercase text-info mb-3">Modeling • Statistics</h6>
+          <div class="d-flex flex-wrap gap-2 mt-2">
             <span class="skill">Regression</span>
             <span class="skill">Classification</span>
             <span class="skill">Clustering</span>
@@ -230,7 +244,7 @@
       <div class="col-12 col-lg-6">
         <div class="glass p-4 h-100">
           <h6 class="text-uppercase text-info mb-3">Product • Delivery</h6>
-          <div class="d-flex flex-wrap gap-2 mb-4">
+          <div class="d-flex flex-wrap gap-2 mt-2">
             <span class="skill">Roadmaps</span>
             <span class="skill">KPIs</span>
             <span class="skill">User Research</span>
@@ -239,9 +253,9 @@
             <span class="skill">ClickUp</span>
             <span class="skill">Trello</span>
           </div>
-          <hr class="border-secondary-subtle" />
+          <hr class="border-secondary-subtle my-4" />
           <h6 class="text-uppercase text-info mb-3">Web • Design</h6>
-          <div class="d-flex flex-wrap gap-2">
+          <div class="d-flex flex-wrap gap-2 mt-2">
             <span class="skill">HTML</span>
             <span class="skill">CSS</span>
             <span class="skill">Bootstrap</span>
@@ -260,8 +274,8 @@
   <section id="projects" class="container reveal">
     <div class="row g-4 align-items-stretch">
       <div class="col-12">
-        <div class="d-flex flex-wrap justify-content-between align-items-center mb-2 gap-3">
-          <h2 class="section-title mb-0">Projects</h2>
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h2 class="section-title mb-0">Featured Projects</h2>
           <a href="#contact" class="btn btn-sm btn-outline-info rounded-pill">Collaborate</a>
         </div>
         <p class="section-muted">Selected academic work showcasing applied statistics and real‑world problem solving.
@@ -269,7 +283,7 @@
       </div>
       <div class="col-12 col-lg-6">
         <article class="glass p-4 h-100 d-flex flex-column">
-          <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
+          <div class="d-flex justify-content-between align-items-start">
             <h5 class="mb-1">Grading OMR Sheets via Image Processing</h5>
             <span class="badge text-bg-info">OpenCV</span>
           </div>
@@ -279,12 +293,13 @@
             <span class="skill">Python</span>
             <span class="skill">OpenCV</span>
             <span class="skill">GUI</span>
+            <span class="skill">Image Processing</span>
           </div>
         </article>
       </div>
       <div class="col-12 col-lg-6">
         <article class="glass p-4 h-100 d-flex flex-column">
-          <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
+          <div class="d-flex justify-content-between align-items-start">
             <h5 class="mb-1">Bitcoin Price Forecasting</h5>
             <span class="badge text-bg-info">SARIMA vs Prophet</span>
           </div>
@@ -294,6 +309,37 @@
             <span class="skill">Python</span>
             <span class="skill">Time Series</span>
             <span class="skill">Visualization</span>
+            <span class="skill">Statistical Modeling</span>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-lg-6">
+        <article class="glass p-4 h-100 d-flex flex-column">
+          <div class="d-flex justify-content-between align-items-start">
+            <h5 class="mb-1">Customer Segmentation Analysis</h5>
+            <span class="badge text-bg-info">Clustering</span>
+          </div>
+          <p class="section-muted mb-3">Applied K-means and DBSCAN algorithms to segment customers based on purchasing behavior, resulting in targeted marketing strategies.</p>
+          <div class="mt-auto d-flex gap-2 flex-wrap">
+            <span class="skill">Python</span>
+            <span class="skill">Scikit-learn</span>
+            <span class="skill">Clustering</span>
+            <span class="skill">Data Visualization</span>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-lg-6">
+        <article class="glass p-4 h-100 d-flex flex-column">
+          <div class="d-flex justify-content-between align-items-start">
+            <h5 class="mb-1">Predictive Maintenance System</h5>
+            <span class="badge text-bg-info">Machine Learning</span>
+          </div>
+          <p class="section-muted mb-3">Developed a predictive model to forecast equipment failures using sensor data, reducing downtime by 23%.</p>
+          <div class="mt-auto d-flex gap-2 flex-wrap">
+            <span class="skill">Python</span>
+            <span class="skill">TensorFlow</span>
+            <span class="skill">Time Series</span>
+            <span class="skill">IoT Data</span>
           </div>
         </article>
       </div>
@@ -307,29 +353,29 @@
         <h2 class="section-title mb-3">Certifications</h2>
         <div class="glass p-4">
           <ul class="mb-0 section-muted">
-            <li>AI Agents for Product Leaders</li>
-            <li>Product Strategy Micro‑Certification (PSC)™</li>
-            <li>Python for Everybody – Coursera</li>
-            <li>Data Science Math Skills – Coursera</li>
-            <li>Using Databases with Python – Coursera</li>
-            <li>Data Science with Python – Simplilearn</li>
-            <li>Data Analysis using Python – IBM</li>
-            <li>Data Visualization: Storytelling – LinkedIn Learning</li>
-            <li>Communication Strategies for a Virtual Age – Coursera</li>
+            <li><i class="bi bi-award text-info me-2"></i>AI Agents for Product Leaders</li>
+            <li><i class="bi bi-award text-info me-2"></i>Product Strategy Micro‑Certification (PSC)™</li>
+            <li><i class="bi bi-award text-info me-2"></i>Python for Everybody — Coursera</li>
+            <li><i class="bi bi-award text-info me-2"></i>Data Science Math Skills — Coursera</li>
+            <li><i class="bi bi-award text-info me-2"></i>Using Databases with Python — Coursera</li>
+            <li><i class="bi bi-award text-info me-2"></i>Data Science with Python — Simplilearn</li>
+            <li><i class="bi bi-award text-info me-2"></i>Data Analysis using Python — IBM</li>
+            <li><i class="bi bi-award text-info me-2"></i>Data Visualization: Storytelling — LinkedIn Learning</li>
+            <li><i class="bi bi-award text-info me-2"></i>Communication Strategies for a Virtual Age — Coursera</li>
           </ul>
         </div>
       </div>
       <div class="col-12 col-lg-6">
         <h2 class="section-title mb-3">Education</h2>
         <div class="glass p-4 mb-3">
-          <div class="d-flex flex-wrap justify-content-between gap-2"><strong>MSc – Applied Statistics & Data Science</strong><span
+          <div class="d-flex justify-content-between"><strong>MSc — Applied Statistics &amp; Data Science</strong><span
               class="text-info">2022–2023</span></div>
           <div class="section-muted">Jahangirnagar University • GPA 3.63/4.00</div>
         </div>
         <div class="glass p-4">
-          <div class="d-flex flex-wrap justify-content-between gap-2"><strong>BSc – Applied Mathematics</strong><span
+          <div class="d-flex justify-content-between"><strong>BSc — Applied Mathematics</strong><span
               class="text-info">2017–2022</span></div>
-          <div class="section-muted">Noakhali Science & Technology University • GPA 3.06/4.00</div>
+          <div class="section-muted">Noakhali Science &amp; Technology University • GPA 3.06/4.00</div>
         </div>
       </div>
     </div>
@@ -341,38 +387,38 @@
       <div class="col-12 col-lg-5">
         <h2 class="section-title mb-3">Let's Build Something</h2>
         <p class="section-muted">Have a role, project, or collaboration in mind? I'm happy to jump on a quick call and
-          explore fit.</p>
+          explore how we can work together.</p>
         <div class="d-flex gap-2 flex-wrap">
           <a class="btn btn-brand rounded-pill px-4" href="mailto:tarekujjamanriad@gmail.com?subject=Hello%20Riad"><i
-              class="bi bi-envelope me-2"></i>Email Me</a>
+              class="bi bi-envelope"></i> Email Me</a>
           <a class="btn btn-outline-info rounded-pill px-4" href="https://linkedin.com/in/tarekujjamanriad"
-            target="_blank" rel="noreferrer"><i class="bi bi-linkedin me-2"></i>LinkedIn</a>
+            target="_blank" rel="noreferrer"><i class="bi bi-linkedin"></i> LinkedIn</a>
         </div>
       </div>
       <div class="col-12 col-lg-7">
         <div class="glass p-4 contact-card">
           <div class="row g-3">
-            <div class="col-12 col-sm-6">
-              <div class="p-3 rounded-4" style="background:rgba(255,255,255,.04)">
-                <div class="small text-info mb-1">Email</div>
+            <div class="col-12 col-md-6">
+              <div class="p-3 rounded-4 contact-item">
+                <div class="small text-info">Email</div>
                 <a href="mailto:tarekujjamanriad@gmail.com">tarekujjamanriad@gmail.com</a>
               </div>
             </div>
-            <div class="col-12 col-sm-6">
-              <div class="p-3 rounded-4" style="background:rgba(255,255,255,.04)">
-                <div class="small text-info mb-1">Phone</div>
+            <div class="col-12 col-md-6">
+              <div class="p-3 rounded-4 contact-item">
+                <div class="small text-info">Phone</div>
                 <a href="tel:+8801645141542">+880 16 4514 1542</a>
               </div>
             </div>
-            <div class="col-12 col-sm-6">
-              <div class="p-3 rounded-4" style="background:rgba(255,255,255,.04)">
-                <div class="small text-info mb-1">Portfolio</div>
+            <div class="col-12 col-md-6">
+              <div class="p-3 rounded-4 contact-item">
+                <div class="small text-info">Portfolio</div>
                 <a href="https://tarekujjaman.github.io" target="_blank" rel="noreferrer">tarekujjaman.github.io</a>
               </div>
             </div>
-            <div class="col-12 col-sm-6">
-              <div class="p-3 rounded-4" style="background:rgba(255,255,255,.04)">
-                <div class="small text-info mb-1">Location</div>
+            <div class="col-12 col-md-6">
+              <div class="p-3 rounded-4 contact-item">
+                <div class="small text-info">Location</div>
                 <span>West Razabazar, Indira Road, Dhaka‑1215</span>
               </div>
             </div>
@@ -385,7 +431,7 @@
   <!-- FOOTER -->
   <footer class="py-4 mt-5 text-center">
     <div class="container small">
-      © <span id="year"></span> Md Tarekujjaman Riad • Crafted with Bootstrap & jQuery • <a href="#home"
+      © <span id="year"></span> Md Tarekujjaman Riad · Crafted with Bootstrap &amp; jQuery · <a href="#home"
         class="text-decoration-none text-info">Back to top</a>
     </div>
   </footer>
