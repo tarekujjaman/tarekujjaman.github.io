@@ -497,7 +497,7 @@ footer {
 
     /* ADDED: More spacing and typography adjustments for small phones */
     section {
-        padding: 50px 0;
+        padding: 22px 0;
     }
 
     .hero .title {
@@ -510,7 +510,7 @@ footer {
 
     .chip {
         padding: 0.35rem 0.65rem;
-        font-size: 0.9rem;
+        font-size: 12px;
     }
 
     .skill {
