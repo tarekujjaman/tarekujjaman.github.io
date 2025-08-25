@@ -8,13 +8,19 @@
   --shadow:0 10px 30px rgba(0,0,0,.35);
 }
 
-html { scroll-behavior: smooth; }
+html { 
+  scroll-behavior: smooth; 
+}
+/* MODIFIED: Replaced overflow-x: hidden on body with clip on html/body. 
+   This is a more modern fix to prevent horizontal scroll from decorative elements. */
+html, body {
+  overflow-x: clip;
+}
 body {
   background: radial-gradient(1200px 600px at 80% -10%,rgba(124,58,237,.25),transparent 60%),
               radial-gradient(800px 400px at 10% 10%,rgba(34,211,238,.18),transparent 60%),
               var(--bg);
   color: var(--text);
-  overflow-x: hidden;
 }
 
 /* Scroll Progress */
@@ -28,6 +34,7 @@ body {
   z-index: 9999;
   transition: width 0.2s ease;
 }
+
 
 /* Navigation */
 .navbar { 
@@ -352,12 +359,16 @@ footer {
     min-height: auto;
     padding-top: 6rem;
     padding-bottom: 4rem;
+    text-align: center; /* Center hero text on tablets */
   }
   
+  .hero-buttons {
+    justify-content: center; /* Center buttons */
+  }
+
   .section-title::after {
     left: 50%;
     transform: translateX(-50%);
-    width: 30px;
   }
   
   .blob {
@@ -375,22 +386,26 @@ footer {
     margin-bottom: 1rem;
   }
   
-  .hero .btn {
+  /* MODIFIED: Make hero buttons stack vertically and center */
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-buttons .btn {
     margin-bottom: 0.5rem;
-    width: 100%;
+    width: 80%;
     max-width: 300px;
   }
   
+  /* MODIFIED: Reduce blob sizes and pull them in slightly */
   .blob {
     width: 14rem;
     height: 14rem;
   }
-  
   .blob.one {
     top: -5rem;
     right: -5rem;
   }
-  
   .blob.two {
     bottom: -6rem;
     left: -4rem;
@@ -399,11 +414,9 @@ footer {
   .tl-item {
     padding-left: 2rem;
   }
-  
   .timeline::before {
     left: 9px;
   }
-  
   .tl-item::before {
     left: 4px;
   }
@@ -414,6 +427,19 @@ footer {
     border-radius: 1rem;
   }
   
+  /* ADDED: More spacing and typography adjustments for small phones */
+  section {
+    padding: 50px 0;
+  }
+  
+  .hero .title {
+    font-size: 2rem;
+  }
+
+  .hero .subtitle {
+    font-size: 1rem;
+  }
+
   .chip {
     padding: 0.35rem 0.65rem;
     font-size: 0.9rem;
