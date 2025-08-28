@@ -84,12 +84,9 @@ $(animateCounter);
 
 // CV download simulation (since we don't have the actual file)
 document.querySelector('.cv-download').addEventListener('click', function(e) {
-  e.preventDefault();
-  
   this.innerHTML = '<i class="bi bi-check-circle"></i> CV Downloaded';
   this.classList.add('btn-success');
   this.classList.remove('btn-outline-light');
-  
   setTimeout(() => {
     this.innerHTML = '<i class="bi bi-file-earmark-arrow-down"></i> Download CV';
     this.classList.remove('btn-success');
