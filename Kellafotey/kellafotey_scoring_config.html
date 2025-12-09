@@ -9,7 +9,6 @@
     
     <style>
         :root {
-            /* Palette */
             --primary: #4f46e5;
             --success: #10b981;
             --warning: #f59e0b;
@@ -17,6 +16,7 @@
             --slate-900: #0f172a;
             --slate-600: #475569;
             --slate-400: #94a3b8;
+            --slate-300: #cbd5e1;
             --slate-200: #e2e8f0;
             --bg-body: #f8fafc;
             --bg-card: #ffffff;
@@ -29,25 +29,36 @@
         * { box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: var(--bg-body); color: var(--slate-900); margin: 0; padding-bottom: 80px; }
 
-        /* --- STICKY HUD --- */
-        .sticky-hud {
-            position: sticky; top: 0; z-index: 999;
+        /* --- STICKY CONTAINER --- */
+        .sticky-top-container {
+            position: sticky; top: 0; z-index: 1000;
             background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--slate-200); padding: 12px 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border-bottom: 1px solid var(--slate-200);
         }
-        .hud-content { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+
+        .validation-banner {
+            background-color: #fff7ed; color: #c2410c; font-weight: 600; font-size: 0.9rem;
+            text-align: center; padding: 10px; border-bottom: 1px solid #fed7aa;
+            display: none; 
+        }
+        .validation-banner.active { display: block; }
+        .validation-banner.success { background-color: #dcfce7; color: #15803d; border-color: #bbf7d0; }
+
+        .hud-content { 
+            max-width: 1100px; margin: 0 auto; padding: 12px 20px;
+            display: flex; justify-content: space-between; align-items: center; 
+        }
         
         .brand h1 { margin: 0; font-size: 1.1rem; font-weight: 700; color: var(--slate-900); }
         .brand p { margin: 0; font-size: 0.8rem; color: var(--slate-600); }
 
-        .score-row { display: flex; gap: 12px; }
-        
+        .mobile-score-grid { display: flex; gap: 12px; }
         .score-pill {
             background: #fff; border: 1px solid var(--slate-200); padding: 5px 16px; border-radius: 12px;
             min-width: 100px; text-align: center; display: flex; flex-direction: column; justify-content: center;
         }
         .score-pill.hero { background: var(--slate-900); border-color: var(--slate-900); color: #fff; }
-        
         .sp-lbl { font-size: 0.6rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; opacity: 0.7; margin-bottom: 4px; }
         .sp-val { font-size: 1.2rem; font-weight: 800; line-height: 1; white-space: nowrap; }
 
@@ -57,90 +68,62 @@
             display: grid; grid-template-columns: 1.8fr 1fr; gap: 25px;
         }
 
-        /* --- MOBILE RESPONSIVE FIXES --- */
-        @media (max-width: 900px) {
-            .main-grid { 
-                grid-template-columns: 1fr; /* Stack columns */
-            }
-            
-            .hud-content {
-                flex-direction: column; /* Stack Title and Scores */
-                gap: 12px;
-                align-items: stretch;
-            }
-
-            .brand {
-                text-align: center;
-            }
-
-            .score-row {
-                display: flex; /* Force display on mobile */
-                justify-content: space-between; /* Spread evenly */
-                gap: 8px;
-            }
-
-            .score-pill {
-                min-width: auto; /* Allow shrinking to fit screen */
-                flex: 1; /* Make them equal width */
-                padding: 6px 4px; /* Reduce padding */
-            }
-
-            .sp-val {
-                font-size: 1rem; /* Slightly smaller text for mobile */
-            }
-        }
-
         /* --- DIMENSION CARDS --- */
         .dim-card {
-            background: var(--bg-card); border-radius: var(--radius-lg); border: 1px solid var(--slate-200);
+            background: var(--bg-card); border-radius: var(--radius-lg); border: 2px solid var(--slate-200);
             box-shadow: var(--shadow-sm); margin-bottom: 20px; overflow: hidden;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.3s;
         }
         .dim-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        
+        /* ALERT STYLES */
+        .dim-card.global-error { border-color: var(--warning); } /* Amber for Global Imbalance */
+        .dim-card.sub-error { border-color: var(--danger) !important; } /* Red for Internal Error (Overrides Amber) */
 
         .dim-header {
-            padding: 20px; cursor: pointer;
-            display: grid; grid-template-columns: 1fr auto; gap: 15px; align-items: center;
+            padding: 20px; cursor: pointer; display: flex; flex-direction: column; gap: 15px;
         }
+        .dim-top-row { display: flex; justify-content: space-between; align-items: flex-start; }
         .dim-info { display: flex; align-items: center; gap: 12px; }
-        .color-indicator { width: 10px; height: 10px; border-radius: 50%; }
-        .dim-title { font-weight: 600; font-size: 1rem; }
+        .color-indicator { width: 12px; height: 12px; border-radius: 50%; box-shadow: 0 0 0 2px rgba(255,255,255,1), 0 0 0 3px var(--slate-200); }
+        .dim-title { font-weight: 700; font-size: 1.05rem; color: var(--slate-900); }
 
-        .dim-controls { display: flex; align-items: center; gap: 15px; }
+        .dim-right-group { display: flex; align-items: center; gap: 15px; }
+        .dim-calc-score { display: flex; flex-direction: column; align-items: flex-end; }
+        .dim-calc-label { font-size: 0.65rem; color: var(--slate-400); font-weight: 700; text-transform: uppercase; margin-bottom: 3px; }
         
-        .sim-input-wrap {
-            display: flex; align-items: center; gap: 8px;
-            background: var(--bg-body); padding: 6px 10px; border-radius: 8px;
-            border: 1px solid transparent; transition: border 0.2s;
+        .global-score-input {
+            width: 55px; background: #fff; border: 1px solid var(--slate-300); border-radius: 6px;
+            font-weight: 800; font-size: 1rem; color: var(--slate-900); text-align: center; padding: 4px; 
+            outline: none; transition: all 0.2s;
         }
-        .sim-input-wrap:hover { border-color: var(--slate-200); }
-        .sim-label { font-size: 0.7rem; font-weight: 600; color: var(--slate-600); }
-        .sim-field {
-            width: 45px; background: transparent; border: none; font-weight: 700; font-size: 1rem;
-            text-align: center; color: var(--slate-900); outline: none; padding: 0;
-        }
+        .global-score-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1); }
 
-        .chevron { 
-            width: 24px; height: 24px; background: var(--bg-body); border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; color: var(--slate-600);
-            transition: 0.3s; 
+        .v-divider { width: 1px; height: 30px; background: var(--slate-200); }
+        .chevron-btn {
+            width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+            border-radius: 8px; background: var(--bg-body); color: var(--slate-600); transition: all 0.2s;
         }
-        .dim-card.open .chevron { transform: rotate(180deg); background: var(--slate-900); color: #fff; }
+        .dim-card:hover .chevron-btn { background: var(--slate-200); color: var(--slate-900); }
+        .dim-card.open .chevron-btn { transform: rotate(180deg); background: var(--slate-900); color: #fff; }
 
-        .dim-main-slider { grid-column: 1 / -1; margin-top: 10px; }
+        .dim-slider-row { width: 100%; }
         .slider-label-row { display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 600; margin-bottom: 8px; }
         .weight-val { font-size: 1.1rem; font-weight: 800; }
 
-        .dim-sub-panel {
-            display: none; padding: 20px; background: #f8fafc; border-top: 1px solid var(--slate-200);
-        }
+        .dim-sub-panel { display: none; padding: 20px; background: #f8fafc; border-top: 1px solid var(--slate-200); }
         .dim-card.open .dim-sub-panel { display: block; animation: slideDown 0.25s ease-out; }
         @keyframes slideDown { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
 
-        input[type=range] {
-            -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 3px; cursor: pointer;
-            background: #e2e8f0;
+        .sub-grid { display: grid; grid-template-columns: 1fr 120px; gap: 15px; align-items: end; margin-bottom: 15px; }
+        .sim-input-small {
+            width: 55px; padding: 6px; background: #ffffff; border: 1px solid var(--slate-300); border-radius: 6px;
+            text-align: center; font-weight: 700; font-size: 0.9rem; color: var(--slate-900); outline: none; transition: all 0.2s;
         }
+        .sim-input-small:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1); }
+        .sub-error-msg { grid-column: 1 / -1; color: var(--danger); font-size: 0.8rem; font-weight: 600; margin-bottom: 10px; display: none; }
+
+        input[type=range] { -webkit-appearance: none; width: 100%; height: 6px; border-radius: 3px; cursor: pointer; background: #e2e8f0; }
         input[type=range]:focus { outline: none; }
         input[type=range]::-webkit-slider-thumb {
             -webkit-appearance: none; height: 18px; width: 18px; border-radius: 50%;
@@ -149,117 +132,88 @@
         }
         input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.1); }
 
-        /* --- CHART & SIDEBAR --- */
-        .chart-card {
-            background: #fff; border: 1px solid var(--slate-200); border-radius: var(--radius-lg);
-            padding: 25px; text-align: center; height: fit-content;
-        }
-        
-        .chart-wrapper {
-            position: relative; height: 250px; width: 100%; margin-top: 15px;
-        }
-        .chart-text-overlay {
-            position: absolute; top: 38%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;
-        }
+        .chart-card { background: #fff; border: 1px solid var(--slate-200); border-radius: var(--radius-lg); padding: 25px; text-align: center; height: fit-content; }
+        .chart-wrapper { position: relative; height: 250px; width: 100%; margin-top: 15px; }
+        .chart-text-overlay { position: absolute; top: 38%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; }
         .ct-val { font-size: 2rem; font-weight: 800; line-height: 1; color: var(--slate-900); }
         .ct-label { font-size: 0.75rem; font-weight: 700; color: var(--slate-600); text-transform: uppercase; }
+        .ct-val.error { color: var(--warning); } /* Amber for chart text error */
 
-        /* Integrity */
-        .risk-card {
-            background: #fff; border: 1px solid var(--slate-200); border-radius: var(--radius-lg);
-            margin-top: 25px; overflow: hidden;
-        }
-        .risk-header {
-            background: #fef2f2; color: #b91c1c; padding: 15px 20px; font-weight: 600;
-            border-bottom: 1px solid #fee2e2; display: flex; align-items: center; gap: 8px;
-        }
-        .risk-item {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 12px 20px; border-bottom: 1px dashed var(--slate-200);
-            font-size: 0.9rem;
-        }
-        .risk-item.editing {
-            background: #f8fafc;
-            padding: 8px 20px;
-        }
+        .risk-card { background: #fff; border: 1px solid var(--slate-200); border-radius: var(--radius-lg); margin-top: 25px; overflow: hidden; }
+        .risk-header { background: #fef2f2; color: #b91c1c; padding: 15px 20px; font-weight: 600; border-bottom: 1px solid #fee2e2; display: flex; align-items: center; gap: 8px; }
+        .risk-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-bottom: 1px dashed var(--slate-200); font-size: 0.9rem; }
+        .risk-item.editing { background: #f8fafc; padding: 8px 20px; }
         
         .tgl-switch { position: relative; width: 36px; height: 20px; }
         .tgl-switch input { opacity: 0; width: 0; height: 0; }
-        .tgl-track {
-            position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
-            background-color: #cbd5e1; border-radius: 20px; transition: .3s;
-        }
-        .tgl-track:before {
-            position: absolute; content: ""; height: 16px; width: 16px; left: 2px; bottom: 2px;
-            background-color: white; border-radius: 50%; transition: .3s;
-        }
+        .tgl-track { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #cbd5e1; border-radius: 20px; transition: .3s; }
+        .tgl-track:before { position: absolute; content: ""; height: 16px; width: 16px; left: 2px; bottom: 2px; background-color: white; border-radius: 50%; transition: .3s; }
         input:checked + .tgl-track { background-color: var(--danger); }
         input:checked + .tgl-track:before { transform: translateX(16px); }
 
-        /* Icons & Buttons */
-        .icon-btn {
-            background: none; border: none; font-size: 1.1rem;
-            cursor: pointer; margin-left: 8px; line-height: 1; color: #94a3b8;
-            transition: color 0.2s;
-        }
+        .icon-btn { background: none; border: none; font-size: 1.1rem; cursor: pointer; margin-left: 8px; line-height: 1; color: #94a3b8; transition: color 0.2s; }
         .icon-btn:hover { color: var(--slate-900); }
         .icon-btn.del:hover { color: var(--danger); }
         
-        /* Edit Mode Styles */
         .edit-row { display: flex; gap: 8px; width: 100%; align-items: center; }
-        .edit-inp {
-            border: 1px solid var(--primary); padding: 6px; border-radius: 6px; 
-            outline: none; font-size: 0.9rem; font-family: inherit;
-        }
+        .edit-inp { border: 1px solid var(--primary); padding: 6px; border-radius: 6px; outline: none; font-size: 0.9rem; font-family: inherit; }
         .btn-save { background: var(--success); color: white; border: none; border-radius: 4px; padding: 4px 8px; cursor: pointer; }
         .btn-cancel { background: var(--slate-200); color: var(--slate-600); border: none; border-radius: 4px; padding: 4px 8px; cursor: pointer; }
 
-        /* Add Risk Area */
         .add-risk-wrapper { padding: 15px; background: #f8fafc; }
         .add-risk-row { display: flex; gap: 8px; }
-        .inp-std {
-            border: 1px solid var(--slate-200); padding: 8px; border-radius: 8px; outline: none; font-family: inherit;
-        }
-        .btn-black {
-            background: var(--slate-900); color: #fff; border: none; padding: 0 14px;
-            border-radius: 8px; font-weight: 600; cursor: pointer;
-        }
-        
-        /* Validation Error */
-        .error-msg {
-            color: var(--danger); font-size: 0.8rem; font-weight: 600; margin-top: 8px; 
-            display: none; animation: fadeIn 0.3s;
-        }
+        .inp-std { border: 1px solid var(--slate-200); padding: 8px; border-radius: 8px; outline: none; font-family: inherit; }
+        .btn-black { background: var(--slate-900); color: #fff; border: none; padding: 0 14px; border-radius: 8px; font-weight: 600; cursor: pointer; }
+        .error-msg { color: var(--danger); font-size: 0.8rem; font-weight: 600; margin-top: 8px; display: none; animation: fadeIn 0.3s; }
         @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+
+        @media (max-width: 900px) {
+            .main-grid { grid-template-columns: 1fr; }
+            .hud-content { flex-direction: column; gap: 15px; }
+            .mobile-score-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; width: 100%; }
+            .score-pill { min-width: auto; padding: 8px 4px; }
+            .sp-val { font-size: 1rem; }
+            .add-risk-row { flex-direction: column; }
+            .add-risk-row input { width: 100%; }
+            .btn-black { width: 100%; padding: 10px; }
+            .dim-right-group { gap: 10px; }
+            .global-score-input { width: 50px; font-size: 0.95rem; }
+        }
+        @media (min-width: 901px) { .mobile-score-grid { display: flex; gap: 15px; } }
 
     </style>
 </head>
 <body>
 
-<header class="sticky-hud">
-    <div class="hud-content">
-        <div class="brand">
-            <h1>Kellafotey AI</h1>
-            <p>Scoring Logic Configuration</p>
-        </div>
-        <div class="score-row">
-            <div class="score-pill">
-                <span class="sp-lbl">Base Score</span>
-                <span class="sp-val" id="disp-base" style="color:var(--primary)">0</span>
+<div class="sticky-top-container">
+    <div id="global-warning" class="validation-banner">
+        ⚠️ Total Weight: <span id="total-w-display" style="font-weight:800">100%</span>. <span id="w-action">Please adjust to 100%.</span>
+    </div>
+
+    <header>
+        <div class="hud-content">
+            <div class="brand">
+                <h1>Kellafotey AI</h1>
+                <p>Scoring Logic Configuration</p>
             </div>
             
-            <div class="score-pill">
-                <span class="sp-lbl">Integrity (Factor)</span>
-                <span class="sp-val" id="disp-integrity" style="color:var(--danger)">100 (1.0x)</span>
-            </div>
-
-            <div class="score-pill hero">
-                <span class="sp-lbl">Final Score</span>
-                <span class="sp-val" id="disp-final">0</span>
+            <div class="mobile-score-grid">
+                <div class="score-pill">
+                    <span class="sp-lbl">Base Score</span>
+                    <span class="sp-val" id="disp-base" style="color:var(--primary)">0</span>
+                </div>
+                <div class="score-pill">
+                    <span class="sp-lbl">Integrity (Factor)</span>
+                    <span class="sp-val" id="disp-integrity" style="color:var(--danger)">100 (1.0x)</span>
+                </div>
+                <div class="score-pill hero">
+                    <span class="sp-lbl">Final Score</span>
+                    <span class="sp-val" id="disp-final">0</span>
+                </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
+</div>
 
 <div class="main-grid">
     
@@ -271,7 +225,7 @@
             <div class="chart-wrapper">
                 <canvas id="mainChart"></canvas>
                 <div class="chart-text-overlay">
-                    <div class="ct-val">100<span style="font-size:1rem">%</span></div>
+                    <div id="chart-total" class="ct-val">100<span style="font-size:1rem">%</span></div>
                     <div class="ct-label">Total</div>
                 </div>
             </div>
@@ -282,9 +236,7 @@
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
                 Integrity Risk Factors
             </div>
-            
             <div id="risk-list"></div>
-            
             <div class="add-risk-wrapper">
                 <div class="add-risk-row">
                     <input type="text" id="new-r-name" class="inp-std" placeholder="Risk Name..." style="flex:1" onkeypress="handleEnter(event)">
@@ -299,13 +251,12 @@
 </div>
 
 <script>
-    /* --- DATA STATE --- */
     const app = {
         dims: [
-            { id: 'resume', name: 'Resume–JD Match', w: 30, score: 100, color: '#4f46e5', sub: [{n:'Skill Match', w:35}, {n:'Exp Relevance', w:25}, {n:'Domain', w:10}, {n:'Edu Fit', w:10}, {n:'Tools', w:10}, {n:'Tenure', w:10}], open:false },
-            { id: 'content', name: 'Content & Knowledge', w: 30, score: 100, color: '#10b981', sub: [{n:'Relevance', w:30}, {n:'Depth', w:30}, {n:'Reasoning', w:25}, {n:'Evidence', w:15}], open:false },
-            { id: 'comm', name: 'Communication Delivery', w: 20, score: 100, color: '#f59e0b', sub: [{n:'Clarity', w:25}, {n:'Fluency', w:25}, {n:'Structure', w:25}, {n:'Confidence', w:25}], open:false },
-            { id: 'behav', name: 'Behavioral & Pres.', w: 20, score: 100, color: '#ef476f', sub: [{n:'Eye Contact', w:30}, {n:'Posture', w:25}, {n:'Gestures', w:20}, {n:'Prof.', w:25}], open:false }
+            { id: 'resume', name: 'Resume–JD Match', w: 30, color: '#4f46e5', sub: [ {n:'Skill Match', w:35, score: 90}, {n:'Exp Relevance', w:25, score: 85}, {n:'Domain', w:10, score: 80}, {n:'Edu Fit', w:10, score: 95}, {n:'Tools', w:10, score: 85}, {n:'Tenure', w:10, score: 90}] , open:false },
+            { id: 'content', name: 'Content & Knowledge', w: 30, color: '#10b981', sub: [ {n:'Relevance', w:30, score: 70}, {n:'Depth', w:30, score: 75}, {n:'Reasoning', w:25, score: 65}, {n:'Evidence', w:15, score: 60}] , open:false },
+            { id: 'comm', name: 'Communication Delivery', w: 20, color: '#f59e0b', sub: [ {n:'Clarity', w:25, score: 80}, {n:'Fluency', w:25, score: 85}, {n:'Structure', w:25, score: 75}, {n:'Confidence', w:25, score: 80}] , open:false },
+            { id: 'behav', name: 'Behavioral & Pres.', w: 20, color: '#ef476f', sub: [ {n:'Eye Contact', w:30, score: 90}, {n:'Posture', w:25, score: 85}, {n:'Gestures', w:20, score: 80}, {n:'Prof.', w:25, score: 95}] , open:false }
         ],
         risks: [
             { name: 'Multiple faces detected', pts: 40, active: false, isEditing: false },
@@ -316,60 +267,72 @@
 
     let chart = null;
 
-    /* --- INIT --- */
     function init() {
         renderCards();
         renderRisks();
         initChart();
+        validateGlobalWeights();
         updateAll();
     }
 
-    /* --- RENDERING --- */
     function renderCards() {
         const container = document.getElementById('cards-container');
         container.innerHTML = '';
 
         app.dims.forEach((d, i) => {
             const div = document.createElement('div');
-            div.className = `dim-card ${d.open ? 'open' : ''}`;
+            // Error Checking for Initial Render
+            const subTotal = d.sub.reduce((a,b)=>a+b.w, 0);
+            let classes = `dim-card ${d.open ? 'open' : ''}`;
+            if(subTotal !== 100) classes += ' sub-error';
+            
+            div.className = classes;
+            div.id = `card-${i}`;
+
+            const mainScore = calculateDimScore(d);
             
             div.innerHTML = `
                 <div class="dim-header" onclick="toggleCard(${i})">
-                    
-                    <div class="dim-info">
-                        <div class="color-indicator" style="background:${d.color}"></div>
-                        <div class="dim-title">${d.name}</div>
-                    </div>
-
-                    <div class="dim-controls">
-                        <div class="sim-input-wrap" onclick="event.stopPropagation()">
-                            <span class="sim-label">Simulated Score:</span>
-                            <input type="number" class="sim-field" value="${d.score}" 
-                                   min="0" max="100" 
-                                   oninput="updateScore(${i}, this)">
+                    <div class="dim-top-row">
+                        <div class="dim-info">
+                            <div class="color-indicator" style="background:${d.color}"></div>
+                            <div class="dim-title">${d.name}</div>
                         </div>
-                        <div class="chevron">▼</div>
+                        <div class="dim-right-group">
+                            <div class="dim-calc-score" onclick="event.stopPropagation()">
+                                <div class="dim-calc-label">Sim Score</div>
+                                <input type="number" class="global-score-input" id="dim-score-input-${i}" 
+                                       value="${mainScore.toFixed(0)}" min="0" max="100"
+                                       oninput="updateGlobalSimScore(${i}, this)">
+                            </div>
+                            <div class="v-divider"></div>
+                            <div class="chevron-btn">▼</div>
+                        </div>
                     </div>
-
-                    <div class="dim-main-slider" onclick="event.stopPropagation()">
+                    <div class="dim-slider-row" onclick="event.stopPropagation()">
                         <div class="slider-label-row">
                             <span style="color:var(--slate-600)">Global Weight</span>
                             <span class="weight-val" style="color:${d.color}" id="lbl-w-${i}">${d.w}%</span>
                         </div>
-                        <input type="range" id="rng-w-${i}" min="0" max="100" value="${d.w}" 
-                            oninput="slideGlobal(${i}, this.value)">
+                        <input type="range" id="rng-w-${i}" min="0" max="100" value="${d.w}" oninput="slideGlobal(${i}, this.value)">
                     </div>
                 </div>
 
                 <div class="dim-sub-panel">
+                    <div id="sub-err-${i}" class="sub-error-msg">⚠️ Sub-metrics total ${subTotal}% (Must be 100%)</div>
                     ${d.sub.map((s, si) => `
-                        <div style="margin-bottom:15px">
-                            <div class="slider-label-row">
-                                <span>${s.n}</span>
-                                <span id="lbl-s-${i}-${si}">${s.w}%</span>
+                        <div class="sub-grid">
+                            <div>
+                                <div class="slider-label-row">
+                                    <span>${s.n}</span>
+                                    <span id="lbl-s-${i}-${si}">${s.w}%</span>
+                                </div>
+                                <input type="range" id="rng-s-${i}-${si}" min="0" max="100" value="${s.w}" oninput="slideSub(${i}, ${si}, this.value)">
                             </div>
-                            <input type="range" id="rng-s-${i}-${si}" min="0" max="100" value="${s.w}"
-                                oninput="slideSub(${i}, ${si}, this.value)">
+                            <div style="text-align:right;">
+                                <div style="font-size:0.6rem; color:#94a3b8; margin-bottom:4px; font-weight:700;">SCORE</div>
+                                <input type="number" class="sim-input-small" id="sub-sim-${i}-${si}" value="${s.score}" min="0" max="100" oninput="updateSubScore(${i}, ${si}, this)">
+                            </div>
                         </div>
                     `).join('')}
                 </div>
@@ -382,23 +345,18 @@
     function renderRisks() {
         const list = document.getElementById('risk-list');
         list.innerHTML = '';
-
         app.risks.forEach((r, i) => {
             const div = document.createElement('div');
             div.className = r.isEditing ? 'risk-item editing' : 'risk-item';
-
             if (r.isEditing) {
-                // EDIT MODE
                 div.innerHTML = `
                     <div class="edit-row">
                         <input type="text" id="edit-n-${i}" class="edit-inp" value="${r.name}" style="flex:1">
                         <input type="number" id="edit-p-${i}" class="edit-inp" value="${r.pts}" style="width:50px">
                         <button class="btn-save" onclick="saveRisk(${i})">✓</button>
                         <button class="btn-cancel" onclick="cancelEdit(${i})">✕</button>
-                    </div>
-                `;
+                    </div>`;
             } else {
-                // VIEW MODE
                 div.innerHTML = `
                     <div style="display:flex; align-items:center; gap:5px;">
                         <span>${r.name} <strong style="color:#b91c1c">(-${r.pts})</strong></span>
@@ -408,84 +366,103 @@
                     <label class="tgl-switch">
                         <input type="checkbox" ${r.active ? 'checked' : ''} onchange="toggleRisk(${i})">
                         <span class="tgl-track"></span>
-                    </label>
-                `;
+                    </label>`;
             }
             list.appendChild(div);
         });
     }
 
-    /* --- LOGIC --- */
     function toggleCard(i) {
         app.dims[i].open = !app.dims[i].open;
-        renderCards(); 
+        renderCards(); // Re-render needed for class updates and arrow rotation
     }
 
-    function updateScore(i, el) {
+    function calculateDimScore(dim) {
+        let rawScore = 0; dim.sub.forEach(s => { rawScore += s.score * s.w; });
+        return rawScore / 100;
+    }
+
+    function updateSubScore(dimIdx, subIdx, el) {
         let v = parseInt(el.value) || 0;
-        if (v > 100) { v = 100; el.value = 100; }
-        if (v < 0) { v = 0; el.value = 0; }
-        app.dims[i].score = v;
+        if (v > 100) { v = 100; el.value = 100; } if (v < 0) { v = 0; el.value = 0; }
+        app.dims[dimIdx].sub[subIdx].score = v;
+        const newMain = calculateDimScore(app.dims[dimIdx]);
+        document.getElementById(`dim-score-input-${dimIdx}`).value = newMain.toFixed(0);
         updateAll();
     }
 
-    // --- SLIDER LOGIC ---
+    function updateGlobalSimScore(dimIdx, el) {
+        let v = parseInt(el.value) || 0;
+        if (v > 100) { v = 100; el.value = 100; } if (v < 0) { v = 0; el.value = 0; }
+        app.dims[dimIdx].sub.forEach((s, sIdx) => {
+            s.score = v;
+            const subInput = document.getElementById(`sub-sim-${dimIdx}-${sIdx}`);
+            if(subInput) subInput.value = v;
+        });
+        updateAll();
+    }
+
     function slideGlobal(i, val) {
-        val = Math.max(0, Math.min(100, parseInt(val)));
-        app.dims[i].w = val;
-        
-        let remainder = 100 - val;
-        let others = app.dims.filter((_, idx) => idx !== i);
-        let totalOthers = others.reduce((s, d) => s + d.w, 0);
-
-        others.forEach(d => {
-            let ratio = totalOthers === 0 ? 1/others.length : d.w/totalOthers;
-            d.w = Math.max(0, Math.round(remainder * ratio));
-        });
-
-        let sum = app.dims.reduce((s, d) => s + d.w, 0);
-        let diff = 100 - sum;
-
-        if (diff !== 0 && others.length > 0) {
-            let candidate = others.reduce((prev, current) => (prev.w > current.w) ? prev : current);
-            candidate.w += diff;
-            candidate.w = Math.max(0, candidate.w);
-        }
-
+        app.dims[i].w = parseInt(val);
+        validateGlobalWeights();
         updateSliderVisuals();
         updateAll();
     }
 
-    function slideSub(di, si, val) {
-        val = Math.max(0, Math.min(100, parseInt(val)));
-        let subs = app.dims[di].sub;
-        subs[si].w = val;
-
-        let remainder = 100 - val;
-        let others = subs.filter((_, idx) => idx !== si);
-        let totalOthers = others.reduce((s, x) => s + x.w, 0);
-
-        others.forEach(s => {
-            let ratio = totalOthers === 0 ? 1/others.length : s.w/totalOthers;
-            s.w = Math.max(0, Math.round(remainder * ratio));
-        });
-
-        let sum = subs.reduce((s, x) => s + x.w, 0);
-        let diff = 100 - sum;
-
-        if (diff !== 0 && others.length > 0) {
-            let candidate = others.reduce((prev, current) => (prev.w > current.w) ? prev : current);
-            candidate.w += diff;
-            candidate.w = Math.max(0, candidate.w);
-        }
-
+    function slideSub(dimIdx, subIdx, val) {
+        app.dims[dimIdx].sub[subIdx].w = parseInt(val);
+        validateSubWeights(dimIdx);
+        const newMain = calculateDimScore(app.dims[dimIdx]);
+        document.getElementById(`dim-score-input-${dimIdx}`).value = newMain.toFixed(0);
         updateSliderVisuals();
         updateAll();
     }
 
-    /* --- UPDATES --- */
+    function validateGlobalWeights() {
+        const total = app.dims.reduce((a,b) => a + b.w, 0);
+        const banner = document.getElementById('global-warning');
+        const txtTotal = document.getElementById('total-w-display');
+        const txtAction = document.getElementById('w-action');
+        const chartVal = document.getElementById('chart-total');
+
+        txtTotal.innerText = total + '%';
+        chartVal.innerHTML = total + '<span style="font-size:1rem">%</span>';
+
+        // Add 'global-error' to ALL cards if global weight != 100
+        app.dims.forEach((_, i) => {
+            const card = document.getElementById(`card-${i}`);
+            if(total !== 100) card.classList.add('global-error');
+            else card.classList.remove('global-error');
+        });
+
+        if(total !== 100) {
+            banner.classList.add('active'); banner.classList.remove('success'); chartVal.classList.add('error');
+            if(total > 100) txtAction.innerText = `Decrease sliders by ${total - 100}%.`;
+            else txtAction.innerText = `Increase sliders by ${100 - total}%.`;
+        } else {
+            banner.classList.remove('active'); chartVal.classList.remove('error');
+        }
+    }
+
+    function validateSubWeights(dimIdx) {
+        const dim = app.dims[dimIdx];
+        const total = dim.sub.reduce((a,b) => a + b.w, 0);
+        const errDiv = document.getElementById(`sub-err-${dimIdx}`);
+        const cardDiv = document.getElementById(`card-${dimIdx}`);
+        if(total !== 100) {
+            errDiv.style.display = 'block'; errDiv.innerText = `⚠️ Sub-metrics total ${total}% (Must be 100%)`; cardDiv.classList.add('sub-error');
+        } else {
+            errDiv.style.display = 'none'; cardDiv.classList.remove('sub-error');
+        }
+    }
+
     function updateAll() {
-        let base = app.dims.reduce((acc, d) => acc + (d.score * (d.w/100)), 0);
+        let base = 0;
+        app.dims.forEach((d, i) => {
+            const dimScore = calculateDimScore(d);
+            base += dimScore * (d.w / 100);
+        });
+
         let penaltyPts = app.risks.filter(r => r.active).reduce((acc, r) => acc + r.pts, 0);
         let integrity = Math.max(0, 100 - penaltyPts);
         
@@ -498,12 +475,9 @@
 
         document.getElementById('disp-base').innerText = base.toFixed(1);
         document.getElementById('disp-final').innerText = final.toFixed(1);
-        
         const intEl = document.getElementById('disp-integrity');
         intEl.innerText = `${integrity} (${factor}x)`;
-        
-        if(factor < 1.0) { intEl.style.color = 'var(--danger)'; } 
-        else { intEl.style.color = 'var(--success)'; }
+        if(factor < 1.0) intEl.style.color = 'var(--danger)'; else intEl.style.color = 'var(--success)';
 
         if(chart) {
             chart.data.datasets[0].data = app.dims.map(d => d.w);
@@ -515,114 +489,48 @@
         app.dims.forEach((d, i) => {
             document.getElementById(`lbl-w-${i}`).innerText = d.w + '%';
             const rng = document.getElementById(`rng-w-${i}`);
-            rng.value = d.w;
-            rng.style.background = `linear-gradient(to right, ${d.color} 0%, ${d.color} ${d.w}%, #e2e8f0 ${d.w}%, #e2e8f0 100%)`;
-
+            if(rng) { rng.value = d.w; rng.style.background = `linear-gradient(to right, ${d.color} 0%, ${d.color} ${d.w}%, #e2e8f0 ${d.w}%, #e2e8f0 100%)`; }
             d.sub.forEach((s, si) => {
                 const el = document.getElementById(`lbl-s-${i}-${si}`);
                 if(el) el.innerText = s.w + '%';
                 const sRng = document.getElementById(`rng-s-${i}-${si}`);
-                if(sRng) {
-                    sRng.value = s.w;
-                    sRng.style.background = `linear-gradient(to right, #64748b 0%, #64748b ${s.w}%, #e2e8f0 ${s.w}%, #e2e8f0 100%)`;
-                }
+                if(sRng) { sRng.value = s.w; sRng.style.background = `linear-gradient(to right, #64748b 0%, #64748b ${s.w}%, #e2e8f0 ${s.w}%, #e2e8f0 100%)`; }
             });
         });
     }
 
-    // --- RISK MANAGEMENT ---
-    
-    function toggleRisk(i) {
-        app.risks[i].active = !app.risks[i].active;
-        updateAll();
-    }
-
-    function handleEnter(e) {
-        if(e.key === 'Enter') addRisk();
-    }
-
+    function toggleRisk(i) { app.risks[i].active = !app.risks[i].active; updateAll(); }
+    function handleEnter(e) { if(e.key === 'Enter') addRisk(); }
     function addRisk() {
         const nInput = document.getElementById('new-r-name');
         const pInput = document.getElementById('new-r-pts');
         const errDiv = document.getElementById('add-error');
-        
         const n = nInput.value.trim();
         const p = parseInt(pInput.value);
-
-        // Validation Check
         if(n && !isNaN(p) && p > 0) {
-            // Success
-            errDiv.style.display = 'none'; // Hide error
-            app.risks.push({ name: n, pts: p, active: true, isEditing: false });
-            renderRisks(); 
-            updateAll();
-            nInput.value = '';
-            pInput.value = '';
-        } else {
-            // Failure
-            errDiv.style.display = 'block'; // Show error
-        }
+            errDiv.style.display = 'none'; app.risks.push({ name: n, pts: p, active: true, isEditing: false });
+            renderRisks(); updateAll(); nInput.value = ''; pInput.value = '';
+        } else { errDiv.style.display = 'block'; }
     }
-
-    function removeRisk(i) {
-        app.risks.splice(i, 1);
-        renderRisks();
-        updateAll();
-    }
-
-    // --- EDIT MODE LOGIC ---
-    function enableEdit(i) {
-        app.risks[i].isEditing = true;
-        renderRisks();
-    }
-
-    function cancelEdit(i) {
-        app.risks[i].isEditing = false;
-        renderRisks();
-    }
-
+    function removeRisk(i) { app.risks.splice(i, 1); renderRisks(); updateAll(); }
+    function enableEdit(i) { app.risks[i].isEditing = true; renderRisks(); }
+    function cancelEdit(i) { app.risks[i].isEditing = false; renderRisks(); }
     function saveRisk(i) {
         const newName = document.getElementById(`edit-n-${i}`).value;
         const newPts = parseInt(document.getElementById(`edit-p-${i}`).value);
-        
-        if(newName && newPts) {
-            app.risks[i].name = newName;
-            app.risks[i].pts = newPts;
-            app.risks[i].isEditing = false;
-            renderRisks();
-            updateAll();
-        }
+        if(newName && newPts) { app.risks[i].name = newName; app.risks[i].pts = newPts; app.risks[i].isEditing = false; renderRisks(); updateAll(); }
     }
 
     function initChart() {
         const ctx = document.getElementById('mainChart').getContext('2d');
         chart = new Chart(ctx, {
             type: 'doughnut',
-            data: {
-                labels: app.dims.map(d => d.name),
-                datasets: [{
-                    data: app.dims.map(d => d.w),
-                    backgroundColor: app.dims.map(d => d.color),
-                    borderWidth: 0,
-                    hoverOffset: 8
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                cutout: '85%',
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: { usePointStyle: true, padding: 20, font: {family:'Inter', size:11} }
-                    }
-                }
-            }
+            data: { labels: app.dims.map(d => d.name), datasets: [{ data: app.dims.map(d => d.w), backgroundColor: app.dims.map(d => d.color), borderWidth: 0, hoverOffset: 8 }] },
+            options: { responsive: true, maintainAspectRatio: false, cutout: '85%', plugins: { legend: { position: 'bottom', labels: { usePointStyle: true, padding: 20, font: {family:'Inter', size:11} } } } }
         });
     }
 
     init();
-
 </script>
 </body>
 </html>
