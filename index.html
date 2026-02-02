@@ -4,12 +4,20 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Tarekujjaman Riad — Product Analyst & Data Specialist</title>
+    <title>Md. Tarekujjaman Riad — Product Manager & AI Specialist</title>
     <meta name="description"
-        content="Portfolio of Md Tarekujjaman Riad — Product Analyst, Data Science Enthusiast, and Mathematician with expertise in data-driven product development." />
+        content="Data-driven Product Manager with 3+ years of experience in AI-powered platforms, B2C products, and revenue optimization. 200K+ subscribers acquired." />
+    <meta name="keywords" content="Product Manager, AI Products, Data Science, LLM, Machine Learning, B2C, SaaS" />
+    <meta name="author" content="Md. Tarekujjaman Riad" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Md. Tarekujjaman Riad — Product Manager & AI Specialist" />
+    <meta property="og:description" content="Data-driven Product Manager specializing in AI-powered platforms with 200K+ subscribers acquired." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tarekujjaman.github.io" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="riad_trans_bg.png">
+    <link rel="icon" type="image/png" href="riad_trans_bg.png">
 
     <!-- Bootstrap & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -20,16 +28,32 @@
 </head>
 
 <body>
+    <!-- Neural Network Background -->
+    <div class="neural-bg">
+        <canvas id="neural-canvas"></canvas>
+    </div>
+
     <!-- Scroll Progress Indicator -->
     <div class="scroll-progress"></div>
 
+    <!-- Vertical Dot Navigation -->
+    <nav class="dot-nav" aria-label="Section navigation">
+        <a href="#home" data-section="Home" aria-label="Home"></a>
+        <a href="#about" data-section="About" aria-label="About"></a>
+        <a href="#experience" data-section="Experience" aria-label="Experience"></a>
+        <a href="#skills" data-section="Skills" aria-label="Skills"></a>
+        <a href="#projects" data-section="Projects" aria-label="Projects"></a>
+        <a href="#certs" data-section="Certifications" aria-label="Certifications"></a>
+        <a href="#contact" data-section="Contact" aria-label="Contact"></a>
+    </nav>
+
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg sticky-top" aria-label="Main navigation">
+    <nav class="navbar navbar-expand-lg" aria-label="Main navigation">
         <div class="container">
-            <a class="navbar-brand fw-bold text-white" href="#home">tarekujjaman<span class="text-info">.</span></a>
+            <a class="navbar-brand" href="#home">tarekujjaman<span>.</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
                 aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"><i class="bi bi-list text-white fs-2"></i></span>
+                <i class="bi bi-list text-white fs-3"></i>
             </button>
             <div class="collapse navbar-collapse" id="nav">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -45,419 +69,707 @@
         </div>
     </nav>
 
-    <!-- HERO -->
-    <header id="home" class="hero container position-relative">
-        <div class="blob one floating"></div>
-        <div class="blob two floating"></div>
-        <div class="row align-items-center g-4 position-relative" style="z-index:1">
-            <div class="col-12 col-lg-7">
-                <span class="chip mb-3"><i class="bi bi-activity"></i> Product Manager • Data Scientist • Mathematician</span>
-                <h1 class="title mb-3">Hi, I'm <span class="gradient-text">Riad</span></h1>
-                <p class="lead subtitle max mb-4">Results-oriented <strong>Product Analyst</strong> blending data
-                    science with
-                    product strategy to ship features, grow engagement, and tell stories with data.</p>
-                <div class="d-flex flex-wrap gap-2">
-                    <a href="#contact" class="btn btn-brand px-4 py-2 rounded-pill"><i class="bi bi-send"></i> Hire
-                        Me</a>
-                    <a href="#experience" class="btn btn-outline-info px-4 py-2 rounded-pill"><i
-                            class="bi bi-bezier"></i> My
-                        Work</a>
-                    <a href="Md_Tarekujjaman_Riad_CV.pdf" class="btn btn-outline-light px-4 py-2 rounded-pill cv-download"><i
-                            class="bi bi-file-earmark-arrow-down"></i> Download CV</a>
+    <!-- HERO SECTION -->
+    <header id="home" class="hero">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-12 col-lg-7 hero-content">
+                    <!-- Profile Photo (Mobile) -->
+                    <div class="profile-photo-wrapper d-lg-none">
+                        <div class="profile-photo-ring"></div>
+                        <img src="riad_trans_bg.png" alt="Md. Tarekujjaman Riad" class="profile-photo" />
+                    </div>
+
+                    <div class="hero-label">
+                        <span>Product Manager • AI Specialist</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        Hi, I'm <span class="gradient-text">Riad</span>
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        Data-driven <strong>Product Manager</strong> with 3+ years of experience driving product strategy,
+                        user growth, and revenue optimization in B2C and <strong>AI-powered platforms</strong>.
+                    </p>
+
+                    <div class="typed-wrapper">
+                        <span id="typed"></span>
+                    </div>
+
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="bi bi-send me-2"></i>Hire Me
+                        </a>
+                        <a href="#projects" class="btn btn-outline">
+                            <i class="bi bi-rocket me-2"></i>View Projects
+                        </a>
+                        <a href="Md_Tarekujjaman_Riad_CV.pdf" class="btn btn-ghost cv-download" download>
+                            <i class="bi bi-download me-2"></i>Download CV
+                        </a>
+                    </div>
+
+                    <div class="current-role">
+                        <span>Product Analyst @ Celloscope Limited</span>
+                    </div>
+
+                    <div class="social-icons d-none d-lg-flex">
+                        <a href="https://linkedin.com/in/tarekujjamanriad" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/tarekujjaman" target="_blank" rel="noreferrer" aria-label="GitHub">
+                            <i class="bi bi-github"></i>
+                        </a>
+                        <a href="mailto:tarekujjamanriad@gmail.com" aria-label="Email">
+                            <i class="bi bi-envelope"></i>
+                        </a>
+                        <a href="https://nail-the-interview.vercel.app" target="_blank" rel="noreferrer" aria-label="AI Project">
+                            <i class="bi bi-globe2"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="mt-4 current-role">
-                    <span class="text-secondary">Currently: </span><span class="text-info">Product Analyst @ Celloscope
-                        Ltd</span>
-                </div>
-            </div>
-            <div class="col-12 col-lg-5">
-                <div class="glass p-4 shadow-soft rounded-4">
-                    <div class="d-grid gap-3">
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="display-6" id="typed"></div>
+
+                <div class="col-12 col-lg-5">
+                    <!-- Profile Photo (Desktop) -->
+                    <div class="profile-photo-wrapper d-none d-lg-block mb-4">
+                        <div class="profile-photo-ring"></div>
+                        <img src="riad_trans_bg.png" alt="Md. Tarekujjaman Riad" class="profile-photo" />
+                    </div>
+
+                    <!-- Stats Grid -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value" data-count="200">200K+</div>
+                            <div class="stat-label">Subscribers</div>
                         </div>
-                        <div class="row g-3 text-center">
-                            <div class="col-4">
-                                <div class="p-3 rounded-4 stat-card">
-                                    <div class="h4 mb-0 counter" data-target="50+">50+</div>
-                                    <div class="small section-muted">Products</div>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="p-3 rounded-4 stat-card">
-                                    <div class="h4 mb-0 counter" data-target="10%+">10%+</div>
-                                    <div class="small section-muted">Growth</div>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="p-3 rounded-4 stat-card">
-                                    <div class="h4 mb-0 counter" data-target="15%+">15%+</div>
-                                    <div class="small section-muted">Revenue</div>
-                                </div>
-                            </div>
+                        <div class="stat-card">
+                            <div class="stat-value" data-count="85">85%</div>
+                            <div class="stat-label">AI Accuracy</div>
                         </div>
-                        <div class="d-flex gap-3 justify-content-center social-icons">
-                            <a class="text-decoration-none" href="https://linkedin.com/in/tarekujjamanriad"
-                                target="_blank" rel="noreferrer" aria-label="LinkedIn"><i
-                                    class="bi bi-linkedin fs-3"></i></a>
-                            <a class="text-decoration-none" href="mailto:tarekujjamanriad@gmail.com"
-                                aria-label="Email"><i class="bi bi-envelope fs-3"></i></a>
-                            <a class="text-decoration-none" href="https://tarekujjaman.github.io" target="_blank"
-                                rel="noreferrer" aria-label="Portfolio Website"><i class="bi bi-globe2 fs-3"></i></a>
-                            <a class="text-decoration-none" href="tel:+8801645141542" aria-label="Phone"><i
-                                    class="bi bi-telephone fs-3"></i></a>
+                        <div class="stat-card">
+                            <div class="stat-value" data-count="40">40+</div>
+                            <div class="stat-label">Features</div>
                         </div>
+                    </div>
+
+                    <!-- Social Icons (Mobile) -->
+                    <div class="social-icons d-flex d-lg-none justify-content-center mt-4">
+                        <a href="https://linkedin.com/in/tarekujjamanriad" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/tarekujjaman" target="_blank" rel="noreferrer" aria-label="GitHub">
+                            <i class="bi bi-github"></i>
+                        </a>
+                        <a href="mailto:tarekujjamanriad@gmail.com" aria-label="Email">
+                            <i class="bi bi-envelope"></i>
+                        </a>
+                        <a href="https://nail-the-interview.vercel.app" target="_blank" rel="noreferrer" aria-label="AI Project">
+                            <i class="bi bi-globe2"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- ABOUT -->
-    <section id="about" class="container reveal">
-        <div class="row align-items-center g-4">
-            <div class="col-12 col-lg-6">
-                <h2 class="section-title mb-3">About Me</h2>
-                <p class="lead section-muted">I translate complex data into <strong>actionable insights</strong> to
-                    inform
-                    product strategy. I specialize in finding signals in noisy datasets, running experiments, and
-                    building UX that earns
-                    user engagement and loyalty.</p>
-                <div class="d-flex flex-wrap gap-2 mt-3">
-                    <span class="skill">SQL &amp; Python/R</span>
-                    <span class="skill">A/B Testing</span>
-                    <span class="skill">Amplitude/Mixpanel</span>
-                    <span class="skill">Power BI</span>
-                    <span class="skill">Google Analytics</span>
-                    <span class="skill">Jira • Agile</span>
-                    <span class="skill">Tableau</span>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6">
-                <div class="glass p-4">
-                    <div class="row g-3">
-                        <div class="col-6">
-                            <div class="chip w-100 justify-content-between"><span>Location</span><span>Dhaka</span>
-                            </div>
+    <!-- ABOUT SECTION -->
+    <section id="about" class="reveal">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-12 col-lg-6">
+                    <div class="section-header">
+                        <div class="section-label">01 — About</div>
+                        <h2 class="section-title">About Me</h2>
+                    </div>
+
+                    <p class="section-subtitle mb-4">
+                        Expert in translating complex data into <strong>actionable insights</strong>, leading cross-functional teams,
+                        and delivering products that achieve measurable business impact.
+                    </p>
+
+                    <div class="about-quote">
+                        "I believe the best products emerge from deep understanding of user needs and rigorous data analysis."
+                    </div>
+
+                    <p class="section-subtitle">
+                        Proven track record of launching subscription products with <strong>200K+ paying users</strong>
+                        and implementing <strong>AI-powered solutions</strong> for interview automation and healthcare platforms.
+                    </p>
+
+                    <div class="info-chips">
+                        <div class="info-chip">
+                            <span class="label">Location</span>
+                            <span class="value">Dhaka, BD</span>
                         </div>
-                        <div class="col-6">
-                            <div class="chip w-100 justify-content-between"><span>Open to</span><span>Product /
-                                    Data</span></div>
+                        <div class="info-chip">
+                            <span class="label">Experience</span>
+                            <span class="value">3+ Years</span>
                         </div>
-                        <div class="col-6">
-                            <div class="chip w-100 justify-content-between"><span>Experience</span><span>3+ yrs</span>
-                            </div>
+                        <div class="info-chip">
+                            <span class="label">Open to</span>
+                            <span class="value">PM / AI Roles</span>
                         </div>
-                        <div class="col-6">
-                            <div class="chip w-100 justify-content-between"><span>Education</span><span>Data Science</span>
-                            </div>
+                        <div class="info-chip">
+                            <span class="label">Domains</span>
+                            <span class="value">AI • B2C • SaaS</span>
                         </div>
                     </div>
-                    <div class="mt-4">
-                        <a href="#projects" class="btn btn-outline-info w-100 rounded-pill">View My Projects</a>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                    <div class="glass-card text-center p-4">
+                        <h5 class="mb-4 text-white">Core Focus Areas</h5>
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <div class="stat-card">
+                                    <div class="focus-icon"><i class="bi bi-robot"></i></div>
+                                    <div class="stat-label mt-2">AI/ML Products</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stat-card">
+                                    <div class="focus-icon"><i class="bi bi-graph-up-arrow"></i></div>
+                                    <div class="stat-label mt-2">Growth Strategy</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stat-card">
+                                    <div class="focus-icon"><i class="bi bi-people"></i></div>
+                                    <div class="stat-label mt-2">B2C Platforms</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stat-card">
+                                    <div class="focus-icon"><i class="bi bi-bar-chart"></i></div>
+                                    <div class="stat-label mt-2">Data Analytics</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <a href="https://nail-the-interview.vercel.app" target="_blank" class="btn btn-primary w-100">
+                                <i class="bi bi-box-arrow-up-right me-2"></i>Try My AI Project
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- EXPERIENCE -->
-    <section id="experience" class="container reveal">
-        <div class="row g-4">
-            <div class="col-12 col-lg-5">
-                <h2 class="section-title mb-3">Work Experience</h2>
-                <p class="section-muted">End‑to‑end product execution — from roadmap planning and analysis to
-                    experimentation, launch, and iteration.</p>
-            </div>
-            <div class="col-12 col-lg-7">
-                <div class="timeline">
-                    <div class="tl-item glass p-4">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <h5 class="mb-1">Product Analyst <span class="text-info">• Celloscope Ltd</span></h5>
-                                <div class="small section-muted">Aug 2023 — Present · Dhaka</div>
-                            </div>
-                            <span class="badge rounded-pill text-bg-info">Current</span>
-                        </div>
-                        <ul class="mt-2 mb-0 section-muted">
-                            <li>Analyze product performance metrics and user behavior data</li>
-                            <li>Collaborate with cross-functional teams to define product requirements</li>
-                            <li>Develop and maintain dashboards for tracking key performance indicators</li>
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="reveal">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-12 col-lg-4">
+                    <div class="section-header">
+                        <div class="section-label">02 — Experience</div>
+                        <h2 class="section-title">Work History</h2>
+                    </div>
+                    <p class="section-subtitle">
+                        End-to-end product execution — from AI strategy and roadmap planning to experimentation, launch, and iteration.
+                    </p>
+
+                    <div class="glass-card mt-4 d-none d-lg-block">
+                        <h6 class="text-white mb-3"><i class="bi bi-trophy me-2 text-warning"></i>Key Achievements</h6>
+                        <ul class="mb-0" style="color: var(--text-secondary); padding-left: 1rem; font-size: 0.875rem;">
+                            <li>200K+ paying subscribers acquired</li>
+                            <li>85%+ AI scoring accuracy achieved</li>
+                            <li>40+ features shipped to production</li>
+                            <li>15% monthly revenue increase</li>
                         </ul>
                     </div>
-                    <div class="tl-item glass p-4">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <h5 class="mb-1">Product Analyst <span class="text-info">• Bdjobs.com</span></h5>
-                                <div class="small section-muted">Mar 2023 — Jul 2023 · Dhaka</div>
+                </div>
+
+                <div class="col-12 col-lg-8">
+                    <div class="timeline">
+                        <!-- Current Role -->
+                        <div class="timeline-item current">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-card">
+                                <div class="timeline-header">
+                                    <div>
+                                        <h4 class="timeline-title">
+                                            Product Analyst <span class="timeline-company">@ Celloscope Limited</span>
+                                        </h4>
+                                        <div class="timeline-meta">Aug 2025 — Present · Dhaka</div>
+                                    </div>
+                                    <span class="timeline-badge current">Current</span>
+                                </div>
+                                <div class="timeline-content">
+                                    <ul>
+                                        <li>Leading product development for <strong>Kellafotey</strong> AI interview platform with automated scoring across 5 dimensions</li>
+                                        <li>Developed master prompts for LLM-based question generation achieving <strong>85%+ accuracy</strong></li>
+                                        <li>Driving product strategy for <strong>Niramoy</strong> AI healthcare platform with prescription generation &amp; voice transcription</li>
+                                        <li>Managing cross-functional teams and coordinating sprint planning via Jira</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <span class="badge rounded-pill text-bg-secondary">2.5 yrs</span>
                         </div>
-                        <ul class="mt-2 mb-0 section-muted">
-                            <li>Owned B2C (Job Seeker) product lifecycle from ideation to continuous improvement.</li>
-                            <li>Introduced &amp; enhanced <strong>40+ features</strong>; lifted <strong>DAU by
-                                    10%</strong> and
-                                <strong>session time by 15%</strong>.
-                            </li>
-                            <li>Launched <strong>Bdjobs Pro</strong> — 180k+ paying subscribers; <strong>+15% monthly
-                                    revenue</strong>.</li>
-                            <li>Drove 10+ large‑scale Job Fairs; optimized user flows for engagement.</li>
-                        </ul>
-                    </div>
-                    <div class="tl-item glass p-4">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <h5 class="mb-1">Junior Instructor (Mathematics) <span class="text-info">• Daffodil
-                                        Polytechnic
-                                        Institute</span></h5>
-                                <div class="small section-muted">Jun 2022 — Feb 2023 · Dhaka</div>
+
+                        <!-- Bdjobs -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-card">
+                                <div class="timeline-header">
+                                    <div>
+                                        <h4 class="timeline-title">
+                                            Product Analyst <span class="timeline-company">@ Bdjobs.com Ltd</span>
+                                        </h4>
+                                        <div class="timeline-meta">Mar 2023 — Jul 2025 · Dhaka</div>
+                                    </div>
+                                    <span class="timeline-badge">2+ Years</span>
+                                </div>
+                                <div class="timeline-content">
+                                    <ul>
+                                        <li>Led B2C (Job Seeker) team, driving full product lifecycle with data-driven decisions</li>
+                                        <li>Launched <strong>Bdjobs Pro</strong> — <strong>200K+ paying subscribers</strong>; <strong>+15% monthly revenue</strong></li>
+                                        <li>Introduced &amp; enhanced <strong>40+ features</strong>; lifted DAU by 10% and session time by 15%</li>
+                                        <li>Executed 10+ large-scale Job Fairs; optimized user flows for engagement</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <span class="badge rounded-pill text-bg-secondary">1 yr</span>
                         </div>
-                        <ul class="mt-2 mb-0 section-muted">
-                            <li>Designed and delivered mathematics curriculum for diploma engineering students</li>
-                            <li>Implemented data-driven assessment strategies to track student progress</li>
-                        </ul>
+
+                        <!-- Teaching -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-card">
+                                <div class="timeline-header">
+                                    <div>
+                                        <h4 class="timeline-title">
+                                            Junior Instructor <span class="timeline-company">@ Daffodil Polytechnic</span>
+                                        </h4>
+                                        <div class="timeline-meta">Jun 2022 — Feb 2023 · Dhaka</div>
+                                    </div>
+                                    <span class="timeline-badge">9 Months</span>
+                                </div>
+                                <div class="timeline-content">
+                                    <ul>
+                                        <li>Delivered mathematics curriculum to polytechnic students</li>
+                                        <li>Transitioned to data science and product management, applying analytical skills</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SKILLS -->
-    <section id="skills" class="container reveal">
-        <div class="row g-4">
-            <div class="col-12">
-                <h2 class="section-title mb-3">Skills & Expertise</h2>
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="reveal">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <div class="section-label">03 — Skills</div>
+                <h2 class="section-title" style="display: block;">Skills &amp; Expertise</h2>
+                <p class="section-subtitle mx-auto mt-3">Technical skills powering AI product development and data-driven decisions</p>
             </div>
-            <div class="col-12 col-lg-6">
-                <div class="glass p-4 h-100">
-                    <h6 class="text-uppercase text-info mb-3">Data • Analytics</h6>
-                    <div class="d-flex flex-wrap gap-2 mt-2">
-                        <span class="skill">SQL</span>
-                        <span class="skill">Python</span>
-                        <span class="skill">R</span>
-                        <span class="skill">A/B Testing</span>
-                        <span class="skill">Amplitude</span>
-                        <span class="skill">Mixpanel</span>
-                        <span class="skill">Power BI</span>
-                        <span class="skill">Google Analytics</span>
-                        <span class="skill">Tableau</span>
+
+            <div class="skills-grid">
+                <!-- AI/ML Technologies -->
+                <div class="skill-category">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon"><i class="bi bi-robot"></i></div>
+                        <div class="skill-category-title">AI/ML Technologies</div>
                     </div>
-                    <hr class="border-secondary-subtle my-4" />
-                    <h6 class="text-uppercase text-info mb-3">Modeling • Statistics</h6>
-                    <div class="d-flex flex-wrap gap-2 mt-2">
-                        <span class="skill">Regression</span>
-                        <span class="skill">Classification</span>
-                        <span class="skill">Clustering</span>
-                        <span class="skill">Time Series</span>
-                        <span class="skill">SVM</span>
-                        <span class="skill">PCA</span>
-                        <span class="skill">Association Rules</span>
+                    <div class="skill-nodes">
+                        <span class="skill-node">LLM Prompt Engineering</span>
+                        <span class="skill-node">ChatGPT</span>
+                        <span class="skill-node">Claude</span>
+                        <span class="skill-node">OpenAI API</span>
+                        <span class="skill-node">Computer Vision</span>
+                        <span class="skill-node">NLP</span>
                     </div>
                 </div>
-            </div>
-            <div class="col-12 col-lg-6">
-                <div class="glass p-4 h-100">
-                    <h6 class="text-uppercase text-info mb-3">Product • Delivery</h6>
-                    <div class="d-flex flex-wrap gap-2 mt-2">
-                        <span class="skill">Roadmaps</span>
-                        <span class="skill">KPIs</span>
-                        <span class="skill">User Research</span>
-                        <span class="skill">Agile</span>
-                        <span class="skill">Jira</span>
-                        <span class="skill">ClickUp</span>
-                        <span class="skill">Trello</span>
+
+                <!-- Product Management -->
+                <div class="skill-category">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon"><i class="bi bi-kanban"></i></div>
+                        <div class="skill-category-title">Product Management</div>
                     </div>
-                    <hr class="border-secondary-subtle my-4" />
-                    <h6 class="text-uppercase text-info mb-3">Web • Design</h6>
-                    <div class="d-flex flex-wrap gap-2 mt-2">
-                        <span class="skill">HTML</span>
-                        <span class="skill">CSS</span>
-                        <span class="skill">Bootstrap</span>
-                        <span class="skill">jQuery</span>
-                        <span class="skill">Figma</span>
-                        <span class="skill">Photoshop</span>
-                        <span class="skill">Illustrator</span>
-                        <span class="skill">Lucid</span>
+                    <div class="skill-nodes">
+                        <span class="skill-node">Product Strategy</span>
+                        <span class="skill-node">Roadmaps</span>
+                        <span class="skill-node">PRD &amp; User Stories</span>
+                        <span class="skill-node">A/B Testing</span>
+                        <span class="skill-node">Feature Prioritization</span>
+                        <span class="skill-node">Competitive Analysis</span>
+                    </div>
+                </div>
+
+                <!-- Analytics & Data -->
+                <div class="skill-category">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon"><i class="bi bi-graph-up"></i></div>
+                        <div class="skill-category-title">Analytics &amp; Data</div>
+                    </div>
+                    <div class="skill-nodes">
+                        <span class="skill-node">SQL</span>
+                        <span class="skill-node">Python</span>
+                        <span class="skill-node">R</span>
+                        <span class="skill-node">Google Analytics</span>
+                        <span class="skill-node">Amplitude</span>
+                        <span class="skill-node">Mixpanel</span>
+                    </div>
+                </div>
+
+                <!-- Data Visualization -->
+                <div class="skill-category">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon"><i class="bi bi-bar-chart"></i></div>
+                        <div class="skill-category-title">Data Visualization</div>
+                    </div>
+                    <div class="skill-nodes">
+                        <span class="skill-node">Power BI</span>
+                        <span class="skill-node">Tableau</span>
+                        <span class="skill-node">Data Storytelling</span>
+                        <span class="skill-node">Dashboard Design</span>
+                    </div>
+                </div>
+
+                <!-- Statistical Analysis -->
+                <div class="skill-category">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon"><i class="bi bi-calculator"></i></div>
+                        <div class="skill-category-title">Statistical Analysis</div>
+                    </div>
+                    <div class="skill-nodes">
+                        <span class="skill-node">Regression</span>
+                        <span class="skill-node">Classification</span>
+                        <span class="skill-node">Clustering</span>
+                        <span class="skill-node">Time Series</span>
+                        <span class="skill-node">SARIMA</span>
+                        <span class="skill-node">PCA</span>
+                    </div>
+                </div>
+
+                <!-- Tools & Development -->
+                <div class="skill-category">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon"><i class="bi bi-tools"></i></div>
+                        <div class="skill-category-title">Tools &amp; Development</div>
+                    </div>
+                    <div class="skill-nodes">
+                        <span class="skill-node">Jira</span>
+                        <span class="skill-node">Figma</span>
+                        <span class="skill-node">Miro</span>
+                        <span class="skill-node">Next.js</span>
+                        <span class="skill-node">HTML/CSS</span>
+                        <span class="skill-node">MySQL</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="container reveal">
-        <div class="row g-4 align-items-stretch">
-            <div class="col-12">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <h2 class="section-title mb-0">Featured Projects</h2>
-                    <a href="#contact" class="btn btn-sm btn-outline-info rounded-pill">Collaborate</a>
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="reveal">
+        <div class="container">
+            <div class="section-header mb-4">
+                <div class="section-label">04 — Projects</div>
+                <h2 class="section-title">Featured Work</h2>
+                <p class="section-subtitle">AI-powered products and data science projects showcasing real-world impact</p>
+            </div>
+
+            <!-- Featured Project -->
+            <div class="project-featured">
+                <div class="row align-items-center g-4">
+                    <div class="col-12 col-lg-8">
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="project-badge badge-role">Founder &amp; Developer</span>
+                            <span class="project-badge badge-date">2025 - Present</span>
+                            <span class="project-badge badge-live"><i class="bi bi-circle-fill me-1" style="font-size: 0.5rem;"></i>Live</span>
+                        </div>
+                        <h3 class="project-title">Nail the Interview</h3>
+                        <p class="project-description">
+                            Full-stack AI-powered interview preparation platform with three core modules:
+                            <strong>AI Mock Interview</strong> with live voice recognition, <strong>Resume Analyzer</strong>
+                            with ATS scoring, and <strong>ATS Resume Maker</strong> for optimized resumes.
+                        </p>
+                        <ul class="project-features">
+                            <li>Live voice recognition with real-time AI feedback and performance analysis</li>
+                            <li>ATS compatibility scoring with keyword optimization suggestions</li>
+                            <li>Privacy-first architecture — all data processed locally on user devices</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">AI/LLM</span>
+                            <span class="tech-tag">Voice Recognition</span>
+                            <span class="tech-tag">PDF Processing</span>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 text-center">
+                        <a href="https://nail-the-interview.vercel.app" target="_blank" class="btn btn-primary btn-lg w-100 mb-3">
+                            <i class="bi bi-rocket me-2"></i>Try It Live
+                        </a>
+                        <div class="project-url">nail-the-interview.vercel.app</div>
+                    </div>
                 </div>
-                <p class="section-muted">Selected academic work showcasing applied statistics and real‑world problem
-                    solving.
-                </p>
             </div>
-            <div class="col-12 col-lg-6">
-                <article class="glass p-4 h-100 d-flex flex-column">
-                    <div class="d-flex justify-content-between align-items-start">
-                        <h5 class="mb-1">Grading OMR Sheets via Image Processing</h5>
-                        <span class="badge text-bg-info">OpenCV</span>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+                <!-- Kellafotey -->
+                <div class="project-card">
+                    <div class="project-card-header">
+                        <h4 class="project-card-title">Kellafotey</h4>
+                        <span class="project-badge badge-role">PM</span>
                     </div>
-                    <p class="section-muted mb-3">A fast, affordable computer‑vision method that detects sheet edges,
-                        corrects
-                        perspective, matches answers, and scores in real‑time with a simple GUI.</p>
-                    <div class="mt-auto d-flex gap-2 flex-wrap">
-                        <span class="skill">Python</span>
-                        <span class="skill">OpenCV</span>
-                        <span class="skill">GUI</span>
-                        <span class="skill">Image Processing</span>
+                    <div class="project-card-meta">Aug 2025 - Present • Celloscope</div>
+                    <p class="project-card-description">
+                        End-to-end AI-powered interview screening platform with automated candidate scoring, cheat detection, and hiring manager dashboard.
+                    </p>
+                    <ul class="project-card-features">
+                        <li>4-dimension AI scoring (audio, video, transcript)</li>
+                        <li>85%+ accuracy with evidence-based feedback</li>
+                        <li>Hiring manager dashboard with calendar integration</li>
+                    </ul>
+                    <div class="project-tech">
+                        <span class="tech-tag">LLM</span>
+                        <span class="tech-tag">Computer Vision</span>
+                        <span class="tech-tag">NLP</span>
                     </div>
-                </article>
-            </div>
-            <div class="col-12 col-lg-6">
-                <article class="glass p-4 h-100 d-flex flex-column">
-                    <div class="d-flex justify-content-between align-items-start">
-                        <h5 class="mb-1">Bitcoin Price Forecasting</h5>
-                        <span class="badge text-bg-info">SARIMA vs Prophet</span>
+                </div>
+
+                <!-- Niramoy -->
+                <div class="project-card">
+                    <div class="project-card-header">
+                        <h4 class="project-card-title">Niramoy</h4>
+                        <span class="project-badge badge-role">PM</span>
                     </div>
-                    <p class="section-muted mb-3">Time‑series forecasting on 2018–2023 daily data; SARIMA achieved
-                        stronger
-                        accuracy (RMSE 5441 vs 27992) and powered 12‑month projections.</p>
-                    <div class="mt-auto d-flex gap-2 flex-wrap">
-                        <span class="skill">Python</span>
-                        <span class="skill">Time Series</span>
-                        <span class="skill">Visualization</span>
-                        <span class="skill">Statistical Modeling</span>
+                    <div class="project-card-meta">Nov 2025 - Present • Celloscope</div>
+                    <p class="project-card-description">
+                        AI-powered healthcare platform featuring prescription generation, multi-language voice transcription, and clinical workflow optimization.
+                    </p>
+                    <ul class="project-card-features">
+                        <li>Multi-language: Bengali, Hindi, English</li>
+                        <li>7 AI POCs with design thinking methodology</li>
+                        <li>Multi-team API development coordination</li>
+                    </ul>
+                    <div class="project-tech">
+                        <span class="tech-tag">Healthcare AI</span>
+                        <span class="tech-tag">Voice AI</span>
+                        <span class="tech-tag">NLP</span>
                     </div>
-                </article>
-            </div>
-            <div class="col-12 col-lg-6">
-                <article class="glass p-4 h-100 d-flex flex-column">
-                    <div class="d-flex justify-content-between align-items-start">
-                        <h5 class="mb-1">Customer Segmentation Analysis</h5>
-                        <span class="badge text-bg-info">Clustering</span>
+                </div>
+
+                <!-- Bdjobs Pro -->
+                <div class="project-card">
+                    <div class="project-card-header">
+                        <h4 class="project-card-title">Bdjobs Pro</h4>
+                        <span class="project-badge badge-date">2023-2025</span>
                     </div>
-                    <p class="section-muted mb-3">Applied K-means and DBSCAN algorithms to segment customers based on
-                        purchasing behavior, resulting in targeted marketing strategies.</p>
-                    <div class="mt-auto d-flex gap-2 flex-wrap">
-                        <span class="skill">Python</span>
-                        <span class="skill">Scikit-learn</span>
-                        <span class="skill">Clustering</span>
-                        <span class="skill">Data Visualization</span>
+                    <div class="project-card-meta">Product Owner • Bdjobs.com</div>
+                    <p class="project-card-description">
+                        Premium subscription model for job seekers, from ideation to launch and continuous optimization.
+                    </p>
+                    <ul class="project-card-features">
+                        <li><strong>200K+ unique paying subscribers</strong></li>
+                        <li>15% monthly revenue increase</li>
+                        <li>A/B testing with Amplitude/Mixpanel</li>
+                    </ul>
+                    <div class="project-tech">
+                        <span class="tech-tag">Subscription</span>
+                        <span class="tech-tag">A/B Testing</span>
+                        <span class="tech-tag">Analytics</span>
                     </div>
-                </article>
-            </div>
-            <div class="col-12 col-lg-6">
-                <article class="glass p-4 h-100 d-flex flex-column">
-                    <div class="d-flex justify-content-between align-items-start">
-                        <h5 class="mb-1">Predictive Maintenance System</h5>
-                        <span class="badge text-bg-info">Machine Learning</span>
+                </div>
+
+                <!-- Academic -->
+                <div class="project-card">
+                    <div class="project-card-header">
+                        <h4 class="project-card-title">Research Projects</h4>
+                        <span class="project-badge badge-date">MSc &amp; BSc</span>
                     </div>
-                    <p class="section-muted mb-3">Developed a predictive model to forecast equipment failures using
-                        sensor data, reducing downtime by 23%.</p>
-                    <div class="mt-auto d-flex gap-2 flex-wrap">
-                        <span class="skill">Python</span>
-                        <span class="skill">TensorFlow</span>
-                        <span class="skill">Time Series</span>
-                        <span class="skill">IoT Data</span>
+                    <div class="project-card-meta">2022 - 2023 • University</div>
+                    <p class="project-card-description">
+                        <strong>Bitcoin Price Prediction:</strong> SARIMA vs Prophet comparison. SARIMA achieved RMSE 5441 vs 27992.
+                    </p>
+                    <p class="project-card-description">
+                        <strong>OMR Grading:</strong> Computer vision solution using OpenCV for automated grading.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Time Series</span>
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">Python</span>
                     </div>
-                </article>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- CERTIFICATIONS & EDUCATION -->
-    <section id="certs" class="container reveal">
-        <div class="row g-4">
-            <div class="col-12 col-lg-6">
-                <h2 class="section-title mb-3">Certifications</h2>
-                <div class="glass p-4 mt-3">
-                    <ul class="mb-0 section-muted">
-                        <li><i class="bi bi-award text-info me-2"></i>AI Agents for Product Leaders</li>
-                        <li><i class="bi bi-award text-info me-2"></i>Product Strategy Micro‑Certification (PSC)™</li>
-                        <li><i class="bi bi-award text-info me-2"></i>Python for Everybody — Coursera</li>
-                        <li><i class="bi bi-award text-info me-2"></i>Data Science Math Skills — Coursera</li>
-                        <li><i class="bi bi-award text-info me-2"></i>Using Databases with Python — Coursera</li>
-                        <li><i class="bi bi-award text-info me-2"></i>Data Science with Python — Simplilearn</li>
-                        <li><i class="bi bi-award text-info me-2"></i>Data Analysis using Python — IBM</li>
-                        <li><i class="bi bi-award text-info me-2"></i>Data Visualization: Storytelling — LinkedIn
-                            Learning</li>
-                        <li><i class="bi bi-award text-info me-2"></i>Communication Strategies for a Virtual Age —
-                            Coursera</li>
-                    </ul>
+    <section id="certs" class="reveal">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Certifications -->
+                <div class="col-12 col-lg-7">
+                    <div class="section-header mb-4">
+                        <div class="section-label">05 — Credentials</div>
+                        <h2 class="section-title">Certifications</h2>
+                    </div>
+
+                    <div class="certs-scroll">
+                        <div class="cert-card">
+                            <div class="cert-icon"><i class="bi bi-robot"></i></div>
+                            <div class="cert-name">AI Agents for Product Leaders</div>
+                            <div class="cert-issuer">Product School</div>
+                        </div>
+                        <div class="cert-card">
+                            <div class="cert-icon"><i class="bi bi-bullseye"></i></div>
+                            <div class="cert-name">Product Strategy (PSC)™</div>
+                            <div class="cert-issuer">Product School</div>
+                        </div>
+                        <div class="cert-card">
+                            <div class="cert-icon"><i class="bi bi-code-slash"></i></div>
+                            <div class="cert-name">Python for Everybody</div>
+                            <div class="cert-issuer">Coursera</div>
+                        </div>
+                        <div class="cert-card">
+                            <div class="cert-icon"><i class="bi bi-database"></i></div>
+                            <div class="cert-name">Data Science with Python</div>
+                            <div class="cert-issuer">Simplilearn</div>
+                        </div>
+                        <div class="cert-card">
+                            <div class="cert-icon"><i class="bi bi-graph-up"></i></div>
+                            <div class="cert-name">Data Analysis using Python</div>
+                            <div class="cert-issuer">IBM</div>
+                        </div>
+                        <div class="cert-card">
+                            <div class="cert-icon"><i class="bi bi-bar-chart"></i></div>
+                            <div class="cert-name">Data Visualization: Storytelling</div>
+                            <div class="cert-issuer">LinkedIn Learning</div>
+                        </div>
+                        <div class="cert-card">
+                            <div class="cert-icon"><i class="bi bi-calculator"></i></div>
+                            <div class="cert-name">Data Science Math Skills</div>
+                            <div class="cert-issuer">Coursera</div>
+                        </div>
+                        <div class="cert-card">
+                            <div class="cert-icon"><i class="bi bi-server"></i></div>
+                            <div class="cert-name">Using Databases with Python</div>
+                            <div class="cert-issuer">Coursera</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-12 col-lg-6">
-                <h2 class="section-title mb-3">Education</h2>
-                <div class="glass p-4 mb-3 mt-3">
-                    <div class="d-flex justify-content-between"><strong>MSc in Data Science</strong><span class="text-info">2022–2023</span></div>
-                    <div class="section-muted">Jahangirnagar University • GPA 3.63/4.00</div>
-                </div>
-                <div class="glass p-4">
-                    <div class="d-flex justify-content-between"><strong>BSc in Applied Mathematics</strong><span
-                            class="text-info">2017–2022</span></div>
-                    <div class="section-muted">Noakhali Science &amp; Technology University • GPA 3.06/4.00</div>
+
+                <!-- Education -->
+                <div class="col-12 col-lg-5">
+                    <div class="section-header mb-4">
+                        <h2 class="section-title">Education</h2>
+                    </div>
+
+                    <div class="education-card">
+                        <div class="education-degree">M.Sc. in Applied Statistics &amp; Data Science</div>
+                        <div class="education-school">Jahangirnagar University, Dhaka</div>
+                        <div class="education-meta">
+                            <span class="education-year">2022 — 2023</span>
+                            <span class="education-gpa">GPA: 3.63/4.00</span>
+                        </div>
+                    </div>
+
+                    <div class="education-card">
+                        <div class="education-degree">B.Sc. in Applied Mathematics</div>
+                        <div class="education-school">Noakhali Science &amp; Technology University</div>
+                        <div class="education-meta">
+                            <span class="education-year">2017 — 2022</span>
+                            <span class="education-gpa">GPA: 3.06/4.00</span>
+                        </div>
+                    </div>
+
+                    <div class="languages-grid">
+                        <div class="language-item">
+                            <span class="name">Bangla:</span>
+                            <span class="level">Native</span>
+                        </div>
+                        <div class="language-item">
+                            <span class="name">English:</span>
+                            <span class="level">Professional</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="container reveal">
-        <div class="row g-4 align-items-center">
-            <div class="col-12 col-lg-5">
-                <h2 class="section-title mb-3">Let's Build Something</h2>
-                <p class="section-muted">Have a role, project, or collaboration in mind? I'm happy to jump on a quick
-                    call and
-                    explore how we can work together.</p>
-                <div class="d-flex gap-2 flex-wrap">
-                    <a class="btn btn-brand rounded-pill px-4"
-                        href="mailto:tarekujjamanriad@gmail.com?subject=Hello%20Riad"><i class="bi bi-envelope"></i>
-                        Email Me</a>
-                    <a class="btn btn-outline-info rounded-pill px-4" href="https://linkedin.com/in/tarekujjamanriad"
-                        target="_blank" rel="noreferrer"><i class="bi bi-linkedin"></i> LinkedIn</a>
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="reveal">
+        <div class="container">
+            <div class="contact-cta">
+                <div class="section-label">06 — Contact</div>
+                <h2 class="section-title">Let's Build Something</h2>
+                <p>
+                    Have a role, project, or collaboration in mind? I'm happy to explore how we can work together.
+                    <br>Particularly interested in <strong>AI/ML product roles</strong>, <strong>B2C platforms</strong>, and <strong>healthcare tech</strong>.
+                </p>
+                <div class="contact-buttons">
+                    <a href="mailto:tarekujjamanriad@gmail.com?subject=Hello%20Riad" class="btn btn-primary btn-lg">
+                        <i class="bi bi-envelope me-2"></i>Email Me
+                    </a>
+                    <a href="https://linkedin.com/in/tarekujjamanriad" target="_blank" class="btn btn-outline btn-lg">
+                        <i class="bi bi-linkedin me-2"></i>LinkedIn
+                    </a>
+                    <a href="https://github.com/tarekujjaman" target="_blank" class="btn btn-ghost btn-lg">
+                        <i class="bi bi-github me-2"></i>GitHub
+                    </a>
                 </div>
             </div>
-            <!-- <div class="col-12 col-lg-7">
-                <div class="glass p-4 contact-card">
-                    <div class="row g-3">
-                        <div class="col-12 col-md-6">
-                            <div class="p-3 rounded-4 contact-item">
-                                <div class="small text-info">Email</div>
-                                <a href="mailto:tarekujjamanriad@gmail.com">tarekujjamanriad@gmail.com</a>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <div class="p-3 rounded-4 contact-item">
-                                <div class="small text-info">Phone</div>
-                                <a href="tel:+8801645141542">+880 16 4514 1542</a>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <div class="p-3 rounded-4 contact-item">
-                                <div class="small text-info">Portfolio</div>
-                                <a href="https://tarekujjaman.github.io" target="_blank"
-                                    rel="noreferrer">tarekujjaman.github.io</a>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <div class="p-3 rounded-4 contact-item">
-                                <div class="small text-info">Location</div>
-                                <span>West Razabazar, Indira Road, Dhaka‑1215</span>
-                            </div>
-                        </div>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-card-icon"><i class="bi bi-envelope"></i></div>
+                    <div class="contact-card-label">Email</div>
+                    <div class="contact-card-value">
+                        <a href="mailto:tarekujjamanriad@gmail.com">tarekujjamanriad@gmail.com</a>
                     </div>
                 </div>
-            </div> -->
+                <div class="contact-card">
+                    <div class="contact-card-icon"><i class="bi bi-geo-alt"></i></div>
+                    <div class="contact-card-label">Location</div>
+                    <div class="contact-card-value">Dhaka, Bangladesh</div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-card-icon"><i class="bi bi-globe2"></i></div>
+                    <div class="contact-card-label">Portfolio</div>
+                    <div class="contact-card-value">
+                        <a href="https://tarekujjaman.github.io" target="_blank">tarekujjaman.github.io</a>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-card-icon"><i class="bi bi-rocket"></i></div>
+                    <div class="contact-card-label">AI Project</div>
+                    <div class="contact-card-value">
+                        <a href="https://nail-the-interview.vercel.app" target="_blank">nail-the-interview.vercel.app</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="py-2 text-center">
-        <div class="container small">
-            © <span id="year"></span> Md Tarekujjaman Riad  · <a href="#home"
-                class="text-decoration-none text-info">Back to top ✈️</a>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-social">
+                    <a href="https://linkedin.com/in/tarekujjamanriad" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/tarekujjaman" target="_blank" rel="noreferrer" aria-label="GitHub">
+                        <i class="bi bi-github"></i>
+                    </a>
+                    <a href="mailto:tarekujjamanriad@gmail.com" aria-label="Email">
+                        <i class="bi bi-envelope"></i>
+                    </a>
+                    <a href="https://nail-the-interview.vercel.app" target="_blank" rel="noreferrer" aria-label="AI Project">
+                        <i class="bi bi-globe2"></i>
+                    </a>
+                </div>
+                <div class="footer-text">
+                    © <span id="year"></span> Md. Tarekujjaman Riad · Built with passion for <a href="#projects">AI &amp; Product</a>
+                </div>
+            </div>
         </div>
     </footer>
 
