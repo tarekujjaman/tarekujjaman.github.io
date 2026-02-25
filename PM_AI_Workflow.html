@@ -1,0 +1,2201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered PM Workflow — Precision Flowchart</title>
+    <style>
+        :root {
+            --bg: #0a0a1a;
+            --surface: #111128;
+            --surface-2: #1a1a3e;
+            --surface-3: #222255;
+            --border: #2a2a5a;
+            --text: #e8e8f0;
+            --text-dim: #8888aa;
+            --text-muted: #555577;
+            --pm: #4a7dff;
+            --pm-bg: rgba(74, 125, 255, 0.08);
+            --pm-border: rgba(74, 125, 255, 0.25);
+            --ai: #ff4a6e;
+            --ai-bg: rgba(255, 74, 110, 0.08);
+            --ai-border: rgba(255, 74, 110, 0.25);
+            --decision: #ffb84a;
+            --decision-bg: rgba(255, 184, 74, 0.08);
+            --decision-border: rgba(255, 184, 74, 0.25);
+            --output: #4affa0;
+            --output-bg: rgba(74, 255, 160, 0.08);
+            --output-border: rgba(74, 255, 160, 0.25);
+            --system: #a855f7;
+            --system-bg: rgba(168, 85, 247, 0.08);
+            --system-border: rgba(168, 85, 247, 0.25);
+            --loop: #ff8c42;
+            --connector: #3a3a6a;
+            --accent: #00d4ff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── HEADER ── */
+        .header {
+            padding: 50px 20px 40px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        .header .tag {
+            display: inline-block;
+            padding: 4px 14px;
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.7rem;
+            color: var(--accent);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+
+        .header h1 .hl { color: var(--accent); }
+
+        .header .desc {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .header .meta {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        .header .meta span { display: flex; align-items: center; gap: 6px; }
+
+        /* ── LEGEND ── */
+        .legend {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 8px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 12px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+        }
+
+        .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        /* ── MAIN ── */
+        .main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 20px 80px;
+        }
+
+        /* ── PHASE ── */
+        .phase {
+            margin-bottom: 8px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--surface);
+        }
+
+        .phase-head {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 18px 24px;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.2s;
+            position: relative;
+        }
+
+        .phase-head:hover { background: var(--surface-2); }
+
+        .phase-num {
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .phase-title {
+            flex: 1;
+        }
+
+        .phase-title h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .phase-title .sub {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .phase-tags {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .p-tag {
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .p-tag.pm { background: var(--pm-bg); color: var(--pm); border: 1px solid var(--pm-border); }
+        .p-tag.ai { background: var(--ai-bg); color: var(--ai); border: 1px solid var(--ai-border); }
+        .p-tag.both { background: var(--output-bg); color: var(--output); border: 1px solid var(--output-border); }
+        .p-tag.sys { background: var(--system-bg); color: var(--system); border: 1px solid var(--system-border); }
+
+        .phase-arrow {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .phase-arrow.open { transform: rotate(180deg); }
+
+        .phase-time {
+            font-size: 0.65rem;
+            color: var(--output);
+            background: var(--output-bg);
+            border: 1px solid var(--output-border);
+            padding: 2px 8px;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        /* Phase Colors */
+        .ph-1 .phase-num { background: var(--pm-bg); color: var(--pm); border: 1px solid var(--pm-border); }
+        .ph-2 .phase-num { background: var(--system-bg); color: var(--system); border: 1px solid var(--system-border); }
+        .ph-3 .phase-num { background: var(--ai-bg); color: var(--ai); border: 1px solid var(--ai-border); }
+        .ph-4 .phase-num { background: var(--decision-bg); color: var(--decision); border: 1px solid var(--decision-border); }
+        .ph-5 .phase-num { background: var(--output-bg); color: var(--output); border: 1px solid var(--output-border); }
+        .ph-6 .phase-num { background: rgba(0, 212, 255, 0.1); color: var(--accent); border: 1px solid rgba(0, 212, 255, 0.25); }
+        .ph-7 .phase-num { background: var(--loop); color: var(--bg); }
+
+        /* ── PHASE BODY ── */
+        .phase-body {
+            padding: 0 24px 24px;
+            display: none;
+        }
+
+        .phase-body.open { display: block; }
+
+        .phase-divider {
+            height: 1px;
+            background: var(--border);
+            margin-bottom: 20px;
+        }
+
+        /* ── FLOW STRUCTURE ── */
+        .flow-step {
+            position: relative;
+            padding-left: 36px;
+            margin-bottom: 0;
+        }
+
+        .flow-step::before {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: var(--connector);
+        }
+
+        .flow-step:last-child::before {
+            bottom: 50%;
+        }
+
+        .step-dot {
+            position: absolute;
+            left: 7px;
+            top: 16px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: 2px solid;
+            background: var(--bg);
+            z-index: 1;
+        }
+
+        .step-dot.pm { border-color: var(--pm); }
+        .step-dot.ai { border-color: var(--ai); }
+        .step-dot.decision { border-color: var(--decision); }
+        .step-dot.output { border-color: var(--output); }
+        .step-dot.system { border-color: var(--system); }
+
+        .step-dot.filled.pm { background: var(--pm); }
+        .step-dot.filled.ai { background: var(--ai); }
+        .step-dot.filled.decision { background: var(--decision); }
+        .step-dot.filled.output { background: var(--output); }
+
+        /* ── NODE CARD ── */
+        .node-card {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 16px 18px;
+            margin-bottom: 12px;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .node-card:hover {
+            background: var(--surface-3);
+        }
+
+        .node-card.pm-card { border-left: 3px solid var(--pm); }
+        .node-card.ai-card { border-left: 3px solid var(--ai); }
+        .node-card.decision-card { border-left: 3px solid var(--decision); background: var(--decision-bg); }
+        .node-card.output-card { border-left: 3px solid var(--output); }
+        .node-card.system-card { border-left: 3px solid var(--system); }
+
+        .node-head {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .node-id {
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 3px;
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+        }
+
+        .node-id.pm { background: var(--pm-bg); color: var(--pm); }
+        .node-id.ai { background: var(--ai-bg); color: var(--ai); }
+        .node-id.decision { background: var(--decision-bg); color: var(--decision); }
+        .node-id.output { background: var(--output-bg); color: var(--output); }
+        .node-id.system { background: var(--system-bg); color: var(--system); }
+
+        .node-name {
+            font-size: 0.82rem;
+            font-weight: 700;
+            flex: 1;
+        }
+
+        .node-role {
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .node-desc {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        /* ── DETAIL LIST ── */
+        .detail-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .detail-list li {
+            font-size: 0.72rem;
+            color: var(--text-dim);
+            padding: 4px 0 4px 18px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .detail-list li::before {
+            content: '›';
+            position: absolute;
+            left: 4px;
+            color: var(--text-muted);
+            font-weight: bold;
+        }
+
+        .detail-list li strong { color: var(--text); font-weight: 600; }
+
+        .detail-list li code {
+            background: var(--surface);
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-size: 0.68rem;
+            color: var(--accent);
+            border: 1px solid var(--border);
+        }
+
+        /* ── SUB NODES ── */
+        .sub-nodes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .sub-node {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            padding: 12px 14px;
+        }
+
+        .sub-node .sn-head {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .sub-node .sn-num {
+            width: 22px;
+            height: 22px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .sub-node .sn-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .sub-node .sn-items {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sub-node .sn-items li {
+            font-size: 0.68rem;
+            color: var(--text-dim);
+            padding: 2px 0 2px 14px;
+            position: relative;
+        }
+
+        .sub-node .sn-items li::before {
+            content: '·';
+            position: absolute;
+            left: 3px;
+            font-weight: bold;
+            color: var(--text-muted);
+        }
+
+        /* ── CONNECTOR ── */
+        .flow-connector {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 0 6px 36px;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+        }
+
+        .flow-connector .fc-line {
+            width: 20px;
+            height: 1px;
+            background: var(--connector);
+        }
+
+        .flow-connector .fc-arrow {
+            color: var(--connector);
+        }
+
+        .flow-connector .fc-label {
+            font-style: italic;
+        }
+
+        /* ── DECISION BRANCH ── */
+        .decision-branches {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .branch {
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            padding: 12px;
+            position: relative;
+        }
+
+        .branch.yes {
+            border-color: rgba(74, 255, 160, 0.3);
+            background: rgba(74, 255, 160, 0.03);
+        }
+
+        .branch.no {
+            border-color: rgba(255, 74, 110, 0.3);
+            background: rgba(255, 74, 110, 0.03);
+        }
+
+        .branch-label {
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .branch.yes .branch-label { color: var(--output); }
+        .branch.no .branch-label { color: var(--ai); }
+
+        .branch-desc {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            line-height: 1.5;
+        }
+
+        /* ── LOOP INDICATOR ── */
+        .loop-box {
+            margin-top: 12px;
+            padding: 10px 14px;
+            background: rgba(255, 140, 66, 0.06);
+            border: 1px dashed rgba(255, 140, 66, 0.3);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .loop-box .loop-icon {
+            font-size: 1rem;
+            color: var(--loop);
+        }
+
+        .loop-box .loop-text {
+            font-size: 0.72rem;
+            color: var(--loop);
+            font-weight: 600;
+        }
+
+        .loop-box .loop-detail {
+            font-size: 0.68rem;
+            color: var(--text-dim);
+            margin-left: auto;
+        }
+
+        /* ── PROMPT PATTERNS ── */
+        .prompt-block {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            margin-top: 12px;
+            overflow: hidden;
+        }
+
+        .prompt-head {
+            padding: 8px 14px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: var(--accent);
+            background: rgba(0, 212, 255, 0.05);
+            border-bottom: 1px solid var(--border);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .prompt-body {
+            padding: 10px 14px;
+        }
+
+        .prompt-item {
+            display: flex;
+            gap: 10px;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(42, 42, 90, 0.5);
+        }
+
+        .prompt-item:last-child { border-bottom: none; }
+
+        .prompt-num {
+            width: 18px;
+            height: 18px;
+            border-radius: 3px;
+            background: var(--surface-2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            color: var(--accent);
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .prompt-content {
+            flex: 1;
+        }
+
+        .prompt-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+
+        .prompt-example {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .prompt-example code {
+            background: var(--surface-2);
+            padding: 1px 5px;
+            border-radius: 3px;
+            color: var(--accent);
+            font-style: normal;
+            border: 1px solid var(--border);
+        }
+
+        /* ── CHECKLIST ── */
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            padding: 5px 0 5px 22px;
+            position: relative;
+            border-bottom: 1px solid rgba(42, 42, 90, 0.3);
+        }
+
+        .checklist li:last-child { border-bottom: none; }
+
+        .checklist li::before {
+            content: '☐';
+            position: absolute;
+            left: 0;
+            color: var(--output);
+        }
+
+        /* ── COMPOUND VISUALIZATION ── */
+        .compound-track {
+            display: flex;
+            align-items: stretch;
+            gap: 2px;
+            margin-top: 12px;
+        }
+
+        .compound-stage {
+            flex: 1;
+            padding: 14px 12px;
+            border-radius: 5px;
+            text-align: center;
+            position: relative;
+        }
+
+        .compound-stage .cs-module {
+            font-size: 0.75rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .compound-stage .cs-context {
+            font-size: 0.6rem;
+            opacity: 0.7;
+            margin-bottom: 6px;
+        }
+
+        .compound-stage .cs-quality {
+            font-size: 0.6rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .cs-1 { background: rgba(255, 184, 74, 0.1); color: var(--decision); border: 1px solid var(--decision-border); }
+        .cs-2 { background: rgba(74, 125, 255, 0.1); color: var(--pm); border: 1px solid var(--pm-border); }
+        .cs-3 { background: rgba(168, 85, 247, 0.1); color: var(--system); border: 1px solid var(--system-border); }
+        .cs-4 { background: rgba(74, 255, 160, 0.1); color: var(--output); border: 1px solid var(--output-border); }
+
+        .compound-arrow {
+            display: flex;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            padding: 0 2px;
+        }
+
+        /* ── STATS GRID ── */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .stat-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 18px 14px;
+            text-align: center;
+        }
+
+        .stat-box .stat-val {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .stat-box .stat-label {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ── WARNING BOX ── */
+        .warning-box {
+            margin-top: 20px;
+            padding: 18px;
+            background: rgba(255, 74, 110, 0.04);
+            border: 1px solid var(--ai-border);
+            border-radius: 6px;
+        }
+
+        .warning-box h4 {
+            font-size: 0.78rem;
+            color: var(--ai);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .warning-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .warning-item {
+            padding: 10px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+        }
+
+        .warning-item .wi-title {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--ai);
+            margin-bottom: 4px;
+        }
+
+        .warning-item .wi-desc {
+            font-size: 0.65rem;
+            color: var(--text-dim);
+        }
+
+        /* ── TABLE ── */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+            font-size: 0.7rem;
+        }
+
+        .data-table th {
+            background: var(--surface);
+            padding: 8px 10px;
+            text-align: left;
+            color: var(--text-dim);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.62rem;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .data-table td {
+            padding: 7px 10px;
+            border-bottom: 1px solid rgba(42, 42, 90, 0.3);
+            color: var(--text-dim);
+        }
+
+        .data-table td code {
+            background: var(--surface);
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-size: 0.65rem;
+            color: var(--accent);
+            border: 1px solid var(--border);
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        .footer .credit {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* ── TABLE SCROLL WRAPPER ── */
+        .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+        /* ── RESPONSIVE ── */
+        /* Tablet (769px – 1024px) */
+        @media (max-width: 1024px) {
+            .legend-grid { grid-template-columns: repeat(3, 1fr); }
+            .stats-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        /* Mobile (≤768px) */
+        @media (max-width: 768px) {
+            body { padding: 0 !important; }
+            .header { padding: 30px 16px 24px; }
+            .header h1 { font-size: 1.25rem; }
+            .header .desc { font-size: 0.78rem; }
+            .header .meta { flex-wrap: wrap; justify-content: center; gap: 8px; font-size: 0.68rem; }
+            .legend { padding: 0 12px; }
+            .legend-grid { grid-template-columns: repeat(2, 1fr); }
+            .main { padding: 12px 12px 60px; }
+            .phase-head { padding: 14px 14px; gap: 10px; flex-wrap: wrap; }
+            .phase-title { min-width: 0; flex: 1 1 calc(100% - 56px); }
+            .phase-tags { order: 3; flex-wrap: wrap; width: 100%; margin-top: 2px; }
+            .phase-time { order: 4; font-size: 0.6rem; }
+            .phase-body { padding: 0 12px 16px; }
+            .node-head { flex-wrap: wrap; gap: 6px; }
+            .node-role { display: none; }
+            .sub-nodes { grid-template-columns: 1fr; }
+            .decision-branches { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); padding: 0 12px; }
+            .warning-box { margin: 20px 12px; }
+            .warning-grid { grid-template-columns: 1fr; }
+            .compound-track { flex-direction: column; }
+            .compound-arrow { transform: rotate(90deg); justify-content: center; padding: 4px 0; }
+            .prompt-block { margin-left: 0 !important; }
+        }
+
+        /* Small mobile (≤480px) */
+        @media (max-width: 480px) {
+            .legend-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .phase-num { width: 30px; height: 30px; font-size: 0.75rem; }
+            .phase-title h3 { font-size: 0.85rem; }
+            .phase-tags { display: none; }
+            .data-table th, .data-table td { font-size: 0.62rem; padding: 5px 6px; }
+        }
+    
+        /* ── EXTERNAL STYLES (merged from styles.css) ── */
+        body { padding: 25px; }
+        .title { color: #5C6AC4; }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+<div class="header">
+    <div class="tag">Workflow System v3.0</div>
+    <h1>AI-Powered PM <span class="hl">Documentation Engine</span></h1>
+    <div class="desc">
+        Complete 7-phase workflow transforming 200-word module briefs into production-ready 
+        PRDs with 100+ acceptance criteria — in 2–4 hours instead of 15–25.
+    </div>
+    <div class="meta">
+        <span>📐 9 Phases (0–8)</span>
+        <span>📄 10-Section PRD Template</span>
+        <span>🔁 2–3 Iteration Rounds</span>
+        <span>⚡ 80–85% Time Saved</span>
+        <span>👤 By Md Tarekujjaman Riad</span>
+    </div>
+</div>
+
+<!-- ═══════════════════ LEGEND ═══════════════════ -->
+<div class="legend">
+    <div class="legend-grid">
+        <div class="legend-item"><div class="legend-dot" style="background:var(--pm)"></div>PM Action</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--ai)"></div>AI Action</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--decision)"></div>Decision Gate</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--output)"></div>Output/Deliverable</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--system)"></div>System/Tool</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--loop)"></div>Iteration Loop</div>
+    </div>
+</div>
+
+<!-- ═══════════════════ MAIN FLOW ═══════════════════ -->
+<div class="main">
+
+<!-- ────────── PHASE 0: SETUP ────────── -->
+<div class="phase ph-2" style="border-color: rgba(0,212,255,0.3);">
+    <div class="phase-head" onclick="togglePhase(this)">
+        <div class="phase-num" style="background:rgba(0,212,255,0.1);color:var(--accent);border:1px solid rgba(0,212,255,0.25);">00</div>
+        <div class="phase-title">
+            <h3>SETUP — AI Workspace Initialization</h3>
+            <div class="sub">One-time product foundation setup. Done once, benefits every module forever.</div>
+        </div>
+        <div class="phase-tags">
+            <span class="p-tag pm">PM Input</span>
+            <span class="p-tag sys">System</span>
+        </div>
+        <span class="phase-time">⏱ 60–90 min (once)</span>
+        <span class="phase-arrow">▼</span>
+    </div>
+    <div class="phase-body">
+        <div class="phase-divider"></div>
+
+        <div class="flow-step">
+            <div class="step-dot filled pm"></div>
+            <div class="node-card pm-card">
+                <div class="node-head">
+                    <span class="node-id pm">STEP 0.1</span>
+                    <span class="node-name">Create AI Project Workspace</span>
+                    <span class="node-role">👤 PM</span>
+                </div>
+                <div class="node-desc">Create a dedicated Claude Project (or equivalent persistent workspace) for the product. This is the container for all persistent context.</div>
+                <ul class="detail-list">
+                    <li><strong>Tool:</strong> Claude Projects, ChatGPT Projects, or any AI with persistent memory</li>
+                    <li><strong>Naming:</strong> <code>[ProductName] — PRD Engine v1</code></li>
+                    <li><strong>System Prompt:</strong> Set role as "Senior Technical PM" with output format expectations</li>
+                    <li><strong>Access:</strong> Single workspace per product — PM owns it, team gets read access</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-step">
+            <div class="step-dot filled system"></div>
+            <div class="node-card system-card">
+                <div class="node-head">
+                    <span class="node-id system">STEP 0.2</span>
+                    <span class="node-name">Upload Product Foundation Documents</span>
+                    <span class="node-role">🧠 Context</span>
+                </div>
+                <div class="node-desc">Upload the core product knowledge base. These documents define the AI's understanding of your product and never need re-uploading unless updated.</div>
+                <div class="sub-nodes">
+                    <div class="sub-node">
+                        <div class="sn-head">
+                            <div class="sn-num" style="background:var(--system-bg);color:var(--system);">📋</div>
+                            <div class="sn-title">Product Brief (1–2 pages)</div>
+                        </div>
+                        <ul class="sn-items">
+                            <li>Vision, mission, core value props</li>
+                            <li>Target market and user segments</li>
+                            <li>Key differentiators vs competitors</li>
+                            <li>Current product stage (MVP/growth/scale)</li>
+                        </ul>
+                    </div>
+                    <div class="sub-node">
+                        <div class="sn-head">
+                            <div class="sn-num" style="background:var(--system-bg);color:var(--system);">🏗️</div>
+                            <div class="sn-title">Architecture Overview</div>
+                        </div>
+                        <ul class="sn-items">
+                            <li>Tech stack (frontend, backend, DB, cloud)</li>
+                            <li>Microservices map with module names</li>
+                            <li>Auth system and session model</li>
+                            <li>Third-party integrations list</li>
+                        </ul>
+                    </div>
+                    <div class="sub-node">
+                        <div class="sn-head">
+                            <div class="sn-num" style="background:var(--system-bg);color:var(--system);">👥</div>
+                            <div class="sn-title">Personas Master Doc</div>
+                        </div>
+                        <ul class="sn-items">
+                            <li>All user roles across the product</li>
+                            <li>Permission levels per role</li>
+                            <li>Primary use cases per persona</li>
+                            <li>Platform preferences (web/mobile)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flow-step">
+            <div class="step-dot filled system"></div>
+            <div class="node-card system-card">
+                <div class="node-head">
+                    <span class="node-id system">STEP 0.3</span>
+                    <span class="node-name">Establish PRD Template & Conventions</span>
+                    <span class="node-role">🧠 Standards</span>
+                </div>
+                <div class="node-desc">Define the output standards before generating any PRD. Consistency starts here.</div>
+                <ul class="detail-list">
+                    <li><strong>PRD Template:</strong> Upload or define your 10-section template structure with exact headings</li>
+                    <li><strong>FR-ID Scheme:</strong> Define numbering format — e.g., <code>FR-[MODULE]-[SEQ]</code></li>
+                    <li><strong>Error Message Convention:</strong> Define <code>inline</code> | <code>toast</code> | <code>modal</code> rules upfront</li>
+                    <li><strong>API Convention:</strong> Define endpoint format — e.g., <code>POST /api/v1/{module}/{action}</code></li>
+                    <li><strong>AC Format:</strong> Checkbox format? Gherkin? Decide now and lock it in</li>
+                    <li><strong>Validation Test:</strong> Generate a small sample section to confirm AI outputs match your template</li>
+                </ul>
+                <div class="loop-box" style="margin-top:10px;border-color:rgba(0,212,255,0.3);background:rgba(0,212,255,0.05);">
+                    <div class="loop-icon" style="color:var(--accent);">✅</div>
+                    <div class="loop-text" style="color:var(--accent);">One-time investment — every subsequent module benefits</div>
+                    <div class="loop-detail">Re-upload when architecture or stack changes</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ────────── PHASE 1: DEFINE ────────── -->
+<div class="phase ph-1">
+    <div class="phase-head" onclick="togglePhase(this)">
+        <div class="phase-num">01</div>
+        <div class="phase-title">
+            <h3>DEFINE — Product Thinking</h3>
+            <div class="sub">PM identifies module, personas, flows, data, and constraints before touching AI</div>
+        </div>
+        <div class="phase-tags">
+            <span class="p-tag pm">PM Only</span>
+        </div>
+        <span class="phase-time">⏱ 15–30 min</span>
+        <span class="phase-arrow">▼</span>
+    </div>
+    <div class="phase-body open">
+        <div class="phase-divider"></div>
+
+        <!-- Step 1.1 -->
+        <div class="flow-step">
+            <div class="step-dot filled pm"></div>
+            <div class="node-card pm-card">
+                <div class="node-head">
+                    <span class="node-id pm">STEP 1.1</span>
+                    <span class="node-name">Identify Module & Business Purpose</span>
+                    <span class="node-role">👤 PM</span>
+                </div>
+                <div class="node-desc">Define what this module does, why it exists, and where it fits in the product architecture.</div>
+                <ul class="detail-list">
+                    <li><strong>Problem Statement:</strong> What user/business problem does this solve?</li>
+                    <li><strong>Product Fit:</strong> Where does this sit in the module hierarchy? (e.g., <code>Auth → Login</code>)</li>
+                    <li><strong>Business Case:</strong> Revenue impact, compliance requirement, or user retention driver?</li>
+                    <li><strong>Scope Flag:</strong> Is this <code>MVP</code> or <code>Future Phase</code>?</li>
+                    <li><strong>Dependencies:</strong> What existing modules does this interact with?</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Step 1.2 -->
+        <div class="flow-step">
+            <div class="step-dot filled pm"></div>
+            <div class="node-card pm-card">
+                <div class="node-head">
+                    <span class="node-id pm">STEP 1.2</span>
+                    <span class="node-name">Define User Personas & Access Context</span>
+                    <span class="node-role">👤 PM</span>
+                </div>
+                <div class="node-desc">Identify every persona that touches this module and their distinct needs.</div>
+                <div class="table-scroll"><table class="data-table">
+                    <thead>
+                        <tr><th>Attribute</th><th>Detail Required</th><th>Example</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Persona Name</td><td>Role-based identifier</td><td><code>Customer</code>, <code>Admin</code>, <code>Agent</code></td></tr>
+                        <tr><td>Primary Goal</td><td>What they want to accomplish</td><td>"Reset password without calling support"</td></tr>
+                        <tr><td>Pain Points</td><td>Current frustrations</td><td>"Too many steps to verify identity"</td></tr>
+                        <tr><td>Access Level</td><td>Permission boundaries</td><td><code>read-only</code>, <code>full-CRUD</code>, <code>approve-only</code></td></tr>
+                        <tr><td>Platform</td><td>Where they interact</td><td><code>Web</code>, <code>Mobile</code>, <code>Both</code></td></tr>
+                        <tr><td>Frequency</td><td>How often they use this</td><td>Daily, Monthly, One-time</td></tr>
+                    </tbody>
+                </table></div>
+            </div>
+        </div>
+
+        <!-- Step 1.3 -->
+        <div class="flow-step">
+            <div class="step-dot filled pm"></div>
+            <div class="node-card pm-card">
+                <div class="node-head">
+                    <span class="node-id pm">STEP 1.3</span>
+                    <span class="node-name">Map Core User Flows</span>
+                    <span class="node-role">👤 PM</span>
+                </div>
+                <div class="node-desc">Trace every path a user takes — happy path, alternative paths, and error exits.</div>
+                <ul class="detail-list">
+                    <li><strong>Happy Path:</strong> Ideal journey from entry → success (e.g., Login → OTP → Dashboard)</li>
+                    <li><strong>Alternative Paths:</strong> Biometric login, SSO, remember-me flows</li>
+                    <li><strong>Error Paths:</strong> Wrong password, locked account, expired OTP, network timeout</li>
+                    <li><strong>Edge Cases:</strong> Multi-account user, concurrent sessions, mid-flow abandonment</li>
+                    <li><strong>Entry Points:</strong> Where users arrive from (deep link, redirect, manual navigation)</li>
+                    <li><strong>Exit Points:</strong> Where users go after completion (dashboard, next step, logout)</li>
+                    <li><strong>Cross-Module Handoffs:</strong> e.g., Login success → triggers Profile module → loads Dashboard</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Step 1.4 -->
+        <div class="flow-step">
+            <div class="step-dot filled pm"></div>
+            <div class="node-card pm-card">
+                <div class="node-head">
+                    <span class="node-id pm">STEP 1.4</span>
+                    <span class="node-name">Define Data Fields & Business Rules</span>
+                    <span class="node-role">👤 PM</span>
+                </div>
+                <div class="node-desc">Specify every data element with type, constraints, and validation logic.</div>
+                <div class="table-scroll"><table class="data-table">
+                    <thead>
+                        <tr><th>Field</th><th>Type</th><th>Constraints</th><th>Validation Rule</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Email</td><td><code>string</code></td><td>Required, max 254 chars</td><td>RFC 5322 format, domain MX check</td></tr>
+                        <tr><td>Password</td><td><code>string</code></td><td>Min 8, max 128 chars</td><td>1 upper, 1 lower, 1 digit, 1 special</td></tr>
+                        <tr><td>OTP</td><td><code>string</code></td><td>Exactly 6 digits</td><td>Numeric only, expires in 120s</td></tr>
+                        <tr><td>Phone</td><td><code>string</code></td><td>E.164 format</td><td>Country code + 10-15 digits</td></tr>
+                    </tbody>
+                </table></div>
+                <ul class="detail-list" style="margin-top: 8px;">
+                    <li><strong>Business Rules:</strong> Max 5 OTP attempts → 15-min lockout → escalate to support</li>
+                    <li><strong>Security:</strong> Passwords hashed with bcrypt, OTP via SMS/email, session JWT with 30-min expiry</li>
+                    <li><strong>Compliance:</strong> GDPR data retention, PCI-DSS for payment fields, audit log requirements</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Step 1.5 -->
+        <div class="flow-step">
+            <div class="step-dot pm"></div>
+            <div class="node-card pm-card">
+                <div class="node-head">
+                    <span class="node-id pm">STEP 1.5</span>
+                    <span class="node-name">Attach Design References & Wireframes</span>
+                    <span class="node-role">👤 PM</span>
+                </div>
+                <div class="node-desc">Link all visual references that inform the PRD's UI/UX section.</div>
+                <ul class="detail-list">
+                    <li><strong>Figma Links:</strong> Wireframes, high-fidelity mockups, prototypes</li>
+                    <li><strong>UI States:</strong> Note which screens need <code>loading</code>, <code>empty</code>, <code>error</code>, <code>success</code> states</li>
+                    <li><strong>Design Patterns:</strong> Reference existing module patterns for consistency</li>
+                    <li><strong>Responsive:</strong> Note breakpoints and mobile-specific layouts</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ────────── PHASE 2: BRIEF ────────── -->
+<div class="phase ph-2">
+    <div class="phase-head" onclick="togglePhase(this)">
+        <div class="phase-num">02</div>
+        <div class="phase-title">
+            <h3>BRIEF — Context Loading into AI</h3>
+            <div class="sub">Load AI workspace with product foundation, module brief, and reference patterns</div>
+        </div>
+        <div class="phase-tags">
+            <span class="p-tag pm">PM Input</span>
+            <span class="p-tag sys">System</span>
+        </div>
+        <span class="phase-time">⏱ 10–15 min</span>
+        <span class="phase-arrow">▼</span>
+    </div>
+    <div class="phase-body open">
+        <div class="phase-divider"></div>
+
+        <!-- Layer 1 -->
+        <div class="flow-step">
+            <div class="step-dot filled system"></div>
+            <div class="node-card system-card">
+                <div class="node-head">
+                    <span class="node-id system">LAYER 1</span>
+                    <span class="node-name">Product Foundation (Persistent Context)</span>
+                    <span class="node-role">🧠 AI Workspace</span>
+                </div>
+                <div class="node-desc">Uploaded once to the AI project workspace. Persists across all module conversations.</div>
+                <ul class="detail-list">
+                    <li><strong>Product Philosophy:</strong> Vision, mission, core values, design principles</li>
+                    <li><strong>System Architecture:</strong> Tech stack, microservices map, data flow diagrams</li>
+                    <li><strong>User Personas Master:</strong> All personas across the entire product</li>
+                    <li><strong>PRD Template:</strong> The 10-section standardized template structure</li>
+                    <li><strong>Completed PRDs:</strong> All previously generated PRDs for pattern reference</li>
+                    <li><strong>Convention Guide:</strong> Naming schemes, ID formats, error message standards</li>
+                </ul>
+                <div class="loop-box" style="margin-top: 10px; border-color: var(--system-border); background: var(--system-bg);">
+                    <div class="loop-icon" style="color: var(--system);">📌</div>
+                    <div class="loop-text" style="color: var(--system);">One-time setup per product — context accumulates</div>
+                    <div class="loop-detail">Uses Claude Projects with persistent memory</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Layer 2 -->
+        <div class="flow-step">
+            <div class="step-dot filled pm"></div>
+            <div class="node-card pm-card">
+                <div class="node-head">
+                    <span class="node-id pm">LAYER 2</span>
+                    <span class="node-name">Module Brief (200–400 Words)</span>
+                    <span class="node-role">👤 PM</span>
+                </div>
+                <div class="node-desc">The core prompt that triggers PRD generation. Structured, specific, referential.</div>
+                <div class="prompt-block">
+                    <div class="prompt-head">Brief Structure Template</div>
+                    <div class="prompt-body">
+                        <div class="prompt-item">
+                            <div class="prompt-num">A</div>
+                            <div class="prompt-content">
+                                <div class="prompt-label">Module Identity</div>
+                                <div class="prompt-example">"Create a PRD for the <code>Password Reset</code> module under the <code>Authentication</code> system"</div>
+                            </div>
+                        </div>
+                        <div class="prompt-item">
+                            <div class="prompt-num">B</div>
+                            <div class="prompt-content">
+                                <div class="prompt-label">Personas & Flows</div>
+                                <div class="prompt-example">"3 personas: <code>Customer</code> (self-service reset), <code>Agent</code> (assisted reset), <code>Admin</code> (force reset). Start with comparison table."</div>
+                            </div>
+                        </div>
+                        <div class="prompt-item">
+                            <div class="prompt-num">C</div>
+                            <div class="prompt-content">
+                                <div class="prompt-label">Data & Rules</div>
+                                <div class="prompt-example">"OTP: 6-digit, 120s expiry, max 5 attempts. Password: min 8 chars, complexity enforced. Lockout: 15 min after 5 failures."</div>
+                            </div>
+                        </div>
+                        <div class="prompt-item">
+                            <div class="prompt-num">D</div>
+                            <div class="prompt-content">
+                                <div class="prompt-label">References & Template</div>
+                                <div class="prompt-example">"Follow the same PRD template from the <code>Login Module PRD</code>. Match security config table format."</div>
+                            </div>
+                        </div>
+                        <div class="prompt-item">
+                            <div class="prompt-num">E</div>
+                            <div class="prompt-content">
+                                <div class="prompt-label">Design Links</div>
+                                <div class="prompt-example">"Wireframes: <code>[Figma URL]</code>. Include states: loading, error, success, empty for each screen."</div>
+                            </div>
+                        </div>
+                        <div class="prompt-item">
+                            <div class="prompt-num">F</div>
+                            <div class="prompt-content">
+                                <div class="prompt-label">Depth Specification</div>
+                                <div class="prompt-example">"Include happy path + all error states + edge cases + boundary conditions. Checkbox format for AC."</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Layer 3 -->
+        <div class="flow-step">
+            <div class="step-dot pm"></div>
+            <div class="node-card pm-card">
+                <div class="node-head">
+                    <span class="node-id pm">LAYER 3</span>
+                    <span class="node-name">Pattern References (Cross-Module Consistency)</span>
+                    <span class="node-role">👤 PM</span>
+                </div>
+                <div class="node-desc">Explicit pointers to prior modules ensuring AI maintains consistency.</div>
+                <ul class="detail-list">
+                    <li><strong>Security Tables:</strong> "Use same OTP config table format from <code>Login PRD §3.1</code>"</li>
+                    <li><strong>Error Conventions:</strong> "Follow error message format: <code>inline</code> | <code>toast</code> | <code>modal</code> categories"</li>
+                    <li><strong>FR-ID Scheme:</strong> "Continue numbering from <code>FR-AUTH-050</code>"</li>
+                    <li><strong>API Patterns:</strong> "Endpoints follow <code>POST /api/v1/{module}/{action}</code> convention"</li>
+                    <li><strong>Acceptance Criteria:</strong> "Checkbox format — each checkbox = one testable condition"</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Prompting Patterns -->
+        <div class="prompt-block" style="margin-top: 8px; margin-left: 36px;">
+            <div class="prompt-head">🎯 Six Prompting Patterns for Maximum Quality</div>
+            <div class="prompt-body">
+                <div class="prompt-item">
+                    <div class="prompt-num">1</div>
+                    <div class="prompt-content">
+                        <div class="prompt-label">Reference Prior Work</div>
+                        <div class="prompt-example">"Follow the same structure from the Authentication module PRD"</div>
+                    </div>
+                </div>
+                <div class="prompt-item">
+                    <div class="prompt-num">2</div>
+                    <div class="prompt-content">
+                        <div class="prompt-label">Specify Output Depth</div>
+                        <div class="prompt-example">"Include happy path, error states, edge cases, empty states, loading states"</div>
+                    </div>
+                </div>
+                <div class="prompt-item">
+                    <div class="prompt-num">3</div>
+                    <div class="prompt-content">
+                        <div class="prompt-label">Multi-Persona Structure</div>
+                        <div class="prompt-example">"Comparison table first, then separate user stories per persona"</div>
+                    </div>
+                </div>
+                <div class="prompt-item">
+                    <div class="prompt-num">4</div>
+                    <div class="prompt-content">
+                        <div class="prompt-label">Technical Constraints</div>
+                        <div class="prompt-example">"We use Keycloak, Redis, JWT — reflect these in technical notes"</div>
+                    </div>
+                </div>
+                <div class="prompt-item">
+                    <div class="prompt-num">5</div>
+                    <div class="prompt-content">
+                        <div class="prompt-label">QA-Ready Format</div>
+                        <div class="prompt-example">"Checkbox acceptance criteria that serve as direct test cases"</div>
+                    </div>
+                </div>
+                <div class="prompt-item">
+                    <div class="prompt-num">6</div>
+                    <div class="prompt-content">
+                        <div class="prompt-label">Iterative Refinement</div>
+                        <div class="prompt-example">"Add multi-account selection step between identity lookup and OTP"</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ────────── PHASE 3: GENERATE ────────── -->
+<div class="phase ph-3">
+    <div class="phase-head" onclick="togglePhase(this)">
+        <div class="phase-num">03</div>
+        <div class="phase-title">
+            <h3>GENERATE — AI Documentation Engine</h3>
+            <div class="sub">AI produces complete 10-section PRD in a single structured pass</div>
+        </div>
+        <div class="phase-tags">
+            <span class="p-tag ai">AI Generates</span>
+        </div>
+        <span class="phase-time">⏱ 15–30 min</span>
+        <span class="phase-arrow">▼</span>
+    </div>
+    <div class="phase-body open">
+        <div class="phase-divider"></div>
+
+
+        <!-- Step 3.0: Outline First -->
+        <div class="flow-step">
+            <div class="step-dot pm"></div>
+            <div class="node-card pm-card">
+                <div class="node-head">
+                    <span class="node-id pm">STEP 3.0</span>
+                    <span class="node-name">Outline-First (Optional but Recommended)</span>
+                    <span class="node-role">👤 PM + 🤖 AI</span>
+                </div>
+                <div class="node-desc">Before full PRD generation, ask AI to produce a section outline only. PM validates structure in 2 minutes — saves a full iteration round.</div>
+                <ul class="detail-list">
+                    <li><strong>Prompt:</strong> <code>"Generate only the section headings and sub-headings for this PRD — no content yet"</code></li>
+                    <li><strong>PM checks:</strong> Are all 10 sections present? Are sub-modules correctly broken down?</li>
+                    <li><strong>Approve or adjust:</strong> Add/remove sections before the heavy generation pass</li>
+                    <li><strong>Then prompt:</strong> <code>"Now fill in complete content for all sections following this outline"</code></li>
+                    <li><strong>Time saved:</strong> Catching a missing section at outline stage takes 2 min vs 30 min after full generation</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-connector" style="padding-left:36px">
+            <div class="fc-line"></div>
+            <div class="fc-arrow">↓</div>
+            <div class="fc-label">Outline approved — full generation begins</div>
+        </div>
+
+        <div class="flow-step">
+            <div class="step-dot filled ai"></div>
+            <div class="node-card ai-card">
+                <div class="node-head">
+                    <span class="node-id ai">GEN</span>
+                    <span class="node-name">AI Produces Full PRD — 10 Sections</span>
+                    <span class="node-role">🤖 AI</span>
+                </div>
+                <div class="node-desc">Complete PRD generated from module brief + accumulated product context. Each section has specific depth requirements.</div>
+
+                <div class="sub-nodes">
+                    <!-- Section 1 -->
+                    <div class="sub-node">
+                        <div class="sn-head">
+                            <div class="sn-num" style="background:var(--ai-bg);color:var(--ai);">§1</div>
+                            <div class="sn-title">Document Information</div>
+                        </div>
+                        <ul class="sn-items">
+                            <li>Module name, version, status, dates</li>
+                            <li>Author, reviewers, approvers</li>
+                            <li>Design wireframe links (Figma)</li>
+                            <li>Related module references</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 2 -->
+                    <div class="sub-node">
+                        <div class="sn-head">
+                            <div class="sn-num" style="background:var(--ai-bg);color:var(--ai);">§2</div>
+                            <div class="sn-title">Scope & Feature List</div>
+                        </div>
+                        <ul class="sn-items">
+                            <li>Module boundaries (in-scope / out-of-scope)</li>
+                            <li>Multi-persona comparison table</li>
+                            <li>Feature list with MVP/Future flags</li>
+                            <li>Sub-module breakdown</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 3 -->
+                    <div class="sub-node">
+                        <div class="sn-head">
+                            <div class="sn-num" style="background:var(--ai-bg);color:var(--ai);">§3</div>
+                            <div class="sn-title">Configuration & Parameters</div>
+                        </div>
+                        <ul class="sn-items">
+                            <li>Security config tables (OTP, passwords, lockouts)</li>
+                            <li>Field definition tables with types & limits</li>
+                            <li>Business rule parameters</li>
+                            <li>Environment-specific configs</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 4 -->
+                    <div class="sub-node">
+                        <div class="sn-head">
+                            <div class="sn-num" style="background:var(--ai-bg);color:var(--ai);">§4</div>
+                            <div class="sn-title">User Stories & Acceptance Criteria</div>
+                        </div>
+                        <ul class="sn-items">
+                            <li>Detailed stories per persona</li>
+                            <li>30–50 checkbox AC per story</li>
+                            <li>Happy path + error + edge cases</li>
+                            <li>Empty, loading, boundary states</li>
+                            <li>Each checkbox = 1 testable condition</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 5 -->
+                    <div class="sub-node">
+                        <div class="sn-head">
+                            <div class="sn-num" style="background:var(--ai-bg);color:var(--ai);">§5</div>
+                            <div class="sn-title">Functional Requirements</div>
+                        </div>
+                        <ul class="sn-items">
+                            <li>FR-ID numbered table format</li>
+                            <li>Organized by sub-module</li>
+                            <li>14+ requirements per sub-module</li>
+                            <li>Description + priority + status columns</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 6 -->
+                    <div class="sub-node">
+                        <div class="sn-head">
+                            <div class="sn-num" style="background:var(--ai-bg);color:var(--ai);">§6</div>
+                            <div class="sn-title">Non-Functional Requirements</div>
+                        </div>
+                        <ul class="sn-items">
+                            <li>Performance: P95 response times (&lt;200ms)</li>
+                            <li>Security: encryption, audit, compliance</li>
+                            <li>Availability: 99.9% SLA targets</li>
+                            <li>Scalability: concurrent user limits</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 7 -->
+                    <div class="sub-node">
+                        <div class="sn-head">
+                            <div class="sn-num" style="background:var(--ai-bg);color:var(--ai);">§7</div>
+                            <div class="sn-title">UI/UX Specifications</div>
+                        </div>
+                        <ul class="sn-items">
+                            <li>Per-screen UI state matrix</li>
+                            <li>Field validation display rules</li>
+                            <li>Error messages + display types</li>
+                            <li>Loading skeletons, success confirmations</li>
+                            <li>Responsive breakpoint behaviors</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 8 -->
+                    <div class="sub-node">
+                        <div class="sn-head">
+                            <div class="sn-num" style="background:var(--ai-bg);color:var(--ai);">§8</div>
+                            <div class="sn-title">Technical Notes</div>
+                        </div>
+                        <ul class="sn-items">
+                            <li>API endpoints table (method, path, auth)</li>
+                            <li>Data models & schemas</li>
+                            <li>Integration points (3rd-party)</li>
+                            <li>Caching, queuing, async strategies</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 9 -->
+                    <div class="sub-node">
+                        <div class="sn-head">
+                            <div class="sn-num" style="background:var(--ai-bg);color:var(--ai);">§9</div>
+                            <div class="sn-title">QA Acceptance Links</div>
+                        </div>
+                        <ul class="sn-items">
+                            <li>Links to separate QA-specific docs</li>
+                            <li>Test scenario coverage map</li>
+                            <li>Negative test requirements</li>
+                            <li>Regression test considerations</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 10 -->
+                    <div class="sub-node">
+                        <div class="sn-head">
+                            <div class="sn-num" style="background:var(--ai-bg);color:var(--ai);">§10</div>
+                            <div class="sn-title">Change Log & Versioning</div>
+                        </div>
+                        <ul class="sn-items">
+                            <li>Version history table</li>
+                            <li>Change descriptions with dates</li>
+                            <li>Reviewer sign-off tracking</li>
+                            <li>Status lifecycle tracking</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ────────── PHASE 4: ITERATE ────────── -->
+<div class="phase ph-4">
+    <div class="phase-head" onclick="togglePhase(this)">
+        <div class="phase-num">04</div>
+        <div class="phase-title">
+            <h3>ITERATE — Review, Flag, Refine</h3>
+            <div class="sub">PM reviews for business accuracy, flags gaps, AI refines targeted sections</div>
+        </div>
+        <div class="phase-tags">
+            <span class="p-tag pm">PM Reviews</span>
+            <span class="p-tag ai">AI Refines</span>
+        </div>
+        <span class="phase-time">⏱ 30–60 min (2–3 rounds)</span>
+        <span class="phase-arrow">▼</span>
+    </div>
+    <div class="phase-body open">
+        <div class="phase-divider"></div>
+
+        <!-- Step 4.1: Review -->
+        <div class="flow-step">
+            <div class="step-dot filled pm"></div>
+            <div class="node-card pm-card">
+                <div class="node-head">
+                    <span class="node-id pm">STEP 4.1</span>
+                    <span class="node-name">PM Deep Review — Quality Gate</span>
+                    <span class="node-role">👤 PM</span>
+                </div>
+                <div class="node-desc">Systematic review against 8-point quality checklist. This is the critical human judgment step.</div>
+                <ul class="checklist">
+                    <li><strong>Dev Ready:</strong> Could a developer build this without asking a single question?</li>
+                    <li><strong>Data Complete:</strong> Every field has type, constraint, validation rule, and error message?</li>
+                    <li><strong>States Covered:</strong> Does every screen define loading, empty, error, and success states?</li>
+                    <li><strong>Errors Specific:</strong> Are error messages specific with display type (inline/toast/modal)?</li>
+                    <li><strong>Security Consistent:</strong> Do security configs match patterns from prior modules?</li>
+                    <li><strong>API Realistic:</strong> Are endpoint paths and methods correct for the tech stack?</li>
+                    <li><strong>Edge Cases:</strong> Are boundary conditions and concurrent access scenarios covered?</li>
+                    <li><strong>Cross-Module:</strong> Do references to other modules accurately reflect their current PRDs?</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Step 4.2: Decision -->
+        <div class="flow-step">
+            <div class="step-dot filled decision"></div>
+            <div class="node-card decision-card">
+                <div class="node-head">
+                    <span class="node-id decision">GATE</span>
+                    <span class="node-name">Quality Decision: Gaps Found?</span>
+                    <span class="node-role">⚖️ Decision</span>
+                </div>
+                <div class="node-desc">PM evaluates if the generated PRD meets production-ready standards.</div>
+
+                <div class="decision-branches">
+                    <div class="branch yes">
+                        <div class="branch-label">⚠ GAPS FOUND → Refine</div>
+                        <div class="branch-desc">
+                            PM provides targeted, specific feedback. Examples:
+                            <ul class="detail-list" style="margin-top: 6px;">
+                                <li>"Add multi-account selection step between lookup and OTP"</li>
+                                <li>"Field X needs max 50 characters, not 100"</li>
+                                <li>"Missing error state for network timeout on OTP screen"</li>
+                                <li>"OTP cooldown should be 60s not 30s"</li>
+                                <li>"Add concurrent session detection for mobile + web"</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="branch no">
+                        <div class="branch-label">✅ APPROVED → Proceed</div>
+                        <div class="branch-desc">
+                            PRD passes all 8 quality checks:
+                            <ul class="detail-list" style="margin-top: 6px;">
+                                <li>All edge cases comprehensively covered</li>
+                                <li>Consistent with prior module patterns</li>
+                                <li>Developer-ready with zero ambiguity</li>
+                                <li>QA can write test cases directly from AC</li>
+                                <li>→ Proceed to Phase 5: QA Align</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4.3: AI Refine -->
+        <div class="flow-step">
+            <div class="step-dot filled ai"></div>
+            <div class="node-card ai-card">
+                <div class="node-head">
+                    <span class="node-id ai">STEP 4.3</span>
+                    <span class="node-name">AI Refines Targeted Sections</span>
+                    <span class="node-role">🤖 AI</span>
+                </div>
+                <div class="node-desc">AI processes PM feedback and updates only the flagged sections while maintaining cross-section consistency.</div>
+                <ul class="detail-list">
+                    <li><strong>Surgical Updates:</strong> Only modifies sections PM flagged — not full regeneration</li>
+                    <li><strong>Cascade Awareness:</strong> If a field changes, updates AC, FR table, UI spec, and tech notes</li>
+                    <li><strong>Pattern Preservation:</strong> Maintains formatting, numbering, and convention consistency</li>
+                    <li><strong>Version Tracking:</strong> Notes what changed for the change log section</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="loop-box">
+            <div class="loop-icon">🔁</div>
+            <div class="loop-text">Iteration Loop: 2–3 Rounds Typical</div>
+            <div class="loop-detail">Round 1: Major gaps • Round 2: Fine-tuning • Round 3: Polish (if needed)</div>
+        </div>
+    </div>
+</div>
+
+<!-- ────────── PHASE 5: QA ALIGN ────────── -->
+<div class="phase ph-5">
+    <div class="phase-head" onclick="togglePhase(this)">
+        <div class="phase-num">05</div>
+        <div class="phase-title">
+            <h3>QA ALIGN — Test-Ready Documentation</h3>
+            <div class="sub">Generate separate QA acceptance criteria documents linked to main PRD</div>
+        </div>
+        <div class="phase-tags">
+            <span class="p-tag ai">AI Generates</span>
+            <span class="p-tag pm">QA Reviews</span>
+        </div>
+        <span class="phase-time">⏱ 15–20 min</span>
+        <span class="phase-arrow">▼</span>
+    </div>
+    <div class="phase-body open">
+        <div class="phase-divider"></div>
+
+        <!-- Step 5.1 -->
+        <div class="flow-step">
+            <div class="step-dot filled ai"></div>
+            <div class="node-card ai-card">
+                <div class="node-head">
+                    <span class="node-id ai">STEP 5.1</span>
+                    <span class="node-name">Generate QA Acceptance Criteria Documents</span>
+                    <span class="node-role">🤖 AI</span>
+                </div>
+                <div class="node-desc">Separate QA document per major feature — keeps main PRD readable for stakeholders while giving QA granular test detail.</div>
+                <div class="table-scroll"><table class="data-table">
+                    <thead>
+                        <tr><th>Category</th><th>Test Scope</th><th>Format</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Positive Tests</td><td>Happy path verification</td><td><code>☐ Checkbox per condition</code></td></tr>
+                        <tr><td>Negative Tests</td><td>Invalid input, wrong credentials</td><td><code>☐ Checkbox per condition</code></td></tr>
+                        <tr><td>Boundary Tests</td><td>Min/max values, character limits</td><td><code>☐ Checkbox per condition</code></td></tr>
+                        <tr><td>State Tests</td><td>Loading, empty, error, success</td><td><code>☐ Checkbox per condition</code></td></tr>
+                        <tr><td>Security Tests</td><td>Injection, XSS, CSRF, session hijack</td><td><code>☐ Checkbox per condition</code></td></tr>
+                        <tr><td>Cross-Device</td><td>Browser compat, responsive, mobile</td><td><code>☐ Checkbox per condition</code></td></tr>
+                    </tbody>
+                </table></div>
+            </div>
+        </div>
+
+        <!-- Step 5.2 -->
+        <div class="flow-step">
+            <div class="step-dot filled output"></div>
+            <div class="node-card output-card">
+                <div class="node-head">
+                    <span class="node-id output">STEP 5.2</span>
+                    <span class="node-name">Link QA Docs to Main PRD (§9)</span>
+                    <span class="node-role">📎 Output</span>
+                </div>
+                <div class="node-desc">QA documents are hyperlinked from PRD Section 9, creating traceability from user story → acceptance criteria → test case.</div>
+                <ul class="detail-list">
+                    <li><strong>Traceability:</strong> <code>US-001</code> → <code>AC-001-01 to AC-001-35</code> → <code>TC-001-01 to TC-001-35</code></li>
+                    <li><strong>Separation:</strong> PRD stays readable for stakeholders; QA gets atomic-level detail</li>
+                    <li><strong>Immediate Use:</strong> QA team can start writing automation scripts from day 1 of dev</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Step 5.3 -->
+        <div class="flow-step">
+            <div class="step-dot pm"></div>
+            <div class="node-card pm-card">
+                <div class="node-head">
+                    <span class="node-id pm">STEP 5.3</span>
+                    <span class="node-name">QA Team Review & Validation</span>
+                    <span class="node-role">👥 Team</span>
+                </div>
+                <div class="node-desc">QA lead validates test coverage completeness and confirms all scenarios are testable.</div>
+                <ul class="detail-list">
+                    <li>Validates coverage against each user story</li>
+                    <li>Flags untestable criteria for PM clarification</li>
+                    <li>Identifies missing integration test scenarios</li>
+                    <li>Confirms environment requirements for test execution</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Step 5.4: Developer Review -->
+        <div class="flow-step">
+            <div class="step-dot filled pm"></div>
+            <div class="node-card pm-card">
+                <div class="node-head">
+                    <span class="node-id pm">STEP 5.4</span>
+                    <span class="node-name">Developer Technical Review</span>
+                    <span class="node-role">👨‍💻 Dev Lead</span>
+                </div>
+                <div class="node-desc">Tech lead or senior developer reviews the PRD before development begins. This is the last checkpoint for catching technical ambiguity before it becomes a sprint blocker.</div>
+                <ul class="detail-list">
+                    <li><strong>API Feasibility:</strong> Are the proposed endpoints consistent with existing architecture?</li>
+                    <li><strong>Data Model:</strong> Do field definitions align with the actual DB schema?</li>
+                    <li><strong>Performance Flags:</strong> Are there any requirements that would cause N+1 queries or expensive operations?</li>
+                    <li><strong>Security Review:</strong> Does the security model align with existing auth patterns?</li>
+                    <li><strong>Missing Tech Notes:</strong> Any edge cases the PM missed that are obvious from a dev perspective?</li>
+                    <li><strong>Output:</strong> Dev lead adds technical notes section or flags items back to PM for <code>v1.1</code></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ────────── PHASE 6: DELIVER ────────── -->
+<div class="phase ph-6">
+    <div class="phase-head" onclick="togglePhase(this)">
+        <div class="phase-num">06</div>
+        <div class="phase-title">
+            <h3>DELIVER — Artifacts & Stakeholder Handoff</h3>
+            <div class="sub">Generate supporting deliverables, version control, and distribute to stakeholders</div>
+        </div>
+        <div class="phase-tags">
+            <span class="p-tag ai">AI Artifacts</span>
+            <span class="p-tag pm">PM Manages</span>
+        </div>
+        <span class="phase-time">⏱ 15–30 min</span>
+        <span class="phase-arrow">▼</span>
+    </div>
+    <div class="phase-body open">
+        <div class="phase-divider"></div>
+
+        <!-- Step 6.1: Artifacts -->
+        <div class="flow-step">
+            <div class="step-dot filled ai"></div>
+            <div class="node-card ai-card">
+                <div class="node-head">
+                    <span class="node-id ai">STEP 6.1</span>
+                    <span class="node-name">Generate Supporting Artifacts</span>
+                    <span class="node-role">🤖 AI</span>
+                </div>
+                <div class="node-desc">AI produces visual and formatted deliverables beyond the core PRD.</div>
+                <div class="sub-nodes">
+                    <div class="sub-node">
+                        <div class="sn-head">
+                            <div class="sn-num" style="background:var(--ai-bg);color:var(--ai);">📊</div>
+                            <div class="sn-title">Interactive Flowcharts</div>
+                        </div>
+                        <ul class="sn-items">
+                            <li>HTML-based visual user flows</li>
+                            <li>Decision points with branching paths</li>
+                            <li>Error paths highlighted in red</li>
+                            <li>Shareable without special tools</li>
+                        </ul>
+                    </div>
+                    <div class="sub-node">
+                        <div class="sn-head">
+                            <div class="sn-num" style="background:var(--ai-bg);color:var(--ai);">📑</div>
+                            <div class="sn-title">Formatted Documents</div>
+                        </div>
+                        <ul class="sn-items">
+                            <li>Professional .docx with proper styling</li>
+                            <li>Tables, headers, cross-references</li>
+                            <li>Ready for Google Docs upload</li>
+                            <li>Print-ready formatting</li>
+                        </ul>
+                    </div>
+                    <div class="sub-node">
+                        <div class="sn-head">
+                            <div class="sn-num" style="background:var(--ai-bg);color:var(--ai);">📧</div>
+                            <div class="sn-title">Communication Artifacts</div>
+                        </div>
+                        <ul class="sn-items">
+                            <li>Sprint planning summaries</li>
+                            <li>Stakeholder update emails</li>
+                            <li>Release notes templates</li>
+                            <li>Technical handoff briefs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 6.2: Version Control -->
+        <div class="flow-step">
+            <div class="step-dot filled pm"></div>
+            <div class="node-card pm-card">
+                <div class="node-head">
+                    <span class="node-id pm">STEP 6.2</span>
+                    <span class="node-name">Version Control & Status Management</span>
+                    <span class="node-role">👤 PM</span>
+                </div>
+                <div class="node-desc">Formal versioning and status tracking through the PRD lifecycle.</div>
+                <div class="table-scroll"><table class="data-table">
+                    <thead>
+                        <tr><th>Version</th><th>Trigger</th><th>Status</th><th>Action</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>v0.1</code></td><td>AI first generation</td><td>Draft</td><td>PM review begins</td></tr>
+                        <tr><td><code>v0.x</code></td><td>Each iteration round</td><td>Draft</td><td>Tracked refinements</td></tr>
+                        <tr><td><code>v1.0</code></td><td>PM approves post-iteration</td><td>In Review</td><td>Shared to stakeholders</td></tr>
+                        <tr><td><code>v1.1+</code></td><td>Stakeholder/QA/tech feedback</td><td>In Review</td><td>Incorporated feedback</td></tr>
+                        <tr><td><code>v2.0</code></td><td>All reviews complete</td><td>Approved</td><td>Development begins</td></tr>
+                    </tbody>
+                </table></div>
+            </div>
+        </div>
+
+        <!-- Step 6.3: Distribution -->
+        <div class="flow-step">
+            <div class="step-dot filled output"></div>
+            <div class="node-card output-card">
+                <div class="node-head">
+                    <span class="node-id output">STEP 6.3</span>
+                    <span class="node-name">Stakeholder Distribution</span>
+                    <span class="node-role">📤 Handoff</span>
+                </div>
+                <div class="node-desc">PRD package distributed to all stakeholders with appropriate context.</div>
+                <div class="table-scroll"><table class="data-table">
+                    <thead>
+                        <tr><th>Stakeholder</th><th>Receives</th><th>Format</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Engineering Lead</td><td>Full PRD + Technical Notes + API specs</td><td>Google Docs + Figma links</td></tr>
+                        <tr><td>Developers</td><td>User Stories + FR Table + Tech Notes</td><td>Jira tickets linked to PRD</td></tr>
+                        <tr><td>QA Team</td><td>AC Documents + Test Scenarios</td><td>Separate QA docs, linked</td></tr>
+                        <tr><td>Design Team</td><td>UI/UX Specs + State Matrix</td><td>PRD §7 + Figma annotations</td></tr>
+                        <tr><td>Product Owner</td><td>Scope + Feature List + Priorities</td><td>Executive summary view</td></tr>
+                        <tr><td>Business Stakeholders</td><td>Scope + Timeline + Dependencies</td><td>.docx formatted report</td></tr>
+                    </tbody>
+                </table></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ────────── PHASE 7: COMPOUND ────────── -->
+<div class="phase ph-7">
+    <div class="phase-head" onclick="togglePhase(this)">
+        <div class="phase-num">07</div>
+        <div class="phase-title">
+            <h3>COMPOUND — Cross-Module Intelligence</h3>
+            <div class="sub">Each module enriches AI context — quality compounds exponentially over time</div>
+        </div>
+        <div class="phase-tags">
+            <span class="p-tag sys">System Effect</span>
+        </div>
+        <span class="phase-time">🔄 Ongoing</span>
+        <span class="phase-arrow">▼</span>
+    </div>
+    <div class="phase-body open">
+        <div class="phase-divider"></div>
+
+        <!-- Compounding Visualization -->
+        <div class="flow-step">
+            <div class="step-dot filled system"></div>
+            <div class="node-card system-card">
+                <div class="node-head">
+                    <span class="node-id system">COMPOUND</span>
+                    <span class="node-name">Context Accumulation Over Time</span>
+                    <span class="node-role">📈 System</span>
+                </div>
+                <div class="node-desc">Each completed PRD feeds back into the AI workspace, making subsequent modules faster and more consistent.</div>
+
+                <div class="compound-track">
+                    <div class="compound-stage cs-1">
+                        <div class="cs-module">Module 1</div>
+                        <div class="cs-context">Foundation docs only</div>
+                        <div class="cs-quality" style="background:var(--decision-bg);color:var(--decision);">~70% first-pass quality</div>
+                    </div>
+                    <div class="compound-arrow">→</div>
+                    <div class="compound-stage cs-2">
+                        <div class="cs-module">Module 2–3</div>
+                        <div class="cs-context">+ 1–2 completed PRDs</div>
+                        <div class="cs-quality" style="background:var(--pm-bg);color:var(--pm);">~82% first-pass quality</div>
+                    </div>
+                    <div class="compound-arrow">→</div>
+                    <div class="compound-stage cs-3">
+                        <div class="cs-module">Module 4–5</div>
+                        <div class="cs-context">+ 3–4 PRDs + conventions</div>
+                        <div class="cs-quality" style="background:var(--system-bg);color:var(--system);">~90% first-pass quality</div>
+                    </div>
+                    <div class="compound-arrow">→</div>
+                    <div class="compound-stage cs-4">
+                        <div class="cs-module">Module 6+</div>
+                        <div class="cs-context">+ Full product context</div>
+                        <div class="cs-quality" style="background:var(--output-bg);color:var(--output);">~95% first-pass quality</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- What Compounds -->
+        <div class="flow-step">
+            <div class="step-dot system"></div>
+            <div class="node-card system-card">
+                <div class="node-head">
+                    <span class="node-id system">PATTERNS</span>
+                    <span class="node-name">What Accumulates Across Modules</span>
+                    <span class="node-role">🧩 Memory</span>
+                </div>
+                <div class="table-scroll"><table class="data-table">
+                    <thead>
+                        <tr><th>Pattern Category</th><th>What AI Learns</th><th>Impact</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Security Configs</td><td>OTP rules, password policies, session timeouts, lockout thresholds</td><td>Consistent security across all modules</td></tr>
+                        <tr><td>Validation Rules</td><td>Field types, formats, ranges, error messages</td><td>Zero dev questions about data constraints</td></tr>
+                        <tr><td>Error Conventions</td><td>Inline vs toast vs modal categorization</td><td>Uniform UX across entire product</td></tr>
+                        <tr><td>API Patterns</td><td>Endpoint naming, HTTP methods, auth headers</td><td>Predictable API design for developers</td></tr>
+                        <tr><td>FR-ID Numbering</td><td>Sequential numbering scheme per sub-module</td><td>Clean traceability in Jira/tracking tools</td></tr>
+                        <tr><td>Template Structure</td><td>Section ordering, depth, formatting style</td><td>Stakeholders know exactly where to find info</td></tr>
+                        <tr><td>Domain Language</td><td>Product-specific terminology and concepts</td><td>Accurate domain modeling without re-explaining</td></tr>
+                    </tbody>
+                </table></div>
+            </div>
+        </div>
+
+        <!-- Multi-Product -->
+        <div class="flow-step">
+            <div class="step-dot system"></div>
+            <div class="node-card system-card">
+                <div class="node-head">
+                    <span class="node-id system">SCALE</span>
+                    <span class="node-name">Multi-Product Workspace Strategy</span>
+                    <span class="node-role">🌐 Scale</span>
+                </div>
+                <div class="node-desc">Each product gets its own AI workspace. Cross-product patterns (auth, profiles, search) transfer as templates.</div>
+                <ul class="detail-list">
+                    <li><strong>Product A Workspace:</strong> All Product A PRDs, architecture, conventions</li>
+                    <li><strong>Product B Workspace:</strong> All Product B PRDs, different domain but shared patterns</li>
+                    <li><strong>Cross-Pollination:</strong> Auth patterns from Product A inform Product B's auth module</li>
+                    <li><strong>Context Switch:</strong> PM switches workspaces without quality loss — each is self-contained</li>
+                    <li><strong>Template Library:</strong> Shared PRD template evolves based on learnings across all products</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+<!-- ────────── PHASE 8: TICKET ────────── -->
+<div class="phase" style="border-color:rgba(0,212,255,0.25);background:var(--surface);">
+    <div class="phase-head" onclick="togglePhase(this)">
+        <div class="phase-num" style="background:rgba(0,212,255,0.1);color:var(--accent);border:1px solid rgba(0,212,255,0.25);">08</div>
+        <div class="phase-title">
+            <h3>TICKET — AI-Assisted Jira / Linear Backlog</h3>
+            <div class="sub">Transform approved PRD into ready-to-import dev tickets with story points and acceptance criteria</div>
+        </div>
+        <div class="phase-tags">
+            <span class="p-tag ai">AI Generates</span>
+            <span class="p-tag pm">PM Finalizes</span>
+        </div>
+        <span class="phase-time">⏱ 20–40 min</span>
+        <span class="phase-arrow">▼</span>
+    </div>
+    <div class="phase-body">
+        <div class="phase-divider"></div>
+
+        <div class="flow-step">
+            <div class="step-dot filled ai"></div>
+            <div class="node-card ai-card">
+                <div class="node-head">
+                    <span class="node-id ai">STEP 8.1</span>
+                    <span class="node-name">Generate Epic & Story Breakdown</span>
+                    <span class="node-role">🤖 AI</span>
+                </div>
+                <div class="node-desc">AI converts the approved PRD into a structured ticket hierarchy ready for Jira or Linear import.</div>
+                <div class="sub-nodes">
+                    <div class="sub-node">
+                        <div class="sn-head">
+                            <div class="sn-num" style="background:var(--ai-bg);color:var(--ai);">🗂</div>
+                            <div class="sn-title">Epic Level</div>
+                        </div>
+                        <ul class="sn-items">
+                            <li>One Epic per major module/sub-module</li>
+                            <li>Epic summary from PRD scope section</li>
+                            <li>Links back to PRD document URL</li>
+                            <li>Labels: module name, sprint target</li>
+                        </ul>
+                    </div>
+                    <div class="sub-node">
+                        <div class="sn-head">
+                            <div class="sn-num" style="background:var(--ai-bg);color:var(--ai);">📝</div>
+                            <div class="sn-title">User Story Level</div>
+                        </div>
+                        <ul class="sn-items">
+                            <li>"As a [persona], I want [action], so that [outcome]"</li>
+                            <li>One story per user-facing feature</li>
+                            <li>AC copied from PRD checkbox format</li>
+                            <li>Story points: 1/2/3/5/8 estimate included</li>
+                        </ul>
+                    </div>
+                    <div class="sub-node">
+                        <div class="sn-head">
+                            <div class="sn-num" style="background:var(--ai-bg);color:var(--ai);">🔧</div>
+                            <div class="sn-title">Tech Task Level</div>
+                        </div>
+                        <ul class="sn-items">
+                            <li>API endpoint implementation tasks</li>
+                            <li>DB migration / schema tasks</li>
+                            <li>Frontend component tasks</li>
+                            <li>Unit + integration test tasks</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="prompt-block" style="margin-top:12px;">
+                    <div class="prompt-head">📋 Ticket Generation Prompt Template</div>
+                    <div class="prompt-body">
+                        <div class="prompt-item">
+                            <div class="prompt-num">→</div>
+                            <div class="prompt-content">
+                                <div class="prompt-label">Prompt to use</div>
+                                <div class="prompt-example">"Convert the approved PRD for <code>[Module Name]</code> into a Jira-ready ticket breakdown. For each feature: create 1 Epic, N User Stories in 'As a [persona]...' format with all AC from §9, and tech sub-tasks for API, DB, and frontend. Include story point estimates (Fibonacci). Format as a table I can copy into a CSV for Jira bulk import."</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flow-step">
+            <div class="step-dot filled pm"></div>
+            <div class="node-card pm-card">
+                <div class="node-head">
+                    <span class="node-id pm">STEP 8.2</span>
+                    <span class="node-name">PM Prioritizes & Sprint Plans</span>
+                    <span class="node-role">👤 PM</span>
+                </div>
+                <div class="node-desc">PM reviews the ticket breakdown, assigns sprint targets, and flags MVP vs future-phase tickets.</div>
+                <ul class="detail-list">
+                    <li><strong>MVP Tag:</strong> Flag stories matching PRD MVP scope for Sprint 1 backlog</li>
+                    <li><strong>Story Point Review:</strong> Validate AI estimates with dev lead — adjust outliers</li>
+                    <li><strong>Dependencies:</strong> Identify cross-ticket blockers and set "blocked by" links</li>
+                    <li><strong>Sprint Assignment:</strong> Distribute total points across sprint capacity</li>
+                    <li><strong>Import:</strong> Export as CSV to Jira / paste directly into Linear</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-step">
+            <div class="step-dot filled output"></div>
+            <div class="node-card output-card">
+                <div class="node-head">
+                    <span class="node-id output">STEP 8.3</span>
+                    <span class="node-name">Sprint Planning Artifact</span>
+                    <span class="node-role">📤 Output</span>
+                </div>
+                <div class="node-desc">AI generates a sprint planning summary doc for the kickoff meeting — so the team hits Day 1 of dev with full context.</div>
+                <ul class="detail-list">
+                    <li><strong>Module Overview:</strong> 1-paragraph module summary for non-technical stakeholders</li>
+                    <li><strong>Dev Checklist:</strong> Top 5 technical decisions devs need to make before coding</li>
+                    <li><strong>Risk Register:</strong> 3–5 implementation risks flagged from PRD edge cases</li>
+                    <li><strong>Definition of Done:</strong> Module-level DoD auto-generated from PRD §9 AC</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════════ RESULTS ═══════════════════ -->
+<div style="max-width:1100px;margin:0 auto;padding:0 20px;">
+<div class="stats-grid">
+    <div class="stat-box">
+        <div class="stat-val" style="color:var(--pm);">80–85%</div>
+        <div class="stat-label">Time Reduction</div>
+    </div>
+    <div class="stat-box">
+        <div class="stat-val" style="color:var(--ai);">2–4 hrs</div>
+        <div class="stat-label">Per Module (vs 15–25 hrs)</div>
+    </div>
+    <div class="stat-box">
+        <div class="stat-val" style="color:var(--output);">100%</div>
+        <div class="stat-label">Structural Consistency</div>
+    </div>
+    <div class="stat-box">
+        <div class="stat-val" style="color:var(--decision);">0</div>
+        <div class="stat-label">Dev Ambiguity Questions</div>
+    </div>
+    <div class="stat-box">
+        <div class="stat-val" style="color:var(--system);">10</div>
+        <div class="stat-label">PRD Sections Standardized</div>
+    </div>
+    <div class="stat-box">
+        <div class="stat-val" style="color:var(--accent);">100+</div>
+        <div class="stat-label">Acceptance Criteria / Module</div>
+    </div>
+    <div class="stat-box">
+        <div class="stat-val" style="color:var(--loop);">2–3</div>
+        <div class="stat-label">Iteration Rounds to Final</div>
+    </div>
+    <div class="stat-box">
+        <div class="stat-val" style="color:var(--ai);">95%</div>
+        <div class="stat-label">First-Pass Quality (Module 6+)</div>
+    </div>
+</div>
+
+<!-- ═══════════════════ WARNING ═══════════════════ -->
+<div class="warning-box">
+    <h4>⚠️ What AI Cannot Replace — The PM's Irreplaceable Role</h4>
+    <div class="warning-grid">
+        <div class="warning-item">
+            <div class="wi-title">🎯 Product Vision</div>
+            <div class="wi-desc">AI cannot define what to build, why it matters, or how it fits the company strategy. Vision is purely human.</div>
+        </div>
+        <div class="warning-item">
+            <div class="wi-title">👥 User Research</div>
+            <div class="wi-desc">AI cannot interview users, observe behavior, synthesize qualitative insights, or feel user frustration.</div>
+        </div>
+        <div class="warning-item">
+            <div class="wi-title">⚖️ Prioritization Judgment</div>
+            <div class="wi-desc">AI cannot weigh business context, political dynamics, resource constraints, or market timing for trade-offs.</div>
+        </div>
+        <div class="warning-item">
+            <div class="wi-title">🤝 Stakeholder Alignment</div>
+            <div class="wi-desc">AI cannot negotiate, build consensus, manage expectations, or navigate organizational politics.</div>
+        </div>
+        <div class="warning-item">
+            <div class="wi-title">🧠 Domain Expertise</div>
+            <div class="wi-desc">AI needs human validation for domain-specific business logic, regulatory requirements, and industry nuances.</div>
+        </div>
+        <div class="warning-item">
+            <div class="wi-title">🔍 Quality Gate Ownership</div>
+            <div class="wi-desc">AI generates content but cannot self-evaluate business correctness. The PM is the final quality gate.</div>
+        </div>
+    </div>
+</div>
+</div><!-- /.results-wrap -->
+
+</div><!-- /.main -->
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<div class="footer">
+    <p>Built with AI. Directed by human judgment. The PM doesn't write the documentation — they architect the thinking.</p>
+    <p style="margin-top: 8px;">By <span class="credit">Md Tarekujjaman Riad</span> — Product Manager & Founder</p>
+</div>
+
+<script>
+    function togglePhase(el) {
+        const body = el.nextElementSibling;
+        const arrow = el.querySelector('.phase-arrow');
+        
+        if (body.classList.contains('open')) {
+            body.classList.remove('open');
+            arrow.classList.remove('open');
+        } else {
+            body.classList.add('open');
+            arrow.classList.add('open');
+        }
+    }
+
+    // Scroll-triggered fade-in
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.05, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.phase, .stats-grid, .warning-box').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(15px)';
+        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(el);
+    });
+</script>
+
+</body>
+</html>
