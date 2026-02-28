@@ -1,812 +1,1787 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Glam Makeover Game ✨</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    /* ===== RESET & BASE ===== */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg:       #1a0530;
-      --bg2:      #2d0a4e;
-      --gold:     #f5c518;
-      --gold2:    #e8a000;
-      --pink:     #ff6eb4;
-      --purple:   #9b59b6;
-      --text:     #fff;
-      --card:     rgba(255,255,255,0.08);
-      --card-b:   rgba(255,255,255,0.15);
-      --radius:   18px;
-      --tool-sz:  72px;
-    }
-    html, body {
-      width: 100%; height: 100%;
-      background: linear-gradient(145deg, var(--bg) 0%, var(--bg2) 100%);
-      font-family: 'Nunito', sans-serif;
-      color: var(--text);
-      overflow: hidden;
-      touch-action: none;
-      user-select: none;
-    }
-
-    /* ===== SCREENS ===== */
-    .screen {
-      position: absolute; inset: 0;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      transition: opacity .45s ease, transform .45s ease;
-    }
-    .screen.hidden { opacity: 0; pointer-events: none; transform: scale(.97); }
-
-    /* ===== STARS BG ===== */
-    #stars-canvas {
-      position: fixed; inset: 0; z-index: 0; pointer-events: none;
-    }
-
-    /* ===== INTRO SCREEN ===== */
-    #intro { z-index: 10; gap: 20px; padding: 24px; text-align: center; }
-    .game-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 8vw, 3.5rem);
-      font-weight: 900;
-      background: linear-gradient(135deg, var(--gold) 0%, var(--pink) 60%, #b388ff 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      line-height: 1.1; margin-bottom: 6px;
-    }
-    .game-subtitle { font-size: clamp(.85rem, 3vw, 1.1rem); opacity: .7; margin-bottom: 10px; }
-
-    .intro-character { width: min(220px, 55vw); margin: 0 auto 10px; filter: drop-shadow(0 8px 24px rgba(255,110,180,.35)); }
-
-    .btn-start {
-      background: linear-gradient(135deg, var(--pink), var(--gold));
-      border: none; border-radius: 50px; padding: 16px 44px;
-      font-size: 1.15rem; font-weight: 800; color: #fff;
-      cursor: pointer; letter-spacing: .5px;
-      box-shadow: 0 6px 30px rgba(255,110,180,.45);
-      transition: transform .2s, box-shadow .2s;
-    }
-    .btn-start:hover { transform: translateY(-2px) scale(1.04); box-shadow: 0 10px 36px rgba(255,110,180,.6); }
-    .btn-start:active { transform: scale(.97); }
-
-    /* ===== GAME SCREEN ===== */
-    #game { z-index: 10; flex-direction: column; padding: 0; justify-content: flex-start; }
-
-    /* Top bar */
-    .top-bar {
-      width: 100%; display: flex; align-items: center; justify-content: space-between;
-      padding: 14px 18px 8px;
-      background: rgba(0,0,0,.25); backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--card-b);
-    }
-    .top-bar h2 { font-family: 'Playfair Display', serif; font-size: 1.1rem; }
-    .top-bar .progress-wrap { flex: 1; margin: 0 14px; }
-    .progress-label { font-size: .7rem; opacity: .6; margin-bottom: 4px; }
-    .progress-bar {
-      height: 8px; background: rgba(255,255,255,.12); border-radius: 99px; overflow: hidden;
-    }
-    .progress-fill {
-      height: 100%; width: 0%;
-      background: linear-gradient(90deg, var(--pink), var(--gold));
-      border-radius: 99px;
-      transition: width .55s cubic-bezier(.4,0,.2,1);
-    }
-    .btn-finish {
-      background: linear-gradient(135deg, var(--gold2), var(--gold));
-      border: none; border-radius: 30px; padding: 8px 18px;
-      font-size: .8rem; font-weight: 800; color: #1a0530; cursor: pointer;
-      transition: transform .2s; white-space: nowrap;
-    }
-    .btn-finish:hover { transform: scale(1.06); }
-    .btn-finish:disabled { opacity: .35; cursor: not-allowed; }
-
-    /* Character stage */
-    .stage {
-      flex: 1; display: flex; align-items: center; justify-content: center;
-      position: relative; overflow: hidden; width: 100%;
-    }
-    .character-wrap {
-      position: relative; width: min(300px, 78vw);
-      filter: drop-shadow(0 12px 36px rgba(155,89,182,.45));
-      cursor: crosshair;
-    }
-    #char-svg { width: 100%; height: auto; display: block; }
-
-    /* Click ripple */
-    .ripple {
-      position: absolute; border-radius: 50%;
-      width: 40px; height: 40px;
-      background: radial-gradient(circle, rgba(255,255,255,.5) 0%, transparent 70%);
-      animation: rippleAnim .6s ease-out forwards;
-      pointer-events: none; transform: translate(-50%, -50%);
-    }
-    @keyframes rippleAnim {
-      from { opacity: 1; transform: translate(-50%,-50%) scale(.3); }
-      to   { opacity: 0; transform: translate(-50%,-50%) scale(2.5); }
-    }
-
-    /* Floating text */
-    .float-text {
-      position: absolute; font-size: .85rem; font-weight: 800;
-      color: var(--gold); pointer-events: none;
-      animation: floatUp .9s ease-out forwards;
-      text-shadow: 0 0 8px rgba(245,197,24,.7);
-    }
-    @keyframes floatUp {
-      from { opacity: 1; transform: translateY(0) translateX(-50%); }
-      to   { opacity: 0; transform: translateY(-60px) translateX(-50%); }
-    }
-
-    /* Sparkles */
-    .sparkle {
-      position: absolute; pointer-events: none;
-      animation: sparklePop .7s ease-out forwards;
-      font-size: 1.2rem;
-    }
-    @keyframes sparklePop {
-      0%   { opacity: 1; transform: scale(.3) rotate(0deg); }
-      60%  { opacity: 1; transform: scale(1.4) rotate(180deg); }
-      100% { opacity: 0; transform: scale(.8) rotate(360deg); }
-    }
-
-    /* Tool status */
-    .tool-status {
-      text-align: center; padding: 6px 14px;
-      font-size: .82rem; font-weight: 700;
-      background: rgba(255,255,255,.06); border-top: 1px solid var(--card-b);
-      min-height: 34px; display: flex; align-items: center; justify-content: center; gap: 8px;
-    }
-    .tool-status .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--pink); animation: pulse 1.4s infinite; }
-    @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.5)} }
-
-    /* Toolbar */
-    .toolbar {
-      width: 100%; padding: 10px 12px 14px;
-      background: rgba(0,0,0,.35); backdrop-filter: blur(12px);
-      border-top: 1px solid var(--card-b);
-    }
-    .toolbar-scroll {
-      display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px;
-      scrollbar-width: none; -webkit-overflow-scrolling: touch;
-    }
-    .toolbar-scroll::-webkit-scrollbar { display: none; }
-
-    .tool-btn {
-      flex-shrink: 0;
-      width: var(--tool-sz); height: var(--tool-sz);
-      border-radius: var(--radius); border: 2px solid transparent;
-      background: var(--card); cursor: pointer;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 4px; transition: all .22s ease; position: relative;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .tool-btn .tool-icon { font-size: 1.6rem; line-height: 1; }
-    .tool-btn .tool-label { font-size: .58rem; font-weight: 700; opacity: .8; text-align: center; }
-    .tool-btn.active {
-      border-color: var(--gold); background: rgba(245,197,24,.15);
-      box-shadow: 0 0 18px rgba(245,197,24,.4);
-      transform: translateY(-4px) scale(1.06);
-    }
-    .tool-btn.done { border-color: var(--pink); background: rgba(255,110,180,.12); }
-    .tool-btn.done::after {
-      content: '✓'; position: absolute; top: 5px; right: 7px;
-      font-size: .7rem; color: var(--pink); font-weight: 900;
-    }
-    .tool-btn:hover:not(.active) { background: var(--card-b); transform: translateY(-2px); }
-
-    /* Color picker inside tool */
-    .color-swatch {
-      width: 18px; height: 10px; border-radius: 4px; border: 1px solid rgba(255,255,255,.3);
-      margin-top: -2px;
-    }
-    input[type="color"] {
-      position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none;
-    }
-
-    /* ===== FINISH SCREEN ===== */
-    #finish { z-index: 10; gap: 0; padding: 20px; overflow-y: auto; }
-    .finish-title {
-      font-family: 'Playfair Display', serif; font-size: clamp(1.6rem,6vw,2.4rem);
-      background: linear-gradient(135deg, var(--gold), var(--pink));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      margin-bottom: 6px; text-align: center;
-    }
-    .finish-subtitle { font-size: .88rem; opacity: .65; margin-bottom: 16px; text-align: center; }
-    .before-after {
-      display: flex; gap: 14px; width: 100%; max-width: 480px;
-      margin-bottom: 14px;
-    }
-    .ba-card {
-      flex: 1; background: var(--card); border-radius: var(--radius); padding: 10px;
-      text-align: center; border: 1px solid var(--card-b);
-    }
-    .ba-card svg { width: 100%; height: auto; }
-    .ba-label { font-size: .75rem; font-weight: 700; margin-top: 8px; opacity: .7; letter-spacing: .5px; text-transform: uppercase; }
-
-    .glam-score { text-align: center; margin-bottom: 14px; }
-    .glam-score .score-num {
-      font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 900;
-      background: linear-gradient(135deg, var(--gold), var(--pink));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .glam-score .stars { font-size: 1.5rem; letter-spacing: 4px; }
-    .glam-score .score-label { font-size: .8rem; opacity: .6; margin-top: 2px; }
-
-    .finish-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
-    .btn-replay {
-      background: linear-gradient(135deg, var(--purple), var(--pink));
-      border: none; border-radius: 50px; padding: 14px 36px;
-      font-size: 1rem; font-weight: 800; color: #fff; cursor: pointer;
-      box-shadow: 0 6px 24px rgba(155,89,182,.4);
-      transition: transform .2s, box-shadow .2s;
-    }
-    .btn-replay:hover { transform: translateY(-2px) scale(1.04); }
-
-    /* ===== CONFETTI ===== */
-    #confetti-canvas { position: fixed; inset: 0; z-index: 5; pointer-events: none; }
-
-    /* ===== TOAST ===== */
-    .toast {
-      position: fixed; bottom: 110px; left: 50%; transform: translateX(-50%) translateY(20px);
-      background: rgba(30,10,60,.9); backdrop-filter: blur(10px);
-      border: 1px solid var(--card-b); border-radius: 50px;
-      padding: 10px 24px; font-size: .85rem; font-weight: 700;
-      opacity: 0; transition: all .35s ease; z-index: 100;
-      white-space: nowrap;
-    }
-    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-
-    /* ===== UTILITY ===== */
-    @media (max-height: 600px) {
-      :root { --tool-sz: 58px; }
-      .tool-btn .tool-icon { font-size: 1.3rem; }
-      .top-bar { padding: 8px 14px 6px; }
-    }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+<title>Glam Makeover Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0015;--gold:#f5c518;--gold2:#e8a000;--pink:#ff6eb4;--pur:#9b59b6;
+  --text:#fff;--card:rgba(255,255,255,0.07);--card-b:rgba(255,255,255,0.14);
+  --r:16px;--tool-sz:66px;
+  --tb-h:52px;--tab-h:44px;--panel-h:72px;--bar-h:90px;
+}
+html,body{width:100%;height:100%;overflow:hidden;
+  background:linear-gradient(145deg,var(--bg) 0%,#1a0535 100%);
+  font-family:'Nunito',sans-serif;color:var(--text);
+  user-select:none;-webkit-tap-highlight-color:transparent;touch-action:none}
+/* STARS */
+#stars-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+#confetti-canvas{position:fixed;inset:0;z-index:50;pointer-events:none}
+/* BULBS */
+.bulb-wrap{position:fixed;inset:0;z-index:1;pointer-events:none}
+.bulb{position:absolute;width:18px;height:18px;border-radius:50%;
+  background:#ffe57a;
+  box-shadow:0 0 6px #ffe57a,0 0 18px rgba(255,229,122,.55);
+  transition:box-shadow .3s}
+.bulb.active{box-shadow:0 0 10px #fff,0 0 28px #ffe57a,0 0 50px rgba(255,229,122,.7);
+  animation:bulbPulse 1.4s infinite}
+@keyframes bulbPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+/* SCREENS */
+.screen{position:fixed;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;z-index:10;
+  transition:opacity .4s,transform .4s}
+.screen.hidden{opacity:0;pointer-events:none;transform:scale(.97)}
+/* INTRO */
+#intro{gap:14px;padding:24px;text-align:center}
+.game-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,7vw,3.2rem);
+  font-weight:900;line-height:1.1;
+  background:linear-gradient(135deg,var(--gold) 0%,var(--pink) 55%,#b388ff 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.game-sub{font-size:clamp(.8rem,3vw,1rem);opacity:.65;margin-bottom:4px}
+.intro-char{width:min(180px,48vw);filter:drop-shadow(0 8px 20px rgba(255,110,180,.4))}
+.btn-start{background:linear-gradient(135deg,var(--pink),var(--gold));
+  border:none;border-radius:50px;padding:14px 42px;
+  font-size:1.1rem;font-weight:800;color:#fff;cursor:pointer;letter-spacing:.5px;
+  box-shadow:0 6px 28px rgba(255,110,180,.5);
+  transition:transform .2s,box-shadow .2s}
+.btn-start:hover{transform:translateY(-2px) scale(1.04);
+  box-shadow:0 10px 36px rgba(255,110,180,.65)}
+.btn-start:active{transform:scale(.97)}
+/* GAME SCREEN */
+#game{justify-content:flex-start;align-items:stretch;padding:0}
+/* TOP BAR */
+.top-bar{display:flex;align-items:center;gap:8px;
+  padding:10px 14px 8px;height:var(--tb-h);
+  background:rgba(0,0,0,.3);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--card-b);flex-shrink:0}
+.xp-section{display:flex;flex-direction:column;flex:1;min-width:0}
+.xp-top{display:flex;justify-content:space-between;align-items:center;
+  font-size:.68rem;opacity:.75;margin-bottom:3px}
+.xp-bar-wrap{height:7px;background:rgba(255,255,255,.12);border-radius:99px;overflow:hidden}
+.xp-bar-fill{height:100%;width:0%;
+  background:linear-gradient(90deg,var(--pur),var(--pink),var(--gold));
+  border-radius:99px;transition:width .5s cubic-bezier(.4,0,.2,1)}
+.combo-badge{background:rgba(255,110,180,.2);border:1px solid var(--pink);
+  border-radius:50px;padding:3px 8px;font-size:.72rem;font-weight:800;
+  white-space:nowrap;opacity:0;transition:opacity .3s}
+.combo-badge.show{opacity:1;animation:comboPop .4s ease}
+@keyframes comboPop{0%{transform:scale(.6)}70%{transform:scale(1.2)}100%{transform:scale(1)}}
+.btn-finish{background:linear-gradient(135deg,var(--gold2),var(--gold));
+  border:none;border-radius:30px;padding:7px 16px;
+  font-size:.78rem;font-weight:800;color:#1a0530;cursor:pointer;
+  transition:transform .2s;white-space:nowrap;flex-shrink:0}
+.btn-finish:hover{transform:scale(1.06)}
+.btn-finish:disabled{opacity:.3;cursor:not-allowed}
+/* CATEGORY TABS */
+.cat-tabs{display:flex;gap:5px;padding:8px 10px 6px;
+  overflow-x:auto;scrollbar-width:none;flex-shrink:0;
+  height:var(--tab-h);align-items:center;
+  background:rgba(0,0,0,.2);border-bottom:1px solid var(--card-b)}
+.cat-tabs::-webkit-scrollbar{display:none}
+.cat-tab{flex-shrink:0;display:flex;align-items:center;gap:4px;
+  border:1.5px solid var(--card-b);border-radius:50px;padding:4px 10px;
+  font-size:.72rem;font-weight:700;cursor:pointer;
+  background:var(--card);transition:all .2s;position:relative}
+.cat-tab.active{border-color:var(--gold);background:rgba(245,197,24,.12);
+  color:var(--gold)}
+.cat-tab .tab-dot{width:6px;height:6px;border-radius:50%;
+  background:var(--pink);position:absolute;top:3px;right:3px;
+  display:none}
+.cat-tab .tab-dot.show{display:block}
+/* STAGE */
+.stage-wrap{flex:1;display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;min-height:0}
+.mirror-outer{position:relative;padding:8px;
+  border-radius:50% / 45%;
+  border:6px solid var(--gold);
+  box-shadow:0 0 30px rgba(245,197,24,.5),0 0 80px rgba(245,197,24,.2),
+             inset 0 0 30px rgba(0,0,0,.5);
+  background:rgba(10,0,30,.6);
+  max-height:calc(100% - 16px);display:flex;align-items:center;justify-content:center}
+.char-wrap{position:relative;cursor:crosshair;
+  height:100%;aspect-ratio:280/580}
+#char-svg{width:100%;height:100%;display:block}
+#brush-canvas{position:absolute;inset:0;pointer-events:none;
+  opacity:0;transition:opacity .3s;border-radius:50% / 45%}
+#brush-canvas.active{pointer-events:all;opacity:1}
+/* Blink animation target */
+@keyframes eyeBlink{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.05)}}
+.lyr-eyes-blink{transform-origin:center 78px}
+@keyframes breathe{0%,100%{transform:scaleY(1) translateY(0)}50%{transform:scaleY(.993) translateY(1px)}}
+#char-svg{animation:breathe 3.5s ease-in-out infinite;transform-origin:140px 580px}
+@keyframes hairSway{0%,100%{transform:skewX(0)}50%{transform:skewX(1.5deg)}}
+@keyframes excitedJump{0%{transform:translateY(0) rotate(0)}25%{transform:translateY(-16px) rotate(-2deg)}60%{transform:translateY(-8px) rotate(1.5deg)}100%{transform:translateY(0) rotate(0)}}
+.char-react{animation:excitedJump .65s ease-out !important}
+/* TOOL PANEL */
+.tool-panel{height:var(--panel-h);display:flex;align-items:center;gap:10px;
+  padding:0 12px;
+  background:rgba(0,0,0,.25);border-top:1px solid var(--card-b);
+  flex-shrink:0;overflow:hidden}
+.panel-icon{font-size:1.7rem;flex-shrink:0}
+.panel-info{display:flex;flex-direction:column;min-width:0;flex-shrink:0;max-width:38%}
+.panel-name{font-size:.85rem;font-weight:800;line-height:1.2}
+.panel-hint{font-size:.65rem;opacity:.65;line-height:1.3}
+.panel-opts{flex:1;display:flex;flex-wrap:nowrap;gap:5px;overflow-x:auto;
+  align-items:center;scrollbar-width:none}
+.panel-opts::-webkit-scrollbar{display:none}
+.opt-pill{flex-shrink:0;border:1.5px solid var(--card-b);border-radius:50px;
+  padding:4px 10px;font-size:.7rem;font-weight:700;cursor:pointer;
+  background:var(--card);transition:all .2s;white-space:nowrap}
+.opt-pill.active{border-color:var(--gold);background:rgba(245,197,24,.15);color:var(--gold)}
+.opt-pill.done-tick{border-color:var(--pink);background:rgba(255,110,180,.12);color:var(--pink)}
+.color-preview{width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,.3);
+  cursor:pointer;flex-shrink:0}
+input[type=color]{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.shade-opts{display:flex;gap:6px;align-items:center}
+.shade-dot{width:24px;height:24px;border-radius:50%;border:2px solid transparent;
+  cursor:pointer;transition:all .2s;flex-shrink:0}
+.shade-dot.active{border-color:var(--gold);transform:scale(1.2);
+  box-shadow:0 0 8px var(--gold)}
+/* TOOLBAR */
+.toolbar{height:var(--bar-h);padding:8px 10px 12px;
+  background:rgba(0,0,0,.35);backdrop-filter:blur(12px);
+  border-top:1px solid var(--card-b);flex-shrink:0}
+.toolbar-scroll{display:flex;gap:8px;height:100%;
+  overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+  align-items:center}
+.toolbar-scroll::-webkit-scrollbar{display:none}
+.tool-btn{flex-shrink:0;width:var(--tool-sz);height:var(--tool-sz);
+  border-radius:var(--r);border:2px solid transparent;
+  background:var(--card);cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:3px;transition:all .22s;position:relative}
+.tool-btn .t-icon{font-size:1.5rem;line-height:1}
+.tool-btn .t-label{font-size:.55rem;font-weight:700;opacity:.8;text-align:center}
+.tool-btn.selected{border-color:var(--gold);background:rgba(245,197,24,.12);
+  box-shadow:0 0 16px rgba(245,197,24,.4);transform:translateY(-3px) scale(1.04)}
+.tool-btn.done{border-color:var(--pink);background:rgba(255,110,180,.1)}
+.tool-btn.done::after{content:"✓";position:absolute;top:4px;right:5px;
+  font-size:.65rem;color:var(--pink);font-weight:900}
+.tool-btn:hover:not(.selected){background:var(--card-b);transform:translateY(-2px)}
+/* UNDO BTN */
+.btn-undo{position:fixed;bottom:calc(var(--bar-h) + 6px);right:12px;z-index:20;
+  width:38px;height:38px;border-radius:50%;border:1.5px solid var(--card-b);
+  background:rgba(0,0,0,.5);backdrop-filter:blur(8px);
+  font-size:.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all .2s}
+.btn-undo:hover{border-color:var(--gold);transform:scale(1.1)}
+/* ZONE HINT */
+.zone-hint{position:absolute;background:rgba(255,80,80,.9);color:#fff;
+  border-radius:50px;padding:5px 12px;font-size:.72rem;font-weight:800;
+  pointer-events:none;animation:floatUp .9s ease-out forwards;
+  white-space:nowrap;z-index:30}
+/* FLOAT TEXT */
+.float-text{position:absolute;font-size:.82rem;font-weight:800;
+  color:var(--gold);pointer-events:none;
+  animation:floatUp .95s ease-out forwards;
+  text-shadow:0 0 8px rgba(245,197,24,.7);z-index:30;white-space:nowrap}
+@keyframes floatUp{from{opacity:1;transform:translateX(-50%) translateY(0)}
+  to{opacity:0;transform:translateX(-50%) translateY(-65px)}}
+/* PARTICLES */
+.particle{position:absolute;pointer-events:none;z-index:30;
+  animation:particlePop .8s ease-out forwards}
+@keyframes particlePop{0%{opacity:1;transform:translate(var(--tx,0),var(--ty,0)) scale(.3) rotate(0deg)}
+  60%{opacity:1}100%{opacity:0;transform:translate(var(--tx2,0),var(--tx2,0)) scale(.8) rotate(360deg)}}
+.bubble{border-radius:50%;background:rgba(130,200,255,.6);animation:bubbleRise 1s ease-out forwards}
+@keyframes bubbleRise{0%{opacity:.9;transform:translate(var(--bx,0),0) scale(1)}
+  100%{opacity:0;transform:translate(var(--bx,0),var(--by,-70px)) scale(1.4)}}
+/* CAT BANNER */
+.cat-banner{position:fixed;top:0;left:50%;transform:translateX(-50%) translateY(-100%);
+  background:linear-gradient(135deg,var(--gold2),var(--pink));
+  border-radius:0 0 var(--r) var(--r);padding:8px 24px;
+  font-size:.85rem;font-weight:800;color:#fff;z-index:40;
+  transition:transform .45s cubic-bezier(.34,1.56,.64,1)}
+.cat-banner.show{transform:translateX(-50%) translateY(0)}
+/* TOAST */
+.toast{position:fixed;bottom:calc(var(--bar-h) + 50px);left:50%;
+  transform:translateX(-50%) translateY(20px);
+  background:rgba(20,5,45,.92);backdrop-filter:blur(10px);
+  border:1px solid var(--card-b);border-radius:50px;
+  padding:9px 22px;font-size:.82rem;font-weight:700;
+  opacity:0;transition:all .35s;z-index:60;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+/* FINISH SCREEN */
+#finish{gap:0;overflow-y:auto;padding:16px 12px 80px;justify-content:flex-start}
+.finish-title{font-family:'Playfair Display',serif;
+  font-size:clamp(1.5rem,6vw,2.2rem);
+  background:linear-gradient(135deg,var(--gold),var(--pink));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  text-align:center;margin-bottom:4px}
+.finish-sub{font-size:.82rem;opacity:.6;text-align:center;margin-bottom:12px}
+.ba-row{display:flex;gap:10px;width:100%;max-width:460px;margin-bottom:12px}
+.ba-card{flex:1;background:var(--card);border:1px solid var(--card-b);
+  border-radius:var(--r);padding:8px;text-align:center}
+.ba-card svg{width:100%;height:auto;max-height:220px}
+.ba-label{font-size:.7rem;opacity:.6;margin-top:5px;
+  text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+.score-section{text-align:center;margin-bottom:10px}
+.score-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;
+  background:linear-gradient(135deg,var(--gold),var(--pink));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.score-stars{font-size:1.4rem;letter-spacing:3px;margin:4px 0}
+.score-label{font-size:.75rem;opacity:.55}
+.cat-scores-grid{display:grid;grid-template-columns:repeat(3,1fr);
+  gap:6px;width:100%;max-width:400px;margin-bottom:12px}
+.cat-score-cell{background:var(--card);border:1px solid var(--card-b);
+  border-radius:10px;padding:7px 5px;text-align:center}
+.cs-icon{font-size:1.2rem}
+.cs-name{font-size:.6rem;opacity:.65;margin:2px 0}
+.cs-pct{font-size:.85rem;font-weight:800}
+.badges-row{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;
+  max-width:400px;margin-bottom:12px}
+.badge{background:var(--card);border:1px solid var(--card-b);border-radius:50px;
+  padding:5px 12px;font-size:.72rem;font-weight:700;
+  display:flex;align-items:center;gap:5px}
+.finish-btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.btn-replay{background:linear-gradient(135deg,var(--pur),var(--pink));
+  border:none;border-radius:50px;padding:13px 34px;
+  font-size:.95rem;font-weight:800;color:#fff;cursor:pointer;
+  box-shadow:0 6px 22px rgba(155,89,182,.4);transition:transform .2s}
+.btn-replay:hover{transform:translateY(-2px) scale(1.04)}
+/* RESPONSIVE */
+@media(max-height:680px){:root{--tool-sz:58px;--panel-h:60px;--bar-h:78px;--tb-h:46px;--tab-h:38px}}
+@media(max-height:580px){:root{--tool-sz:52px;--panel-h:52px;--bar-h:68px}}
+</style>
 </head>
 <body>
-
 <canvas id="stars-canvas"></canvas>
 <canvas id="confetti-canvas"></canvas>
+<div class="bulb-wrap" id="bulb-wrap"></div>
+<div class="cat-banner" id="cat-banner"></div>
+<div class="toast" id="toast"></div>
 
-<!-- ===== INTRO ===== -->
+<!-- INTRO SCREEN -->
 <div id="intro" class="screen">
-  <div class="game-title">Glam Makeover</div>
-  <div class="game-subtitle">Transform the messy girl into a glam queen! ✨</div>
-  <svg class="intro-character" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
-    <!-- messy preview in intro -->
-    <g id="intro-char"></g>
-  </svg>
+  <div class="game-title">✨ Glam Makeover<br/>Studio</div>
+  <div class="game-sub">Transform the messy girl into a glam queen!</div>
+  <svg class="intro-char" id="intro-svg" viewBox="0 0 280 580" xmlns="http://www.w3.org/2000/svg"></svg>
   <button class="btn-start" onclick="startGame()">💄 Start Makeover!</button>
 </div>
 
-<!-- ===== GAME ===== -->
+<!-- GAME SCREEN -->
 <div id="game" class="screen hidden">
   <div class="top-bar">
-    <h2>✨ Makeover</h2>
-    <div class="progress-wrap">
-      <div class="progress-label">Glam Progress</div>
-      <div class="progress-bar"><div class="progress-fill" id="prog-fill"></div></div>
+    <div class="xp-section">
+      <div class="xp-top">
+        <span id="xp-level">Glam Lv.1</span>
+        <span id="xp-val">0 XP</span>
+      </div>
+      <div class="xp-bar-wrap"><div class="xp-bar-fill" id="xp-fill"></div></div>
     </div>
+    <div class="combo-badge" id="combo-badge">🔥 x1</div>
     <button class="btn-finish" id="btn-finish" onclick="showFinish()" disabled>Finish!</button>
   </div>
-
-  <div class="stage" id="stage">
-    <div class="character-wrap" id="char-wrap">
-      <svg id="char-svg" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
-        <!-- layers populated by JS -->
-      </svg>
+  <div class="cat-tabs" id="cat-tabs"></div>
+  <div class="stage-wrap" id="stage-wrap">
+    <div class="mirror-outer" id="mirror-outer">
+      <div class="char-wrap" id="char-wrap">
+        <svg id="char-svg" viewBox="0 0 280 580" xmlns="http://www.w3.org/2000/svg"></svg>
+        <canvas id="brush-canvas" width="280" height="580"></canvas>
+      </div>
     </div>
   </div>
-
-  <div class="tool-status" id="tool-status">👆 Select a tool below to begin</div>
-
-  <div class="toolbar">
-    <div class="toolbar-scroll" id="toolbar"></div>
+  <div class="tool-panel" id="tool-panel">
+    <div class="panel-icon" id="panel-icon">👆</div>
+    <div class="panel-info">
+      <div class="panel-name" id="panel-name">Select a tool</div>
+      <div class="panel-hint" id="panel-hint">Pick a category tab and tap a tool</div>
+    </div>
+    <div class="panel-opts" id="panel-opts"></div>
   </div>
+  <div class="toolbar">
+    <div class="toolbar-scroll" id="toolbar-scroll"></div>
+  </div>
+  <button class="btn-undo" onclick="undoLast()" title="Undo">↩</button>
 </div>
 
-<!-- ===== FINISH ===== -->
+<!-- FINISH SCREEN -->
 <div id="finish" class="screen hidden">
   <div class="finish-title">Makeover Complete! 🎉</div>
-  <div class="finish-subtitle">Look at this stunning transformation!</div>
-  <div class="before-after">
+  <div class="finish-sub">Look at this stunning transformation!</div>
+  <div class="ba-row">
     <div class="ba-card">
-      <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg" id="before-svg"></svg>
+      <svg viewBox="0 0 280 580" xmlns="http://www.w3.org/2000/svg" id="before-svg"></svg>
       <div class="ba-label">Before</div>
     </div>
     <div class="ba-card">
-      <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg" id="after-svg"></svg>
-      <div class="ba-label">After</div>
+      <svg viewBox="0 0 280 580" xmlns="http://www.w3.org/2000/svg" id="after-svg"></svg>
+      <div class="ba-label">After ✨</div>
     </div>
   </div>
-  <div class="glam-score">
-    <div class="score-num" id="score-num">0</div>
-    <div class="stars" id="score-stars"></div>
+  <div class="score-section">
+    <div class="score-num" id="score-num">0%</div>
+    <div class="score-stars" id="score-stars"></div>
     <div class="score-label">Glam Score</div>
   </div>
+  <div class="cat-scores-grid" id="cat-scores-grid"></div>
+  <div class="badges-row" id="badges-row"></div>
   <div class="finish-btns">
     <button class="btn-replay" onclick="resetGame()">🔄 Play Again</button>
   </div>
 </div>
 
-<div class="toast" id="toast"></div>
-
 <script>
-/* =============================================
-   STARS BACKGROUND
-============================================= */
-(function(){
-  const c = document.getElementById('stars-canvas');
-  const ctx = c.getContext('2d');
-  let stars = [];
-  function resize(){ c.width=innerWidth; c.height=innerHeight; initStars(); }
-  function initStars(){
-    stars=[];
-    const n = Math.floor((innerWidth*innerHeight)/3200);
-    for(let i=0;i<n;i++) stars.push({ x:Math.random()*c.width, y:Math.random()*c.height, r:Math.random()*1.6+.2, a:Math.random(), speed:Math.random()*.004+.001 });
-  }
-  function draw(){
-    ctx.clearRect(0,0,c.width,c.height);
-    stars.forEach(s=>{
-      s.a += s.speed; if(s.a>1) s.a=0;
-      ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-      ctx.fillStyle=`rgba(255,255,255,${Math.abs(Math.sin(s.a*Math.PI))*.8})`;
-      ctx.fill();
-    });
-    requestAnimationFrame(draw);
-  }
-  window.addEventListener('resize',resize);
-  resize(); draw();
-})();
-
-/* =============================================
-   SVG CHARACTER BUILDER
-============================================= */
-const STATE = {
-  foundation: false,
-  blush:      false,
-  lipColor:   '#e8003c',
-  lipDone:    false,
-  eyeShadowColor: '#9b59b6',
-  eyeShadowDone: false,
-  mascara:    false,
-  hairBrush:  false,
-  hairColor:  '#3d1a00',
-  hairColorDone: false,
-  accessories: false,
+/* ============================
+   CONSTANTS & STATE
+============================ */
+const SKIN = {
+  default:{m:'#d4956a',s:'#b87448',d:'#9b5830'},
+  fair:   {m:'#ffe0cc',s:'#f5b89c',d:'#e8a078'},
+  medium: {m:'#f0b98c',s:'#d4956a',d:'#c07848'},
+  tan:    {m:'#c87941',s:'#a05828',d:'#8b4518'},
 };
 
-function buildCharSVG(state, messy=true) {
-  const skin   = state.foundation ? '#f5c8a0' : '#d4956a';
-  const skinSh = state.foundation ? '#e8aa7a' : '#b8734a';
-  const lip    = state.lipDone    ? state.lipColor : '#8b4046';
-  const esh    = state.eyeShadowDone ? state.eyeShadowColor : 'transparent';
-  const lash   = state.mascara ? '#000' : '#3d2010';
-  const lashW  = state.mascara ? 2.5 : 1.2;
-  const hairC  = state.hairColorDone ? state.hairColor : '#3d1a00';
-  const blushO = state.blush ? '.45' : '0';
+const TOOL_CATEGORIES = [
+  {id:'skincare', label:'Skincare', icon:'🧴'},
+  {id:'face',     label:'Face',     icon:'💄'},
+  {id:'eyes',     label:'Eyes',     icon:'👁️'},
+  {id:'lips',     label:'Lips',     icon:'💋'},
+  {id:'hair',     label:'Hair',     icon:'💇'},
+  {id:'body',     label:'Body',     icon:'💅'},
+];
 
-  // Hair shape depends on brushed or not
-  let hairPath, messyStrands='';
-  if (state.hairBrush) {
-    // Smooth hair
-    hairPath = `M100 20 C60 15, 20 40, 22 90 C22 110, 28 125, 34 138
-                C38 145, 32 160, 32 178 C32 195, 50 210, 100 215
-                C150 210, 168 195, 168 178 C168 160, 162 145, 166 138
-                C172 125, 178 110, 178 90 C180 40, 140 15, 100 20Z`;
-  } else {
-    // Messy hair
-    hairPath = `M100 22 C75 10, 30 25, 25 65 C20 95, 25 115, 30 135
-                C34 145, 28 162, 30 178 C32 195, 50 210, 100 215
-                C150 210, 168 195, 170 178 C172 162, 166 145, 170 135
-                C175 115, 180 95, 175 65 C170 25, 125 10, 100 22Z`;
-    // Frizzy strands
-    messyStrands = `
-      <line x1="60" y1="22" x2="45" y2="2" stroke="${hairC}" stroke-width="3" stroke-linecap="round"/>
-      <line x1="80" y1="15" x2="72" y2="-4" stroke="${hairC}" stroke-width="2.5" stroke-linecap="round"/>
-      <line x1="120" y1="15" x2="128" y2="-4" stroke="${hairC}" stroke-width="2.5" stroke-linecap="round"/>
-      <line x1="140" y1="22" x2="156" y2="2" stroke="${hairC}" stroke-width="3" stroke-linecap="round"/>
-      <line x1="50" y1="35" x2="32" y2="20" stroke="${hairC}" stroke-width="2" stroke-linecap="round"/>
-      <line x1="150" y1="35" x2="168" y2="20" stroke="${hairC}" stroke-width="2" stroke-linecap="round"/>
-      <line x1="100" y1="18" x2="96" y2="0" stroke="${hairC}" stroke-width="2.5" stroke-linecap="round"/>
-      <line x1="88" y1="16" x2="82" y2="-1" stroke="${hairC}" stroke-width="2" stroke-linecap="round"/>
-    `;
-  }
+const TOOLS = [
+  // SKINCARE
+  {id:'face-wash', cat:'skincare', icon:'🧼', label:'Face Wash', hint:'Tap face 3× to cleanse',
+   zones:['face'], steps:3, stateKey:'facewash', progKey:'faceWashProg',
+   msgs:['Cleansing... 🧼','Almost clean!','Fresh & clean! ✨'], particle:'bubbles', xp:10},
+  {id:'toner', cat:'skincare', icon:'💧', label:'Toner', hint:'Tap face to tone',
+   zones:['face'], steps:1, stateKey:'toner',
+   msgs:['Pores tightened! 💧'], particle:'droplets', xp:8},
+  {id:'moisturizer', cat:'skincare', icon:'🫧', label:'Moisturize', hint:'Tap face to moisturize',
+   zones:['face'], steps:1, stateKey:'moisturizer',
+   msgs:['Dewy glow! 🫧'], particle:'glow', xp:8},
+  {id:'face-mask', cat:'skincare', icon:'🎭', label:'Face Mask', hint:'Tap face to apply mask',
+   zones:['face'], steps:1, stateKey:'faceMask',
+   msgs:['Mask on! ✨'], particle:'sparkles', xp:12},
+  // FACE
+  {id:'foundation', cat:'face', icon:'✨', label:'Foundation', hint:'Pick shade, then tap face',
+   zones:['face'], steps:1, stateKey:'foundation', colorType:'shade',
+   msgs:['Flawless base! ✨'], particle:'shimmer', xp:15},
+  {id:'concealer', cat:'face', icon:'🪄', label:'Concealer', hint:'Tap face to conceal',
+   zones:['face'], steps:1, stateKey:'concealer',
+   msgs:['Hidden! 🪄'], particle:'glow', xp:10},
+  {id:'contour', cat:'face', icon:'🌑', label:'Contour', hint:'Tap cheeks to contour',
+   zones:['face'], steps:1, stateKey:'contour',
+   msgs:['Sculpted! 🌑'], particle:'shimmer', xp:12},
+  {id:'highlight', cat:'face', icon:'⚡', label:'Highlight', hint:'Tap cheekbones to highlight',
+   zones:['face'], steps:1, stateKey:'highlight',
+   msgs:['Blinding glow! ⚡'], particle:'stars', xp:12},
+  {id:'blush', cat:'face', icon:'🌸', label:'Blush', hint:'Pick color, then tap cheeks',
+   zones:['face'], steps:1, stateKey:'blushDone', colorKey:'blushColor',
+   msgs:['So rosy! 🌸'], particle:'petals', xp:10},
+  {id:'bronzer', cat:'face', icon:'🌅', label:'Bronzer', hint:'Tap forehead to bronze',
+   zones:['face'], steps:1, stateKey:'bronzer',
+   msgs:['Sun-kissed! 🌅'], particle:'shimmer', xp:10},
+  {id:'setting-spray', cat:'face', icon:'💨', label:'Setting Spray', hint:'Tap face to set',
+   zones:['face'], steps:1, stateKey:'settingSpray',
+   msgs:['Locked in! 💨'], particle:'mist', xp:8},
+  // EYES
+  {id:'eyebrow', cat:'eyes', icon:'✏️', label:'Brow Pencil', hint:'Tap brows to shape',
+   zones:['face'], steps:1, stateKey:'eyebrowDone',
+   msgs:['Perfect brows! ✏️'], particle:'sparkles', xp:10},
+  {id:'eyeshadow', cat:'eyes', icon:'👁️', label:'Eyeshadow', hint:'Pick color, then tap eyes',
+   zones:['face'], steps:1, stateKey:'eyeShadowDone', colorKey:'eyeShadowColor',
+   msgs:['Stunning eyes! 👁️'], particle:'shimmer', xp:12},
+  {id:'eyeliner', cat:'eyes', icon:'🖊️', label:'Eyeliner', hint:'Pick style, then tap eye line',
+   zones:['face'], steps:1, stateKey:'eyelinerDone', styleKey:'eyelinerStyle',
+   styleOpts:[{v:'classic',l:'Classic'},{v:'winged',l:'Winged'}],
+   msgs:['Lined! 🖊️'], particle:'sparkles', xp:12},
+  {id:'mascara', cat:'eyes', icon:'🪄', label:'Mascara', hint:'Tap LEFT then RIGHT eye',
+   zones:['face'], steps:2, stateKeys:['mascaraLeft','mascaraRight'],
+   msgs:['Left done! →','Bold lashes! 🪄'], particle:'stars', xp:15},
+  {id:'false-lashes', cat:'eyes', icon:'🦋', label:'False Lashes', hint:'Tap eyes to apply',
+   zones:['face'], steps:1, stateKey:'falseLashes',
+   msgs:['Dramatic! 🦋'], particle:'stars', xp:15},
+  {id:'under-eye', cat:'eyes', icon:'🌙', label:'Under-Eye', hint:'Tap under eyes',
+   zones:['face'], steps:1, stateKey:'underEyeDone',
+   msgs:['Wide awake! 🌙'], particle:'glow', xp:8},
+  // LIPS
+  {id:'lip-liner', cat:'lips', icon:'🖋️', label:'Lip Liner', hint:'Tap lips to line',
+   zones:['face'], steps:1, stateKey:'lipLiner',
+   msgs:['Defined! 🖋️'], particle:'sparkles', xp:8},
+  {id:'lipstick', cat:'lips', icon:'💄', label:'Lipstick', hint:'Pick color, then tap lips',
+   zones:['face'], steps:1, stateKey:'lipDone', colorKey:'lipColor',
+   msgs:['Gorgeous lips! 💄'], particle:'hearts', xp:12},
+  {id:'lip-gloss', cat:'lips', icon:'💫', label:'Lip Gloss', hint:'Tap lips for gloss',
+   zones:['face'], steps:1, stateKey:'lipGloss',
+   msgs:['So glossy! 💫'], particle:'glow', xp:10},
+  {id:'lip-plumper', cat:'lips', icon:'🫦', label:'Lip Plumper', hint:'Tap lips to plump',
+   zones:['face'], steps:1, stateKey:'lipPlumper',
+   msgs:['Plump & juicy! 🫦'], particle:'hearts', xp:10},
+  // HAIR
+  {id:'hair-wash', cat:'hair', icon:'🚿', label:'Hair Wash', hint:'Tap hair 3× to wash',
+   zones:['hair'], steps:3, stateKey:'hairWashed', progKey:'hairWashProg',
+   msgs:['Wetting... 🚿','Lathering up!','Squeaky clean! 🚿'], particle:'bubbles', xp:10},
+  {id:'hair-brush', cat:'hair', icon:'🪮', label:'Hair Brush', hint:'Tap hair to brush',
+   zones:['hair'], steps:1, stateKey:'hairBrush',
+   msgs:['Silky smooth! 🪮'], particle:'shimmer', xp:8},
+  {id:'hair-style', cat:'hair', icon:'💁', label:'Hairstyle', hint:'Pick a style below',
+   zones:['hair'], steps:1, stateKey:'hairStyleDone', styleKey:'hairStyle',
+   styleOpts:[{v:'straight',l:'✨ Straight'},{v:'wavy',l:'🌊 Wavy'},{v:'curly',l:'🌀 Curly'},{v:'ponytail',l:'🎀 Ponytail'},{v:'updo',l:'👑 Updo'}],
+   msgs:['Gorgeous! 💁'], particle:'stars', xp:15},
+  {id:'hair-color', cat:'hair', icon:'🎨', label:'Hair Color', hint:'Pick color, then tap hair',
+   zones:['hair'], steps:1, stateKey:'hairColorDone', colorKey:'hairColor',
+   msgs:['Fabulous color! 🎨'], particle:'shimmer', xp:12},
+  {id:'hair-acc', cat:'hair', icon:'🎀', label:'Hair Acc.', hint:'Pick accessory below',
+   zones:['hair'], steps:1, stateKey:'hairAccDone', styleKey:'hairAccessory',
+   styleOpts:[{v:'clips',l:'🗂 Clips'},{v:'headband',l:'🎀 Headband'},{v:'tiara',l:'👑 Tiara'}],
+   msgs:['So cute! 🎀'], particle:'sparkles', xp:8},
+  // BODY
+  {id:'body-lotion', cat:'body', icon:'🧴', label:'Body Lotion', hint:'Tap body to moisturize',
+   zones:['body'], steps:1, stateKey:'bodyLotion',
+   msgs:['Silky body! 🧴'], particle:'glow', xp:10},
+  {id:'body-glitter', cat:'body', icon:'✨', label:'Body Glitter', hint:'Tap body to sparkle',
+   zones:['body'], steps:1, stateKey:'bodyGlitter',
+   msgs:['Sparkling! ✨'], particle:'glitter', xp:12},
+  {id:'nail-hands', cat:'body', icon:'💅', label:'Hand Nails', hint:'Pick color → tap L then R hand',
+   zones:['hands'], steps:2, stateKeys:['nailHandsL','nailHandsR'], finalKey:'nailHandsDone', colorKey:'nailColorHands',
+   msgs:['Left done! →','Gorgeous nails! 💅'], particle:'sparkles', xp:15},
+  {id:'nail-feet', cat:'body', icon:'🦶', label:'Toe Nails', hint:'Pick color → tap L then R foot',
+   zones:['feet'], steps:2, stateKeys:['nailFeetL','nailFeetR'], finalKey:'nailFeetDone', colorKey:'nailColorFeet',
+   msgs:['Left done! →','Pretty toes! 🦶'], particle:'sparkles', xp:15},
+  {id:'outfit', cat:'body', icon:'👗', label:'Outfit', hint:'Pick an outfit below',
+   zones:['body','face','hair','hands','feet'], steps:1, stateKey:'outfitDone', styleKey:'outfit',
+   styleOpts:[{v:0,l:'👖 Casual'},{v:1,l:'🏫 School'},{v:2,l:'🎉 Party'},{v:3,l:'👙 Swimsuit'},{v:4,l:'👑 Ball Gown'}],
+   msgs:['Stunning look! 👗'], particle:'stars', xp:20},
+  {id:'earrings', cat:'body', icon:'💎', label:'Earrings', hint:'Pick earring style below',
+   zones:['face','body','hair','hands','feet'], steps:1, stateKey:'earringsDone', styleKey:'earrings',
+   styleOpts:[{v:'studs',l:'⚬ Studs'},{v:'hoops',l:'○ Hoops'},{v:'drops',l:'♦ Drops'}],
+   msgs:['Gorgeous! 💎'], particle:'sparkles', xp:10},
+  {id:'necklace', cat:'body', icon:'📿', label:'Necklace', hint:'Pick necklace style below',
+   zones:['face','body','hair','hands','feet'], steps:1, stateKey:'necklaceDone', styleKey:'necklace',
+   styleOpts:[{v:'simple',l:'– Simple'},{v:'pearl',l:'○ Pearl'},{v:'gold',l:'✦ Gold'}],
+   msgs:['Elegant! 📿'], particle:'sparkles', xp:10},
+  {id:'crown', cat:'body', icon:'👑', label:'Crown', hint:'Tap character to add crown!',
+   zones:['face','body','hair','hands','feet'], steps:1, stateKey:'crown',
+   msgs:['Royalty! 👑'], particle:'glitter', xp:15},
+];
 
-  // Earrings
-  const earrings = state.accessories ? `
-    <circle cx="25" cy="142" r="5" fill="#f5c518" stroke="#e8a000" stroke-width="1"/>
-    <circle cx="25" cy="150" r="3.5" fill="#ff6eb4"/>
-    <circle cx="175" cy="142" r="5" fill="#f5c518" stroke="#e8a000" stroke-width="1"/>
-    <circle cx="175" cy="150" r="3.5" fill="#ff6eb4"/>
-    <line x1="25" y1="137" x2="25" y2="142" stroke="#f5c518" stroke-width="2"/>
-    <line x1="175" y1="137" x2="175" y2="142" stroke="#f5c518" stroke-width="2"/>
-  ` : '';
+const CAT_SCORE_DEF = {
+  skincare:{tools:['face-wash','toner','moisturizer','face-mask'],          weight:10, icon:'🧴'},
+  face:    {tools:['foundation','concealer','contour','highlight','blush','bronzer','setting-spray'], weight:25, icon:'💄'},
+  eyes:    {tools:['eyebrow','eyeshadow','eyeliner','mascara','false-lashes','under-eye'], weight:20, icon:'👁️'},
+  lips:    {tools:['lip-liner','lipstick','lip-gloss','lip-plumper'],       weight:15, icon:'💋'},
+  hair:    {tools:['hair-wash','hair-brush','hair-style','hair-color','hair-acc'], weight:15, icon:'💇'},
+  body:    {tools:['body-lotion','body-glitter','nail-hands','nail-feet','outfit','earrings','necklace','crown'], weight:15, icon:'💅'},
+};
 
-  // Necklace
-  const necklace = state.accessories ? `
-    <path d="M60 210 Q100 228 140 210" fill="none" stroke="#f5c518" stroke-width="2.5"/>
-    <circle cx="100" cy="222" r="5" fill="#f5c518"/>
-    <circle cx="100" cy="222" r="3" fill="#ff6eb4"/>
-    <circle cx="80" cy="218" r="3" fill="#f5c518"/>
-    <circle cx="120" cy="218" r="3" fill="#f5c518"/>
-  ` : '';
+const ZONE_NAMES = {face:'face',hair:'hair',body:'body',hands:'the hands',feet:'the feet'};
 
-  // Foundation glow
-  const glow = state.foundation ? `<ellipse cx="100" cy="130" rx="62" ry="72" fill="url(#foundGlow)" opacity=".18"/>` : '';
+const STATE = {
+  facewash:false, faceWashProg:0,
+  toner:false, moisturizer:false, faceMask:false,
+  skinTone:'fair', foundation:false, concealer:false, contour:false,
+  highlight:false, blushColor:'#ff9999', blushDone:false, bronzer:false, settingSpray:false,
+  eyebrowDone:false,
+  eyeShadowColor:'#9b59b6', eyeShadowDone:false,
+  eyelinerStyle:'classic', eyelinerDone:false,
+  mascaraLeft:false, mascaraRight:false, falseLashes:false, underEyeDone:false,
+  lipLiner:false, lipColor:'#e8003c', lipDone:false, lipGloss:false, lipPlumper:false,
+  hairWashed:false, hairWashProg:0, hairBrush:false, hairStyleDone:false,
+  hairStyle:'messy', hairColor:'#3d1a00', hairColorDone:false,
+  hairAccessory:'none', hairAccDone:false,
+  bodyLotion:false, bodyGlitter:false,
+  nailColorHands:'#ff4488', nailHandsL:false, nailHandsR:false, nailHandsDone:false,
+  nailColorFeet:'#ff4488',  nailFeetL:false,  nailFeetR:false,  nailFeetDone:false,
+  outfit:-1, outfitDone:false,
+  earrings:'none', earringsDone:false,
+  necklace:'none', necklaceDone:false,
+  crown:false,
+  xp:0, combo:0, lastToolTime:0,
+};
 
-  return `
+const applied = new Set();
+let activeTool = null;
+let undoStack = [];
+let activeCat = 'skincare';
+let blinkTimer = null;
+
+/* ============================
+   HAIR PATHS (6 styles)
+============================ */
+function getHairPath(style, which) {
+  // 'back' = main shape, 'front' = fringe layer, 'extra' = frizzy strands
+  const paths = {
+    messy: {
+      back: 'M140,24 C115,12 72,18 52,42 C30,68 28,105 34,138 C40,168 56,184 70,185 L210,185 C224,184 240,168 246,138 C252,105 250,68 228,42 C208,18 165,12 140,24Z',
+      front:'M82,185 C95,175 118,170 140,170 C162,170 185,175 198,185',
+      extra:`<line x1="78" y1="30" x2="62" y2="8" stroke="{c}" stroke-width="3" stroke-linecap="round"/>
+<line x1="100" y1="20" x2="90" y2="2" stroke="{c}" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="140" y1="18" x2="138" y2="0" stroke="{c}" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="180" y1="20" x2="190" y2="2" stroke="{c}" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="202" y1="30" x2="218" y2="8" stroke="{c}" stroke-width="3" stroke-linecap="round"/>
+<line x1="55" y1="55" x2="38" y2="40" stroke="{c}" stroke-width="2" stroke-linecap="round"/>
+<line x1="225" y1="55" x2="242" y2="40" stroke="{c}" stroke-width="2" stroke-linecap="round"/>
+<line x1="62" y1="90" x2="44" y2="82" stroke="{c}" stroke-width="2" stroke-linecap="round"/>
+<line x1="218" y1="90" x2="236" y2="82" stroke="{c}" stroke-width="2" stroke-linecap="round"/>`,
+    },
+    straight: {
+      back: 'M140,26 C118,18 80,24 60,48 C42,72 40,108 42,140 C44,165 56,183 70,185 L210,185 C224,183 236,165 238,140 C240,108 238,72 220,48 C200,24 162,18 140,26Z',
+      front:'M82,185 C95,176 118,172 140,172 C162,172 185,176 198,185',
+      extra:'',
+    },
+    wavy: {
+      back: 'M140,26 C110,16 68,22 50,48 C32,75 30,112 36,145 C42,170 58,184 72,185 L208,185 C222,184 238,170 244,145 C250,112 248,75 230,48 C212,22 170,16 140,26Z',
+      front:'M75,185 C88,178 115,172 140,172 C165,172 192,178 205,185',
+      extra:`<path d="M48,145 Q44,158 50,170" fill="none" stroke="{c}" stroke-width="3" stroke-linecap="round"/>
+<path d="M232,145 Q236,158 230,170" fill="none" stroke="{c}" stroke-width="3" stroke-linecap="round"/>`,
+    },
+    curly: {
+      back: 'M140,24 C118,10 88,12 70,26 C52,40 44,60 38,82 C30,108 30,138 36,162 C42,180 56,185 72,185 L208,185 C224,185 238,180 244,162 C250,138 250,108 242,82 C236,60 228,40 210,26 C192,12 162,10 140,24Z',
+      front:'M75,185 C88,176 114,170 140,170 C166,170 192,176 205,185',
+      extra:`<circle cx="65" cy="50" r="9" fill="none" stroke="{c}" stroke-width="3"/>
+<circle cx="55" cy="72" r="8" fill="none" stroke="{c}" stroke-width="3"/>
+<circle cx="215" cy="50" r="9" fill="none" stroke="{c}" stroke-width="3"/>
+<circle cx="225" cy="72" r="8" fill="none" stroke="{c}" stroke-width="3"/>
+<circle cx="80" cy="28" r="7" fill="none" stroke="{c}" stroke-width="3"/>
+<circle cx="200" cy="28" r="7" fill="none" stroke="{c}" stroke-width="3"/>`,
+    },
+    ponytail: {
+      back: 'M140,30 C120,22 88,30 70,52 C54,75 52,108 56,135 C60,158 72,178 84,182 L196,182 C208,178 220,158 224,135 C228,108 226,75 210,52 C192,30 160,22 140,30Z',
+      front:'M88,182 C100,175 120,171 140,171 C160,171 180,175 192,182',
+      extra:`<path d="M130,30 C128,24 130,15 140,12 C150,15 152,24 150,30 C150,55 148,130 144,200 C142,225 138,225 136,200 C132,130 130,55 130,30Z" fill="{c}"/>
+<ellipse cx="140" cy="210" rx="8" ry="5" fill="{c2}"/>`,
+    },
+    updo: {
+      back: 'M140,36 C122,28 90,34 74,56 C58,78 56,110 60,136 C64,158 76,178 90,183 L190,183 C204,178 216,158 220,136 C224,110 222,78 206,56 C190,34 158,28 140,36Z',
+      front:'M92,183 C104,176 122,172 140,172 C158,172 176,176 188,183',
+      extra:`<circle cx="140" cy="36" r="18" fill="{c}"/>
+<circle cx="125" cy="30" r="12" fill="{c}"/>
+<circle cx="155" cy="30" r="12" fill="{c}"/>
+<circle cx="140" cy="22" r="10" fill="{c}"/>
+<ellipse cx="140" cy="42" rx="20" ry="8" fill="{c}"/>`,
+    },
+  };
+  const s = paths[style] || paths.messy;
+  return which === 'back' ? s.back : (which === 'front' ? s.front : s.extra);
+}
+
+/* ============================
+   OUTFIT SVG
+============================ */
+function buildOutfitFront(idx) {
+  if (idx < 0) return `
+    <path d="M104,196 C112,186 128,182 140,182 C152,182 168,186 176,196 L172,224 C162,232 152,236 140,236 C128,236 118,232 108,224Z" fill="#e8e8e8" stroke="#ccc" stroke-width="1"/>
+    <path d="M88,282 L192,282 L196,358 L84,358Z" fill="#d5d5d5"/>
+    <line x1="140" y1="282" x2="140" y2="358" stroke="#bbb" stroke-width="1"/>`;
+  if (idx === 0) return `
+    <defs><linearGradient id="jeansG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1976d2"/><stop offset="100%" stop-color="#0d47a1"/></linearGradient></defs>
+    <path d="M82,184 C82,184 100,178 140,178 C180,178 198,184 198,184 L198,265 C185,270 165,272 140,272 C115,272 95,270 82,265Z" fill="#80cbc4"/>
+    <path d="M82,263 L198,263 L200,358 L80,358Z" fill="url(#jeansG)"/>
+    <line x1="140" y1="263" x2="140" y2="358" stroke="#0d47a1" stroke-width="1.5"/>
+    <rect x="84" y="257" width="112" height="9" rx="3" fill="#5d4037"/>`;
+  if (idx === 1) return `
+    <path d="M82,184 L198,184 L200,292 L80,292Z" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+    <path d="M125,184 L140,208 L155,184" fill="none" stroke="#ddd" stroke-width="1.5"/>
+    <path d="M78,290 L202,290 L210,358 L70,358Z" fill="#c62828"/>
+    <line x1="90" y1="290" x2="84" y2="358" stroke="#fff" stroke-width="3.5" opacity="0.35"/>
+    <line x1="108" y1="290" x2="101" y2="358" stroke="#fff" stroke-width="3.5" opacity="0.35"/>
+    <line x1="126" y1="290" x2="118" y2="358" stroke="#fff" stroke-width="3.5" opacity="0.35"/>
+    <line x1="144" y1="290" x2="136" y2="358" stroke="#fff" stroke-width="3.5" opacity="0.35"/>
+    <line x1="162" y1="290" x2="154" y2="358" stroke="#fff" stroke-width="3.5" opacity="0.35"/>
+    <line x1="180" y1="290" x2="171" y2="358" stroke="#fff" stroke-width="3.5" opacity="0.35"/>
+    <line x1="80" y1="310" x2="210" y2="310" stroke="#fff" stroke-width="2.5" opacity="0.35"/>
+    <line x1="78" y1="330" x2="210" y2="330" stroke="#fff" stroke-width="2.5" opacity="0.35"/>`;
+  if (idx === 2) return `
     <defs>
-      <radialGradient id="skinGrad" cx="50%" cy="45%" r="55%">
-        <stop offset="0%" stop-color="${skin}"/>
-        <stop offset="100%" stop-color="${skinSh}"/>
-      </radialGradient>
-      <radialGradient id="foundGlow" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stop-color="#ffe0b2" stop-opacity="1"/>
-        <stop offset="100%" stop-color="#ffe0b2" stop-opacity="0"/>
-      </radialGradient>
-      <radialGradient id="blushL" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stop-color="#ff9999" stop-opacity="${blushO}"/>
-        <stop offset="100%" stop-color="#ff9999" stop-opacity="0"/>
-      </radialGradient>
-      <radialGradient id="blushR" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stop-color="#ff9999" stop-opacity="${blushO}"/>
-        <stop offset="100%" stop-color="#ff9999" stop-opacity="0"/>
-      </radialGradient>
-      <filter id="softBlur"><feGaussianBlur stdDeviation="3"/></filter>
-      <filter id="glow2"><feGaussianBlur stdDeviation="2" result="blur"/><feComposite in="SourceGraphic" in2="blur" operator="over"/></filter>
+      <linearGradient id="partyG" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#e91e63"/><stop offset="100%" stop-color="#f5c518"/></linearGradient>
+      <linearGradient id="partyG2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#f5c518"/><stop offset="100%" stop-color="#e91e63"/></linearGradient>
     </defs>
+    <path d="M88,186 L192,186 L196,268 L84,268Z" fill="url(#partyG)"/>
+    <path d="M80,266 L200,266 L208,342 L72,342Z" fill="url(#partyG2)" opacity="0.9"/>
+    <circle cx="112" cy="215" r="3" fill="#fff" opacity="0.6"/>
+    <circle cx="128" cy="228" r="2" fill="#fff" opacity="0.5"/>
+    <circle cx="160" cy="210" r="3" fill="#fff" opacity="0.6"/>
+    <circle cx="145" cy="240" r="2" fill="#fff" opacity="0.5"/>
+    <circle cx="100" cy="235" r="2.5" fill="#fff" opacity="0.6"/>
+    <circle cx="172" cy="232" r="2" fill="#fff" opacity="0.5"/>`;
+  if (idx === 3) return `
+    <path d="M106,198 C116,188 128,184 140,184 C152,184 164,188 174,198 L170,224 C162,232 152,237 140,237 C128,237 118,232 110,224Z" fill="#e91e63"/>
+    <path d="M104,220 L176,220" stroke="#fff" stroke-width="1.5" opacity="0.4"/>
+    <path d="M92,288 L188,288 L186,354 L94,354Z" fill="#e91e63"/>
+    <line x1="140" y1="288" x2="140" y2="354" stroke="#fff" stroke-width="1.5" opacity="0.4"/>`;
+  if (idx === 4) return `
+    <defs>
+      <linearGradient id="gownG" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#9c27b0"/><stop offset="100%" stop-color="#e91e63"/></linearGradient>
+      <linearGradient id="gownSk" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ab47bc"/><stop offset="100%" stop-color="#7b1fa2"/></linearGradient>
+    </defs>
+    <path d="M88,186 L192,186 L196,276 L84,276Z" fill="url(#gownG)"/>
+    <path d="M58,274 C50,296 40,328 38,358 L242,358 C240,328 230,296 222,274 L196,270 L84,270Z" fill="url(#gownSk)"/>
+    <path d="M55,320 C46,336 42,350 42,358 L238,358 C238,350 234,336 225,320Z" fill="#9c27b0" opacity="0.5"/>
+    <circle cx="115" cy="218" r="2.5" fill="#fff" opacity="0.7"/>
+    <circle cx="140" cy="210" r="3" fill="#fff" opacity="0.7"/>
+    <circle cx="165" cy="218" r="2.5" fill="#fff" opacity="0.7"/>
+    <circle cx="128" cy="228" r="2" fill="#fff" opacity="0.5"/>
+    <circle cx="152" cy="226" r="2" fill="#fff" opacity="0.5"/>`;
+  return '';
+}
+function buildOutfitBack(idx) {
+  if (idx === 4) return `<path d="M58,280 C48,310 40,340 38,360 L80,360 L84,276Z" fill="#9c27b0" opacity="0.6"/>
+    <path d="M222,280 C232,310 240,340 242,360 L200,360 L196,276Z" fill="#9c27b0" opacity="0.6"/>`;
+  return '';
+}
 
-    <!-- NECK -->
-    <rect x="84" y="198" width="32" height="28" rx="6" fill="${skin}"/>
+/* ============================
+   EARRINGS / NECKLACE / ACCESSORIES
+============================ */
+function buildEarrings(type) {
+  if (type === 'none') return '';
+  if (type === 'studs') return `
+    <circle cx="91" cy="89" r="5" fill="#f5c518" stroke="#e8a000" stroke-width="1"/>
+    <circle cx="189" cy="89" r="5" fill="#f5c518" stroke="#e8a000" stroke-width="1"/>`;
+  if (type === 'hoops') return `
+    <circle cx="91" cy="93" r="9" fill="none" stroke="#f5c518" stroke-width="2.5"/>
+    <circle cx="189" cy="93" r="9" fill="none" stroke="#f5c518" stroke-width="2.5"/>`;
+  if (type === 'drops') return `
+    <line x1="91" y1="89" x2="91" y2="100" stroke="#f5c518" stroke-width="2"/>
+    <ellipse cx="91" cy="107" rx="5" ry="8" fill="#f5c518"/>
+    <circle cx="91" cy="107" r="3" fill="#ff6eb4"/>
+    <line x1="189" y1="89" x2="189" y2="100" stroke="#f5c518" stroke-width="2"/>
+    <ellipse cx="189" cy="107" rx="5" ry="8" fill="#f5c518"/>
+    <circle cx="189" cy="107" r="3" fill="#ff6eb4"/>`;
+  return '';
+}
+function buildNecklace(type) {
+  if (type === 'none') return '';
+  if (type === 'simple') return `<path d="M108,186 Q140,198 172,186" fill="none" stroke="#f5c518" stroke-width="2.5"/>`;
+  if (type === 'pearl') return `
+    <path d="M108,186 Q140,198 172,186" fill="none" stroke="#ddd" stroke-width="1.5"/>
+    <circle cx="120" cy="191" r="4" fill="#f0f0f0" stroke="#ddd" stroke-width="1"/>
+    <circle cx="132" cy="194" r="4" fill="#f0f0f0" stroke="#ddd" stroke-width="1"/>
+    <circle cx="140" cy="195" r="5" fill="#f0f0f0" stroke="#ddd" stroke-width="1"/>
+    <circle cx="148" cy="194" r="4" fill="#f0f0f0" stroke="#ddd" stroke-width="1"/>
+    <circle cx="160" cy="191" r="4" fill="#f0f0f0" stroke="#ddd" stroke-width="1"/>`;
+  if (type === 'gold') return `
+    <path d="M106,186 Q140,202 174,186" fill="none" stroke="#f5c518" stroke-width="3"/>
+    <path d="M120,190 L128,198 L140,200 L152,198 L160,190" fill="none" stroke="#f5c518" stroke-width="2"/>
+    <circle cx="140" cy="202" r="6" fill="#f5c518"/>
+    <circle cx="140" cy="202" r="3" fill="#ff6eb4"/>`;
+  return '';
+}
+function buildHairAccessory(type, hairColor) {
+  if (type === 'clips') return `
+    <rect x="108" y="42" width="16" height="8" rx="3" fill="#ff6eb4" transform="rotate(-20,116,46)"/>
+    <rect x="156" y="42" width="16" height="8" rx="3" fill="#ff6eb4" transform="rotate(20,164,46)"/>`;
+  if (type === 'headband') return `
+    <path d="M80,75 Q140,55 200,75" fill="none" stroke="#ff6eb4" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="140" cy="57" r="8" fill="#ff6eb4"/>
+    <circle cx="140" cy="57" r="4" fill="#fff"/>`;
+  if (type === 'tiara') return `
+    <path d="M90,70 L100,52 L115,65 L140,45 L165,65 L180,52 L190,70" fill="none" stroke="#f5c518" stroke-width="3" stroke-linejoin="round"/>
+    <circle cx="140" cy="45" r="5" fill="#f5c518"/>
+    <circle cx="115" cy="65" r="3.5" fill="#f5c518"/>
+    <circle cx="165" cy="65" r="3.5" fill="#f5c518"/>
+    <circle cx="100" cy="52" r="2.5" fill="#f5c518"/>
+    <circle cx="180" cy="52" r="2.5" fill="#f5c518"/>`;
+  return '';
+}
+function buildCrown() {
+  return `<path d="M108,38 L116,18 L130,35 L140,15 L150,35 L164,18 L172,38 L108,38Z" fill="#f5c518" stroke="#e8a000" stroke-width="1.5"/>
+    <circle cx="140" cy="15" r="4" fill="#ff6eb4"/>
+    <circle cx="116" cy="18" r="3" fill="#ff6eb4"/>
+    <circle cx="164" cy="18" r="3" fill="#ff6eb4"/>
+    <rect x="106" y="36" width="68" height="10" rx="3" fill="#f5c518"/>`;
+}
+function buildHandNails(color) {
+  return `
+    <rect x="33" y="406" width="7" height="9" rx="2" fill="${color}"/>
+    <rect x="43" y="403" width="7" height="9" rx="2" fill="${color}"/>
+    <rect x="53" y="403" width="7" height="9" rx="2" fill="${color}"/>
+    <rect x="61" y="406" width="6" height="8" rx="2" fill="${color}"/>
+    <rect x="234" y="406" width="7" height="9" rx="2" fill="${color}"/>
+    <rect x="223" y="403" width="7" height="9" rx="2" fill="${color}"/>
+    <rect x="213" y="403" width="7" height="9" rx="2" fill="${color}"/>
+    <rect x="206" y="406" width="6" height="8" rx="2" fill="${color}"/>`;
+}
+function buildFeetNails(color) {
+  return `
+    <rect x="79" y="566" width="8" height="7" rx="2" fill="${color}"/>
+    <rect x="90" y="568" width="7" height="6" rx="2" fill="${color}"/>
+    <rect x="99" y="569" width="6" height="5" rx="2" fill="${color}"/>
+    <rect x="107" y="569" width="6" height="5" rx="2" fill="${color}"/>
+    <rect x="185" y="566" width="8" height="7" rx="2" fill="${color}"/>
+    <rect x="175" y="568" width="7" height="6" rx="2" fill="${color}"/>
+    <rect x="167" y="569" width="6" height="5" rx="2" fill="${color}"/>
+    <rect x="159" y="569" width="6" height="5" rx="2" fill="${color}"/>`;
+}
 
-    <!-- HAIR BACK -->
-    <path d="${hairPath}" fill="${hairC}" opacity=".95"/>
-    ${messyStrands}
+/* ============================
+   MAIN SVG BUILDER
+============================ */
+function buildCharSVG(state) {
+  const s = state;
+  const hc = s.hairColorDone ? s.hairColor : '#3d1a00';
+  const hc2 = hc; // hair tie color same
+  const sk = SKIN[s.foundation ? s.skinTone : 'default'];
 
-    <!-- HEAD / FACE -->
-    <ellipse cx="100" cy="130" rx="62" ry="72" fill="url(#skinGrad)"/>
-    ${glow}
+  // Hair back + extras
+  const hairBackPath = getHairPath(s.hairStyle, 'back');
+  const hairExtra = s.hairStyle !== 'messy'
+    ? getHairPath(s.hairStyle, 'extra').replaceAll('{c}', hc).replaceAll('{c2}', hc2)
+    : getHairPath('messy', 'extra').replaceAll('{c}', hc).replaceAll('{c2}', hc2);
+  const hairFrontPath = getHairPath(s.hairStyle, 'front');
 
-    <!-- BLUSH -->
-    <ellipse cx="66" cy="148" rx="20" ry="14" fill="url(#blushL)" filter="url(#softBlur)"/>
-    <ellipse cx="134" cy="148" rx="20" ry="14" fill="url(#blushR)" filter="url(#softBlur)"/>
+  // Dirty skin opacity (fades over face-wash)
+  const dirtyOp = s.facewash ? 0 : (1 - Math.min(s.faceWashProg/3, 1));
 
-    <!-- EYE SHADOW -->
-    <ellipse cx="76" cy="116" rx="16" ry="9" fill="${esh}" opacity=".55"/>
-    <ellipse cx="124" cy="116" rx="16" ry="9" fill="${esh}" opacity=".55"/>
+  // Mascara done if both eyes done
+  const mascDone = s.mascaraLeft && s.mascaraRight;
+  const lashW = (mascDone || s.falseLashes) ? 2.8 : 1.4;
+  const lashC = (mascDone || s.falseLashes) ? '#000' : '#3d1a00';
 
-    <!-- EYEBROWS -->
-    <path d="M58 108 Q76 102 94 107" fill="none" stroke="#3d1a00" stroke-width="${state.mascara?3:2}" stroke-linecap="round"/>
-    <path d="M106 107 Q124 102 142 108" fill="none" stroke="#3d1a00" stroke-width="${state.mascara?3:2}" stroke-linecap="round"/>
+  // Eyeliner paths
+  const eyelinerPath = s.eyelinerDone
+    ? (s.eyelinerStyle === 'winged'
+      ? `<path d="M102,77 Q116,70 130,76 L136,68 L130,76" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round"/>
+         <path d="M150,76 Q164,70 178,77 M178,77 L182,68 L176,75" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round"/>`
+      : `<path d="M102,77 Q116,70 130,76" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
+         <path d="M150,76 Q164,70 178,77" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>`)
+    : '';
 
-    <!-- EYES (whites) -->
-    <ellipse cx="76" cy="120" rx="14" ry="9" fill="#fff"/>
-    <ellipse cx="124" cy="120" rx="14" ry="9" fill="#fff"/>
+  // False lash extras
+  const falseLashExtra = s.falseLashes
+    ? `<path d="M102,76 C108,68 122,64 130,70" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+       <path d="M150,70 C158,64 172,68 178,76" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+       <line x1="108" y1="73" x2="104" y2="65" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+       <line x1="118" y1="68" x2="116" y2="60" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+       <line x1="128" y1="69" x2="128" y2="61" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+       <line x1="162" y1="69" x2="162" y2="61" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+       <line x1="172" y1="68" x2="174" y2="60" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+       <line x1="180" y1="73" x2="184" y2="65" stroke="#000" stroke-width="2" stroke-linecap="round"/>`
+    : '';
 
-    <!-- PUPILS -->
-    <circle cx="76" cy="120" r="6.5" fill="#3d1a00"/>
-    <circle cx="76" cy="120" r="4" fill="#1a0a00"/>
-    <circle cx="124" cy="120" r="6.5" fill="#3d1a00"/>
-    <circle cx="124" cy="120" r="4" fill="#1a0a00"/>
-    <circle cx="78" cy="118" r="2" fill="#fff" opacity=".8"/>
-    <circle cx="126" cy="118" r="2" fill="#fff" opacity=".8"/>
+  // Lip scale for plumper
+  const lipScale = s.lipPlumper ? 'transform="scale(1,1.08) translate(0,-5)"' : '';
+  const lipC = s.lipDone ? s.lipColor : '#8b4046';
+  const lipLinerC = s.lipLiner ? (s.lipDone ? darkenColor(s.lipColor, 0.25) : '#6b2030') : 'none';
+  const glossOp = s.lipGloss ? '0.4' : '0';
 
-    <!-- LASHES TOP -->
-    <path d="M62 113 Q70 108 90 112" fill="none" stroke="${lash}" stroke-width="${lashW}" stroke-linecap="round"/>
-    <path d="M62 113 L58 108" stroke="${lash}" stroke-width="${lashW}" stroke-linecap="round"/>
-    <path d="M70 110 L68 104" stroke="${lash}" stroke-width="${lashW}" stroke-linecap="round"/>
-    <path d="M78 109 L78 103" stroke="${lash}" stroke-width="${lashW}" stroke-linecap="round"/>
-    <path d="M86 110 L88 104" stroke="${lash}" stroke-width="${lashW}" stroke-linecap="round"/>
-    <path d="M110 112 Q130 108 138 113" fill="none" stroke="${lash}" stroke-width="${lashW}" stroke-linecap="round"/>
-    <path d="M138 113 L142 108" stroke="${lash}" stroke-width="${lashW}" stroke-linecap="round"/>
-    <path d="M130 110 L132 104" stroke="${lash}" stroke-width="${lashW}" stroke-linecap="round"/>
-    <path d="M122 109 L122 103" stroke="${lash}" stroke-width="${lashW}" stroke-linecap="round"/>
-    <path d="M114 110 L112 104" stroke="${lash}" stroke-width="${lashW}" stroke-linecap="round"/>
+  // Bronzer
+  const bronzerOp = s.bronzer ? '0.2' : '0';
 
-    <!-- NOSE -->
-    <path d="M97 128 C95 140, 90 148, 93 152 C96 156, 104 156, 107 152 C110 148, 105 140, 103 128" fill="none" stroke="${skinSh}" stroke-width="1.8" stroke-linecap="round"/>
+  return `<defs>
+    <radialGradient id="skinG" cx="50%" cy="44%" r="55%">
+      <stop offset="0%" stop-color="${sk.m}"/>
+      <stop offset="100%" stop-color="${sk.s}"/>
+    </radialGradient>
+    <radialGradient id="blushL" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="${s.blushColor}" stop-opacity="${s.blushDone?'.45':'0'}"/>
+      <stop offset="100%" stop-color="${s.blushColor}" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blushR" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="${s.blushColor}" stop-opacity="${s.blushDone?'.45':'0'}"/>
+      <stop offset="100%" stop-color="${s.blushColor}" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur3"><feGaussianBlur stdDeviation="3"/></filter>
+    <filter id="blur2"><feGaussianBlur stdDeviation="2"/></filter>
+    <filter id="glow"><feGaussianBlur stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/></filter>
+  </defs>
 
-    <!-- LIPS -->
-    <path d="M82 166 Q100 158 118 166 Q109 175 100 177 Q91 175 82 166Z" fill="${lip}"/>
-    <path d="M82 166 Q91 171 100 172 Q109 171 118 166 Q109 180 100 182 Q91 180 82 166Z" fill="${lip}" opacity=".7"/>
-    <path d="M82 166 Q100 162 118 166" fill="none" stroke="${lip}" stroke-width="1.2" opacity=".6"/>
-    <!-- lip shine -->
-    <ellipse cx="100" cy="168" rx="8" ry="2.5" fill="rgba(255,255,255,${state.lipDone?'.25':'0'})"/>
+  <!-- outfit back -->
+  <g id="lyr-outfit-back">${buildOutfitBack(s.outfit)}</g>
 
-    <!-- HAIR FRONT layer -->
-    <path d="${state.hairBrush
-      ? 'M38 100 C36 75, 50 40, 100 30 C150 40, 164 75, 162 100'
-      : 'M35 98 C30 65, 48 32, 100 26 C152 32, 170 65, 165 98'
-    }" fill="${hairC}" opacity=".9"/>
+  <!-- legs -->
+  <g id="lyr-legs">
+    <path d="M86,358 C78,392 78,440 82,480 C86,516 90,542 92,556 L114,556 C116,542 118,516 118,480 C122,440 122,392 114,358Z" fill="${sk.m}"/>
+    <path d="M166,358 C158,392 158,440 162,480 C166,516 168,542 170,556 L192,556 C194,542 196,516 196,480 C200,440 200,392 192,358Z" fill="${sk.m}"/>
+    <path d="M86,358 C78,392 78,420 82,450 L88,450 C90,420 92,392 96,358Z" fill="${sk.s}" opacity="0.25"/>
+    <path d="M194,358 C202,392 202,420 198,450 L192,450 C190,420 188,392 184,358Z" fill="${sk.s}" opacity="0.25"/>
+  </g>
 
-    ${earrings}
-    ${necklace}
+  <!-- feet -->
+  <g id="lyr-feet">
+    <path d="M88,554 C80,558 74,564 74,572 L76,578 C82,582 98,583 110,580 L112,572 C112,566 110,558 108,554Z" fill="${sk.m}"/>
+    <ellipse cx="81" cy="574" rx="5" ry="3.5" fill="${sk.s}" opacity="0.4"/>
+    <ellipse cx="92" cy="578" rx="4.5" ry="3" fill="${sk.s}" opacity="0.3"/>
+    <ellipse cx="103" cy="578" rx="4" ry="3" fill="${sk.s}" opacity="0.3"/>
+    <path d="M172,554 C180,558 186,564 186,572 L184,578 C178,582 162,583 150,580 L148,572 C148,566 150,558 152,554Z" fill="${sk.m}"/>
+    <ellipse cx="179" cy="574" rx="5" ry="3.5" fill="${sk.s}" opacity="0.4"/>
+    <ellipse cx="168" cy="578" rx="4.5" ry="3" fill="${sk.s}" opacity="0.3"/>
+    <ellipse cx="157" cy="578" rx="4" ry="3" fill="${sk.s}" opacity="0.3"/>
+  </g>
+
+  <!-- body glow -->
+  <g id="lyr-body-glow" opacity="${s.bodyLotion?'0.3':'0'}">
+    <ellipse cx="140" cy="275" rx="85" ry="130" fill="url(#skinG)" filter="url(#blur3)"/>
+  </g>
+
+  <!-- outfit front -->
+  <g id="lyr-outfit-front">${buildOutfitFront(s.outfit)}</g>
+
+  <!-- body glitter -->
+  <g id="lyr-body-glitter" opacity="${s.bodyGlitter?'1':'0'}">
+    <circle cx="110" cy="200" r="2" fill="#f5c518" opacity="0.8"/>
+    <circle cx="140" cy="192" r="2.5" fill="#ff6eb4" opacity="0.8"/>
+    <circle cx="170" cy="200" r="2" fill="#f5c518" opacity="0.8"/>
+    <circle cx="95" cy="215" r="1.5" fill="#fff" opacity="0.9"/>
+    <circle cx="185" cy="215" r="1.5" fill="#fff" opacity="0.9"/>
+    <circle cx="120" cy="222" r="2" fill="#b388ff" opacity="0.8"/>
+    <circle cx="160" cy="222" r="2" fill="#b388ff" opacity="0.8"/>
+    <circle cx="105" cy="240" r="1.5" fill="#f5c518" opacity="0.7"/>
+    <circle cx="175" cy="240" r="1.5" fill="#f5c518" opacity="0.7"/>
+    <circle cx="140" cy="235" r="2" fill="#ff6eb4" opacity="0.7"/>
+  </g>
+
+  <!-- arms -->
+  <g id="lyr-arms">
+    <path d="M78,188 C58,215 48,255 52,292 L60,292 C62,258 70,222 84,195Z" fill="${sk.m}"/>
+    <path d="M52,292 C44,320 42,354 44,378 L52,378 C56,356 58,322 60,292Z" fill="${sk.m}"/>
+    <path d="M202,188 C222,215 232,255 228,292 L220,292 C218,258 210,222 196,195Z" fill="${sk.m}"/>
+    <path d="M228,292 C236,320 238,354 236,378 L228,378 C224,356 222,322 220,292Z" fill="${sk.m}"/>
+  </g>
+
+  <!-- hands -->
+  <g id="lyr-hands">
+    <path d="M34,374 C28,378 26,392 28,408 C30,420 40,428 52,426 L60,424 C66,422 68,412 66,400 C64,388 56,378 48,374Z" fill="${sk.m}"/>
+    <rect x="30" y="407" width="8" height="20" rx="4" fill="${sk.m}"/>
+    <rect x="40" y="404" width="8" height="22" rx="4" fill="${sk.m}"/>
+    <rect x="50" y="404" width="8" height="22" rx="4" fill="${sk.m}"/>
+    <rect x="59" y="408" width="7" height="18" rx="3.5" fill="${sk.m}"/>
+    <path d="M246,374 C252,378 254,392 252,408 C250,420 240,428 228,426 L220,424 C214,422 212,412 214,400 C216,388 224,378 232,374Z" fill="${sk.m}"/>
+    <rect x="242" y="407" width="8" height="20" rx="4" fill="${sk.m}"/>
+    <rect x="232" y="404" width="8" height="22" rx="4" fill="${sk.m}"/>
+    <rect x="222" y="404" width="8" height="22" rx="4" fill="${sk.m}"/>
+    <rect x="214" y="408" width="7" height="18" rx="3.5" fill="${sk.m}"/>
+  </g>
+
+  <!-- neck -->
+  <g id="lyr-neck">
+    <rect x="126" y="146" width="28" height="38" rx="8" fill="${sk.m}"/>
+    <rect x="128" y="150" width="8" height="34" rx="3" fill="${sk.s}" opacity="0.2"/>
+  </g>
+
+  <!-- hair back -->
+  <g id="lyr-hair-back">
+    <path d="${hairBackPath}" fill="${hc}" opacity="0.95"/>
+    ${hairExtra}
+  </g>
+
+  <!-- face skin -->
+  <g id="lyr-face-skin">
+    <ellipse cx="90" cy="89" rx="8" ry="10" fill="${sk.m}"/>
+    <ellipse cx="190" cy="89" rx="8" ry="10" fill="${sk.m}"/>
+    <ellipse cx="140" cy="88" rx="50" ry="58" fill="url(#skinG)"/>
+  </g>
+
+  <!-- dirty skin -->
+  <g id="lyr-dirty-skin" opacity="${dirtyOp}">
+    <circle cx="118" cy="102" r="4" fill="#a06040" opacity="0.35"/>
+    <circle cx="162" cy="98" r="3.5" fill="#a06040" opacity="0.3"/>
+    <circle cx="135" cy="118" r="3" fill="#a06040" opacity="0.28"/>
+    <circle cx="152" cy="115" r="2.5" fill="#a06040" opacity="0.28"/>
+    <circle cx="125" cy="60" r="2" fill="#a06040" opacity="0.22"/>
+    <circle cx="158" cy="62" r="2" fill="#a06040" opacity="0.22"/>
+    <circle cx="140" cy="105" r="2" fill="#a06040" opacity="0.2"/>
+  </g>
+
+  <!-- moisturizer glow -->
+  <g id="lyr-moisturizer" opacity="${s.moisturizer?'0.25':'0'}">
+    <ellipse cx="140" cy="88" rx="52" ry="60" fill="#fff" filter="url(#blur3)"/>
+  </g>
+
+  <!-- concealer -->
+  <g id="lyr-concealer" opacity="${s.concealer?'0.5':'0'}">
+    <ellipse cx="114" cy="93" rx="14" ry="7" fill="${sk.m}" filter="url(#blur2)"/>
+    <ellipse cx="166" cy="93" rx="14" ry="7" fill="${sk.m}" filter="url(#blur2)"/>
+  </g>
+
+  <!-- contour -->
+  <g id="lyr-contour" opacity="${s.contour?'0.3':'0'}">
+    <path d="M93,108 C90,118 90,130 94,138" fill="none" stroke="${sk.d}" stroke-width="8" stroke-linecap="round" filter="url(#blur2)"/>
+    <path d="M187,108 C190,118 190,130 186,138" fill="none" stroke="${sk.d}" stroke-width="8" stroke-linecap="round" filter="url(#blur2)"/>
+    <path d="M118,128 L130,120 L140,122 L150,120 L162,128" fill="none" stroke="${sk.d}" stroke-width="5" stroke-linecap="round" filter="url(#blur2)"/>
+  </g>
+
+  <!-- highlight -->
+  <g id="lyr-highlight" opacity="${s.highlight?'0.55':'0'}">
+    <ellipse cx="125" cy="106" rx="10" ry="6" fill="#fff" filter="url(#blur2)"/>
+    <ellipse cx="155" cy="106" rx="10" ry="6" fill="#fff" filter="url(#blur2)"/>
+    <ellipse cx="140" cy="96" rx="5" ry="12" fill="#fff" filter="url(#blur2)"/>
+  </g>
+
+  <!-- blush -->
+  <g id="lyr-blush">
+    <ellipse cx="104" cy="110" rx="20" ry="13" fill="url(#blushL)" filter="url(#blur3)"/>
+    <ellipse cx="176" cy="110" rx="20" ry="13" fill="url(#blushR)" filter="url(#blur3)"/>
+  </g>
+
+  <!-- bronzer -->
+  <g id="lyr-bronzer" opacity="${bronzerOp}">
+    <ellipse cx="140" cy="62" rx="40" ry="18" fill="${sk.d}" filter="url(#blur3)"/>
+    <ellipse cx="105" cy="75" rx="14" ry="10" fill="${sk.d}" filter="url(#blur3)"/>
+    <ellipse cx="175" cy="75" rx="14" ry="10" fill="${sk.d}" filter="url(#blur3)"/>
+  </g>
+
+  <!-- foundation glow -->
+  <g id="lyr-foundation-glow" opacity="${s.foundation?'0.18':'0'}">
+    <ellipse cx="140" cy="88" rx="52" ry="60" fill="url(#skinG)" filter="url(#blur2)"/>
+  </g>
+
+  <!-- eyeshadow -->
+  <g id="lyr-eyeshadow" opacity="${s.eyeShadowDone?'0.6':'0'}">
+    <ellipse cx="116" cy="74" rx="17" ry="9" fill="${s.eyeShadowColor}"/>
+    <ellipse cx="164" cy="74" rx="17" ry="9" fill="${s.eyeShadowColor}"/>
+  </g>
+
+  <!-- under-eye concealer -->
+  <g id="lyr-under-eye" opacity="${s.underEyeDone?'0.45':'0'}">
+    <ellipse cx="116" cy="88" rx="14" ry="6" fill="${sk.m}" filter="url(#blur2)"/>
+    <ellipse cx="164" cy="88" rx="14" ry="6" fill="${sk.m}" filter="url(#blur2)"/>
+  </g>
+
+  <!-- eyebrows -->
+  <g id="lyr-eyebrows">
+    ${s.eyebrowDone
+      ? `<path d="M100,65 Q116,57 132,63" fill="none" stroke="#3d1a00" stroke-width="4" stroke-linecap="round"/>
+         <path d="M148,63 Q164,57 180,65" fill="none" stroke="#3d1a00" stroke-width="4" stroke-linecap="round"/>`
+      : `<path d="M102,67 Q116,62 130,66" fill="none" stroke="#5a3010" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+         <path d="M150,66 Q164,62 178,67" fill="none" stroke="#5a3010" stroke-width="2" stroke-linecap="round" opacity="0.7"/>`
+    }
+  </g>
+
+  <!-- eyes -->
+  <g id="lyr-eyes" class="lyr-eyes-blink">
+    <ellipse cx="116" cy="78" rx="13" ry="9" fill="#fff"/>
+    <ellipse cx="164" cy="78" rx="13" ry="9" fill="#fff"/>
+    <circle cx="116" cy="78" r="7.5" fill="#5a3010"/>
+    <circle cx="116" cy="78" r="5" fill="#2d1505"/>
+    <circle cx="164" cy="78" r="7.5" fill="#5a3010"/>
+    <circle cx="164" cy="78" r="5" fill="#2d1505"/>
+    <circle cx="119" cy="75" r="2.2" fill="#fff" opacity="0.85"/>
+    <circle cx="167" cy="75" r="2.2" fill="#fff" opacity="0.85"/>
+  </g>
+
+  <!-- eyeliner -->
+  <g id="lyr-eyeliner" opacity="${s.eyelinerDone?'1':'0'}">${eyelinerPath}</g>
+
+  <!-- lashes -->
+  <g id="lyr-lashes">
+    ${falseLashExtra}
+    <path d="M102,77 Q116,70 130,76" fill="none" stroke="${lashC}" stroke-width="${lashW}" stroke-linecap="round"/>
+    <line x1="106" y1="76" x2="103" y2="68" stroke="${lashC}" stroke-width="${lashW-0.5}" stroke-linecap="round"/>
+    <line x1="114" y1="72" x2="112" y2="64" stroke="${lashC}" stroke-width="${lashW-0.5}" stroke-linecap="round"/>
+    <line x1="122" y1="71" x2="122" y2="63" stroke="${lashC}" stroke-width="${lashW-0.5}" stroke-linecap="round"/>
+    <line x1="130" y1="73" x2="132" y2="65" stroke="${lashC}" stroke-width="${lashW-0.5}" stroke-linecap="round"/>
+    <path d="M150,76 Q164,70 178,77" fill="none" stroke="${lashC}" stroke-width="${lashW}" stroke-linecap="round"/>
+    <line x1="174" y1="76" x2="177" y2="68" stroke="${lashC}" stroke-width="${lashW-0.5}" stroke-linecap="round"/>
+    <line x1="166" y1="72" x2="168" y2="64" stroke="${lashC}" stroke-width="${lashW-0.5}" stroke-linecap="round"/>
+    <line x1="158" y1="71" x2="158" y2="63" stroke="${lashC}" stroke-width="${lashW-0.5}" stroke-linecap="round"/>
+    <line x1="150" y1="73" x2="148" y2="65" stroke="${lashC}" stroke-width="${lashW-0.5}" stroke-linecap="round"/>
+  </g>
+
+  <!-- nose -->
+  <g id="lyr-nose">
+    <path d="M136,92 C132,100 132,108 135,112 C137,115 140,116 140,116 C140,116 143,115 145,112 C148,108 148,100 144,92" fill="none" stroke="${sk.d}" stroke-width="1.8" stroke-linecap="round"/>
+    <ellipse cx="133" cy="112" rx="5" ry="4" fill="${sk.s}" opacity="0.4"/>
+    <ellipse cx="147" cy="112" rx="5" ry="4" fill="${sk.s}" opacity="0.4"/>
+  </g>
+
+  <!-- lip liner -->
+  <g id="lyr-lip-liner" opacity="${s.lipLiner?'1':'0'}">
+    <path d="M120,118 Q132,112 140,114 Q148,112 160,118 Q148,124 140,125 Q132,124 120,118Z"
+      fill="none" stroke="${lipLinerC}" stroke-width="1.5"/>
+    <path d="M120,118 Q140,134 160,118 Q150,130 140,132 Q130,130 120,118Z"
+      fill="none" stroke="${lipLinerC}" stroke-width="1.5"/>
+  </g>
+
+  <!-- lips -->
+  <g id="lyr-lips" ${lipScale}>
+    <path d="M122,118 Q132,112 140,114 Q148,112 158,118 Q148,122 140,123 Q132,122 122,118Z" fill="${lipC}"/>
+    <path d="M122,118 Q140,132 158,118 Q148,128 140,130 Q132,128 122,118Z" fill="${lipC}" opacity="0.85"/>
+    <path d="M122,118 Q140,115 158,118" fill="none" stroke="${lipC}" stroke-width="0.8" opacity="0.5"/>
+    <ellipse cx="140" cy="120" rx="9" ry="2.5" fill="#fff" opacity="${glossOp}"/>
+  </g>
+
+  <!-- setting spray shimmer -->
+  <g id="lyr-setting-spray" opacity="${s.settingSpray?'0.12':'0'}">
+    <ellipse cx="140" cy="88" rx="53" ry="62" fill="#fff"/>
+  </g>
+
+  <!-- hair front -->
+  <g id="lyr-hair-front">
+    <path d="${hairFrontPath}" fill="${hc}" opacity="0.9"/>
+  </g>
+
+  <!-- hair accessory -->
+  <g id="lyr-hair-acc">${buildHairAccessory(s.hairAccessory, hc)}</g>
+
+  <!-- crown -->
+  <g id="lyr-crown" opacity="${s.crown?'1':'0'}">${buildCrown()}</g>
+
+  <!-- accessories -->
+  <g id="lyr-accessories">
+    ${buildEarrings(s.earrings)}
+    ${buildNecklace(s.necklace)}
+  </g>
+
+  <!-- nail hand nails -->
+  <g id="lyr-nails-hands" opacity="${s.nailHandsDone?'1':(s.nailHandsL?'0.5':'0')}">
+    ${buildHandNails(s.nailColorHands)}
+  </g>
+
+  <!-- nail feet nails -->
+  <g id="lyr-nails-feet" opacity="${s.nailFeetDone?'1':(s.nailFeetL?'0.5':'0')}">
+    ${buildFeetNails(s.nailColorFeet)}
+  </g>
   `;
 }
 
-/* =============================================
-   TOOLS CONFIG
-============================================= */
-const TOOLS = [
-  { id:'foundation', icon:'✨', label:'Foundation', msg:'Glow up! ✨', color:null,
-    hint:'Tap face to apply foundation',
-    apply(s){ s.foundation=true; return true; } },
-  { id:'blush', icon:'🌸', label:'Blush', msg:'So rosy! 🌸', color:null,
-    hint:'Tap cheeks to add blush',
-    apply(s){ s.blush=true; return true; } },
-  { id:'lipstick', icon:'💄', label:'Lipstick', msg:'Gorgeous lips! 💄', color:'lipColor',
-    hint:'Pick a color then tap lips',
-    apply(s,c){ s.lipColor=c||s.lipColor; s.lipDone=true; return true; } },
-  { id:'eyeshadow', icon:'👁️', label:'Eyeshadow', msg:'Stunning eyes! 👁️', color:'eyeShadowColor',
-    hint:'Pick a color then tap eyes',
-    apply(s,c){ s.eyeShadowColor=c||s.eyeShadowColor; s.eyeShadowDone=true; return true; } },
-  { id:'mascara', icon:'🖊️', label:'Mascara', msg:'Bold lashes! 🖊️', color:null,
-    hint:'Tap eyes to apply mascara',
-    apply(s){ s.mascara=true; return true; } },
-  { id:'hairbrush', icon:'💇', label:'Hair Brush', msg:'Silky smooth! 💇', color:null,
-    hint:'Tap hair to brush it',
-    apply(s){ s.hairBrush=true; return true; } },
-  { id:'haircolor', icon:'🎨', label:'Hair Color', msg:'Fabulous color! 🎨', color:'hairColor',
-    hint:'Pick a color then tap hair',
-    apply(s,c){ s.hairColor=c||s.hairColor; s.hairColorDone=true; return true; } },
-  { id:'accessories', icon:'💍', label:'Accessories', msg:'So glamorous! 💍', color:null,
-    hint:'Tap to add jewelry',
-    apply(s){ s.accessories=true; return true; } },
-];
-
-/* =============================================
-   GAME STATE
-============================================= */
-let activeTool = null;
-const applied = new Set();
-let colorPickers = {};
-
-function resetState(){
-  Object.assign(STATE,{
-    foundation:false, blush:false, lipColor:'#e8003c', lipDone:false,
-    eyeShadowColor:'#9b59b6', eyeShadowDone:false, mascara:false,
-    hairBrush:false, hairColor:'#3d1a00', hairColorDone:false, accessories:false,
-  });
-  applied.clear();
-  activeTool = null;
+function darkenColor(hex, amount) {
+  const n = parseInt(hex.slice(1), 16);
+  const r = Math.max(0, Math.min(255, (n>>16) - Math.round(((n>>16))*amount)));
+  const g = Math.max(0, Math.min(255, ((n>>8)&0xff) - Math.round((((n>>8)&0xff))*amount)));
+  const b = Math.max(0, Math.min(255, (n&0xff) - Math.round(((n&0xff))*amount)));
+  return '#' + [r,g,b].map(v => v.toString(16).padStart(2,'0')).join('');
 }
 
-/* =============================================
-   RENDER
-============================================= */
-function renderChar(){
+function renderChar() {
   document.getElementById('char-svg').innerHTML = buildCharSVG(STATE);
+  startIdleAnimations();
 }
-function renderIntro(){
-  // messy state for intro
-  const s = { foundation:false,blush:false,lipColor:'#8b4046',lipDone:false,
-    eyeShadowColor:'transparent',eyeShadowDone:false,mascara:false,
-    hairBrush:false,hairColor:'#3d1a00',hairColorDone:false,accessories:false };
-  document.querySelector('#intro svg').innerHTML = buildCharSVG(s);
+function renderIntro() {
+  const s = {...STATE, foundation:false, skinTone:'default', facewash:false};
+  document.getElementById('intro-svg').innerHTML = buildCharSVG(s);
 }
 
-/* =============================================
-   TOOLBAR
-============================================= */
-function buildToolbar(){
-  const bar = document.getElementById('toolbar');
-  bar.innerHTML = '';
-  TOOLS.forEach(tool => {
+/* ============================
+   ZONE DETECTION
+============================ */
+function clientToSVG(cx, cy, svgEl) {
+  const r = svgEl.getBoundingClientRect();
+  return { x: (cx - r.left) * 280 / r.width, y: (cy - r.top) * 580 / r.height };
+}
+function detectZone(sx, sy) {
+  // Hair ellipse
+  const dx1 = sx-140, dy1 = sy-55;
+  if (dx1*dx1/4225 + dy1*dy1/4225 < 1 && sy < 110) return 'hair';
+  // Face ellipse (slightly enlarged for tap ease)
+  const dx2 = sx-140, dy2 = sy-88;
+  if (dy2 > -62 && dx2*dx2/3136 + dy2*dy2/4356 < 1) return 'face';
+  // Hands
+  if (sx>=25&&sx<=72&&sy>=374&&sy<=430) return 'hands';
+  if (sx>=208&&sx<=255&&sy>=374&&sy<=430) return 'hands';
+  // Feet
+  if (sy>=548&&sy<=582&&sx>=70&&sx<=120) return 'feet';
+  if (sy>=548&&sy<=582&&sx>=140&&sx<=195) return 'feet';
+  // Body
+  if (sx>=60&&sx<=220&&sy>=182&&sy<=358) return 'body';
+  return null;
+}
+function toolAcceptsZone(tool, zone) {
+  if (!zone) return false;
+  if (tool.zones.includes('face') && zone === 'face') return true;
+  if (tool.zones.includes('hair') && zone === 'hair') return true;
+  if (tool.zones.includes('body') && zone === 'body') return true;
+  if (tool.zones.includes('hands') && zone === 'hands') return true;
+  if (tool.zones.includes('feet') && zone === 'feet') return true;
+  // Permissive tools (outfit, earrings, necklace, crown) accept any zone
+  if (tool.zones.length > 2 && zone) return true;
+  return false;
+}
+
+/* ============================
+   TOOLBAR BUILDER
+============================ */
+function buildToolbar(catId) {
+  activeCat = catId;
+  const scroll = document.getElementById('toolbar-scroll');
+  scroll.innerHTML = '';
+  const catTools = TOOLS.filter(t => t.cat === catId);
+  catTools.forEach(tool => {
     const btn = document.createElement('div');
-    btn.className = 'tool-btn' + (applied.has(tool.id)?' done':'');
-    btn.id = 'tool-' + tool.id;
-    btn.innerHTML = `<span class="tool-icon">${tool.icon}</span><span class="tool-label">${tool.label}</span>`;
-    if(tool.color){
-      const stateKey = tool.color;
-      const colorDiv = document.createElement('div');
-      colorDiv.className='color-swatch';
-      colorDiv.style.background = STATE[stateKey];
-      btn.appendChild(colorDiv);
-      const inp = document.createElement('input');
-      inp.type='color'; inp.value=STATE[stateKey];
-      inp.id='cp-'+tool.id;
-      inp.addEventListener('input', e => {
-        STATE[stateKey] = e.target.value;
-        colorDiv.style.background = e.target.value;
-      });
-      btn.appendChild(inp);
-    }
+    btn.className = 'tool-btn' + (applied.has(tool.id) ? ' done' : '') + (activeTool && activeTool.id === tool.id ? ' selected' : '');
+    btn.id = 'tbtn-' + tool.id;
+    btn.innerHTML = `<span class="t-icon">${tool.icon}</span><span class="t-label">${tool.label}</span>`;
     btn.addEventListener('click', () => selectTool(tool));
-    bar.appendChild(btn);
+    scroll.appendChild(btn);
+  });
+  // Update tab dots
+  document.querySelectorAll('.cat-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.cat === catId);
+  });
+}
+function buildCatTabs() {
+  const tabs = document.getElementById('cat-tabs');
+  tabs.innerHTML = '';
+  TOOL_CATEGORIES.forEach(cat => {
+    const tab = document.createElement('div');
+    tab.className = 'cat-tab' + (cat.id === activeCat ? ' active' : '');
+    tab.dataset.cat = cat.id;
+    tab.innerHTML = `${cat.icon} ${cat.label}<span class="tab-dot" id="dot-${cat.id}"></span>`;
+    tab.addEventListener('click', () => buildToolbar(cat.id));
+    tabs.appendChild(tab);
   });
 }
 
-function selectTool(tool){
+/* ============================
+   TOOL PANEL
+============================ */
+function updateToolPanel(tool) {
+  document.getElementById('panel-icon').textContent = tool.icon;
+  document.getElementById('panel-name').textContent = tool.label;
+  document.getElementById('panel-hint').textContent = tool.hint;
+  const opts = document.getElementById('panel-opts');
+  opts.innerHTML = '';
+
+  if (tool.colorKey) {
+    // Color picker swatch
+    const inp = document.createElement('input');
+    inp.type = 'color';
+    inp.id = 'cp-' + tool.id;
+    inp.value = STATE[tool.colorKey];
+    inp.addEventListener('input', e => {
+      STATE[tool.colorKey] = e.target.value;
+      swatch.style.background = e.target.value;
+    });
+    opts.appendChild(inp);
+    const swatch = document.createElement('div');
+    swatch.className = 'color-preview';
+    swatch.style.background = STATE[tool.colorKey];
+    swatch.title = 'Pick color';
+    swatch.addEventListener('click', () => inp.click());
+    opts.appendChild(swatch);
+  }
+  if (tool.colorType === 'shade') {
+    // Foundation shade selector
+    const shades = [{id:'fair',c:'#ffe0cc',l:'Fair'},{id:'medium',c:'#f0b98c',l:'Medium'},{id:'tan',c:'#c87941',l:'Tan'}];
+    const wrap = document.createElement('div');
+    wrap.className = 'shade-opts';
+    shades.forEach(sh => {
+      const d = document.createElement('div');
+      d.className = 'shade-dot' + (STATE.skinTone === sh.id ? ' active' : '');
+      d.style.background = sh.c;
+      d.title = sh.l;
+      d.addEventListener('click', () => {
+        STATE.skinTone = sh.id;
+        wrap.querySelectorAll('.shade-dot').forEach(x => x.classList.remove('active'));
+        d.classList.add('active');
+      });
+      wrap.appendChild(d);
+    });
+    opts.appendChild(wrap);
+  }
+  if (tool.styleKey && tool.styleOpts) {
+    // Style pills
+    tool.styleOpts.forEach(opt => {
+      const pill = document.createElement('div');
+      const v = typeof opt === 'object' ? opt.v : opt;
+      const l = typeof opt === 'object' ? opt.l : String(opt);
+      const curVal = STATE[tool.styleKey];
+      pill.className = 'opt-pill' + (curVal === v ? ' active' : '');
+      pill.textContent = l;
+      pill.addEventListener('click', () => {
+        STATE[tool.styleKey] = v;
+        opts.querySelectorAll('.opt-pill').forEach(x => x.classList.remove('active'));
+        pill.classList.add('active');
+        // For outfit/hairstyle, immediately re-render
+        if (tool.styleKey === 'outfit' || tool.styleKey === 'hairStyle' ||
+            tool.styleKey === 'hairAccessory' || tool.styleKey === 'earrings' || tool.styleKey === 'necklace') {
+          renderChar();
+        }
+      });
+      opts.appendChild(pill);
+    });
+  }
+}
+
+function selectTool(tool) {
   activeTool = tool;
-  document.querySelectorAll('.tool-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('tool-'+tool.id).classList.add('active');
-  const status = document.getElementById('tool-status');
-  status.innerHTML = `<div class="dot"></div> ${tool.icon} <strong>${tool.label}</strong> selected — ${tool.hint}`;
-  if(tool.color){
-    // open color picker
-    document.getElementById('cp-'+tool.id).click();
+  document.querySelectorAll('.tool-btn').forEach(b => b.classList.remove('selected'));
+  const btn = document.getElementById('tbtn-' + tool.id);
+  if (btn) btn.classList.add('selected');
+  updateToolPanel(tool);
+  // Activate bulbs
+  document.querySelectorAll('.bulb').forEach(b => b.classList.add('active'));
+  setTimeout(() => document.querySelectorAll('.bulb').forEach(b => b.classList.remove('active')), 1500);
+  showToast(tool.icon + ' ' + tool.label + ' selected!');
+}
+
+/* ============================
+   CHARACTER TAP HANDLER
+============================ */
+function handleCharTap(e) {
+  e.preventDefault();
+  if (!activeTool) { showToast('👆 Pick a tool first!'); return; }
+  const svgEl = document.getElementById('char-svg');
+  let cx, cy;
+  if (e.touches) {
+    cx = e.touches[0].clientX; cy = e.touches[0].clientY;
+  } else {
+    cx = e.clientX; cy = e.clientY;
   }
-  showToast(`${tool.icon} ${tool.label} selected!`);
-}
+  const sv = clientToSVG(cx, cy, svgEl);
+  const zone = detectZone(sv.x, sv.y);
 
-/* =============================================
-   APPLY TOOL
-============================================= */
-function applyActiveTool(x, y){
-  if(!activeTool) { showToast('👆 Pick a tool first!'); return; }
-  const tool = activeTool;
-  const colorKey = tool.color;
-  const color = colorKey ? STATE[colorKey] : null;
-  const changed = tool.apply(STATE, color);
-  if(!changed) return;
-  applied.add(tool.id);
-  // mark done
-  const btn = document.getElementById('tool-'+tool.id);
-  btn.classList.add('done'); btn.classList.remove('active');
-  renderChar();
-  updateProgress();
-  spawnEffects(x, y, tool.msg);
-}
+  // Stage coords for particles
+  const stageEl = document.getElementById('stage-wrap');
+  const sr = stageEl.getBoundingClientRect();
+  const stageX = cx - sr.left;
+  const stageY = cy - sr.top;
 
-function updateProgress(){
-  const pct = Math.round((applied.size / TOOLS.length) * 100);
-  document.getElementById('prog-fill').style.width = pct + '%';
-  const finBtn = document.getElementById('btn-finish');
-  if(applied.size >= 4) finBtn.disabled = false;
-}
-
-/* =============================================
-   EFFECTS
-============================================= */
-function spawnEffects(x, y, msg){
-  const stage = document.getElementById('stage');
-
-  // Ripple
-  const rip = document.createElement('div');
-  rip.className='ripple'; rip.style.left=x+'px'; rip.style.top=y+'px';
-  stage.appendChild(rip); setTimeout(()=>rip.remove(),700);
-
-  // Float text
-  const ft = document.createElement('div');
-  ft.className='float-text'; ft.textContent=msg;
-  ft.style.left=x+'px'; ft.style.top=(y-10)+'px';
-  stage.appendChild(ft); setTimeout(()=>ft.remove(),950);
-
-  // Sparkles
-  const emojis=['✨','⭐','💫','🌟','💥'];
-  for(let i=0;i<5;i++){
-    setTimeout(()=>{
-      const sp=document.createElement('div');
-      sp.className='sparkle';
-      sp.textContent=emojis[Math.floor(Math.random()*emojis.length)];
-      sp.style.left=(x+Math.random()*80-40)+'px';
-      sp.style.top=(y+Math.random()*80-40)+'px';
-      stage.appendChild(sp); setTimeout(()=>sp.remove(),750);
-    },i*80);
+  if (!toolAcceptsZone(activeTool, zone)) {
+    const correct = activeTool.zones[0];
+    spawnZoneHint(correct, stageX, stageY);
+    triggerShake();
+    return;
   }
+  handleToolStep(activeTool, zone, sv.x, sv.y, stageX, stageY);
 }
 
-/* =============================================
-   TOAST
-============================================= */
-let toastTimer;
-function showToast(msg){
-  const t = document.getElementById('toast');
-  t.textContent=msg; t.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer=setTimeout(()=>t.classList.remove('show'),2000);
-}
-
-/* =============================================
-   CLICK / TOUCH ON CHARACTER
-============================================= */
-function setupCharEvents(){
+function triggerShake() {
   const wrap = document.getElementById('char-wrap');
-  function handleInteract(e){
-    e.preventDefault();
-    const rect = wrap.getBoundingClientRect();
-    let cx,cy;
-    if(e.touches){
-      cx=e.touches[0].clientX-rect.left; cy=e.touches[0].clientY-rect.top;
-    } else {
-      cx=e.clientX-rect.left; cy=e.clientY-rect.top;
+  wrap.style.animation = 'none';
+  requestAnimationFrame(() => {
+    wrap.style.animation = 'excitedJump .3s ease';
+    setTimeout(() => { wrap.style.animation = ''; }, 400);
+  });
+}
+
+/* ============================
+   TOOL STEP HANDLER
+============================ */
+function handleToolStep(tool, zone, svgX, svgY, stageX, stageY) {
+  // Multi-step tools
+  if (tool.steps > 1) {
+    if (tool.progKey) {
+      // 3-tap tools
+      const prog = STATE[tool.progKey];
+      if (prog < 3) {
+        STATE[tool.progKey] = prog + 1;
+        spawnParticles(tool.particle, stageX, stageY, 6);
+        spawnFloatText(tool.msgs[Math.min(prog, tool.msgs.length-1)], stageX, stageY);
+        renderChar();
+        if (STATE[tool.progKey] >= 3) {
+          finishTool(tool, stageX, stageY);
+        }
+        return;
+      }
+      // Already done — treat as refresh
+      finishTool(tool, stageX, stageY);
+      return;
     }
-    // position relative to stage for effects
-    const stageRect = document.getElementById('stage').getBoundingClientRect();
-    const sx = (e.touches?e.touches[0].clientX:e.clientX)-stageRect.left;
-    const sy = (e.touches?e.touches[0].clientY:e.clientY)-stageRect.top;
-    applyActiveTool(sx,sy);
+    if (tool.stateKeys) {
+      // 2-tap tools (mascara, nails)
+      const [k1, k2] = tool.stateKeys;
+      const fk = tool.finalKey || null;
+      if (!STATE[k1]) {
+        STATE[k1] = true;
+        spawnParticles(tool.particle, stageX, stageY, 6);
+        spawnFloatText(tool.msgs[0], stageX, stageY);
+        renderChar();
+        triggerReaction();
+        return;
+      } else if (!STATE[k2]) {
+        STATE[k2] = true;
+        if (fk) STATE[fk] = true;
+        spawnParticles(tool.particle, stageX, stageY, 10);
+        spawnFloatText(tool.msgs[1], stageX, stageY);
+        renderChar();
+        finishTool(tool, stageX, stageY);
+        return;
+      }
+      // Both done
+      finishTool(tool, stageX, stageY);
+      return;
+    }
   }
-  wrap.addEventListener('click',handleInteract);
-  wrap.addEventListener('touchstart',handleInteract,{passive:false});
+  // Single-step tools
+  finishTool(tool, stageX, stageY);
 }
 
-/* =============================================
-   SCREEN TRANSITIONS
-============================================= */
-function showScreen(id){
-  document.querySelectorAll('.screen').forEach(s=>s.classList.add('hidden'));
-  document.getElementById(id).classList.remove('hidden');
-}
+function finishTool(tool, stageX, stageY) {
+  // Mark state
+  if (tool.stateKey) STATE[tool.stateKey] = true;
+  if (tool.progKey) STATE[tool.progKey] = 3;
+  if (tool.stateKeys) tool.stateKeys.forEach(k => STATE[k] = true);
+  if (tool.finalKey) STATE[tool.finalKey] = true;
 
-function startGame(){
-  resetState();
-  buildToolbar();
+  const wasNew = !applied.has(tool.id);
+  if (wasNew) {
+    // Record for undo
+    undoStack.push({toolId: tool.id, stateSnapshot: captureState()});
+    applied.add(tool.id);
+    awardXP(tool.xp);
+    checkCombo(tool);
+    checkCategoryComplete(tool.cat);
+    updateCatDots();
+    updateProgress();
+  }
+
   renderChar();
-  updateProgress();
-  document.getElementById('btn-finish').disabled=true;
-  document.getElementById('tool-status').innerHTML='👆 Select a tool below to begin';
-  showScreen('game');
-  setupCharEvents();
+  spawnParticles(tool.particle, stageX, stageY, wasNew ? 12 : 6);
+  spawnFloatText(tool.msgs[tool.msgs.length-1], stageX, stageY);
+  triggerReaction();
+
+  // Mark btn done
+  const btn = document.getElementById('tbtn-' + tool.id);
+  if (btn) { btn.classList.add('done'); btn.classList.remove('selected'); }
+
+  if (applied.size >= 5) {
+    document.getElementById('btn-finish').disabled = false;
+  }
 }
 
-/* =============================================
-   FINISH
-============================================= */
-function showFinish(){
-  // Build before SVG (fully messy)
-  const messy={foundation:false,blush:false,lipColor:'#8b4046',lipDone:false,
-    eyeShadowColor:'transparent',eyeShadowDone:false,mascara:false,
-    hairBrush:false,hairColor:'#3d1a00',hairColorDone:false,accessories:false};
-  document.getElementById('before-svg').innerHTML=buildCharSVG(messy);
-  // Build after SVG (current state)
-  document.getElementById('after-svg').innerHTML=buildCharSVG(STATE);
+/* ============================
+   STATE CAPTURE / UNDO
+============================ */
+function captureState() {
+  return JSON.parse(JSON.stringify(STATE));
+}
+function undoLast() {
+  if (undoStack.length === 0) { showToast('Nothing to undo!'); return; }
+  const {toolId, stateSnapshot} = undoStack.pop();
+  applied.delete(toolId);
+  Object.assign(STATE, stateSnapshot);
+  renderChar();
+  buildToolbar(activeCat);
+  updateCatDots();
+  updateProgress();
+  showToast('↩ ' + toolId + ' undone');
+}
 
-  // Score
-  const pct = Math.round((applied.size/TOOLS.length)*100);
-  const score = pct;
-  document.getElementById('score-num').textContent=score+'%';
-  const stars=score>=90?'⭐⭐⭐⭐⭐':score>=70?'⭐⭐⭐⭐':score>=50?'⭐⭐⭐':score>=30?'⭐⭐':'⭐';
-  document.getElementById('score-stars').textContent=stars;
+/* ============================
+   PARTICLES
+============================ */
+const PARTICLE_CONFIG = {
+  bubbles:  {emojis:['⚪','🔵','💙'],  count:8,  vy:[-70,-40], vx:[-25,25], dur:900},
+  droplets: {emojis:['💧'],            count:7,  vy:[20,50],   vx:[-20,20], dur:800},
+  glow:     {emojis:['✨'],            count:5,  vy:[-50,-20], vx:[-30,30], dur:700},
+  shimmer:  {emojis:['✨','⭐'],       count:14, vy:[-55,-10], vx:[-40,40], dur:900},
+  petals:   {emojis:['🌸','🌺'],       count:10, vy:[-30,50],  vx:[-40,40], dur:1100},
+  hearts:   {emojis:['💕','💗','❤️'],  count:8,  vy:[-65,-20], vx:[-30,30], dur:1000},
+  mist:     {emojis:['💨','🌫️'],       count:6,  vy:[-40,10],  vx:[-50,50], dur:1200},
+  glitter:  {emojis:['✨','⭐','💫'],  count:22, vy:[-65,55],  vx:[-60,60], dur:1300},
+  stars:    {emojis:['⭐','🌟','💫'],  count:12, vy:[-55,-5],  vx:[-45,45], dur:900},
+  sparkles: {emojis:['✨','💫'],       count:10, vy:[-50,-5],  vx:[-35,35], dur:800},
+};
+
+function spawnParticles(type, x, y, countOverride) {
+  const cfg = PARTICLE_CONFIG[type] || PARTICLE_CONFIG.sparkles;
+  const stageEl = document.getElementById('stage-wrap');
+  const n = countOverride || cfg.count;
+  for (let i = 0; i < n; i++) {
+    setTimeout(() => {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const vx = cfg.vx[0] + Math.random() * (cfg.vx[1] - cfg.vx[0]);
+      const vy = cfg.vy[0] + Math.random() * (cfg.vy[1] - cfg.vy[0]);
+      p.textContent = cfg.emojis[Math.floor(Math.random() * cfg.emojis.length)];
+      p.style.cssText = `left:${x}px;top:${y}px;font-size:${0.9+Math.random()*0.7}rem;
+        --tx:${vx}px;--ty:${vy}px;--tx2:${vx*1.5}px;
+        animation-duration:${cfg.dur + Math.random()*300}ms;`;
+      stageEl.appendChild(p);
+      setTimeout(() => p.remove(), cfg.dur + 400);
+    }, i * 55);
+  }
+}
+
+function spawnFloatText(msg, x, y) {
+  const stageEl = document.getElementById('stage-wrap');
+  const el = document.createElement('div');
+  el.className = 'float-text';
+  el.textContent = msg;
+  el.style.cssText = `left:${x}px;top:${y-10}px`;
+  stageEl.appendChild(el);
+  setTimeout(() => el.remove(), 1000);
+}
+
+function spawnZoneHint(zone, x, y) {
+  const stageEl = document.getElementById('stage-wrap');
+  const el = document.createElement('div');
+  el.className = 'zone-hint';
+  const name = ZONE_NAMES[zone] || zone;
+  el.textContent = `👆 Tap on the ${name}!`;
+  el.style.cssText = `left:${x}px;top:${y-10}px`;
+  stageEl.appendChild(el);
+  setTimeout(() => el.remove(), 1200);
+  showToast(`Tap on the ${name}!`);
+}
+
+/* ============================
+   IDLE ANIMATIONS
+============================ */
+function startIdleAnimations() {
+  stopIdleAnimations();
+  const eyeGroup = document.querySelector('#char-svg .lyr-eyes-blink');
+  if (!eyeGroup) return;
+  function doBlink() {
+    eyeGroup.style.animation = 'eyeBlink .35s ease';
+    setTimeout(() => { eyeGroup.style.animation = ''; }, 400);
+    blinkTimer = setTimeout(doBlink, 3200 + Math.random() * 2000);
+  }
+  blinkTimer = setTimeout(doBlink, 2000);
+}
+function stopIdleAnimations() {
+  if (blinkTimer) { clearTimeout(blinkTimer); blinkTimer = null; }
+}
+function triggerReaction() {
+  const svg = document.getElementById('char-svg');
+  svg.style.animation = 'none';
+  requestAnimationFrame(() => {
+    svg.style.animation = 'excitedJump .6s ease-out, breathe 3.5s ease-in-out infinite 0.7s';
+    setTimeout(() => {
+      svg.style.animation = 'breathe 3.5s ease-in-out infinite';
+    }, 800);
+  });
+}
+
+/* ============================
+   GAMIFICATION
+============================ */
+const XP_LEVELS = [0, 50, 120, 220, 350, 520];
+function awardXP(amount) {
+  const bonus = STATE.combo >= 5 ? 10 : (STATE.combo >= 3 ? 5 : 0);
+  const total = amount + bonus;
+  STATE.xp += total;
+  updateXPBar();
+  // Check level up
+  const level = getLevel();
+  if (level > getLevel(STATE.xp - total)) {
+    showToast(`✨ Glam Level ${level}! +${total} XP`);
+  }
+}
+function getLevel(xpVal) {
+  const xp = xpVal !== undefined ? xpVal : STATE.xp;
+  for (let i = XP_LEVELS.length - 1; i >= 0; i--) {
+    if (xp >= XP_LEVELS[i]) return i + 1;
+  }
+  return 1;
+}
+function updateXPBar() {
+  const level = getLevel();
+  const cur = XP_LEVELS[level-1] || 0;
+  const next = XP_LEVELS[level] || XP_LEVELS[XP_LEVELS.length-1];
+  const pct = Math.min(100, ((STATE.xp - cur) / (next - cur)) * 100);
+  document.getElementById('xp-fill').style.width = pct + '%';
+  document.getElementById('xp-level').textContent = 'Glam Lv.' + level;
+  document.getElementById('xp-val').textContent = STATE.xp + ' XP';
+}
+function checkCombo(tool) {
+  const now = Date.now();
+  if (now - STATE.lastToolTime < 8000) {
+    STATE.combo++;
+  } else {
+    STATE.combo = 1;
+  }
+  STATE.lastToolTime = now;
+  const badge = document.getElementById('combo-badge');
+  badge.textContent = '🔥 x' + STATE.combo;
+  if (STATE.combo >= 3) {
+    badge.classList.add('show');
+    setTimeout(() => badge.classList.remove('show'), 2500);
+  }
+}
+function checkCategoryComplete(catId) {
+  const def = CAT_SCORE_DEF[catId];
+  if (!def) return;
+  const allDone = def.tools.every(t => applied.has(t));
+  if (!allDone) return;
+  awardXP(50);
+  showCategoryBanner(TOOL_CATEGORIES.find(c=>c.id===catId));
+}
+function showCategoryBanner(cat) {
+  const banner = document.getElementById('cat-banner');
+  banner.textContent = `${cat.icon} ${cat.label} Category Mastered! +50 XP`;
+  banner.classList.add('show');
+  setTimeout(() => banner.classList.remove('show'), 2800);
+}
+function updateCatDots() {
+  Object.entries(CAT_SCORE_DEF).forEach(([catId, def]) => {
+    const dot = document.getElementById('dot-' + catId);
+    if (!dot) return;
+    const done = def.tools.filter(t => applied.has(t)).length;
+    dot.classList.toggle('show', done > 0);
+  });
+}
+function updateProgress() {
+  updateXPBar();
+  updateCatDots();
+  if (applied.size >= 5) document.getElementById('btn-finish').disabled = false;
+}
+
+/* ============================
+   TOAST
+============================ */
+let toastTimer;
+function showToast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 2000);
+}
+
+/* ============================
+   SCORING
+============================ */
+function calcScore() {
+  let score = 0;
+  for (const [cat, cfg] of Object.entries(CAT_SCORE_DEF)) {
+    const done = cfg.tools.filter(t => applied.has(t)).length;
+    score += (done / cfg.tools.length) * cfg.weight;
+  }
+  if (applied.has('foundation') && applied.has('setting-spray')) score += 3;
+  if (['lip-liner','lipstick','lip-gloss'].every(t => applied.has(t))) score += 3;
+  if (['eyebrow','eyeshadow','eyeliner','mascara'].every(t => applied.has(t))) score += 4;
+  return Math.round(Math.min(100, score));
+}
+function getBadges() {
+  const badges = [];
+  const score = calcScore();
+  if (score >= 90) badges.push({icon:'👑', label:'Glam Queen'});
+  if (applied.size >= TOOLS.length) badges.push({icon:'🌟', label:'Full Glam'});
+  const skincareDone = CAT_SCORE_DEF.skincare.tools.every(t => applied.has(t));
+  const faceDoneFirst = applied.has('foundation');
+  if (skincareDone) badges.push({icon:'🧴', label:'Skincare First'});
+  if (STATE.nailHandsDone && STATE.nailFeetDone) badges.push({icon:'💅', label:'Head to Toe'});
+  const colorPickers = ['blushColor','eyeShadowColor','lipColor','hairColor','nailColorHands','nailColorFeet'];
+  const usedPickers = colorPickers.filter(k => {
+    const defaults = {blushColor:'#ff9999',eyeShadowColor:'#9b59b6',lipColor:'#e8003c',hairColor:'#3d1a00',nailColorHands:'#ff4488',nailColorFeet:'#ff4488'};
+    return STATE[k] !== defaults[k];
+  }).length;
+  if (usedPickers >= 3) badges.push({icon:'🎨', label:'Color Queen'});
+  if (STATE.combo >= 5) badges.push({icon:'🔥', label:'Combo Master'});
+  return badges;
+}
+
+/* ============================
+   FINISH SCREEN
+============================ */
+function showFinish() {
+  // Before SVG
+  const messy = {
+    facewash:false, faceWashProg:0, toner:false, moisturizer:false, faceMask:false,
+    skinTone:'default', foundation:false, concealer:false, contour:false,
+    highlight:false, blushColor:'#ff9999', blushDone:false, bronzer:false, settingSpray:false,
+    eyebrowDone:false, eyeShadowColor:'#9b59b6', eyeShadowDone:false,
+    eyelinerStyle:'classic', eyelinerDone:false,
+    mascaraLeft:false, mascaraRight:false, falseLashes:false, underEyeDone:false,
+    lipLiner:false, lipColor:'#8b4046', lipDone:false, lipGloss:false, lipPlumper:false,
+    hairWashed:false, hairWashProg:0, hairBrush:false, hairStyleDone:false,
+    hairStyle:'messy', hairColor:'#3d1a00', hairColorDone:false,
+    hairAccessory:'none', hairAccDone:false,
+    bodyLotion:false, bodyGlitter:false,
+    nailColorHands:'#ff4488', nailHandsL:false, nailHandsR:false, nailHandsDone:false,
+    nailColorFeet:'#ff4488', nailFeetL:false, nailFeetR:false, nailFeetDone:false,
+    outfit:-1, outfitDone:false, earrings:'none', earringsDone:false,
+    necklace:'none', necklaceDone:false, crown:false,
+    xp:0, combo:0, lastToolTime:0,
+  };
+  document.getElementById('before-svg').innerHTML = buildCharSVG(messy);
+  document.getElementById('after-svg').innerHTML = buildCharSVG(STATE);
+
+  const score = calcScore();
+  const scoreEl = document.getElementById('score-num');
+  scoreEl.textContent = '0%';
+  let cur = 0;
+  const interval = setInterval(() => {
+    cur = Math.min(cur + 2, score);
+    scoreEl.textContent = cur + '%';
+    if (cur >= score) clearInterval(interval);
+  }, 30);
+
+  const stars = score >= 90 ? '⭐⭐⭐⭐⭐' : score >= 70 ? '⭐⭐⭐⭐' : score >= 50 ? '⭐⭐⭐' : score >= 30 ? '⭐⭐' : '⭐';
+  document.getElementById('score-stars').textContent = stars;
+
+  // Category scores grid
+  const grid = document.getElementById('cat-scores-grid');
+  grid.innerHTML = '';
+  for (const [catId, cfg] of Object.entries(CAT_SCORE_DEF)) {
+    const done = cfg.tools.filter(t => applied.has(t)).length;
+    const pct = Math.round((done / cfg.tools.length) * 100);
+    const cat = TOOL_CATEGORIES.find(c => c.id === catId);
+    const cell = document.createElement('div');
+    cell.className = 'cat-score-cell';
+    cell.innerHTML = `<div class="cs-icon">${cfg.icon}</div>
+      <div class="cs-name">${cat ? cat.label : catId}</div>
+      <div class="cs-pct" style="color:${pct>=80?'#f5c518':pct>=50?'#ff6eb4':'#888'}">${pct}%</div>`;
+    grid.appendChild(cell);
+  }
+
+  // Badges
+  const badgesRow = document.getElementById('badges-row');
+  badgesRow.innerHTML = '';
+  getBadges().forEach(b => {
+    const el = document.createElement('div');
+    el.className = 'badge';
+    el.innerHTML = `<span>${b.icon}</span><span>${b.label}</span>`;
+    badgesRow.appendChild(el);
+  });
 
   showScreen('finish');
   launchConfetti();
 }
 
-function resetGame(){
+/* ============================
+   SCREEN MANAGEMENT
+============================ */
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+}
+function startGame() {
+  resetStateObj();
+  applied.clear();
+  undoStack = [];
+  activeTool = null;
+  activeCat = 'skincare';
+  STATE.xp = 0; STATE.combo = 0; STATE.lastToolTime = 0;
+  document.getElementById('btn-finish').disabled = true;
+  document.getElementById('xp-fill').style.width = '0%';
+  document.getElementById('xp-level').textContent = 'Glam Lv.1';
+  document.getElementById('xp-val').textContent = '0 XP';
+  document.getElementById('combo-badge').classList.remove('show');
+  buildCatTabs();
+  buildToolbar('skincare');
+  updateToolPanel({icon:'👆', label:'Select a tool', hint:'Pick a category tab and tap a tool below', zones:[], steps:1});
+  renderChar();
+  setupCharEvents();
+  showScreen('game');
+}
+function resetStateObj() {
+  Object.assign(STATE, {
+    facewash:false, faceWashProg:0, toner:false, moisturizer:false, faceMask:false,
+    skinTone:'fair', foundation:false, concealer:false, contour:false,
+    highlight:false, blushColor:'#ff9999', blushDone:false, bronzer:false, settingSpray:false,
+    eyebrowDone:false, eyeShadowColor:'#9b59b6', eyeShadowDone:false,
+    eyelinerStyle:'classic', eyelinerDone:false,
+    mascaraLeft:false, mascaraRight:false, falseLashes:false, underEyeDone:false,
+    lipLiner:false, lipColor:'#e8003c', lipDone:false, lipGloss:false, lipPlumper:false,
+    hairWashed:false, hairWashProg:0, hairBrush:false, hairStyleDone:false,
+    hairStyle:'messy', hairColor:'#3d1a00', hairColorDone:false,
+    hairAccessory:'none', hairAccDone:false,
+    bodyLotion:false, bodyGlitter:false,
+    nailColorHands:'#ff4488', nailHandsL:false, nailHandsR:false, nailHandsDone:false,
+    nailColorFeet:'#ff4488', nailFeetL:false, nailFeetR:false, nailFeetDone:false,
+    outfit:-1, outfitDone:false, earrings:'none', earringsDone:false,
+    necklace:'none', necklaceDone:false, crown:false,
+  });
+}
+function resetGame() {
+  stopIdleAnimations();
   showScreen('intro');
   renderIntro();
 }
 
-/* =============================================
-   CONFETTI
-============================================= */
-function launchConfetti(){
-  const c=document.getElementById('confetti-canvas');
-  c.width=innerWidth; c.height=innerHeight;
-  const ctx=c.getContext('2d');
-  const colors=['#f5c518','#ff6eb4','#9b59b6','#fff','#ff4444','#44ff88'];
-  const pieces=[];
-  for(let i=0;i<120;i++){
-    pieces.push({
-      x:Math.random()*c.width, y:Math.random()*c.height-c.height,
-      r:Math.random()*6+3, color:colors[Math.floor(Math.random()*colors.length)],
-      rot:Math.random()*360, vx:(Math.random()-0.5)*4, vy:Math.random()*5+2,
-      vr:Math.random()*8-4,
-    });
-  }
-  let frame=0;
-  function draw(){
-    ctx.clearRect(0,0,c.width,c.height);
-    pieces.forEach(p=>{
-      ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot*Math.PI/180);
-      ctx.fillStyle=p.color; ctx.beginPath();
-      ctx.rect(-p.r/2,-p.r/2,p.r,p.r); ctx.fill(); ctx.restore();
-      p.x+=p.vx; p.y+=p.vy; p.rot+=p.vr; p.vy+=.12;
-    });
-    frame++;
-    if(frame<180) requestAnimationFrame(draw);
-    else ctx.clearRect(0,0,c.width,c.height);
-  }
-  draw();
+/* ============================
+   CHAR EVENTS SETUP
+============================ */
+function setupCharEvents() {
+  const wrap = document.getElementById('char-wrap');
+  wrap.replaceWith(wrap.cloneNode(true)); // remove old listeners
+  const newWrap = document.getElementById('char-wrap');
+  newWrap.addEventListener('click', handleCharTap);
+  newWrap.addEventListener('touchstart', handleCharTap, {passive:false});
 }
 
-/* =============================================
+/* ============================
+   CONFETTI
+============================ */
+function launchConfetti() {
+  const c = document.getElementById('confetti-canvas');
+  c.width = innerWidth; c.height = innerHeight;
+  const ctx = c.getContext('2d');
+  const colors = ['#f5c518','#ff6eb4','#9b59b6','#fff','#ff4444','#44ff88','#4488ff'];
+  const pieces = [];
+  for (let i = 0; i < 200; i++) {
+    pieces.push({
+      x: Math.random()*c.width, y: Math.random()*c.height - c.height,
+      r: Math.random()*6+3, color: colors[Math.floor(Math.random()*colors.length)],
+      rot: Math.random()*360, vx: (Math.random()-.5)*4,
+      vy: Math.random()*5+2, vr: Math.random()*8-4,
+    });
+  }
+  let frame = 0;
+  function drawConf() {
+    ctx.clearRect(0,0,c.width,c.height);
+    pieces.forEach(p => {
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot*Math.PI/180);
+      ctx.fillStyle = p.color; ctx.beginPath();
+      ctx.rect(-p.r/2,-p.r/2,p.r,p.r); ctx.fill(); ctx.restore();
+      p.x += p.vx; p.y += p.vy; p.rot += p.vr; p.vy += .12;
+    });
+    frame++;
+    if (frame < 200) requestAnimationFrame(drawConf);
+    else ctx.clearRect(0,0,c.width,c.height);
+  }
+  drawConf();
+}
+
+/* ============================
+   STARS BACKGROUND
+============================ */
+(function() {
+  const c = document.getElementById('stars-canvas');
+  const ctx = c.getContext('2d');
+  let stars = [];
+  function resize() {
+    c.width = innerWidth; c.height = innerHeight;
+    stars = [];
+    const n = Math.floor((c.width*c.height)/3500);
+    for (let i=0;i<n;i++) stars.push({
+      x:Math.random()*c.width, y:Math.random()*c.height,
+      r:Math.random()*1.5+.3, phase:Math.random()*Math.PI*2, speed:Math.random()*.004+.001
+    });
+  }
+  function draw() {
+    ctx.clearRect(0,0,c.width,c.height);
+    stars.forEach(s => {
+      s.phase += s.speed;
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+      ctx.fillStyle = `rgba(255,255,255,${(Math.sin(s.phase)*.5+.5)*.8})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize', resize);
+  resize(); draw();
+})();
+
+/* ============================
+   LIGHT BULBS
+============================ */
+function initBulbs() {
+  const wrap = document.getElementById('bulb-wrap');
+  const W = innerWidth, H = innerHeight;
+  // Top row: 12 bulbs
+  for (let i=0;i<12;i++) {
+    const b = document.createElement('div');
+    b.className='bulb';
+    b.style.cssText=`left:${(i+.5)*(W/12)-9}px;top:4px`;
+    wrap.appendChild(b);
+  }
+  // Bottom row: 12 bulbs
+  for (let i=0;i<12;i++) {
+    const b = document.createElement('div');
+    b.className='bulb';
+    b.style.cssText=`left:${(i+.5)*(W/12)-9}px;bottom:4px`;
+    wrap.appendChild(b);
+  }
+  // Left column: 5 bulbs
+  for (let i=0;i<5;i++) {
+    const b = document.createElement('div');
+    b.className='bulb';
+    b.style.cssText=`left:4px;top:${(i+.5)*(H/5)-9}px`;
+    wrap.appendChild(b);
+  }
+  // Right column: 5 bulbs
+  for (let i=0;i<5;i++) {
+    const b = document.createElement('div');
+    b.className='bulb';
+    b.style.cssText=`right:4px;top:${(i+.5)*(H/5)-9}px`;
+    wrap.appendChild(b);
+  }
+}
+
+/* ============================
    INIT
-============================================= */
+============================ */
+initBulbs();
 renderIntro();
 </script>
 </body>
