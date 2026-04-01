@@ -573,9 +573,10 @@ function createGame(name) {
 
   // Prefix to avoid PeerJS ID collisions
   const peerId = 'liar-' + roomCode;
-  peer = new Peer(peerId, { debug: 0 });
+  peer = new Peer(peerId, { debug: 2 });
 
-  peer.on('open', () => {
+  peer.on('open', (id) => {
+    console.log('[Liar] Host peer opened with ID:', id);
     // Add self as player
     G.players[myId] = { name: myName, score: 0, color: PLAYER_COLORS[0], order: 0 };
     G.playerOrder = [myId];
@@ -587,10 +588,13 @@ function createGame(name) {
   });
 
   peer.on('connection', conn => {
+    console.log('[Liar] Incoming connection from:', conn.peer);
     conn.on('open', () => {
+      console.log('[Liar] Connection opened from:', conn.peer);
       conn.on('data', data => handleHostMessage(conn, data));
     });
     conn.on('close', () => handlePlayerDisconnect(conn.metadata?.playerId));
+    conn.on('error', err => console.error('[Liar] Conn error:', err));
   });
 
   peer.on('error', err => {
@@ -609,31 +613,66 @@ function joinGame(code, name) {
   isHost = false;
   roomCode = code.toUpperCase();
 
-  peer = new Peer(undefined, { debug: 0 });
+  toast('Connecting to server...');
+  peer = new Peer(undefined, { debug: 2 });
 
-  peer.on('open', () => {
+  peer.on('open', (id) => {
+    console.log('[Liar] My peer ID:', id);
+    console.log('[Liar] Connecting to host: liar-' + roomCode);
+    toast('Searching for game ' + roomCode + '...');
     const hostPeerId = 'liar-' + roomCode;
-    hostConn = peer.connect(hostPeerId, { metadata: { playerId: myId } });
+    hostConn = peer.connect(hostPeerId, {
+      metadata: { playerId: myId },
+      reliable: true
+    });
+
+    // Timeout: if connection doesn't open in 10s, show error
+    const joinTimeout = setTimeout(() => {
+      if (!hostConn || !hostConn.open) {
+        toast('Could not connect — is the host online?');
+        console.log('[Liar] Connection timed out');
+        if (peer) { peer.destroy(); peer = null; }
+        hostConn = null;
+      }
+    }, 10000);
 
     hostConn.on('open', () => {
+      clearTimeout(joinTimeout);
+      console.log('[Liar] Connection opened to host!');
       toast('Connected! Joining...');
       hostConn.send({ type: 'join', data: { id: myId, name: myName } });
       hostConn.on('data', data => handleClientMessage(data));
     });
 
     hostConn.on('close', () => {
+      clearTimeout(joinTimeout);
       toast('Host disconnected!');
       cleanup();
       showScreen('screen-landing');
     });
 
-    hostConn.on('error', () => {
-      toast('Failed to connect');
+    hostConn.on('error', (err) => {
+      clearTimeout(joinTimeout);
+      console.error('[Liar] Connection error:', err);
+      toast('Failed to connect to game');
     });
   });
 
   peer.on('error', err => {
-    toast('Could not find game: ' + roomCode);
+    console.error('[Liar] Peer error:', err.type, err);
+    if (err.type === 'peer-unavailable') {
+      toast('Game not found: ' + roomCode);
+    } else if (err.type === 'network') {
+      toast('Network error — check your connection');
+    } else if (err.type === 'server-error') {
+      toast('Signaling server error — try again');
+    } else {
+      toast('Connection error: ' + err.type);
+    }
+  });
+
+  peer.on('disconnected', () => {
+    console.log('[Liar] Peer disconnected from signaling server');
   });
 }
 
