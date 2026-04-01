@@ -566,6 +566,8 @@ const avatarHTML = (name, color, size = 38) =>
 
 // ===== PEER JS NETWORKING =====
 
+let reconnectTimer = null;
+
 function createGame(name) {
   myName = name;
   isHost = true;
@@ -573,7 +575,16 @@ function createGame(name) {
 
   // Prefix to avoid PeerJS ID collisions
   const peerId = 'liar-' + roomCode;
-  peer = new Peer(peerId, { debug: 2 });
+  peer = new Peer(peerId, {
+    debug: 2,
+    config: {
+      iceServers: [
+        { urls: 'stun:stun.l.google.com:19302' },
+        { urls: 'stun:stun1.l.google.com:19302' },
+        { urls: 'stun:stun2.l.google.com:19302' }
+      ]
+    }
+  });
 
   peer.on('open', (id) => {
     console.log('[Liar] Host peer opened with ID:', id);
@@ -598,13 +609,31 @@ function createGame(name) {
   });
 
   peer.on('error', err => {
+    console.error('[Liar] Host peer error:', err.type, err);
     if (err.type === 'unavailable-id') {
       roomCode = genCode();
       peer.destroy();
       createGame(name);
+    } else if (err.type === 'network' || err.type === 'server-error') {
+      toast('Lost server connection — reconnecting...');
     } else {
       toast('Connection error: ' + err.type);
     }
+  });
+
+  // Auto-reconnect when host loses signaling server connection
+  peer.on('disconnected', () => {
+    console.log('[Liar] Host disconnected from signaling server, reconnecting...');
+    toast('Reconnecting to server...');
+    clearInterval(reconnectTimer);
+    reconnectTimer = setInterval(() => {
+      if (peer && peer.disconnected && !peer.destroyed) {
+        console.log('[Liar] Attempting reconnect...');
+        peer.reconnect();
+      } else {
+        clearInterval(reconnectTimer);
+      }
+    }, 3000);
   });
 }
 
@@ -614,7 +643,16 @@ function joinGame(code, name) {
   roomCode = code.toUpperCase();
 
   toast('Connecting to server...');
-  peer = new Peer(undefined, { debug: 2 });
+  peer = new Peer(undefined, {
+    debug: 2,
+    config: {
+      iceServers: [
+        { urls: 'stun:stun.l.google.com:19302' },
+        { urls: 'stun:stun1.l.google.com:19302' },
+        { urls: 'stun:stun2.l.google.com:19302' }
+      ]
+    }
+  });
 
   peer.on('open', (id) => {
     console.log('[Liar] My peer ID:', id);
@@ -830,7 +868,9 @@ function handlePlayerDisconnect(playerId) {
 
 function cleanup() {
   clearInterval(timerId);
+  clearInterval(reconnectTimer);
   timerId = null;
+  reconnectTimer = null;
   if (peer) { peer.destroy(); peer = null; }
   connections = {};
   hostConn = null;
@@ -1517,7 +1557,22 @@ $('name-input').addEventListener('keydown', e => {
 });
 
 $('btn-copy').onclick = () => {
-  navigator.clipboard.writeText(roomCode).then(() => toast('Code copied!'));
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(roomCode).then(() => toast('Code copied!'));
+    } else {
+      // Fallback for HTTP
+      const ta = document.createElement('textarea');
+      ta.value = roomCode;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      toast('Code copied!');
+    }
+  } catch (e) { toast('Code: ' + roomCode); }
 };
 
 $('btn-leave').onclick = () => {
