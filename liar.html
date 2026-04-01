@@ -490,7 +490,8 @@ const PLAYER_COLORS = [
 ];
 
 // ===== STATE =====
-let myId = sessionStorage.getItem('liar-id') || crypto.randomUUID();
+let myId = sessionStorage.getItem('liar-id') ||
+  ('xxxx-xxxx-xxxx'.replace(/x/g, () => Math.floor(Math.random() * 16).toString(16)));
 sessionStorage.setItem('liar-id', myId);
 let myName = '';
 let isHost = false;
