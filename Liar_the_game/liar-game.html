@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liar Game</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0d0d14;color:#f0eff8;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:0 0 60px}
+h1{font-size:2.4rem;font-weight:900;letter-spacing:-2px;background:linear-gradient(135deg,#a78bfa,#818cf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-align:center;padding:32px 0 4px}
+.sub{text-align:center;font-size:.75rem;letter-spacing:4px;color:#6b6a90;text-transform:uppercase;margin-bottom:28px}
+.wrap{width:100%;max-width:480px;padding:0 16px}
+.card{background:#13131f;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:22px;margin-bottom:12px}
+.label{font-size:.68rem;letter-spacing:3px;text-transform:uppercase;color:#6b6a90;margin-bottom:8px}
+input[type=text],textarea{width:100%;background:#1c1c2e;border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:13px 15px;color:#f0eff8;font-size:15px;font-family:inherit;outline:none;transition:border-color .2s}
+input[type=text]:focus,textarea:focus{border-color:#a78bfa}
+input[type=text]::placeholder,textarea::placeholder{color:#6b6a90}
+textarea{resize:none;line-height:1.6}
+.btn{display:block;width:100%;padding:14px;border-radius:10px;border:none;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;transition:all .15s;margin-top:8px}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.primary{background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff}
+.primary:hover:not(:disabled){filter:brightness(1.1)}
+.secondary{background:#1c1c2e;color:#f0eff8;border:1px solid rgba(255,255,255,.12)}
+.secondary:hover:not(:disabled){border-color:#a78bfa}
+.danger{background:rgba(248,113,113,.12);color:#f87171;border:1px solid rgba(248,113,113,.25)}
+.success-btn{background:rgba(52,211,153,.12);color:#34d399;border:1px solid rgba(52,211,153,.25)}
+.sep{text-align:center;color:#6b6a90;font-size:.75rem;letter-spacing:2px;margin:14px 0;position:relative}
+.sep::before,.sep::after{content:'';position:absolute;top:50%;width:38%;height:1px;background:rgba(255,255,255,.08)}
+.sep::before{left:0}.sep::after{right:0}
+.code-box{font-size:2rem;letter-spacing:10px;text-align:center;color:#a78bfa;background:#1c1c2e;border:1px dashed rgba(167,139,250,.3);border-radius:12px;padding:18px;cursor:pointer;font-family:'Courier New',monospace;font-weight:700}
+.player-row{display:flex;align-items:center;gap:10px;background:#1c1c2e;border-radius:10px;padding:10px 13px;margin-bottom:7px;border:1px solid rgba(255,255,255,.06)}
+.avatar{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
+.pname{flex:1;font-size:14px}
+.badge{font-size:.65rem;letter-spacing:1px;padding:3px 8px;border-radius:6px;text-transform:uppercase;font-weight:700}
+.b-host{background:rgba(167,139,250,.15);color:#a78bfa}
+.b-ready{background:rgba(52,211,153,.15);color:#34d399}
+.b-wait{background:rgba(107,106,144,.15);color:#6b6a90}
+.role-box{text-align:center;padding:28px 20px;background:#13131f;border:1px solid rgba(255,255,255,.08);border-radius:16px;margin-bottom:12px}
+.role-icon{font-size:48px;margin-bottom:10px}
+.role-title{font-size:20px;font-weight:800;margin-bottom:8px}
+.word-pill{font-family:'Courier New',monospace;font-size:26px;background:#1c1c2e;border-radius:10px;padding:14px 22px;display:inline-block;margin:12px 0;border:1px solid rgba(167,139,250,.25);color:#a78bfa}
+.clue-item{display:flex;gap:10px;background:#1c1c2e;border-radius:10px;padding:11px 13px;margin-bottom:7px;border:1px solid rgba(255,255,255,.06);align-items:flex-start}
+.clue-item.active{border-color:#a78bfa;background:rgba(167,139,250,.06)}
+.cspeaker{font-size:.7rem;padding:2px 7px;border-radius:5px;font-weight:700;flex-shrink:0;margin-top:1px}
+.ctext{font-size:13px;line-height:1.5;flex:1}
+.ctext.pending{color:#6b6a90;font-style:italic}
+.vote-row{display:flex;align-items:center;gap:10px;background:#1c1c2e;border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:12px 14px;cursor:pointer;transition:all .15s;margin-bottom:7px}
+.vote-row:hover{border-color:#818cf8}
+.vote-row.selected{border-color:#a78bfa;background:rgba(167,139,250,.1)}
+.vtick{color:#a78bfa;font-size:18px;margin-left:auto}
+.score-row{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.score-row:last-child{border:none}
+.pts{font-family:'Courier New',monospace;font-size:17px;font-weight:700}
+.pts.green{color:#34d399}.pts.dim{color:#6b6a90}
+.result-box{text-align:center;padding:26px 20px;background:#13131f;border:1px solid rgba(255,255,255,.08);border-radius:16px;margin-bottom:12px}
+.result-icon{font-size:46px;margin-bottom:10px}
+.result-title{font-size:20px;font-weight:800;margin-bottom:6px}
+.result-sub{font-size:13px;color:#6b6a90;line-height:1.6}
+.turn-bar{display:flex;align-items:center;gap:10px;background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.2);border-radius:10px;padding:10px 13px;margin-bottom:12px;font-size:13px;color:#a78bfa}
+.dot{width:8px;height:8px;border-radius:50%;background:#a78bfa;animation:pulse 1.5s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+.prog{height:3px;background:rgba(255,255,255,.08);border-radius:2px;margin-bottom:14px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,#a78bfa,#818cf8);border-radius:2px;transition:width .3s}
+.toast-wrap{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:999;pointer-events:none}
+.toast{background:#1c1c2e;border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:10px 18px;font-size:14px;color:#f0eff8;display:none;white-space:nowrap;text-align:center}
+.screen{display:none}.screen.on{display:block}
+.liar-tag{font-size:.65rem;color:#f87171;font-style:italic;margin-top:2px}
+.word-reveal{background:#1c1c2e;border:1px dashed rgba(167,139,250,.25);border-radius:10px;padding:13px;text-align:center;margin:10px 0}
+.word-reveal .wr-label{font-size:.68rem;letter-spacing:3px;color:#6b6a90;text-transform:uppercase;margin-bottom:5px}
+.word-reveal .wr-word{font-family:'Courier New',monospace;font-size:22px;color:#a78bfa;font-weight:700}
+.info-row{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.info-pill{font-size:.7rem;padding:4px 10px;border-radius:6px;background:rgba(255,255,255,.06);color:#6b6a90;border:1px solid rgba(255,255,255,.08)}
+</style>
+</head>
+<body>
+<div style="width:100%;max-width:480px;padding:0 16px">
+  <h1>LIAR</h1>
+  <p class="sub">The word deception game</p>
+</div>
+
+<div class="wrap">
+
+<!-- HOME -->
+<div class="screen on" id="s-home">
+  <div class="card">
+    <div class="label">Your name</div>
+    <input type="text" id="h-name" placeholder="Enter your name..." maxlength="18">
+  </div>
+  <div class="card">
+    <button class="btn primary" onclick="createGame()">Create new game</button>
+    <div class="sep">or join</div>
+    <div class="label">Room code</div>
+    <input type="text" id="h-code" placeholder="XXXX" maxlength="4" style="text-transform:uppercase;letter-spacing:6px;font-size:20px;text-align:center">
+    <button class="btn secondary" onclick="joinGame()">Join game</button>
+  </div>
+</div>
+
+<!-- LOBBY -->
+<div class="screen" id="s-lobby">
+  <div class="card">
+    <div class="label">Room code — tap to copy</div>
+    <div class="code-box" id="l-code" onclick="copyCode()">----</div>
+    <p style="font-size:12px;color:#6b6a90;text-align:center;margin-top:8px">Share with friends on same device or different devices</p>
+  </div>
+  <div class="card">
+    <div class="label">Players (<span id="l-count">0</span>)</div>
+    <div id="l-players"></div>
+  </div>
+  <div id="l-host-ctrl" style="display:none">
+    <button class="btn primary" id="l-start" onclick="startGame()" disabled>Start game (need 3+ players)</button>
+  </div>
+  <button class="btn secondary" onclick="leaveGame()" style="margin-top:4px">Leave game</button>
+</div>
+
+<!-- ROLE -->
+<div class="screen" id="s-role">
+  <div id="role-content"></div>
+  <button class="btn primary" id="role-ready" onclick="markReady()">I'm ready!</button>
+</div>
+
+<!-- CLUE -->
+<div class="screen" id="s-clue">
+  <div class="turn-bar"><div class="dot"></div><span id="turn-txt">Waiting...</span></div>
+  <div class="prog"><div class="prog-fill" id="clue-prog" style="width:0%"></div></div>
+  <div class="card" style="padding:13px 16px;margin-bottom:10px">
+    <div class="label">Your word</div>
+    <div id="my-word-mini" style="font-family:'Courier New',monospace;font-size:18px;color:#a78bfa">—</div>
+  </div>
+  <div class="card">
+    <div class="label">Clues</div>
+    <div id="clues-list" style="margin-bottom:10px"></div>
+    <div id="clue-input-wrap" style="display:none">
+      <div class="label">Your clue</div>
+      <textarea id="clue-txt" rows="2" placeholder="Give a clue about the word..."></textarea>
+      <button class="btn primary" onclick="submitClue()">Submit clue</button>
+    </div>
+    <div id="clue-wait-msg" style="display:none;text-align:center;color:#6b6a90;font-size:13px;padding:8px">Waiting for others...</div>
+  </div>
+</div>
+
+<!-- VOTE -->
+<div class="screen" id="s-vote">
+  <div class="card">
+    <div style="font-size:16px;font-weight:700;margin-bottom:4px">Who is the liar?</div>
+    <div style="font-size:13px;color:#6b6a90;margin-bottom:14px">Vote to eliminate someone</div>
+    <div id="vote-list"></div>
+  </div>
+  <div class="card" id="vote-word-card">
+    <div class="word-reveal">
+      <div class="wr-label">The secret word was</div>
+      <div class="wr-word" id="vote-word">—</div>
+    </div>
+    <div id="liar-guess-wrap" style="display:none">
+      <div class="label" style="margin-top:10px">You're the liar — guess the word to earn 10pts!</div>
+      <textarea id="liar-guess-txt" rows="2" placeholder="What do you think the word was?"></textarea>
+      <button class="btn success-btn" onclick="submitLiarGuess()">Submit guess</button>
+    </div>
+  </div>
+  <button class="btn primary" id="vote-btn" onclick="submitVote()" disabled>Cast vote</button>
+</div>
+
+<!-- RESULTS -->
+<div class="screen" id="s-results">
+  <div class="result-box" id="res-outcome"></div>
+  <div class="card">
+    <div class="label">Round points</div>
+    <div id="res-round"></div>
+  </div>
+  <div class="card">
+    <div class="label">Leaderboard</div>
+    <div id="res-board"></div>
+  </div>
+  <div id="res-host-btns" style="display:none">
+    <button class="btn primary" onclick="nextRound()">Next round</button>
+    <button class="btn danger" onclick="endGame()" style="margin-top:6px">End game</button>
+  </div>
+  <div id="res-wait" style="display:none;text-align:center;color:#6b6a90;font-size:13px;padding:14px">Waiting for host to continue...</div>
+</div>
+
+</div><!-- /wrap -->
+
+<div class="toast-wrap"><div class="toast" id="toast"></div></div>
+
+<script>
+const WORDS=['Sushi','Guitar','Volcano','Astronaut','Umbrella','Dolphin','Lighthouse','Cactus','Tornado','Telescope','Flamingo','Submarine','Compass','Lantern','Waterfall','Hammock','Blizzard','Microscope','Quicksand','Thunderstorm','Avalanche','Kaleidoscope','Labyrinth','Mirage','Oasis','Pendulum','Silhouette','Canopy','Tapestry','Mosaic','Prism','Solstice','Whirlpool','Sandstorm','Riddle','Tundra','Clockwork','Phantom','Labyrinth','Constellation'];
+
+const AVATARS=[['#7c3aed','#ede9fe'],['#0891b2','#cffafe'],['#059669','#d1fae5'],['#d97706','#fef3c7'],['#dc2626','#fee2e2'],['#be185d','#fce7f3'],['#1d4ed8','#dbeafe'],['#065f46','#d1fae5'],['#7c3aed','#ede9fe'],['#92400e','#fef3c7']];
+
+let me={id:'p'+Math.random().toString(36).slice(2,8),name:'',isHost:false,roomCode:'',isLiar:false,myWord:null,voted:false,clued:false,selectedVote:null,pollTimer:null,lastVer:-1};
+
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));document.getElementById('s-'+id).classList.add('on');}
+function toast(msg,ms=2800){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',ms);}
+
+async function gRoom(code){try{const r=await window.storage.get('liar:'+code,true);return r?JSON.parse(r.value):null;}catch{return null;}}
+async function sRoom(r){try{await window.storage.set('liar:'+r.code,JSON.stringify(r),true);}catch(e){toast('Storage error: '+e.message);}}
+
+function mkRoom(code,hid,hname){return{code,phase:'lobby',players:[{id:hid,name:hname,ci:0,score:0,ready:false}],hostId:hid,word:null,liarId:null,clues:[],votes:{},liarGuess:null,result:null,round:0,ver:0};}
+
+function genCode(){const c='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';let s='';for(let i=0;i<4;i++)s+=c[Math.floor(Math.random()*c.length)];return s;}
+
+async function createGame(){
+  const name=document.getElementById('h-name').value.trim();
+  if(!name){toast('Enter your name!');return;}
+  me.name=name;me.isHost=true;
+  const code=genCode();me.roomCode=code;
+  const r=mkRoom(code,me.id,me.name);
+  await sRoom(r);
+  goLobby(r);
+}
+
+async function joinGame(){
+  const name=document.getElementById('h-name').value.trim();
+  const code=document.getElementById('h-code').value.trim().toUpperCase();
+  if(!name){toast('Enter your name!');return;}
+  if(code.length!==4){toast('Enter 4-letter code');return;}
+  me.name=name;me.isHost=false;me.roomCode=code;
+  let r=await gRoom(code);
+  if(!r){toast('Room not found!');return;}
+  if(r.phase!=='lobby'){toast('Game already started!');return;}
+  if(r.players.length>=10){toast('Room full!');return;}
+  const ci=r.players.length;
+  r.players.push({id:me.id,name:me.name,ci,score:0,ready:false});
+  r.ver++;
+  await sRoom(r);
+  goLobby(r);
+}
+
+function goLobby(r){
+  show('lobby');
+  document.getElementById('l-code').textContent=r.code;
+  if(me.isHost)document.getElementById('l-host-ctrl').style.display='block';
+  renderLobby(r);
+  startPoll();
+}
+
+function renderLobby(r){
+  document.getElementById('l-count').textContent=r.players.length;
+  document.getElementById('l-players').innerHTML=r.players.map(p=>{
+    const[bg,fg]=AVATARS[p.ci%AVATARS.length];
+    const isHost=p.id===r.hostId;
+    return`<div class="player-row"><div class="avatar" style="background:${bg};color:${fg}">${p.name[0].toUpperCase()}</div><div class="pname">${p.name}${p.id===me.id?' (you)':''}</div><span class="badge ${isHost?'b-host':'b-wait'}">${isHost?'host':'joined'}</span></div>`;
+  }).join('');
+  const sb=document.getElementById('l-start');
+  if(sb){sb.disabled=r.players.length<3;sb.textContent=r.players.length<3?`Start game (need ${3-r.players.length} more)`:'Start game!';}
+}
+
+function copyCode(){navigator.clipboard?.writeText(me.roomCode);toast('Code copied! '+me.roomCode);}
+
+async function leaveGame(){
+  stopPoll();
+  if(me.isHost){let r=await gRoom(me.roomCode);if(r){r.phase='ended';r.ver++;await sRoom(r);}}
+  else{let r=await gRoom(me.roomCode);if(r){r.players=r.players.filter(p=>p.id!==me.id);r.ver++;await sRoom(r);}}
+  show('home');
+}
+
+async function startGame(){
+  let r=await gRoom(me.roomCode);
+  if(!r||r.players.length<3){toast('Need 3+ players!');return;}
+  const word=WORDS[Math.floor(Math.random()*WORDS.length)];
+  const li=Math.floor(Math.random()*r.players.length);
+  r.word=word;r.liarId=r.players[li].id;
+  r.phase='role';r.clues=[];r.votes={};r.liarGuess=null;r.result=null;
+  r.round=(r.round||0)+1;
+  r.players.forEach(p=>p.ready=false);
+  r.ver++;
+  await sRoom(r);
+}
+
+function renderRole(r){
+  me.isLiar=r.liarId===me.id;
+  me.myWord=me.isLiar?'???':r.word;
+  const html=me.isLiar
+    ?`<div class="role-box"><div class="role-icon">🎭</div><div class="role-title" style="color:#f87171">You are the LIAR</div><div class="word-pill" style="color:#f87171;border-color:rgba(248,113,113,.3)">???</div><p style="color:#6b6a90;font-size:13px;margin-top:4px">You don't know the word. Blend in!<br>If caught, guess the word to earn 10pts.</p></div>`
+    :`<div class="role-box"><div class="role-icon">🔍</div><div class="role-title" style="color:#34d399">You are INNOCENT</div><div class="word-pill">${r.word}</div><p style="color:#6b6a90;font-size:13px;margin-top:4px">Give clues about this word. Spot the liar!</p></div>`;
+  document.getElementById('role-content').innerHTML=html;
+  document.getElementById('role-ready').disabled=false;
+  document.getElementById('role-ready').textContent="I'm ready!";
+}
+
+async function markReady(){
+  document.getElementById('role-ready').disabled=true;
+  document.getElementById('role-ready').textContent='Waiting for others...';
+  let r=await gRoom(me.roomCode);
+  if(!r)return;
+  const p=r.players.find(p=>p.id===me.id);
+  if(p)p.ready=true;
+  r.ver++;
+  await sRoom(r);
+}
+
+function renderClue(r){
+  const total=r.players.length;
+  const done=r.clues.length;
+  document.getElementById('clue-prog').style.width=(done/total*100)+'%';
+  document.getElementById('my-word-mini').textContent=me.isLiar?'??? (you\'re the liar)':r.word;
+  document.getElementById('my-word-mini').style.color=me.isLiar?'#f87171':'#a78bfa';
+
+  const myIdx=r.players.findIndex(p=>p.id===me.id);
+  const myClue=r.clues.find(c=>c.pid===me.id);
+  const isMyTurn=!myClue&&r.clues.length===myIdx;
+
+  document.getElementById('turn-txt').textContent=isMyTurn?'Your turn to give a clue!':`${done}/${total} clues given`;
+
+  document.getElementById('clues-list').innerHTML=r.players.map((p,i)=>{
+    const clue=r.clues.find(c=>c.pid===p.id);
+    const[bg,fg]=AVATARS[p.ci%AVATARS.length];
+    const active=i===done&&!clue;
+    if(clue)return`<div class="clue-item active"><span class="cspeaker" style="background:${bg};color:${fg}">${p.name}</span><span class="ctext">${clue.text}</span></div>`;
+    return`<div class="clue-item ${active?'active':''}"><span class="cspeaker" style="background:${bg};color:${fg}">${p.name}</span><span class="ctext pending">${active?(p.id===me.id?'Your turn!':'Giving clue...'):'waiting...'}</span></div>`;
+  }).join('');
+
+  if(isMyTurn){
+    document.getElementById('clue-input-wrap').style.display='block';
+    document.getElementById('clue-wait-msg').style.display='none';
+  }else if(myClue){
+    document.getElementById('clue-input-wrap').style.display='none';
+    document.getElementById('clue-wait-msg').style.display='block';
+  }else{
+    document.getElementById('clue-input-wrap').style.display='none';
+    document.getElementById('clue-wait-msg').style.display='none';
+  }
+}
+
+async function submitClue(){
+  const text=document.getElementById('clue-txt').value.trim();
+  if(!text){toast('Write a clue first!');return;}
+  let r=await gRoom(me.roomCode);
+  if(!r)return;
+  const p=r.players.find(p=>p.id===me.id);
+  r.clues.push({pid:me.id,pname:p.name,ci:p.ci,text});
+  r.ver++;
+  me.clued=true;
+  await sRoom(r);
+  document.getElementById('clue-txt').value='';
+}
+
+function renderVote(r){
+  const vc={};Object.values(r.votes).forEach(id=>{vc[id]=(vc[id]||0)+1;});
+  const allVoted=Object.keys(r.votes).length===r.players.length;
+  document.getElementById('vote-word').textContent=r.word;
+  document.getElementById('vote-list').innerHTML=r.players.filter(p=>p.id!==me.id).map(p=>{
+    const[bg,fg]=AVATARS[p.ci%AVATARS.length];
+    const sel=me.selectedVote===p.id||r.votes[me.id]===p.id;
+    return`<div class="vote-row ${sel?'selected':''}" onclick="selectVote('${p.id}')"><div class="avatar" style="background:${bg};color:${fg};width:34px;height:34px;flex-shrink:0">${p.name[0]}</div><div style="flex:1"><div style="font-size:14px;font-weight:500">${p.name}${p.id===me.id?' (you)':''}</div>${allVoted?`<div style="font-size:12px;color:#6b6a90">${vc[p.id]||0} vote(s)</div>`:''}</div>${sel?'<div class="vtick">✓</div>':''}</div>`;
+  }).join('');
+  if(me.isLiar&&!r.liarGuess){
+    document.getElementById('liar-guess-wrap').style.display='block';
+  }
+}
+
+function selectVote(pid){
+  if(me.voted)return;
+  me.selectedVote=pid;
+  let r=window._cachedRoom;
+  if(r)renderVote(r);
+  document.getElementById('vote-btn').disabled=false;
+}
+
+async function submitVote(){
+  if(!me.selectedVote)return;
+  let r=await gRoom(me.roomCode);
+  if(!r)return;
+  r.votes[me.id]=me.selectedVote;
+  r.ver++;
+  me.voted=true;
+  await sRoom(r);
+  document.getElementById('vote-btn').disabled=true;
+  document.getElementById('vote-btn').textContent='Vote cast!';
+}
+
+async function submitLiarGuess(){
+  const g=document.getElementById('liar-guess-txt').value.trim();
+  if(!g){toast('Enter a guess!');return;}
+  let r=await gRoom(me.roomCode);
+  if(!r)return;
+  r.liarGuess=g.toLowerCase().trim();
+  r.ver++;
+  await sRoom(r);
+  document.getElementById('liar-guess-wrap').style.display='none';
+  toast('Guess submitted!');
+}
+
+function calcResult(r){
+  const vc={};r.players.forEach(p=>vc[p.id]=0);
+  Object.values(r.votes).forEach(id=>{if(vc[id]!==undefined)vc[id]++;});
+  const max=Math.max(...Object.values(vc));
+  const elim=Object.keys(vc).filter(id=>vc[id]===max);
+  const caught=elim.includes(r.liarId);
+  const pts={};r.players.forEach(p=>pts[p.id]=0);
+  if(caught&&elim.length===1){
+    const guessed=r.liarGuess&&r.liarGuess===r.word.toLowerCase();
+    if(guessed){r.players.forEach(p=>pts[p.id]=10);}
+    else{r.players.filter(p=>p.id!==r.liarId).forEach(p=>pts[p.id]=10);}
+    return{caught,guessed:!!guessed,pts,liarName:r.players.find(p=>p.id===r.liarId)?.name,word:r.word,liarId:r.liarId};
+  }else{
+    pts[r.liarId]=20;
+    return{caught:false,guessed:false,pts,liarName:r.players.find(p=>p.id===r.liarId)?.name,word:r.word,liarId:r.liarId};
+  }
+}
+
+async function renderResults(r){
+  if(!r.result&&me.isHost){
+    r.result=calcResult(r);
+    r.players.forEach(p=>p.score=(p.score||0)+(r.result.pts[p.id]||0));
+    r.phase='results';r.ver++;
+    await sRoom(r);
+  }
+  if(!r.result)return;
+  const res=r.result;
+  let icon,title,sub;
+  if(res.caught){
+    if(res.guessed){icon='🎯';title='Liar caught — but guessed right!';sub=`${res.liarName} was the liar and guessed "${res.word}" correctly. Everyone gets 10pts!`;}
+    else{icon='🔍';title='Liar caught!';sub=`${res.liarName} was the liar! The word was "${res.word}". Innocents get 10pts.`;}
+  }else{icon='🎭';title='Liar escaped!';sub=`${res.liarName} fooled everyone! Word was "${res.word}". ${res.liarName} earns 20pts!`;}
+  document.getElementById('res-outcome').innerHTML=`<div class="result-icon">${icon}</div><div class="result-title">${title}</div><div class="result-sub">${sub}</div>`;
+
+  document.getElementById('res-round').innerHTML=r.players.map(p=>{
+    const[bg,fg]=AVATARS[p.ci%AVATARS.length];
+    const pts=res.pts[p.id]||0;
+    const isL=p.id===res.liarId;
+    return`<div class="score-row"><div style="display:flex;align-items:center;gap:10px"><div class="avatar" style="background:${bg};color:${fg};width:30px;height:30px;font-size:12px">${p.name[0]}</div><div><div style="font-size:14px">${p.name}${p.id===me.id?' (you)':''}</div>${isL?'<div class="liar-tag">was the liar</div>':''}</div></div><div class="pts ${pts>0?'green':'dim'}">+${pts}</div></div>`;
+  }).join('');
+
+  const sorted=[...r.players].sort((a,b)=>b.score-a.score);
+  document.getElementById('res-board').innerHTML=sorted.map((p,i)=>{
+    const[bg,fg]=AVATARS[p.ci%AVATARS.length];
+    return`<div class="score-row"><div style="display:flex;align-items:center;gap:10px"><span style="font-size:13px;color:#6b6a90;width:20px">#${i+1}</span><div class="avatar" style="background:${bg};color:${fg};width:30px;height:30px;font-size:12px">${p.name[0]}</div><div style="font-size:14px">${p.name}${p.id===me.id?' (you)':''}</div></div><div class="pts" style="color:#f0eff8">${p.score}</div></div>`;
+  }).join('');
+
+  if(me.isHost){document.getElementById('res-host-btns').style.display='block';document.getElementById('res-wait').style.display='none';}
+  else{document.getElementById('res-host-btns').style.display='none';document.getElementById('res-wait').style.display='block';}
+}
+
+async function nextRound(){
+  let r=await gRoom(me.roomCode);
+  if(!r)return;
+  me.voted=false;me.clued=false;me.selectedVote=null;
+  const word=WORDS[Math.floor(Math.random()*WORDS.length)];
+  const li=Math.floor(Math.random()*r.players.length);
+  r.word=word;r.liarId=r.players[li].id;
+  r.phase='role';r.clues=[];r.votes={};r.liarGuess=null;r.result=null;r.round++;
+  r.players.forEach(p=>p.ready=false);r.ver++;
+  await sRoom(r);
+}
+
+async function endGame(){
+  let r=await gRoom(me.roomCode);
+  if(r){r.phase='ended';r.ver++;await sRoom(r);}
+  stopPoll();show('home');toast('Thanks for playing!');
+}
+
+let _lastVer=-1;
+function startPoll(){
+  stopPoll();
+  me.pollTimer=setInterval(async()=>{
+    try{
+      const r=await gRoom(me.roomCode);
+      if(!r){stopPoll();show('home');toast('Room closed');return;}
+      window._cachedRoom=r;
+      if(r.ver===_lastVer)return;
+      _lastVer=r.ver;
+      await handleUpdate(r);
+    }catch(e){}
+  },1200);
+}
+function stopPoll(){if(me.pollTimer)clearInterval(me.pollTimer);}
+
+async function handleUpdate(r){
+  if(r.phase==='lobby'){show('lobby');renderLobby(r);if(me.isHost)document.getElementById('l-host-ctrl').style.display='block';}
+  else if(r.phase==='role'){me.voted=false;me.clued=false;me.selectedVote=null;show('role');renderRole(r);}
+  else if(r.phase==='clue'){show('clue');renderClue(r);
+    if(r.clues.length===r.players.length&&me.isHost){
+      let fresh=await gRoom(me.roomCode);fresh.phase='vote';fresh.ver++;await sRoom(fresh);
+    }
+  }
+  else if(r.phase==='vote'){show('vote');renderVote(r);
+    if(Object.keys(r.votes).length===r.players.length&&me.isHost&&!r.result){
+      await renderResults(r);
+    }
+  }
+  else if(r.phase==='results'){show('results');await renderResults(r);}
+  else if(r.phase==='ended'){stopPoll();show('home');toast('Game ended!');}
+
+  if(r.phase==='role'&&r.players.every(p=>p.ready)&&me.isHost){
+    let fresh=await gRoom(me.roomCode);fresh.phase='clue';fresh.ver++;await sRoom(fresh);
+  }
+}
+</script>
+</body>
+</html>
