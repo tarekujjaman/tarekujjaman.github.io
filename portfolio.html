@@ -191,9 +191,91 @@ nav {
   color: var(--paper);
 }
 
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--ink);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  cursor: pointer;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-toggle .bars {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.nav-toggle .bars span {
+  display: block;
+  width: 14px;
+  height: 1.5px;
+  background: var(--ink);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle[aria-expanded="true"] .bars span:nth-child(1) {
+  transform: translateY(4.5px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] .bars span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] .bars span:nth-child(3) {
+  transform: translateY(-4.5px) rotate(-45deg);
+}
+
 @media (max-width: 720px) {
-  .nav-links { gap: 16px; }
-  .nav-links a:not(.cta) { display: none; }
+  .nav-toggle { display: inline-flex; }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: var(--gutter);
+    left: var(--gutter);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-top: none;
+    padding: 8px 20px;
+    box-shadow: 0 12px 32px var(--shadow);
+    transform: translateY(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-links li {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .nav-links li:last-child { border-bottom: none; }
+
+  .nav-links a:not(.cta) {
+    display: block;
+    padding: 14px 0;
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .nav-links a.cta {
+    display: inline-block;
+    margin: 12px 0;
+    text-align: center;
+    align-self: flex-start;
+  }
 }
 
 /* ============================================================
@@ -234,11 +316,14 @@ nav {
 }
 
 .hero h1 {
-  font-size: clamp(48px, 9vw, 110px);
+  font-size: clamp(40px, 9vw, 110px);
   font-weight: 500;
   line-height: 0.95;
   letter-spacing: -0.025em;
   margin-bottom: 28px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .hero h1 .italic {
@@ -282,6 +367,18 @@ nav {
   display: inline;
   color: var(--ink);
   font-weight: 500;
+  word-break: break-word;
+}
+
+@media (max-width: 480px) {
+  .hero-meta-block .row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2px;
+    margin-bottom: 10px;
+  }
+  .hero-meta-block dt { width: auto; font-size: 11px; }
+  .hero-meta-block dd { display: block; }
 }
 
 .hero-meta-block dd a {
@@ -672,6 +769,22 @@ nav {
 /* Schematic styling for SVG figures */
 .schematic { width: 100%; height: auto; display: block; }
 
+@media (max-width: 720px) {
+  .figure-frame {
+    padding: 20px 16px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .schematic {
+    min-width: 560px;
+  }
+  .figure-caption {
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px 14px;
+  }
+}
+
 /* Quote / pull-quote */
 .pullquote {
   font-family: var(--serif);
@@ -921,6 +1034,24 @@ footer {
 footer a { color: rgba(245, 242, 236, 0.8); }
 footer a:hover { color: var(--highlight); }
 
+@media (max-width: 720px) {
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 24px var(--gutter);
+  }
+  .case-header {
+    margin-bottom: 36px;
+    padding-bottom: 24px;
+  }
+  .case-body { gap: 32px; }
+  .pullquote {
+    padding-left: 16px;
+    margin: 24px 0;
+  }
+}
+
 /* ============================================================
    ENTRANCE ANIMATIONS
    ============================================================ */
@@ -958,7 +1089,11 @@ footer a:hover { color: var(--highlight); }
     <a href="/" class="nav-mark">
       Riad<span class="nav-mark-num">— PORT.2026</span>
     </a>
-    <ul class="nav-links">
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+      <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      Menu
+    </button>
+    <ul class="nav-links" id="primary-nav">
       <li><a href="#statement">Position</a></li>
       <li><a href="#index">Index</a></li>
       <li><a href="#about">About</a></li>
@@ -1744,6 +1879,35 @@ function goTo(id) {
     el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }
+
+// ============================================================
+//   MOBILE NAV TOGGLE
+// ============================================================
+(function () {
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  if (!toggle || !links) return;
+
+  const setOpen = (open) => {
+    links.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+
+  toggle.addEventListener('click', () => {
+    setOpen(!links.classList.contains('open'));
+  });
+
+  links.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') setOpen(false);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && links.classList.contains('open')) {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+})();
 
 // ============================================================
 //   REVEAL ANIMATION ON SCROLL
