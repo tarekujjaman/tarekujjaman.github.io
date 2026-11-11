@@ -993,6 +993,35 @@ section {
     color: var(--text-muted);
 }
 
+.project-traction {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.traction-item {
+    display: flex;
+    flex-direction: column;
+    padding: 0.6rem 1rem;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 0.75rem;
+    background: rgba(0, 212, 255, 0.05);
+    min-width: 0;
+}
+
+.traction-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--neural-blue);
+    line-height: 1.2;
+}
+
+.traction-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
 .project-url {
     font-size: 0.875rem;
     color: var(--neural-blue);
